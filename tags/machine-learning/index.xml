@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on Square Inch</title>
+    <link>http://xren615.github.io/tags/machine-learning/</link>
+    <description>Recent content in Machine Learning on Square Inch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>All rights reserved - 2016</copyright>
+    <lastBuildDate>Sun, 13 Mar 2016 20:12:06 +0100</lastBuildDate>
+    <atom:link href="http://xren615.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Reading Note: Building machine learning systems with python</title>
+      <link>http://xren615.github.io/post/reading_note/</link>
+      <pubDate>Sun, 13 Mar 2016 20:12:06 +0100</pubDate>
+      
+      <guid>http://xren615.github.io/post/reading_note/</guid>
+      <description>
+
+&lt;h4 id=&#34;reading-note-building-machine-learning-systems-with-python:db211eeb3c2b2819e54a5708f75accc1&#34;&gt;Reading Note: Building machine learning systems with python&lt;/h4&gt;
+
+&lt;p&gt;(&lt;strong&gt;I would like take this chance to somehow systemize my knowledge on machine learning system&lt;/strong&gt;)&lt;/p&gt;
+
+&lt;p&gt;“This book will give you a broad overview of what types of learning algorithms are currently most used in the diverse fields of machine learning, and where to watch out when applying them.”&lt;/p&gt;
+
+&lt;p&gt;typical workflow:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Reading in the data and cleaning it&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Exploring and understanding the input data  (feature engineering: a simple algorithm with refined data generally outperforms a very sophisticated algorithm with raw data!)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Analyzing how best to present the data to the learning algorithm&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Choosing the right model and learning algorithm&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Measuring the performance correctly&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We see that only the fourth point is dealing with the fancy algorithms. Nevertheless, we hope that this book will convince you that the other four tasks are not simply chores, but can be equally exciting. Our hope is that by the end of the book, you will have truly fallen in love with data instead of learning algorithms.&lt;/p&gt;
+
+&lt;p&gt;only blog we want to highlight right here (more in the Appendix) is &lt;a href=&#34;http://blog.kaggle.com&#34;&gt;http://blog.kaggle.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Python is an &lt;strong&gt;interpreted language&lt;/strong&gt; (a highly optimized one, though) that is slow for many numerically heavy algorithms compared to C or FORTRAN. However in Python, it is very easy to &lt;strong&gt;off-load&lt;/strong&gt; number crunching tasks to the lower layer in the form of &lt;strong&gt;C or FORTRAN extensions&lt;/strong&gt;. And that is exactly what NumPy and SciPy do. In this tandem, &lt;strong&gt;NumPy&lt;/strong&gt; provides the support of highly optimized multidimensional arrays, which are the basic data structure of most state-of-the-art algorithms. &lt;strong&gt;SciPy&lt;/strong&gt; uses those arrays to provide a set of fast numerical recipes. Finally, &lt;strong&gt;matplotlib&lt;/strong&gt; is probably the most convenient and feature-rich library to plot high-quality graphs using Python.&lt;/p&gt;
+
+&lt;h5 id=&#34;learning-numpy:db211eeb3c2b2819e54a5708f75accc1&#34;&gt;Learning NumPy&lt;/h5&gt;
+
+&lt;p&gt;As we do not want to &lt;strong&gt;pollute our namespace&lt;/strong&gt;, we certainly should &lt;strong&gt;not&lt;/strong&gt; use the following code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from numpy import *  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Because, for instance, numpy.array will potentially shadow the array package that is included in standard Python. Instead, we will use the following convenient shortcut:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import numpy as np  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Numpy &lt;strong&gt;avoids copies&lt;/strong&gt; wherever possible, whenever you need a true copy, you can always perform:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;c = a.reshape((3,2)).copy()”
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another big advantage of NumPy arrays is that the &lt;strong&gt;operations&lt;/strong&gt; are propagated to the &lt;strong&gt;individual elements&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Indexing&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;allows you to use arrays themselves as indices by performing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;a[np.array([2,3,4])]  
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;conditions are also propagated to individual elements&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;a[a&amp;gt;4]  
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;clip function for trim the outliers, clipping the values at both ends of an interval with one function call&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;a.clip(0,4)  
+array([0, 1, 4, 3, 4, 4])”
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Handling nonexisting values&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;c = np.array([1, 2, np.NAN, 3, 4]) &amp;gt;&amp;gt;&amp;gt; c
+array([  1.,   2.,  nan,   3.,   4.])
+np.isnan(c)
+array([False, False,  True, False, False], dtype=bool)
+c[~np.isnan(c)]
+array([ 1.,  2.,  3.,  4.])
+np.mean(c[~np.isnan(c)])
+2.5
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Comparing the runtime: in every algorithm we are about to implement, we should always look how we can move loops over individual elements from Python to some of the highly optimized NumPy or SciPy extension functions. e.g. use a.dot(a) to calculate square sum instead of sum(a*a).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;learning-scipy:db211eeb3c2b2819e54a5708f75accc1&#34;&gt;Learning SciPy&lt;/h5&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

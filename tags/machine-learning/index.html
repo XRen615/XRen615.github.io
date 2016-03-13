@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Machine Learning &middot;  Square Inch" />
+  	<meta property="og:site_name" content="Square Inch" />
+  	<meta property="og:url" content="http://xren615.github.io/tags/machine-learning/" />
+    
+    
+    <meta property="og:type" content="website" />
+    
+
+  <title>
+     Machine Learning &middot;  Square Inch
+  </title>
+
+    <meta name="description" content="收古今絕藝置我山窗" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="http://xren615.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="http://xren615.github.io/images/apple-touch-icon.png" />
+    
+    <link rel="stylesheet" type="text/css" href="http://xren615.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="http://xren615.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Square Inch" />
+      
+      
+        <link href="http://xren615.github.io/tags/machine-learning/index.xml" rel="alternate" type="application/rss+xml" title="Machine Learning &middot; Square Inch" />
+      
+    
+    <meta name="generator" content="Hugo 0.15" />
+
+    <link rel="canonical" href="http://xren615.github.io/tags/machine-learning/" />
+
+    
+<div id="particles-js"></div>
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="http://xren615.github.io/js/particles.js"></script>   
+</head>
+<body class="nav-closed">
+
+  
+
+
+ <div class="site-wrapper">
+
+
+
+
+	<header class="main-header" style="background-image: url(http://xren615.github.io/images/03928.jpg)">
+
+    <nav class="main-nav overlay clearfix">
+      
+        <a class="blog-logo" href="http://xren615.github.io/"><img src="http://xren615.github.io/images/V.png" alt="Home" /></a>
+      
+      
+        
+          <a class="menu-button icon-feed" href="http://xren615.github.io/tags/machine-learning/index.xml">&nbsp;&nbsp;Subscribe</a>
+        
+      
+    </nav>
+    <div class="vertical">
+
+        <div class="main-header-content inner">
+            <h1 class="page-title">
+
+              <a class="btn-bootstrap-2" href="#content">Square Inch</a>
+          </h1>
+        </div>
+</div>
+    <a class="scroll-down icon-arrow-left" href="#content"><span class="hidden">Scroll Down</span></a>
+</header>
+
+<main id="content" class="content" role="main">
+    
+
+	<div class="extra-pagination inner">
+    <nav class="pagination" role="navigation">
+	
+	<span class="page-number">Page 1 of 1</span>
+	
+</nav>
+
+	</div>
+
+	
+	   
+<article class="post post">
+    <header class="post-header">
+        <h2 class="post-title"><a href="http://xren615.github.io/post/reading_note/">Reading Note: Building machine learning systems with python</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+          <section class="post-content">
+            
+
+<h4 id="reading-note-building-machine-learning-systems-with-python:db211eeb3c2b2819e54a5708f75accc1">Reading Note: Building machine learning systems with python</h4>
+
+<p>(<strong>I would like take this chance to somehow systemize my knowledge on machine learning system</strong>)</p>
+
+<p>“This book will give you a broad overview of what types of learning algorithms are currently most used in the diverse fields of machine learning, and where to watch out when applying them.”</p>
+
+<p>typical workflow:</p>
+
+<ul>
+<li>Reading in the data and cleaning it<br /></li>
+<li>Exploring and understanding the input data  (feature engineering: a simple algorithm with refined data generally outperforms a very sophisticated algorithm with raw data!)<br /></li>
+<li>Analyzing how best to present the data to the learning algorithm<br /></li>
+<li>Choosing the right model and learning algorithm<br /></li>
+<li>Measuring the performance correctly<br /></li>
+</ul>
+
+<p>We see that only the fourth point is dealing with the fancy algorithms. Nevertheless, we hope that this book will convince you that the other four tasks are not simply chores, but can be equally exciting. Our hope is that by the end of the book, you will have truly fallen in love with data instead of learning algorithms.</p>
+
+<p>only blog we want to highlight right here (more in the Appendix) is <a href="http://blog.kaggle.com">http://blog.kaggle.com</a></p>
+
+<p>Python is an <strong>interpreted language</strong> (a highly optimized one, though) that is slow for many numerically heavy algorithms compared to C or FORTRAN. However in Python, it is very easy to <strong>off-load</strong> number crunching tasks to the lower layer in the form of <strong>C or FORTRAN extensions</strong>. And that is exactly what NumPy and SciPy do. In this tandem, <strong>NumPy</strong> provides the support of highly optimized multidimensional arrays, which are the basic data structure of most state-of-the-art algorithms. <strong>SciPy</strong> uses those arrays to provide a set of fast numerical recipes. Finally, <strong>matplotlib</strong> is probably the most convenient and feature-rich library to plot high-quality graphs using Python.</p>
+
+<h5 id="learning-numpy:db211eeb3c2b2819e54a5708f75accc1">Learning NumPy</h5>
+
+<p>As we do not want to <strong>pollute our namespace</strong>, we certainly should <strong>not</strong> use the following code:</p>
+
+<pre><code>from numpy import *  
+</code></pre>
+
+<p>Because, for instance, numpy.array will potentially shadow the array package that is included in standard Python. Instead, we will use the following convenient shortcut:</p>
+
+<pre><code>import numpy as np  
+</code></pre>
+
+<p>Numpy <strong>avoids copies</strong> wherever possible, whenever you need a true copy, you can always perform:</p>
+
+<pre><code>c = a.reshape((3,2)).copy()”
+</code></pre>
+
+<p>Another big advantage of NumPy arrays is that the <strong>operations</strong> are propagated to the <strong>individual elements</strong>.</p>
+
+<p><strong>Indexing</strong></p>
+
+<ul>
+<li><p>allows you to use arrays themselves as indices by performing:</p>
+
+<pre><code>a[np.array([2,3,4])]  
+</code></pre></li>
+
+<li><p>conditions are also propagated to individual elements</p>
+
+<pre><code>a[a&gt;4]  
+</code></pre></li>
+
+<li><p>clip function for trim the outliers, clipping the values at both ends of an interval with one function call</p>
+
+<pre><code>a.clip(0,4)  
+array([0, 1, 4, 3, 4, 4])”
+</code></pre></li>
+
+<li><p>Handling nonexisting values</p>
+
+<pre><code>c = np.array([1, 2, np.NAN, 3, 4]) &gt;&gt;&gt; c
+array([  1.,   2.,  nan,   3.,   4.])
+np.isnan(c)
+array([False, False,  True, False, False], dtype=bool)
+c[~np.isnan(c)]
+array([ 1.,  2.,  3.,  4.])
+np.mean(c[~np.isnan(c)])
+2.5
+</code></pre></li>
+
+<li><p>Comparing the runtime: in every algorithm we are about to implement, we should always look how we can move loops over individual elements from Python to some of the highly optimized NumPy or SciPy extension functions. e.g. use a.dot(a) to calculate square sum instead of sum(a*a).</p></li>
+</ul>
+
+<h5 id="learning-scipy:db211eeb3c2b2819e54a5708f75accc1">Learning SciPy</h5>
+
+          </section>
+      </p>
+      
+    </section>
+    <footer class="post-meta">
+        
+            <img class="author-thumb" src="http://xren615.github.io/images/V.png" alt="Author image" nopin="nopin" />
+        
+        
+            X.Ren
+        
+        on
+            
+                <a href="http://xren615.github.io/tags/machine-learning/">#Machine learning</a>,
+            
+                <a href="http://xren615.github.io/tags/reading-notes/">#reading notes</a>,
+            
+        
+        <time class="post-date" datetime="2016-03-13T20:12:06&#43;01:00">
+            13 Mar 2016
+        </time>
+    </footer>
+</article>
+
+	
+
+	<nav class="pagination" role="navigation">
+	
+	<span class="page-number">Page 1 of 1</span>
+	
+</nav>
+
+</main>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Square Inch</a> All rights reserved - 2016</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="https://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/syui/hugo-theme-air">hugo-theme-air</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="http://xren615.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="http://xren615.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://xren615.github.io/js/index.js"></script>
+
+</body>
+</html>
+

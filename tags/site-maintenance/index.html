@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Site Maintenance &middot;  Square Inch" />
+  	<meta property="og:site_name" content="Square Inch" />
+  	<meta property="og:url" content="http://xren615.github.io/tags/site-maintenance/" />
+    
+    
+    <meta property="og:type" content="website" />
+    
+
+  <title>
+     Site Maintenance &middot;  Square Inch
+  </title>
+
+    <meta name="description" content="收古今絕藝置我山窗" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="http://xren615.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="http://xren615.github.io/images/apple-touch-icon.png" />
+    
+    <link rel="stylesheet" type="text/css" href="http://xren615.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="http://xren615.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Square Inch" />
+      
+      
+        <link href="http://xren615.github.io/tags/site-maintenance/index.xml" rel="alternate" type="application/rss+xml" title="Site Maintenance &middot; Square Inch" />
+      
+    
+    <meta name="generator" content="Hugo 0.15" />
+
+    <link rel="canonical" href="http://xren615.github.io/tags/site-maintenance/" />
+
+    
+<div id="particles-js"></div>
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="http://xren615.github.io/js/particles.js"></script>   
+</head>
+<body class="nav-closed">
+
+  
+
+
+ <div class="site-wrapper">
+
+
+
+
+	<header class="main-header" style="background-image: url(http://xren615.github.io/images/03928.jpg)">
+
+    <nav class="main-nav overlay clearfix">
+      
+        <a class="blog-logo" href="http://xren615.github.io/"><img src="http://xren615.github.io/images/V.png" alt="Home" /></a>
+      
+      
+        
+          <a class="menu-button icon-feed" href="http://xren615.github.io/tags/site-maintenance/index.xml">&nbsp;&nbsp;Subscribe</a>
+        
+      
+    </nav>
+    <div class="vertical">
+
+        <div class="main-header-content inner">
+            <h1 class="page-title">
+
+              <a class="btn-bootstrap-2" href="#content">Square Inch</a>
+          </h1>
+        </div>
+</div>
+    <a class="scroll-down icon-arrow-left" href="#content"><span class="hidden">Scroll Down</span></a>
+</header>
+
+<main id="content" class="content" role="main">
+    
+
+	<div class="extra-pagination inner">
+    <nav class="pagination" role="navigation">
+	
+	<span class="page-number">Page 1 of 1</span>
+	
+</nav>
+
+	</div>
+
+	
+	   
+<article class="post post">
+    <header class="post-header">
+        <h2 class="post-title"><a href="http://xren615.github.io/post/create_this_site/">建站記錄</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+          <section class="post-content">
+            
+
+<p><strong>Documentation</strong>: how to initialize a basic static site like this with Github page, Hugo and Go.<br />
+<strong>記錄文檔</strong>：如何使用Github page，Hugo和Go便利地建造本站的基礎元素.</p>
+
+<h3 id="system-enviroment:44e997d1ffd2378e52888c50f9174fd1">System Enviroment</h3>
+
+<p>OSX El Capitan 10.11.3<br />
+MacBook Pro（Retina，13 inch, early 2015)<br />
+CPU: 2.7 GHz Intel Core i5<br />
+Graphics: Intel Iris Graphics 6100 1536 MB</p>
+
+<h3 id="steps:44e997d1ffd2378e52888c50f9174fd1">Steps</h3>
+
+<ol>
+<li>Hugo is compiled by Go, thus before everything, install <a href="https://golang.org">Go</a> and set up its <a href="http://blog.csdn.net/lan2720/article/details/20767941">enviroment path</a>.</li>
+<li>Follow this <a href="http://blog.bpcoder.com/2015/12/hugo-create-blog/">link</a> to install Hugo and set up everything. You may also need <a href="http://blog.coderzh.com/2015/08/29/hugo/">another link</a>.<br /></li>
+</ol>
+
+<h3 id="tips:44e997d1ffd2378e52888c50f9174fd1">Tips:</h3>
+
+<ul>
+<li>Path may vary with the theme you chose, so always check with the <a href="https://github.com/spf13/hugoThemes">theme page</a> for what path should be used for post.<br /></li>
+<li>Always remember: <strong>public</strong> push to [your github account].github.io for publication, (optional) parent dir. push to [your github account]_hugo for archive.</li>
+<li>Change the social icon: Social links are designed with <a href="https://fortawesome.github.io/Font-Awesome/">FontAwesome 4.5.0</a>. For occasional modification, just edit the <em>header.html</em>, find:<br />
+&gt; <em>class=&ldquo;fa fa-xxx&rdquo;</em><br />
+substitute <em>xxx</em> with the icon name you want (and ofc supported by FontAwesome), do not touch .Site.Params.xxx if you just want it simple.<br /></li>
+<li>If you are not familiar with <em>markdown</em>, find the instruction regarding markdown syntax <a href="http://www.jianshu.com/p/q81RER">here</a>.</li>
+</ul>
+
+<h3 id="paste-some-frequently-used-order-here:44e997d1ffd2378e52888c50f9174fd1">Paste some frequently-used order here:)</h3>
+
+<ul>
+<li>hugo new post/first.md</li>
+<li>hugo server -w <strong>or</strong> hugo server &ndash;theme=slender &ndash;buildDrafts &ndash;watch</li>
+<li>hugo <strong>or</strong> hugo &ndash;theme=slender &ndash;baseUrl=&ldquo;<a href="http://xren615.github.io/&quot;">http://xren615.github.io/&quot;</a></li>
+<li>git submodule add git@github.com:xren615/xren615.github.io.git themes/hugo-theme-air</li>
+<li>git submodule add git@github.com:xren615/xren615.github.io.git public</li>
+</ul>
+
+          </section>
+      </p>
+      
+    </section>
+    <footer class="post-meta">
+        
+            <img class="author-thumb" src="http://xren615.github.io/images/V.png" alt="Author image" nopin="nopin" />
+        
+        
+            X.Ren
+        
+        on
+            
+                <a href="http://xren615.github.io/tags/site-maintenance/">#site maintenance</a>,
+            
+        
+        <time class="post-date" datetime="2016-03-06T01:27:21&#43;01:00">
+            6 Mar 2016
+        </time>
+    </footer>
+</article>
+
+	
+	   
+<article class="post post">
+    <header class="post-header">
+        <h2 class="post-title"><a href="http://xren615.github.io/post/hello/">Hello_World</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+          <section class="post-content">
+            <p>歡迎第一批訪問者</p>
+
+          </section>
+      </p>
+      
+    </section>
+    <footer class="post-meta">
+        
+            <img class="author-thumb" src="http://xren615.github.io/images/V.png" alt="Author image" nopin="nopin" />
+        
+        
+            X.Ren
+        
+        on
+            
+                <a href="http://xren615.github.io/tags/site-maintenance/">#site maintenance</a>,
+            
+        
+        <time class="post-date" datetime="2016-03-06T00:40:08&#43;01:00">
+            6 Mar 2016
+        </time>
+    </footer>
+</article>
+
+	
+
+	<nav class="pagination" role="navigation">
+	
+	<span class="page-number">Page 1 of 1</span>
+	
+</nav>
+
+</main>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Square Inch</a> All rights reserved - 2016</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="https://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/syui/hugo-theme-air">hugo-theme-air</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="http://xren615.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="http://xren615.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://xren615.github.io/js/index.js"></script>
+
+</body>
+</html>
+
