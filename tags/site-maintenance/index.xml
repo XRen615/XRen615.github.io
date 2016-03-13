@@ -32,7 +32,7 @@ Graphics: Intel Iris Graphics 6100 1536 MB&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Hugo is compiled by Go, thus before everything, install &lt;a href=&#34;https://golang.org&#34;&gt;Go&lt;/a&gt; and set up its &lt;a href=&#34;http://blog.csdn.net/lan2720/article/details/20767941&#34;&gt;enviroment path&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Follow this &lt;a href=&#34;http://blog.bpcoder.com/2015/12/hugo-create-blog/&#34;&gt;link&lt;/a&gt; to install Hugo and set up everything. You may also need &lt;a href=&#34;http://blog.coderzh.com/2015/08/29/hugo/&#34;&gt;another link&lt;/a&gt;.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Follow this &lt;a href=&#34;http://blog.coderzh.com/2015/08/29/hugo/&#34;&gt;link&lt;/a&gt; to install Hugo and set up everything. You may also need &lt;a href=&#34;http://blog.bpcoder.com/2015/12/hugo-create-blog/&#34;&gt;another link&lt;/a&gt;.&lt;br /&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&#34;tips:44e997d1ffd2378e52888c50f9174fd1&#34;&gt;Tips:&lt;/h3&gt;
@@ -48,13 +48,10 @@ substitute &lt;em&gt;xxx&lt;/em&gt; with the icon name you want (and ofc support
 
 &lt;h3 id=&#34;paste-some-frequently-used-order-here:44e997d1ffd2378e52888c50f9174fd1&#34;&gt;Paste some frequently-used order here:)&lt;/h3&gt;
 
-&lt;ul&gt;
-&lt;li&gt;hugo new post/first.md&lt;/li&gt;
-&lt;li&gt;hugo server -w &lt;strong&gt;or&lt;/strong&gt; hugo server &amp;ndash;theme=slender &amp;ndash;buildDrafts &amp;ndash;watch&lt;/li&gt;
-&lt;li&gt;hugo &lt;strong&gt;or&lt;/strong&gt; hugo &amp;ndash;theme=slender &amp;ndash;baseUrl=&amp;ldquo;&lt;a href=&#34;http://xren615.github.io/&amp;quot;&#34;&gt;http://xren615.github.io/&amp;quot;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;git submodule add git@github.com:xren615/xren615.github.io.git themes/hugo-theme-air&lt;/li&gt;
-&lt;li&gt;git submodule add git@github.com:xren615/xren615.github.io.git public&lt;/li&gt;
-&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;hugo new post/first.md
+hugo server -w **or** hugo server --theme=slender --buildDrafts --watch
+hugo **or** hugo --theme=slender --baseUrl=&amp;quot;http://xren615.github.io/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
