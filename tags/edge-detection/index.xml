@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Master Thesis on Square Inch</title>
-    <link>http://xren615.github.io/tags/master-thesis/</link>
-    <description>Recent content in Master Thesis on Square Inch</description>
+    <title>Edge Detection on Square Inch</title>
+    <link>http://xren615.github.io/tags/edge-detection/</link>
+    <description>Recent content in Edge Detection on Square Inch</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
     <lastBuildDate>Tue, 15 Mar 2016 15:08:09 +0100</lastBuildDate>
-    <atom:link href="http://xren615.github.io/tags/master-thesis/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://xren615.github.io/tags/edge-detection/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Edge detection of energy consumption signal with Gaussian filter</title>
@@ -123,50 +123,6 @@
 &lt;div  align=&#34;center&#34;&gt;    
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/edge_Gassuian_scale_space.png&#34; width = &#34;600&#34; height = &#34;400&#34;/&gt;  
 &lt;/div&gt; 
-</description>
-    </item>
-    
-    <item>
-      <title>Thesis Meeting 0309</title>
-      <link>http://xren615.github.io/post/thesis_meeting_0309/</link>
-      <pubDate>Tue, 08 Mar 2016 19:19:22 +0100</pubDate>
-      
-      <guid>http://xren615.github.io/post/thesis_meeting_0309/</guid>
-      <description>
-
-&lt;h4 id=&#34;progress-mar-3rd-mar-9th:131661348e6a807a0899b557fc7c748b&#34;&gt;Progress Mar. 3rd ~ Mar. 9th&lt;/h4&gt;
-
-&lt;p&gt;In this week I mainly finished:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Systematic review regarding &lt;strong&gt;feature selection techniques&lt;/strong&gt;: During last meeting Prof. Gert and msc. Christos suggested it would be better if there is a more ‘systematic’ evaluation methodology to support the algorithm used. So this week I reviewed some scientific references talking about the archetecture of feature selection techniques in different level and summerized them into this note on my blog &lt;a href=&#34;http://xren615.github.io/article/feature-reducing_eng/&#34;&gt;(find it here)&lt;/a&gt;.
-Benefit a lot from your suggestion, I am also planing to somehow re-construct part of the methodology of my thesis, to be more &amp;lsquo;mathematic&amp;rsquo; and persuasive.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Fixed the issues regarding the study of &lt;strong&gt;ventilation setting position&lt;/strong&gt;: knew from Prof.Gert that the pulse I used as &amp;lsquo;flowrate&amp;rsquo; is actually &amp;lsquo;power consumption&amp;rsquo; and the boundaries should be different for type 505 and 506. I checked with Prof. Loomans&amp;rsquo;s scripts and found that the boundaries to differentiate the 3 setting positions are  (5.5, 9) for type 505 and (4, 6) for type 506 respectively. Based on this, the code for the study of ventilation position setting is re-constructed. In summary, now:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;lsquo;Pulse&amp;rsquo; bug fixed.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;The freqency of setting change is recorded.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;2 years were seperated respectively.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;2 house types were seperated respectively.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Check some of the plots here:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/freq.png&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/yearly_avg.png&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/2013.png&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/scatter_2013.png&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/2014.png&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/scatter_2014.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;plan-for-next-week:131661348e6a807a0899b557fc7c748b&#34;&gt;Plan for next week&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Re-determine the interval of position division.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Think about the thesis report scope.&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

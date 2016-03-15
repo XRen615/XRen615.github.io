@@ -103,9 +103,7 @@
           <section class="post-content">
             
 
-<h4 id="reading-note-building-machine-learning-systems-with-python:db211eeb3c2b2819e54a5708f75accc1">Reading Note: Building machine learning systems with python</h4>
-
-<p>(<strong>I would like take this chance to somehow systemize my knowledge on machine learning system</strong>)</p>
+<p>( <em>I would like to take this oppurtunity to somehow review and systemize my knowledge on machine learning system.</em> )</p>
 
 <p>“This book will give you a broad overview of what types of learning algorithms are currently most used in the diverse fields of machine learning, and where to watch out when applying them.”</p>
 
@@ -179,6 +177,18 @@ np.mean(c[~np.isnan(c)])
 </ul>
 
 <h5 id="learning-scipy:db211eeb3c2b2819e54a5708f75accc1">Learning SciPy</h5>
+
+<p>On top of the efficient data structures of NumPy, SciPy offers a magnitude of <strong>algorithms</strong> working on those arrays. Whatever numerical heavy algorithm you take from current books on numerical recipes, most likely you will find support for them in SciPy in one way or the other. Whether it is matrix manipulation, linear algebra, optimization, clustering, spatial operations, or even fast Fourier transformation, the toolbox is readily filled.</p>
+
+<p>SciPy&rsquo;s polyfit() function: Given data x and y and the desired order of the polynomial, it finds the model function that minimizes the error function.</p>
+
+<pre><code>fp1 = sp.polyfit(x, y, 1)
+</code></pre>
+
+<p>We then use poly1d() to create a model function from the model parameters:</p>
+
+<pre><code>f1 = sp.poly1d(fp1)  
+</code></pre>
 
           </section>
       </p>

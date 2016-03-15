@@ -7,8 +7,124 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
-    <lastBuildDate>Sun, 13 Mar 2016 20:12:06 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 15 Mar 2016 15:08:09 +0100</lastBuildDate>
     <atom:link href="http://xren615.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Edge detection of energy consumption signal with Gaussian filter</title>
+      <link>http://xren615.github.io/post/post-title/</link>
+      <pubDate>Tue, 15 Mar 2016 15:08:09 +0100</pubDate>
+      
+      <guid>http://xren615.github.io/post/post-title/</guid>
+      <description>
+
+&lt;h5 id=&#34;background:61665cac455c6246b15a713a4476ec20&#34;&gt;Background&lt;/h5&gt;
+
+&lt;p&gt;There is a ventilation system (with heat recovery) in one passive house, of which the ventilation flow rate is controlled by a fan system, and adjustable by occpants. There are 3 availiable options (let&amp;rsquo;s say, low, medium, high rate respectively)for the fan flowrate setting.&lt;/p&gt;
+
+&lt;p&gt;The electricity consumption of the fan system is recorded by a smart meter in terms of pulse. Obviously, occupants&amp;rsquo; flowrate setting could put significant influence on the electricity consumption and we could calibrate when and how people adjust their ventilation system based on the electricity consumption.&lt;/p&gt;
+
+&lt;p&gt;However, on the one hand, with the influence of back pressure, wind speed etc. the record is not something like a clear 3-stage square wave, instead it is quite noisy. On the other hand, we got many different houses (with similar structure but with different scales of records)  within our research. They made it is not really practical to calibrate the ventilation setting position by fixed intervals (like pulse &amp;lt; 3 == position 1; 3 &amp;lt; pulse &amp;lt; 5 == position 2 etc.). We need a new algorithmic method to do this job.&lt;/p&gt;
+
+&lt;p&gt;This is a tiny piece of the elec. consumption record (day 185 in year 2014, house #9):&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;h5 id=&#34;methodology:61665cac455c6246b15a713a4476ec20&#34;&gt;Methodology&lt;/h5&gt;
+
+&lt;p&gt;Describe what we want to do in a few words: smooth the noise and detect the edge automatically, without any reset like boudary interval needed. This is actually a classic problem in &lt;em&gt;signal processing&lt;/em&gt; or &lt;em&gt;computer vision&lt;/em&gt; field. For this 1D signal the simplest solution maybe &lt;strong&gt;Gaussian derivative filter&lt;/strong&gt;, for similar problems in 2D matrix (images) the &lt;strong&gt;canny edge detector&lt;/strong&gt; could be effective. The figure may give you a vivid impression of what we are going to do:&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/canny1.jpg&#34; width = &#34;400&#34; height = &#34;150&#34;/&gt;  
+&lt;/div&gt;
+
+&lt;h6 id=&#34;basic-idea:61665cac455c6246b15a713a4476ec20&#34;&gt;Basic idea&lt;/h6&gt;
+
+&lt;p&gt;Tune a  Gaussian derivative filter to properly smooth the noise and take 1st deravative, then set an appropriate threshold to detect the edge.&lt;/p&gt;
+
+&lt;h6 id=&#34;terms:61665cac455c6246b15a713a4476ec20&#34;&gt;Terms&lt;/h6&gt;
+
+&lt;p&gt;&lt;strong&gt;Gaussian fliter&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;For noise smoothing or &amp;ldquo;image blur&amp;rdquo;. In layman&amp;rsquo;s words, replace each point by the weighted average of its neighbors, the weights come from Gaussian distribution, then normalize the results.&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/gaussian_formula.png&#34; width = &#34;200&#34; height = &#34;50&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;p&gt;&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/gaussian.png&#34; alt=&#34;Gaussian&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;(if you are dealing with 2d matrix (images), use 2-D Gaussian instead.)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/bg2012110708.png&#34; alt=&#34;2dG&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Effect:&lt;br /&gt;
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/gblur.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Gaussian derivative filter&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;For noise smoothing and edge detection. In layman&amp;rsquo;s words, replace each point by the weighted average of its neighbors, the weights come from ** the 1st detivative of Gaussian distribution**, then normalize the results.&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/1st_der_Gaussian.png&#34; width = &#34;200&#34; height = &#34;50&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/Gaussian_curves.png&#34; width = &#34;600&#34; height = &#34;400&#34;/&gt;  
+&lt;/div&gt;
+
+&lt;p&gt;Effect:&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/canny1.jpg&#34; width = &#34;400&#34; height = &#34;150&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;p&gt;Advantages of Gaussian Kernal compared to other low-pass filter:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Being possible to derive from a small set of scale-space axioms.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Does not introduce new spurious structures at coarse scales that do not correspond to simplifications of corresponding structures at finer scales.&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Scale Space&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Representing an signal/image as a one-parameter family of smoothed signals/images, parametrized by the size of the smoothing kernel used for suppressing fine-scale structures. Specially for Gaussian kernals: t = sigma^2.&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-03-15%20%E4%B8%8B%E5%8D%886.54.23.png&#34; width = &#34;600&#34; height = &#34;500&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;h5 id=&#34;results:61665cac455c6246b15a713a4476ec20&#34;&gt;Results&lt;/h5&gt;
+
+&lt;p&gt;Finished a demo of auto edge detection in our elec. consumption record, which contains a tuned Gaussian derivative filter, edge position detected, and scale space plot.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Original&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;p&gt;&lt;strong&gt;1st derivative Gaussian filtered (sigma = 8)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/demo_edge_Gassuian.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;p&gt;&lt;strong&gt;Edge position detected (threshold = 0.07 * global min/max)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/demo_edge_detected.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
+&lt;/div&gt; 
+
+&lt;p&gt;&lt;strong&gt;Scale Space (sigma = range (1,9))&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/edge_Gassuian_scale_space.png&#34; width = &#34;600&#34; height = &#34;400&#34;/&gt;  
+&lt;/div&gt; 
+</description>
+    </item>
     
     <item>
       <title>Reading Note: Building machine learning systems with python</title>
@@ -18,9 +134,7 @@
       <guid>http://xren615.github.io/post/reading_note/</guid>
       <description>
 
-&lt;h4 id=&#34;reading-note-building-machine-learning-systems-with-python:db211eeb3c2b2819e54a5708f75accc1&#34;&gt;Reading Note: Building machine learning systems with python&lt;/h4&gt;
-
-&lt;p&gt;(&lt;strong&gt;I would like take this chance to somehow systemize my knowledge on machine learning system&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;( &lt;em&gt;I would like to take this oppurtunity to somehow review and systemize my knowledge on machine learning system.&lt;/em&gt; )&lt;/p&gt;
 
 &lt;p&gt;“This book will give you a broad overview of what types of learning algorithms are currently most used in the diverse fields of machine learning, and where to watch out when applying them.”&lt;/p&gt;
 
@@ -94,6 +208,18 @@ np.mean(c[~np.isnan(c)])
 &lt;/ul&gt;
 
 &lt;h5 id=&#34;learning-scipy:db211eeb3c2b2819e54a5708f75accc1&#34;&gt;Learning SciPy&lt;/h5&gt;
+
+&lt;p&gt;On top of the efficient data structures of NumPy, SciPy offers a magnitude of &lt;strong&gt;algorithms&lt;/strong&gt; working on those arrays. Whatever numerical heavy algorithm you take from current books on numerical recipes, most likely you will find support for them in SciPy in one way or the other. Whether it is matrix manipulation, linear algebra, optimization, clustering, spatial operations, or even fast Fourier transformation, the toolbox is readily filled.&lt;/p&gt;
+
+&lt;p&gt;SciPy&amp;rsquo;s polyfit() function: Given data x and y and the desired order of the polynomial, it finds the model function that minimizes the error function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;fp1 = sp.polyfit(x, y, 1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We then use poly1d() to create a model function from the model parameters:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;f1 = sp.poly1d(fp1)  
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
