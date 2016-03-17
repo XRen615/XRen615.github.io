@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Square Inch</title>
-    <link>xren615.github.io/post/</link>
+    <link>http://xren615.github.io/post/</link>
     <description>Recent content in Posts on Square Inch</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>All rights reserved - 2016</copyright>
     <lastBuildDate>Tue, 15 Mar 2016 15:08:09 +0100</lastBuildDate>
-    <atom:link href="xren615.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://xren615.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Edge detection of energy consumption signal with Gaussian filter</title>
-      <link>/xren615.github.io/post/post-title/</link>
+      <link>http://xren615.github.io/post/post-title/</link>
       <pubDate>Tue, 15 Mar 2016 15:08:09 +0100</pubDate>
       
-      <guid>/xren615.github.io/post/post-title/</guid>
+      <guid>http://xren615.github.io/post/post-title/</guid>
       <description>
 
 &lt;h5 id=&#34;background:61665cac455c6246b15a713a4476ec20&#34;&gt;Background&lt;/h5&gt;
@@ -142,10 +142,10 @@
     
     <item>
       <title>Reading Note: Building machine learning systems with python</title>
-      <link>/xren615.github.io/post/reading_note/</link>
+      <link>http://xren615.github.io/post/reading_note/</link>
       <pubDate>Sun, 13 Mar 2016 20:12:06 +0100</pubDate>
       
-      <guid>/xren615.github.io/post/reading_note/</guid>
+      <guid>http://xren615.github.io/post/reading_note/</guid>
       <description>
 
 &lt;p&gt;( &lt;em&gt;I would like to take this oppurtunity to somehow review and systemize my knowledge on machine learning system.&lt;/em&gt; )&lt;/p&gt;
@@ -247,10 +247,10 @@ np.mean(c[~np.isnan(c)])
     
     <item>
       <title>Data Mining Project for Rosendal Passive House Database</title>
-      <link>/xren615.github.io/post/thesis_meeting_0309/</link>
+      <link>http://xren615.github.io/post/thesis_meeting_0309/</link>
       <pubDate>Tue, 08 Mar 2016 19:19:22 +0100</pubDate>
       
-      <guid>/xren615.github.io/post/thesis_meeting_0309/</guid>
+      <guid>http://xren615.github.io/post/thesis_meeting_0309/</guid>
       <description>
 
 &lt;h4 id=&#34;progress-mar-3rd-mar-9th:131661348e6a807a0899b557fc7c748b&#34;&gt;Progress Mar. 3rd ~ Mar. 9th&lt;/h4&gt;
@@ -291,10 +291,10 @@ Benefit a lot from your suggestion, I am also planing to somehow re-construct pa
     
     <item>
       <title>中国科幻小说时间轴</title>
-      <link>/xren615.github.io/post/science_fiction/</link>
+      <link>http://xren615.github.io/post/science_fiction/</link>
       <pubDate>Mon, 07 Mar 2016 15:03:40 +0100</pubDate>
       
-      <guid>/xren615.github.io/post/science_fiction/</guid>
+      <guid>http://xren615.github.io/post/science_fiction/</guid>
       <description>
 
 &lt;p&gt;This article is comment regarding Chinese sci-fi.&lt;/p&gt;
@@ -309,10 +309,10 @@ Benefit a lot from your suggestion, I am also planing to somehow re-construct pa
     
     <item>
       <title>Feature reducing_ENG</title>
-      <link>/xren615.github.io/post/feature_selection_ENG/</link>
+      <link>http://xren615.github.io/post/feature_selection_ENG/</link>
       <pubDate>Sun, 06 Mar 2016 19:19:22 +0100</pubDate>
       
-      <guid>/xren615.github.io/post/feature_selection_ENG/</guid>
+      <guid>http://xren615.github.io/post/feature_selection_ENG/</guid>
       <description>
 
 &lt;h3 id=&#34;feature-reducing:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Feature reducing&lt;/h3&gt;
@@ -406,10 +406,10 @@ There is no general rule to select an alpha parameter for recovery of non-zero c
     
     <item>
       <title>特征选择</title>
-      <link>/xren615.github.io/post/feature_selection/</link>
+      <link>http://xren615.github.io/post/feature_selection/</link>
       <pubDate>Sun, 06 Mar 2016 19:19:22 +0100</pubDate>
       
-      <guid>/xren615.github.io/post/feature_selection/</guid>
+      <guid>http://xren615.github.io/post/feature_selection/</guid>
       <description>
 
 &lt;h3 id=&#34;feature-reducing:c3a47a940ff1b84874509236adb1e6a0&#34;&gt;Feature reducing&lt;/h3&gt;
@@ -501,10 +501,10 @@ There is no general rule to select an alpha parameter for recovery of non-zero c
     
     <item>
       <title>建站記錄</title>
-      <link>/xren615.github.io/post/create_this_site/</link>
+      <link>http://xren615.github.io/post/create_this_site/</link>
       <pubDate>Sun, 06 Mar 2016 01:27:21 +0100</pubDate>
       
-      <guid>/xren615.github.io/post/create_this_site/</guid>
+      <guid>http://xren615.github.io/post/create_this_site/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;Documentation&lt;/strong&gt;: how to initialize a basic static site like this with Github page, Hugo and Go.&lt;br /&gt;
@@ -546,10 +546,10 @@ hugo **or** hugo --theme=slender --baseUrl=&amp;quot;http://xren615.github.io/&a
     
     <item>
       <title>Hello_World</title>
-      <link>/xren615.github.io/post/hello/</link>
+      <link>http://xren615.github.io/post/hello/</link>
       <pubDate>Sun, 06 Mar 2016 00:40:08 +0100</pubDate>
       
-      <guid>/xren615.github.io/post/hello/</guid>
+      <guid>http://xren615.github.io/post/hello/</guid>
       <description>&lt;p&gt;歡迎第一批訪問者&lt;/p&gt;
 </description>
     </item>
