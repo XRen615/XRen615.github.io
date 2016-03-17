@@ -12,10 +12,10 @@
     
     <item>
       <title>Edge detection of energy consumption signal with Gaussian filter</title>
-      <link>http://xren615.github.io/post/post-title/</link>
+      <link>http://xren615.github.io/post/edge_detection/</link>
       <pubDate>Tue, 15 Mar 2016 15:08:09 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/post-title/</guid>
+      <guid>http://xren615.github.io/post/edge_detection/</guid>
       <description>
 
 &lt;h5 id=&#34;background:61665cac455c6246b15a713a4476ec20&#34;&gt;Background&lt;/h5&gt;
@@ -142,10 +142,10 @@
     
     <item>
       <title>Reading Note: Building machine learning systems with python</title>
-      <link>http://xren615.github.io/post/reading_note/</link>
+      <link>http://xren615.github.io/post/reading_note1/</link>
       <pubDate>Sun, 13 Mar 2016 20:12:06 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/reading_note/</guid>
+      <guid>http://xren615.github.io/post/reading_note1/</guid>
       <description>
 
 &lt;p&gt;( &lt;em&gt;I would like to take this oppurtunity to somehow review and systemize my knowledge on machine learning system.&lt;/em&gt; )&lt;/p&gt;
@@ -247,10 +247,10 @@ np.mean(c[~np.isnan(c)])
     
     <item>
       <title>Data Mining Project for Rosendal Passive House Database</title>
-      <link>http://xren615.github.io/post/thesis_meeting_0309/</link>
+      <link>http://xren615.github.io/post/meeting0309/</link>
       <pubDate>Tue, 08 Mar 2016 19:19:22 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/thesis_meeting_0309/</guid>
+      <guid>http://xren615.github.io/post/meeting0309/</guid>
       <description>
 
 &lt;h4 id=&#34;progress-mar-3rd-mar-9th:131661348e6a807a0899b557fc7c748b&#34;&gt;Progress Mar. 3rd ~ Mar. 9th&lt;/h4&gt;
@@ -291,10 +291,10 @@ Benefit a lot from your suggestion, I am also planing to somehow re-construct pa
     
     <item>
       <title>中国科幻小说时间轴</title>
-      <link>http://xren615.github.io/post/science_fiction/</link>
+      <link>http://xren615.github.io/post/scifi_chn/</link>
       <pubDate>Mon, 07 Mar 2016 15:03:40 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/science_fiction/</guid>
+      <guid>http://xren615.github.io/post/scifi_chn/</guid>
       <description>
 
 &lt;p&gt;This article is comment regarding Chinese sci-fi.&lt;/p&gt;
@@ -309,10 +309,10 @@ Benefit a lot from your suggestion, I am also planing to somehow re-construct pa
     
     <item>
       <title>Feature reducing_ENG</title>
-      <link>http://xren615.github.io/post/feature_selection_ENG/</link>
+      <link>http://xren615.github.io/post/Feature_reducing_ENG/</link>
       <pubDate>Sun, 06 Mar 2016 19:19:22 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/feature_selection_ENG/</guid>
+      <guid>http://xren615.github.io/post/Feature_reducing_ENG/</guid>
       <description>
 
 &lt;h3 id=&#34;feature-reducing:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Feature reducing&lt;/h3&gt;
@@ -406,10 +406,10 @@ There is no general rule to select an alpha parameter for recovery of non-zero c
     
     <item>
       <title>特征选择</title>
-      <link>http://xren615.github.io/post/feature_selection/</link>
+      <link>http://xren615.github.io/post/feature_reducing/</link>
       <pubDate>Sun, 06 Mar 2016 19:19:22 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/feature_selection/</guid>
+      <guid>http://xren615.github.io/post/feature_reducing/</guid>
       <description>
 
 &lt;h3 id=&#34;feature-reducing:c3a47a940ff1b84874509236adb1e6a0&#34;&gt;Feature reducing&lt;/h3&gt;
@@ -501,10 +501,10 @@ There is no general rule to select an alpha parameter for recovery of non-zero c
     
     <item>
       <title>建站記錄</title>
-      <link>http://xren615.github.io/post/create_this_site/</link>
+      <link>http://xren615.github.io/post/develope_this_site/</link>
       <pubDate>Sun, 06 Mar 2016 01:27:21 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/create_this_site/</guid>
+      <guid>http://xren615.github.io/post/develope_this_site/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;Documentation&lt;/strong&gt;: how to initialize a basic static site like this with Github page, Hugo and Go.&lt;br /&gt;
@@ -532,7 +532,8 @@ Graphics: Intel Iris Graphics 6100 1536 MB&lt;/p&gt;
 &lt;li&gt;Change the social icon: Social links are designed with &lt;a href=&#34;https://fortawesome.github.io/Font-Awesome/&#34;&gt;FontAwesome 4.5.0&lt;/a&gt;. For occasional modification, just edit the &lt;em&gt;header.html&lt;/em&gt;, find:&lt;br /&gt;
 &amp;gt; &lt;em&gt;class=&amp;ldquo;fa fa-xxx&amp;rdquo;&lt;/em&gt;&lt;br /&gt;
 substitute &lt;em&gt;xxx&lt;/em&gt; with the icon name you want (and ofc supported by FontAwesome), do not touch .Site.Params.xxx if you just want it simple.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;If you are not familiar with &lt;em&gt;markdown&lt;/em&gt;, find the instruction regarding markdown syntax &lt;a href=&#34;http://www.jianshu.com/p/q81RER&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;If you are not familiar with &lt;em&gt;markdown&lt;/em&gt;, find the instruction regarding markdown syntax &lt;a href=&#34;http://www.jianshu.com/p/q81RER&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Develope comment board with disqus: register a short name then fill it in the config file&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;paste-some-frequently-used-order-here:44e997d1ffd2378e52888c50f9174fd1&#34;&gt;Paste some frequently-used order here:)&lt;/h3&gt;
@@ -546,10 +547,10 @@ hugo **or** hugo --theme=slender --baseUrl=&amp;quot;http://xren615.github.io/&a
     
     <item>
       <title>Hello_World</title>
-      <link>http://xren615.github.io/post/hello/</link>
+      <link>http://xren615.github.io/post/helloworld/</link>
       <pubDate>Sun, 06 Mar 2016 00:40:08 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/hello/</guid>
+      <guid>http://xren615.github.io/post/helloworld/</guid>
       <description>&lt;p&gt;歡迎第一批訪問者&lt;/p&gt;
 </description>
     </item>

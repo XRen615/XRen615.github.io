@@ -12,10 +12,10 @@
     
     <item>
       <title>建站記錄</title>
-      <link>http://xren615.github.io/post/create_this_site/</link>
+      <link>http://xren615.github.io/post/develope_this_site/</link>
       <pubDate>Sun, 06 Mar 2016 01:27:21 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/create_this_site/</guid>
+      <guid>http://xren615.github.io/post/develope_this_site/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;Documentation&lt;/strong&gt;: how to initialize a basic static site like this with Github page, Hugo and Go.&lt;br /&gt;
@@ -43,7 +43,8 @@ Graphics: Intel Iris Graphics 6100 1536 MB&lt;/p&gt;
 &lt;li&gt;Change the social icon: Social links are designed with &lt;a href=&#34;https://fortawesome.github.io/Font-Awesome/&#34;&gt;FontAwesome 4.5.0&lt;/a&gt;. For occasional modification, just edit the &lt;em&gt;header.html&lt;/em&gt;, find:&lt;br /&gt;
 &amp;gt; &lt;em&gt;class=&amp;ldquo;fa fa-xxx&amp;rdquo;&lt;/em&gt;&lt;br /&gt;
 substitute &lt;em&gt;xxx&lt;/em&gt; with the icon name you want (and ofc supported by FontAwesome), do not touch .Site.Params.xxx if you just want it simple.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;If you are not familiar with &lt;em&gt;markdown&lt;/em&gt;, find the instruction regarding markdown syntax &lt;a href=&#34;http://www.jianshu.com/p/q81RER&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;If you are not familiar with &lt;em&gt;markdown&lt;/em&gt;, find the instruction regarding markdown syntax &lt;a href=&#34;http://www.jianshu.com/p/q81RER&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Develope comment board with disqus: register a short name then fill it in the config file&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;paste-some-frequently-used-order-here:44e997d1ffd2378e52888c50f9174fd1&#34;&gt;Paste some frequently-used order here:)&lt;/h3&gt;
@@ -57,10 +58,10 @@ hugo **or** hugo --theme=slender --baseUrl=&amp;quot;http://xren615.github.io/&a
     
     <item>
       <title>Hello_World</title>
-      <link>http://xren615.github.io/post/hello/</link>
+      <link>http://xren615.github.io/post/helloworld/</link>
       <pubDate>Sun, 06 Mar 2016 00:40:08 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/hello/</guid>
+      <guid>http://xren615.github.io/post/helloworld/</guid>
       <description>&lt;p&gt;歡迎第一批訪問者&lt;/p&gt;
 </description>
     </item>
