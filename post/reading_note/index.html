@@ -181,15 +181,23 @@ np.mean(c[~np.isnan(c)])
 
 <p>On top of the efficient data structures of NumPy, SciPy offers a magnitude of <strong>algorithms</strong> working on those arrays. Whatever numerical heavy algorithm you take from current books on numerical recipes, most likely you will find support for them in SciPy in one way or the other. Whether it is matrix manipulation, linear algebra, optimization, clustering, spatial operations, or even fast Fourier transformation, the toolbox is readily filled.</p>
 
-<p>SciPy&rsquo;s polyfit() function: Given data x and y and the desired order of the polynomial, it finds the model function that minimizes the error function.</p>
+<p>SciPy&rsquo;s polyfit() function: Given data x and y and the desired n order of the polynomial, it finds the model function that minimizes the error function.</p>
 
-<pre><code>fp1 = sp.polyfit(x, y, 1)
+<pre><code>fp1 = sp.polyfit(x, y, n)
 </code></pre>
 
 <p>We then use poly1d() to create a model function from the model parameters:</p>
 
 <pre><code>f1 = sp.poly1d(fp1)  
 </code></pre>
+
+<p>we should be awared that with the increase of n, here comes a problem called <strong>Overfitting</strong>.</p>
+
+<p>Consider <strong>piecewise function (分段函数)</strong> against higher order functions</p>
+
+<p>why do we trust the straight line fitted only at the last week of our data more than any of the more complex models? It is because we assume that it will capture future data better.</p>
+
+<p>“switching your mental focus from algorithms to data. ”</p>
 
     </section>
 
