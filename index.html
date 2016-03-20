@@ -351,6 +351,21 @@ np.mean(c[~np.isnan(c)])
 
 <p>“switching your mental focus from algorithms to data. ”</p>
 
+<h3 id="chapter-2-classifying-with-real-world-examples:db211eeb3c2b2819e54a5708f75accc1">Chapter 2. Classifying with Real-world Examples</h3>
+
+<p>Cross validation:</p>
+
+<ul>
+<li>k-fold<br /></li>
+<li>leave one fold for test every time<br /></li>
+<li>Average the errors<br /></li>
+<li>gives you an estimate of how well this model should generalize and whether your methods are doing well. At the end of the cross-validation loop, you can then use <strong>all your data</strong> to train a final model.<br /></li>
+</ul>
+
+<p>交叉验证的作用在于evaluate一种模型的预期指标，cv后便可以利用全部数据（不用分测试集和训练集）来训练最终的模型参数。</p>
+
+<p>&lsquo;Accuracy&rsquo; is not always our goal: What the gain/cost function should be is always dependent on the exact problem you are working on. When we present a general-purpose algorithm, we often focus on minimizing the number of mistakes, achieving the highest accuracy. However, if some mistakes are <strong>costlier</strong> than others, it might be better to accept a lower overall accuracy to minimize the overall costs.</p>
+
           </section>
       </p>
       

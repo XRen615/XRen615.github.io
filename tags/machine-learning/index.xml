@@ -112,6 +112,21 @@ np.mean(c[~np.isnan(c)])
 &lt;p&gt;why do we trust the straight line fitted only at the last week of our data more than any of the more complex models? It is because we assume that it will capture future data better.&lt;/p&gt;
 
 &lt;p&gt;“switching your mental focus from algorithms to data. ”&lt;/p&gt;
+
+&lt;h3 id=&#34;chapter-2-classifying-with-real-world-examples:db211eeb3c2b2819e54a5708f75accc1&#34;&gt;Chapter 2. Classifying with Real-world Examples&lt;/h3&gt;
+
+&lt;p&gt;Cross validation:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;k-fold&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;leave one fold for test every time&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Average the errors&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;gives you an estimate of how well this model should generalize and whether your methods are doing well. At the end of the cross-validation loop, you can then use &lt;strong&gt;all your data&lt;/strong&gt; to train a final model.&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;交叉验证的作用在于evaluate一种模型的预期指标，cv后便可以利用全部数据（不用分测试集和训练集）来训练最终的模型参数。&lt;/p&gt;
+
+&lt;p&gt;&amp;lsquo;Accuracy&amp;rsquo; is not always our goal: What the gain/cost function should be is always dependent on the exact problem you are working on. When we present a general-purpose algorithm, we often focus on minimizing the number of mistakes, achieving the highest accuracy. However, if some mistakes are &lt;strong&gt;costlier&lt;/strong&gt; than others, it might be better to accept a lower overall accuracy to minimize the overall costs.&lt;/p&gt;
 </description>
     </item>
     
