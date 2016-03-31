@@ -20,6 +20,8 @@
 
 &lt;p&gt;( &lt;em&gt;I would like to take this oppurtunity to somehow review and systemize my knowledge on machine learning system.&lt;/em&gt; )&lt;/p&gt;
 
+&lt;h3 id=&#34;chapter-1-introduction:db211eeb3c2b2819e54a5708f75accc1&#34;&gt;Chapter 1. Introduction&lt;/h3&gt;
+
 &lt;p&gt;“This book will give you a broad overview of what types of learning algorithms are currently most used in the diverse fields of machine learning, and where to watch out when applying them.”&lt;/p&gt;
 
 &lt;p&gt;typical workflow:&lt;/p&gt;
@@ -127,6 +129,14 @@ np.mean(c[~np.isnan(c)])
 &lt;p&gt;交叉验证的作用在于evaluate一种模型的预期指标，cv后便可以利用全部数据（不用分测试集和训练集）来训练最终的模型参数。&lt;/p&gt;
 
 &lt;p&gt;&amp;lsquo;Accuracy&amp;rsquo; is not always our goal: What the gain/cost function should be is always dependent on the exact problem you are working on. When we present a general-purpose algorithm, we often focus on minimizing the number of mistakes, achieving the highest accuracy. However, if some mistakes are &lt;strong&gt;costlier&lt;/strong&gt; than others, it might be better to accept a lower overall accuracy to minimize the overall costs.&lt;/p&gt;
+
+&lt;p&gt;compactness feature is not actually a new measurement, but a function of the previous two features, area and perimeter. It is often very useful to derive new combined features. Trying to create new features is generally called &lt;strong&gt;feature engineering&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;与现有数据用某种函数关系关联起来的新数据并不一定是没有意义的，比如用周长和面积定义的『圆度』在特征工程中就有重要的意义。&lt;/p&gt;
+
+&lt;p&gt;The goals of a good feature are to simultaneously &lt;strong&gt;vary with what matters&lt;/strong&gt; (the desired output) and be &lt;strong&gt;invariant with what does not&lt;/strong&gt;. For example, compactness does not vary with size, but varies with the shape - &lt;strong&gt;use background knowledge to design good features&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;the &lt;strong&gt;nearest neighbor classifier&lt;/strong&gt;: When classifying a new element, it looks at the training data for the object that is closest to it, its nearest neighbor. Then, it returns its label as the answer.&lt;/p&gt;
 </description>
     </item>
     

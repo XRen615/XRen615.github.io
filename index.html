@@ -146,7 +146,7 @@
 
 <p><strong>Gaussian derivative filter</strong></p>
 
-<p>For noise smoothing and edge detection. In layman&rsquo;s words, replace each point by the weighted average of its neighbors, the weights come from ** the 1st detivative of Gaussian distribution**, then normalize the results.</p>
+<p>For noise smoothing and edge detection. In layman&rsquo;s words, replace each point by the weighted average of its neighbors, the weights come from <strong>the 1st detivative of Gaussian distribution</strong>, then normalize the results.</p>
 
 <div  align="center">    
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/1st_der_Gaussian.png" width = "200" height = "50"/>  
@@ -187,6 +187,12 @@
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo.png" width = "620" height = "150"/>  
 </div>  
 
+<p><strong>Gaussian filter smoothed (sigma = 8)</strong></p>
+
+<div  align="center">    
+<img src="http://7xro3y.com1.z0.glb.clouddn.com/smoothed.png" width = "620" height = "150"/>  
+</div>
+
 <p><strong>1st derivative Gaussian filtered (sigma = 8)</strong></p>
 
 <div  align="center">    
@@ -203,6 +209,16 @@
 
 <div  align="center">    
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/edge_Gassuian_scale_space.png" width = "600" height = "400"/>  
+</div> 
+
+<h4 id="finer-tuning:61665cac455c6246b15a713a4476ec20">Finer Tuning</h4>
+
+<p>In practice, we usually use different tailored tune strategies for the parameters to meet the specific requirements aroused by researchers. E.g. in this case the experts from built enviroment would like to filter out short-lived status (even they maybe quite significant in terms of pulse number). The strategies is carefully increase sigma (widen your weighted average bracket, so the short peaks would be less significant after Gaussian filter) and also properly increase the threshold (so the deravatives of smoothed short peaks would not pass and be recognised as one effective operation) to a optimized combination, so that the results would be something like this:</p>
+
+<p><strong>Edge position detected (Sigma = 10, threshold = 0.35 * global min/max)</strong></p>
+
+<div  align="center">    
+<img src="http://7xro3y.com1.z0.glb.clouddn.com/finertune.png" width = "620" height = "150"/>  
 </div> 
 
 <h4 id="reference:61665cac455c6246b15a713a4476ec20">Reference</h4>
@@ -257,6 +273,8 @@
             
 
 <p>( <em>I would like to take this oppurtunity to somehow review and systemize my knowledge on machine learning system.</em> )</p>
+
+<h3 id="chapter-1-introduction:db211eeb3c2b2819e54a5708f75accc1">Chapter 1. Introduction</h3>
 
 <p>“This book will give you a broad overview of what types of learning algorithms are currently most used in the diverse fields of machine learning, and where to watch out when applying them.”</p>
 
@@ -365,6 +383,14 @@ np.mean(c[~np.isnan(c)])
 <p>交叉验证的作用在于evaluate一种模型的预期指标，cv后便可以利用全部数据（不用分测试集和训练集）来训练最终的模型参数。</p>
 
 <p>&lsquo;Accuracy&rsquo; is not always our goal: What the gain/cost function should be is always dependent on the exact problem you are working on. When we present a general-purpose algorithm, we often focus on minimizing the number of mistakes, achieving the highest accuracy. However, if some mistakes are <strong>costlier</strong> than others, it might be better to accept a lower overall accuracy to minimize the overall costs.</p>
+
+<p>compactness feature is not actually a new measurement, but a function of the previous two features, area and perimeter. It is often very useful to derive new combined features. Trying to create new features is generally called <strong>feature engineering</strong>.</p>
+
+<p>与现有数据用某种函数关系关联起来的新数据并不一定是没有意义的，比如用周长和面积定义的『圆度』在特征工程中就有重要的意义。</p>
+
+<p>The goals of a good feature are to simultaneously <strong>vary with what matters</strong> (the desired output) and be <strong>invariant with what does not</strong>. For example, compactness does not vary with size, but varies with the shape - <strong>use background knowledge to design good features</strong></p>
+
+<p>the <strong>nearest neighbor classifier</strong>: When classifying a new element, it looks at the training data for the object that is closest to it, its nearest neighbor. Then, it returns its label as the answer.</p>
 
           </section>
       </p>
