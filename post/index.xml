@@ -58,7 +58,9 @@
 
 &lt;p&gt;(if you are dealing with 2d matrix (images), use 2-D Gaussian instead.)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/bg2012110708.png&#34; alt=&#34;2dG&#34; /&gt;&lt;/p&gt;
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/bg2012110708.png&#34; width = &#34;400&#34; height = &#34;300&#34;/&gt;  
+&lt;/div&gt;   
 
 &lt;p&gt;Effect:&lt;br /&gt;
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/gblur.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
@@ -138,6 +140,12 @@
 
 &lt;div  align=&#34;center&#34;&gt;    
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/finertune.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;p&gt;&lt;strong&gt;In a larger scale, see how can our fine-tuned inertia algorithm filter the fake operations out! (Sigma = 20, threshold = 0.5 * global min/max)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/largerscale.png&#34; width = &#34;620&#34; height = &#34;400&#34;/&gt;  
 &lt;/div&gt; 
 
 &lt;h4 id=&#34;reference:61665cac455c6246b15a713a4476ec20&#34;&gt;Reference&lt;/h4&gt;
