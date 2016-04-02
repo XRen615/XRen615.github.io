@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sql on Square Inch</title>
+    <link>http://xren615.github.io/tags/sql/</link>
+    <description>Recent content in Sql on Square Inch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>All rights reserved - 2016</copyright>
+    <lastBuildDate>Fri, 01 Apr 2016 18:49:28 +0200</lastBuildDate>
+    <atom:link href="http://xren615.github.io/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SQL Notes</title>
+      <link>http://xren615.github.io/post/sql/</link>
+      <pubDate>Fri, 01 Apr 2016 18:49:28 +0200</pubDate>
+      
+      <guid>http://xren615.github.io/post/sql/</guid>
+      <description>&lt;p&gt;(This is the note for the SQL training course on Codecademy.com)&lt;br /&gt;
+####Some basic recipes&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT DISTINCT  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;specifies that the statement is going to be a query that returns unique values in the specified column(s)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WHERE&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT * FROM movies
+WHERE year BETWEEN 1990 AND 2000
+AND genre = &#39;comedy&#39;; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;LIKE&lt;/strong&gt;: a special operator used with the WHERE clause to search for a specific pattern in a column.&lt;br /&gt;
+&lt;strong&gt;%&lt;/strong&gt;: wildcard character, matches zero or more missing letters in the pattern.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT * FROM movies WHERE name like &#39;a%&#39;;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;ORDER BY&lt;/strong&gt;: a clause that indicates you want to sort the result set by a particular column either alphabetically or numerically.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT * FROM movies
+ORDER BY imdb_rating ASC/DESC;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;LIMIT&lt;/strong&gt;: a clause that lets you specify the maximum number of rows the result set will have.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT * FROM Persons
+LIMIT 5;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;####Using aggregate functions to perform calculations
+Aggregate functions combine multiple rows together to form a single value of more meaningful information.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;COUNT()&lt;/strong&gt;: a function that takes the name of a column as an argument and counts the number of rows where the column is not NULL. Here, we want to count every row so we pass * as an argument.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT COUNT(*) FROM fake_apps;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;GROUP BY&lt;/strong&gt;: Count the number of apps at each price.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT price, COUNT(*) FROM fake_apps
+GROUP BY price;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;SUM()&lt;/strong&gt;: a function that takes the name of a column as an argument and returns the sum of all the values in that column.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT SUM(downloads) FROM fake_apps;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;MAX()/MIN()&lt;/strong&gt;: a function that takes the name of a column as an argument and returns the largest/smallest value in that column.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT name, category, MAX(downloads) FROM fake_apps
+GROUP BY category;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;AVG()&lt;/strong&gt;: a function works by taking a column name as an argument and returns the average value for that column.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ROUND()&lt;/strong&gt;: a function that takes a column name and an integer as an argument. It rounds the values in the column to the number of decimal places specified by the integer.&lt;/p&gt;
+
+&lt;p&gt;####Query multiple tables that have relationships with each other&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;primary key&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A primary key serves as a unique identifier for each row or record in a given table. The primary key is literally an id value for a record. We&amp;rsquo;re going to use this value to connect artists to the albums they have produced.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;CREATE TABLE 
+artists(id INTEGER PRIMARY KEY, name TEXT);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;By specifying that the id column is the PRIMARY KEY, SQL makes sure that:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;None of the values in this column are NULL&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Each value in this column is unique&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A table can not have more than one PRIMARY KEY column.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;foreign key&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A foreign key is a column that contains the primary key of another table in the database. We use foreign keys and primary keys to connect rows in two different tables. One table&amp;rsquo;s foreign key holds the value of another table&amp;rsquo;s primary key. Unlike primary keys, foreign keys do not need to be unique and can be NULL.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;JOIN&lt;/strong&gt;: An inner join will combine rows from different tables if the join condition is true.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT * FROM albums
+JOIN artists ON
+albums.artist_id = artists.id;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;LEFT JOIN&lt;/strong&gt;: every row in the left table （the former） is returned in the result set, and if the join condition is not met, then NULL values are used to fill in the columns from the right table.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT * FROM albums
+LEFT JOIN artists ON
+albums.artist_id = artists.id;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;AS&lt;/strong&gt;: a keyword in SQL that allows you to rename a column or table using an alias.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SELECT 
+albums.name AS &#39;Album&#39;,
+albums.year,
+artists.name AS &#39;Artist&#39;
+FROM
+albums
+JOIN artists ON
+albums.artist_id = artists.id
+WHERE
+albums.year &amp;gt; 1980;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

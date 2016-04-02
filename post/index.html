@@ -96,7 +96,154 @@
 	   
 <article class="post post">
     <header class="post-header">
-        <h2 class="post-title"><a href="http://xren615.github.io/post/edge_detection/">Edge detection of energy consumption signal with Gaussian filter</a></h2>
+        <h2 class="post-title"><a href="http://xren615.github.io/post/sql/">SQL Notes</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+          <section class="post-content">
+            <p>(This is the note for the SQL training course on Codecademy.com)<br />
+####Some basic recipes</p>
+
+<pre><code>SELECT DISTINCT  
+</code></pre>
+
+<p>specifies that the statement is going to be a query that returns unique values in the specified column(s)</p>
+
+<p><strong>WHERE</strong></p>
+
+<pre><code>SELECT * FROM movies
+WHERE year BETWEEN 1990 AND 2000
+AND genre = 'comedy'; 
+</code></pre>
+
+<p><strong>LIKE</strong>: a special operator used with the WHERE clause to search for a specific pattern in a column.<br />
+<strong>%</strong>: wildcard character, matches zero or more missing letters in the pattern.</p>
+
+<pre><code>SELECT * FROM movies WHERE name like 'a%';  
+</code></pre>
+
+<p><strong>ORDER BY</strong>: a clause that indicates you want to sort the result set by a particular column either alphabetically or numerically.</p>
+
+<pre><code>SELECT * FROM movies
+ORDER BY imdb_rating ASC/DESC;  
+</code></pre>
+
+<p><strong>LIMIT</strong>: a clause that lets you specify the maximum number of rows the result set will have.</p>
+
+<pre><code>SELECT * FROM Persons
+LIMIT 5;  
+</code></pre>
+
+<p>####Using aggregate functions to perform calculations
+Aggregate functions combine multiple rows together to form a single value of more meaningful information.</p>
+
+<p><strong>COUNT()</strong>: a function that takes the name of a column as an argument and counts the number of rows where the column is not NULL. Here, we want to count every row so we pass * as an argument.</p>
+
+<pre><code>SELECT COUNT(*) FROM fake_apps;  
+</code></pre>
+
+<p><strong>GROUP BY</strong>: Count the number of apps at each price.</p>
+
+<pre><code>SELECT price, COUNT(*) FROM fake_apps
+GROUP BY price;  
+</code></pre>
+
+<p><strong>SUM()</strong>: a function that takes the name of a column as an argument and returns the sum of all the values in that column.</p>
+
+<pre><code>SELECT SUM(downloads) FROM fake_apps;  
+</code></pre>
+
+<p><strong>MAX()/MIN()</strong>: a function that takes the name of a column as an argument and returns the largest/smallest value in that column.</p>
+
+<pre><code>SELECT name, category, MAX(downloads) FROM fake_apps
+GROUP BY category;  
+</code></pre>
+
+<p><strong>AVG()</strong>: a function works by taking a column name as an argument and returns the average value for that column.</p>
+
+<p><strong>ROUND()</strong>: a function that takes a column name and an integer as an argument. It rounds the values in the column to the number of decimal places specified by the integer.</p>
+
+<p>####Query multiple tables that have relationships with each other</p>
+
+<p><strong>primary key</strong></p>
+
+<p>A primary key serves as a unique identifier for each row or record in a given table. The primary key is literally an id value for a record. We&rsquo;re going to use this value to connect artists to the albums they have produced.</p>
+
+<pre><code>CREATE TABLE 
+artists(id INTEGER PRIMARY KEY, name TEXT);
+</code></pre>
+
+<p>By specifying that the id column is the PRIMARY KEY, SQL makes sure that:</p>
+
+<ul>
+<li>None of the values in this column are NULL<br /></li>
+<li>Each value in this column is unique<br /></li>
+</ul>
+
+<p>A table can not have more than one PRIMARY KEY column.</p>
+
+<p><strong>foreign key</strong></p>
+
+<p>A foreign key is a column that contains the primary key of another table in the database. We use foreign keys and primary keys to connect rows in two different tables. One table&rsquo;s foreign key holds the value of another table&rsquo;s primary key. Unlike primary keys, foreign keys do not need to be unique and can be NULL.</p>
+
+<p><strong>JOIN</strong>: An inner join will combine rows from different tables if the join condition is true.</p>
+
+<pre><code>SELECT * FROM albums
+JOIN artists ON
+albums.artist_id = artists.id;  
+</code></pre>
+
+<p><strong>LEFT JOIN</strong>: every row in the left table （the former） is returned in the result set, and if the join condition is not met, then NULL values are used to fill in the columns from the right table.</p>
+
+<pre><code>SELECT * FROM albums
+LEFT JOIN artists ON
+albums.artist_id = artists.id;
+</code></pre>
+
+<p><strong>AS</strong>: a keyword in SQL that allows you to rename a column or table using an alias.</p>
+
+<pre><code>SELECT 
+albums.name AS 'Album',
+albums.year,
+artists.name AS 'Artist'
+FROM
+albums
+JOIN artists ON
+albums.artist_id = artists.id
+WHERE
+albums.year &gt; 1980;
+</code></pre>
+
+          </section>
+      </p>
+      
+    </section>
+    <footer class="post-meta">
+        
+            <img class="author-thumb" src="http://xren615.github.io/images/V.png" alt="Author image" nopin="nopin" />
+        
+        
+        
+            
+        
+        on
+            
+                <a href="http://xren615.github.io/tags/sql/">#SQL</a>,
+            
+                <a href="http://xren615.github.io/tags/note/">#Note</a>,
+            
+        
+        <time class="post-date" datetime="2016-04-01T18:49:28&#43;02:00">
+            1 Apr 2016
+        </time>
+    </footer>
+</article>
+
+	
+	   
+<article class="post post">
+    <header class="post-header">
+        <h2 class="post-title"><a href="http://xren615.github.io/post/edge_detection/">Guassian-filter-based </a></h2>
     </header>
     <section class="post-excerpt">
       <p>
@@ -219,7 +366,7 @@
 
 <h4 id="finer-tuning:61665cac455c6246b15a713a4476ec20">Finer Tuning</h4>
 
-<p>In practice, we usually use different tailored tune strategies for the parameters to meet the specific requirements aroused by researchers. E.g. in this case the experts from built enviroment would like to filter out short-lived status (even they maybe quite significant in terms of pulse number). The strategies is carefully increase sigma (widen your weighted average bracket, so the short peaks would be less significant after Gaussian filter) and also properly increase the threshold (so the deravatives of smoothed short peaks would not pass and be recognised as one effective operation) to a optimized combination, so that the results would be something like this:</p>
+<p>In practice, it is usually needed to use different tailored tune strategies for the parameters to meet the specific requirements aroused by researchers. E.g. in a case the experts from built enviroment would like to filter out short-lived status (even they maybe quite steep in terms of pulse number). The strategies is carefully increase sigma (by which you are flattening the Guassian curve, so the weights of center would be less significant so that the short peaks could be better wiped out by its flat neighbors) and also, properly increase the threshold would help (by which it would be more difficult for the deravatives of smoothed short peaks to pass the threshold and be recognised as one effective operation). Once the sigma and threshold reached an optimized combination, the results would be something like below for this case:</p>
 
 <p><strong>Edge position detected (Sigma = 10, threshold = 0.35 * global min/max)</strong></p>
 
@@ -227,7 +374,7 @@
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/finertune.png" width = "620" height = "150"/>  
 </div>  
 
-<p><strong>In a larger scale, see how can our fine-tuned inertia algorithm filter the fake operations out! (Sigma = 20, threshold = 0.5 * global min/max)</strong></p>
+<p><strong>In a larger scale, see how does our finely-tuned lazy filter work to filter the fake operations out! (Sigma = 20, threshold = 0.5 * global min/max)</strong></p>
 
 <div  align="center">    
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/largerscale.png" width = "620" height = "400"/>  

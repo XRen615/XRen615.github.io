@@ -96,7 +96,7 @@
 	   
 <article class="post post">
     <header class="post-header">
-        <h2 class="post-title"><a href="http://xren615.github.io/post/edge_detection/">Edge detection of energy consumption signal with Gaussian filter</a></h2>
+        <h2 class="post-title"><a href="http://xren615.github.io/post/edge_detection/">Guassian-filter-based </a></h2>
     </header>
     <section class="post-excerpt">
       <p>
@@ -219,7 +219,7 @@
 
 <h4 id="finer-tuning:61665cac455c6246b15a713a4476ec20">Finer Tuning</h4>
 
-<p>In practice, we usually use different tailored tune strategies for the parameters to meet the specific requirements aroused by researchers. E.g. in this case the experts from built enviroment would like to filter out short-lived status (even they maybe quite significant in terms of pulse number). The strategies is carefully increase sigma (widen your weighted average bracket, so the short peaks would be less significant after Gaussian filter) and also properly increase the threshold (so the deravatives of smoothed short peaks would not pass and be recognised as one effective operation) to a optimized combination, so that the results would be something like this:</p>
+<p>In practice, it is usually needed to use different tailored tune strategies for the parameters to meet the specific requirements aroused by researchers. E.g. in a case the experts from built enviroment would like to filter out short-lived status (even they maybe quite steep in terms of pulse number). The strategies is carefully increase sigma (by which you are flattening the Guassian curve, so the weights of center would be less significant so that the short peaks could be better wiped out by its flat neighbors) and also, properly increase the threshold would help (by which it would be more difficult for the deravatives of smoothed short peaks to pass the threshold and be recognised as one effective operation). Once the sigma and threshold reached an optimized combination, the results would be something like below for this case:</p>
 
 <p><strong>Edge position detected (Sigma = 10, threshold = 0.35 * global min/max)</strong></p>
 
@@ -227,7 +227,7 @@
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/finertune.png" width = "620" height = "150"/>  
 </div>  
 
-<p><strong>In a larger scale, see how can our fine-tuned inertia algorithm filter the fake operations out! (Sigma = 20, threshold = 0.5 * global min/max)</strong></p>
+<p><strong>In a larger scale, see how does our finely-tuned lazy filter work to filter the fake operations out! (Sigma = 20, threshold = 0.5 * global min/max)</strong></p>
 
 <div  align="center">    
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/largerscale.png" width = "620" height = "400"/>  
