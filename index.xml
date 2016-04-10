@@ -153,19 +153,19 @@ albums.year &amp;gt; 1980;
 &lt;p&gt;Below &lt;strong&gt;Figure 1&lt;/strong&gt; shows the overall work flow.&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/flowchart.png&#34; width = &#34;630&#34; height = &#34;320&#34;/&gt;  
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/flowchart.png&#34; width = &#34;750&#34; height = &#34;380&#34;/&gt;  
 &lt;/div&gt;  
 
 &lt;p&gt;(1) After preprocessing and cleaning, start with the system electricity consumption signal, e.g. &lt;strong&gt;Figure 2&lt;/strong&gt; below. First thing to do is filtering the noise (caused by wind etc. or system itself) and &amp;ldquo;fake operation&amp;rdquo; (status change with too-short duration).&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo_noted.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo_noted.png&#34; width = &#34;750&#34; height = &#34;180&#34;/&gt;  
 &lt;/div&gt;  
 
 &lt;p&gt;(2) After a finely-tuned &lt;strong&gt;1st derivative Gaussian filter&lt;/strong&gt;, the &amp;ldquo;real operations&amp;rdquo; would be marked out, like shown in &lt;strong&gt;Figure 3&lt;/strong&gt; below&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/finertune.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/finertune.png&#34; width = &#34;750&#34; height = &#34;180&#34;/&gt;  
 &lt;/div&gt;  
 
 &lt;p&gt;(3) Then the marked data would undergo an &lt;strong&gt;undersampling&lt;/strong&gt; process since the dataset is  skewed (The no. of records with &amp;lsquo;no operation&amp;rsquo; is far more than ones with &amp;lsquo;operation: increase&amp;rsquo; or &amp;lsquo;operation: decrease&amp;rsquo;)&lt;/p&gt;
@@ -173,19 +173,19 @@ albums.year &amp;gt; 1980;
 &lt;p&gt;(4) After undersampling, the training set would be &lt;strong&gt;normalized&lt;/strong&gt; and then fed into a &lt;strong&gt;L1-penalized logistic regression classifier&lt;/strong&gt;. Since linear models penalized with the L1 norm have sparse solutions i.e. many of their estimated coefficients are zero, it could be used for feature selection purpose. &lt;strong&gt;Figure 4&lt;/strong&gt; below shows an example of the coefficients output in a certain experiment.&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/L1.png&#34; width = &#34;600&#34; height = &#34;400&#34;/&gt;  
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/L1.png&#34; width = &#34;700&#34; height = &#34;430&#34;/&gt;  
 &lt;/div&gt; 
 
 &lt;p&gt;Then the logistic regression runs repeatedly to make a &lt;strong&gt;recursive feature elimination&lt;/strong&gt;. At last the most informative feature combination (judged by cross-validation accuracy) for this case could be determined, like below &lt;strong&gt;Figure 5&lt;/strong&gt;  shows: these features implies the occupant&amp;rsquo;s motivation for his/her behavior.&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/REFCV.png&#34; width = &#34;400&#34; height = &#34;280&#34;/&gt;  
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/REFCV.png&#34; width = &#34;500&#34; height = &#34;340&#34;/&gt;  
 &lt;/div&gt;  
 
 &lt;p&gt;(5) The results from different occupants implies there are different kind of people: some of them with strong &amp;ldquo;time pattern&amp;rdquo; while others are more sensitive to indoor temperatures etc. A &lt;strong&gt;K-Means clustering&lt;/strong&gt; could help us group the occupants into different user profiles.&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/motivationdistribution.png&#34; width = &#34;400&#34; height = &#34;300&#34;/&gt;  
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/motivationdistribution.png&#34; width = &#34;600&#34; height = &#34;450&#34;/&gt;  
 &lt;/div&gt; 
 
 &lt;hr /&gt;
