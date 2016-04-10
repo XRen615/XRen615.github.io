@@ -132,18 +132,71 @@ albums.year &amp;gt; 1980;
     </item>
     
     <item>
-      <title>Guassian-filter-based noise smoothing and edge detection of electricity meter signal</title>
+      <title>Discovery the motivation of occupants&#39; behavior from electricity consumption signal</title>
       <link>http://xren615.github.io/post/edge_detection/</link>
       <pubDate>Tue, 15 Mar 2016 15:08:09 +0100</pubDate>
       
       <guid>http://xren615.github.io/post/edge_detection/</guid>
       <description>
 
+&lt;h5 id=&#34;key-points:61665cac455c6246b15a713a4476ec20&#34;&gt;Key Points&lt;/h5&gt;
+
+&lt;p&gt;This report elaborates how to analyze the motivation of people&amp;rsquo;s behavior from the electricity consumption signal and other data.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;System&lt;/strong&gt;: ventilation system in passive houses with adjustable flow rate option.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Objective&lt;/strong&gt;: understand how, and why occupants interact with the system.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Raw data&lt;/strong&gt;: electricity consumption signal; environment sensor records (temperature, humidity, CO2 etc.); 3-min interval, 2 years (2013-2015)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Technique&lt;/strong&gt;: Noise reduction (Gaussian filter); Edge detection (1st derivative Gaussian filter), Feature selection (L1-penalized logistic regression)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Below &lt;strong&gt;Figure 1&lt;/strong&gt; shows the overall work flow.&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/flowchart.png&#34; width = &#34;630&#34; height = &#34;320&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;p&gt;(1) After preprocessing and cleaning, start with the system electricity consumption signal, e.g. &lt;strong&gt;Figure 2&lt;/strong&gt; below. First thing to do is filtering the noise (caused by wind etc. or system itself) and &amp;ldquo;fake operation&amp;rdquo; (status change with too-short duration).&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo_noted.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;p&gt;(2) After a finely-tuned &lt;strong&gt;1st derivative Gaussian filter&lt;/strong&gt;, the &amp;ldquo;real operations&amp;rdquo; would be marked out, like shown in &lt;strong&gt;Figure 3&lt;/strong&gt; below&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/finertune.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;p&gt;(3) Then the marked data would undergo an &lt;strong&gt;undersampling&lt;/strong&gt; process since the dataset is  skewed (The no. of records with &amp;lsquo;no operation&amp;rsquo; is far more than ones with &amp;lsquo;operation: increase&amp;rsquo; or &amp;lsquo;operation: decrease&amp;rsquo;)&lt;/p&gt;
+
+&lt;p&gt;(4) After undersampling, the training set would be &lt;strong&gt;normalized&lt;/strong&gt; and then fed into a &lt;strong&gt;L1-penalized logistic regression classifier&lt;/strong&gt;. Since linear models penalized with the L1 norm have sparse solutions i.e. many of their estimated coefficients are zero, it could be used for feature selection purpose. &lt;strong&gt;Figure 4&lt;/strong&gt; below shows an example of the coefficients output in a certain experiment.&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/L1.png&#34; width = &#34;600&#34; height = &#34;400&#34;/&gt;  
+&lt;/div&gt; 
+
+&lt;p&gt;Then the logistic regression runs repeatedly to make a &lt;strong&gt;recursive feature elimination&lt;/strong&gt;. At last the most informative feature combination (judged by cross-validation accuracy) for this case could be determined, like below &lt;strong&gt;Figure 5&lt;/strong&gt;  shows: these features implies the occupant&amp;rsquo;s motivation for his/her behavior.&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/REFCV.png&#34; width = &#34;400&#34; height = &#34;280&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;p&gt;(5) The results from different occupants implies there are different kind of people: some of them with strong &amp;ldquo;time pattern&amp;rdquo; while others are more sensitive to indoor temperatures etc. A &lt;strong&gt;K-Means clustering&lt;/strong&gt; could help us group the occupants into different user profiles.&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/motivationdistribution.png&#34; width = &#34;400&#34; height = &#34;300&#34;/&gt;  
+&lt;/div&gt; 
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;technical-details-noise-reduction-edge-detection:61665cac455c6246b15a713a4476ec20&#34;&gt;Technical Details: Noise reduction &amp;amp; Edge detection&lt;/h4&gt;
+
 &lt;h5 id=&#34;background:61665cac455c6246b15a713a4476ec20&#34;&gt;Background&lt;/h5&gt;
 
-&lt;p&gt;There is a ventilation system (with heat recovery) in one passive house, of which the ventilation flow rate is controlled by a fan system, and adjustable by occpants. There are 3 availiable options (let&amp;rsquo;s say, low, medium, high rate respectively)for the fan flowrate setting.&lt;/p&gt;
+&lt;p&gt;There is a ventilation system (with heat recovery) in one passive house, of which the ventilation flow rate is controlled by a fan system, and adjustable by occupants. There are 3 available options (let&amp;rsquo;s say, low, medium, high rate respectively)for the fan flow rate setting.&lt;/p&gt;
 
-&lt;p&gt;The electricity consumption of the fan system is recorded by a smart meter in terms of pulse. Obviously, occupants&amp;rsquo; flowrate setting could put significant influence on the electricity consumption and we could calibrate when and how people adjust their ventilation system based on the electricity consumption.&lt;/p&gt;
+&lt;p&gt;The electricity consumption of the fan system is recorded by a smart meter in terms of pulse. Obviously, occupants&amp;rsquo; flow rate setting could put significant influence on the electricity consumption and we could calibrate when and how people adjust their ventilation system based on the electricity consumption.&lt;/p&gt;
 
 &lt;p&gt;However, on the one hand, with the influence of back pressure, wind speed etc. the record is not something like a clear 3-stage square wave, instead it is quite noisy. On the other hand, we got many different houses (with similar structure but with different scales of records)  within our research. They made it is not really practical to calibrate the ventilation setting position by fixed intervals (like pulse &amp;lt; 3 == position 1; 3 &amp;lt; pulse &amp;lt; 5 == position 2 etc.). We need a new algorithmic method to do this job.&lt;/p&gt;
 
@@ -155,7 +208,7 @@ albums.year &amp;gt; 1980;
 
 &lt;h5 id=&#34;methodology:61665cac455c6246b15a713a4476ec20&#34;&gt;Methodology&lt;/h5&gt;
 
-&lt;p&gt;Describe what we want to do in a few words: smooth the noise and detect the edge automatically, without any reset like boudary interval needed. This is actually a classic problem in &lt;em&gt;signal processing&lt;/em&gt; or &lt;em&gt;computer vision&lt;/em&gt; field. For this 1D signal the simplest solution maybe &lt;strong&gt;Gaussian derivative filter&lt;/strong&gt;, for similar problems in 2D matrix (images) the &lt;strong&gt;canny edge detector&lt;/strong&gt; could be effective. The figure may give you a vivid impression of what we are going to do:&lt;/p&gt;
+&lt;p&gt;Describe what we want to do in a few words: smooth the noise and detect the edge automatically, without any reset like boundary interval needed. This is actually a classic problem in &lt;em&gt;signal processing&lt;/em&gt; or &lt;em&gt;computer vision&lt;/em&gt; field. For this 1D signal the simplest solution maybe &lt;strong&gt;Gaussian derivative filter&lt;/strong&gt;, for similar problems in 2D matrix (images) the &lt;strong&gt;canny edge detector&lt;/strong&gt; could be effective. The figure may give you a vivid impression of what we are going to do:&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/canny1.jpg&#34; width = &#34;400&#34; height = &#34;150&#34;/&gt;  
@@ -163,11 +216,11 @@ albums.year &amp;gt; 1980;
 
 &lt;h6 id=&#34;basic-idea:61665cac455c6246b15a713a4476ec20&#34;&gt;Basic idea&lt;/h6&gt;
 
-&lt;p&gt;Tune a  Gaussian derivative filter to properly smooth the noise and take 1st deravative, then set an appropriate threshold to detect the edge.&lt;/p&gt;
+&lt;p&gt;Tune a  Gaussian derivative filter to properly smooth the noise and take 1st derivative, then set an appropriate threshold to detect the edge.&lt;/p&gt;
 
 &lt;h6 id=&#34;terms:61665cac455c6246b15a713a4476ec20&#34;&gt;Terms&lt;/h6&gt;
 
-&lt;p&gt;&lt;strong&gt;Gaussian fliter&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Gaussian filter&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;For noise smoothing or &amp;ldquo;image blur&amp;rdquo;. In layman&amp;rsquo;s words, replace each point by the weighted average of its neighbors, the weights come from Gaussian distribution, then normalize the results.&lt;/p&gt;
 
@@ -188,7 +241,7 @@ albums.year &amp;gt; 1980;
 
 &lt;p&gt;&lt;strong&gt;Gaussian derivative filter&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;For noise smoothing and edge detection. In layman&amp;rsquo;s words, replace each point by the weighted average of its neighbors, the weights come from &lt;strong&gt;the 1st detivative of Gaussian distribution&lt;/strong&gt;, then normalize the results.&lt;/p&gt;
+&lt;p&gt;For noise smoothing and edge detection. In layman&amp;rsquo;s words, replace each point by the weighted average of its neighbors, the weights come from &lt;strong&gt;the 1st derivative of Gaussian distribution&lt;/strong&gt;, then normalize the results.&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/1st_der_Gaussian.png&#34; width = &#34;200&#34; height = &#34;50&#34;/&gt;  
@@ -204,7 +257,7 @@ albums.year &amp;gt; 1980;
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/canny1.jpg&#34; width = &#34;400&#34; height = &#34;150&#34;/&gt;  
 &lt;/div&gt;  
 
-&lt;p&gt;Advantages of Gaussian Kernal compared to other low-pass filter:&lt;/p&gt;
+&lt;p&gt;Advantages of Gaussian Kernel compared to other low-pass filter:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Being possible to derive from a small set of scale-space axioms.&lt;br /&gt;&lt;/li&gt;
@@ -213,7 +266,7 @@ albums.year &amp;gt; 1980;
 
 &lt;p&gt;&lt;strong&gt;Scale Space&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Representing an signal/image as a one-parameter family of smoothed signals/images, parametrized by the size of the smoothing kernel used for suppressing fine-scale structures. Specially for Gaussian kernals: t = sigma^2.&lt;/p&gt;
+&lt;p&gt;Representing an signal/image as a one-parameter family of smoothed signals/images, parametrized by the size of the smoothing kernel used for suppressing fine-scale structures. Specially for Gaussian kernels: t = sigma^2.&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-03-15%20%E4%B8%8B%E5%8D%886.54.23.png&#34; width = &#34;600&#34; height = &#34;500&#34;/&gt;  
@@ -255,7 +308,7 @@ albums.year &amp;gt; 1980;
 
 &lt;h4 id=&#34;finer-tuning:61665cac455c6246b15a713a4476ec20&#34;&gt;Finer Tuning&lt;/h4&gt;
 
-&lt;p&gt;In practice, it is usually needed to use different tailored tune strategies for the parameters to meet the specific requirements aroused by researchers. E.g. in a case the experts from built enviroment would like to filter out short-lived status (even they maybe quite steep in terms of pulse number). The strategies is carefully increase sigma (by which you are flattening the Guassian curve, so the weights of center would be less significant so that the short peaks could be better wiped out by its flat neighbors) and also, properly increase the threshold would help (by which it would be more difficult for the deravatives of smoothed short peaks to pass the threshold and be recognised as one effective operation). Once the sigma and threshold reached an optimized combination, the results would be something like below for this case:&lt;/p&gt;
+&lt;p&gt;In practice, it is usually needed to use different tailored tune strategies for the parameters to meet the specific requirements aroused by researchers. E.g. in a case the experts from built environment would like to filter out short-lived status (even they maybe quite steep in terms of pulse number). The strategies is carefully increase sigma (by which you are flattening the Gaussian curve, so the weights of center would be less significant so that the short peaks could be better wiped out by its flat neighbors) and also, properly increase the threshold would help (by which it would be more difficult for the derivatives of smoothed short peaks to pass the threshold and be recognized as one effective operation). Once the sigma and threshold reached an optimized combination, the results would be something like below for this case:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Edge position detected (Sigma = 10, threshold = 0.35 * global min/max)&lt;/strong&gt;&lt;/p&gt;
 
@@ -282,6 +335,10 @@ albums.year &amp;gt; 1980;
 
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://scikit-image.org/docs/dev/auto_examples/edges/plot_canny.html#example-edges-plot-canny-py&#34;&gt;scikit-image Canny edge detector&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;technical-details-feature-selection:61665cac455c6246b15a713a4476ec20&#34;&gt;Technical Details: Feature selection&lt;/h4&gt;
 </description>
     </item>
     

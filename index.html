@@ -239,18 +239,71 @@ albums.year &gt; 1980;
         
 <article class="post post">
     <header class="post-header">
-        <h2 class="post-title"><a href="http://xren615.github.io/post/edge_detection/">Guassian-filter-based noise smoothing and edge detection of electricity meter signal</a></h2>
+        <h2 class="post-title"><a href="http://xren615.github.io/post/edge_detection/">Discovery the motivation of occupants&#39; behavior from electricity consumption signal</a></h2>
     </header>
     <section class="post-excerpt">
       <p>
           <section class="post-content">
             
 
+<h5 id="key-points:61665cac455c6246b15a713a4476ec20">Key Points</h5>
+
+<p>This report elaborates how to analyze the motivation of people&rsquo;s behavior from the electricity consumption signal and other data.</p>
+
+<ul>
+<li><strong>System</strong>: ventilation system in passive houses with adjustable flow rate option.<br /></li>
+<li><strong>Objective</strong>: understand how, and why occupants interact with the system.<br /></li>
+<li><strong>Raw data</strong>: electricity consumption signal; environment sensor records (temperature, humidity, CO2 etc.); 3-min interval, 2 years (2013-2015)<br /></li>
+<li><strong>Technique</strong>: Noise reduction (Gaussian filter); Edge detection (1st derivative Gaussian filter), Feature selection (L1-penalized logistic regression)</li>
+</ul>
+
+<p>Below <strong>Figure 1</strong> shows the overall work flow.</p>
+
+<div  align="center">    
+<img src="http://7xro3y.com1.z0.glb.clouddn.com/flowchart.png" width = "630" height = "320"/>  
+</div>  
+
+<p>(1) After preprocessing and cleaning, start with the system electricity consumption signal, e.g. <strong>Figure 2</strong> below. First thing to do is filtering the noise (caused by wind etc. or system itself) and &ldquo;fake operation&rdquo; (status change with too-short duration).</p>
+
+<div  align="center">    
+<img src="http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo_noted.png" width = "620" height = "150"/>  
+</div>  
+
+<p>(2) After a finely-tuned <strong>1st derivative Gaussian filter</strong>, the &ldquo;real operations&rdquo; would be marked out, like shown in <strong>Figure 3</strong> below</p>
+
+<div  align="center">    
+<img src="http://7xro3y.com1.z0.glb.clouddn.com/finertune.png" width = "620" height = "150"/>  
+</div>  
+
+<p>(3) Then the marked data would undergo an <strong>undersampling</strong> process since the dataset is  skewed (The no. of records with &lsquo;no operation&rsquo; is far more than ones with &lsquo;operation: increase&rsquo; or &lsquo;operation: decrease&rsquo;)</p>
+
+<p>(4) After undersampling, the training set would be <strong>normalized</strong> and then fed into a <strong>L1-penalized logistic regression classifier</strong>. Since linear models penalized with the L1 norm have sparse solutions i.e. many of their estimated coefficients are zero, it could be used for feature selection purpose. <strong>Figure 4</strong> below shows an example of the coefficients output in a certain experiment.</p>
+
+<div  align="center">    
+<img src="http://7xro3y.com1.z0.glb.clouddn.com/L1.png" width = "600" height = "400"/>  
+</div> 
+
+<p>Then the logistic regression runs repeatedly to make a <strong>recursive feature elimination</strong>. At last the most informative feature combination (judged by cross-validation accuracy) for this case could be determined, like below <strong>Figure 5</strong>  shows: these features implies the occupant&rsquo;s motivation for his/her behavior.</p>
+
+<div  align="center">    
+<img src="http://7xro3y.com1.z0.glb.clouddn.com/REFCV.png" width = "400" height = "280"/>  
+</div>  
+
+<p>(5) The results from different occupants implies there are different kind of people: some of them with strong &ldquo;time pattern&rdquo; while others are more sensitive to indoor temperatures etc. A <strong>K-Means clustering</strong> could help us group the occupants into different user profiles.</p>
+
+<div  align="center">    
+<img src="http://7xro3y.com1.z0.glb.clouddn.com/motivationdistribution.png" width = "400" height = "300"/>  
+</div> 
+
+<hr />
+
+<h4 id="technical-details-noise-reduction-edge-detection:61665cac455c6246b15a713a4476ec20">Technical Details: Noise reduction &amp; Edge detection</h4>
+
 <h5 id="background:61665cac455c6246b15a713a4476ec20">Background</h5>
 
-<p>There is a ventilation system (with heat recovery) in one passive house, of which the ventilation flow rate is controlled by a fan system, and adjustable by occpants. There are 3 availiable options (let&rsquo;s say, low, medium, high rate respectively)for the fan flowrate setting.</p>
+<p>There is a ventilation system (with heat recovery) in one passive house, of which the ventilation flow rate is controlled by a fan system, and adjustable by occupants. There are 3 available options (let&rsquo;s say, low, medium, high rate respectively)for the fan flow rate setting.</p>
 
-<p>The electricity consumption of the fan system is recorded by a smart meter in terms of pulse. Obviously, occupants&rsquo; flowrate setting could put significant influence on the electricity consumption and we could calibrate when and how people adjust their ventilation system based on the electricity consumption.</p>
+<p>The electricity consumption of the fan system is recorded by a smart meter in terms of pulse. Obviously, occupants&rsquo; flow rate setting could put significant influence on the electricity consumption and we could calibrate when and how people adjust their ventilation system based on the electricity consumption.</p>
 
 <p>However, on the one hand, with the influence of back pressure, wind speed etc. the record is not something like a clear 3-stage square wave, instead it is quite noisy. On the other hand, we got many different houses (with similar structure but with different scales of records)  within our research. They made it is not really practical to calibrate the ventilation setting position by fixed intervals (like pulse &lt; 3 == position 1; 3 &lt; pulse &lt; 5 == position 2 etc.). We need a new algorithmic method to do this job.</p>
 
@@ -262,7 +315,7 @@ albums.year &gt; 1980;
 
 <h5 id="methodology:61665cac455c6246b15a713a4476ec20">Methodology</h5>
 
-<p>Describe what we want to do in a few words: smooth the noise and detect the edge automatically, without any reset like boudary interval needed. This is actually a classic problem in <em>signal processing</em> or <em>computer vision</em> field. For this 1D signal the simplest solution maybe <strong>Gaussian derivative filter</strong>, for similar problems in 2D matrix (images) the <strong>canny edge detector</strong> could be effective. The figure may give you a vivid impression of what we are going to do:</p>
+<p>Describe what we want to do in a few words: smooth the noise and detect the edge automatically, without any reset like boundary interval needed. This is actually a classic problem in <em>signal processing</em> or <em>computer vision</em> field. For this 1D signal the simplest solution maybe <strong>Gaussian derivative filter</strong>, for similar problems in 2D matrix (images) the <strong>canny edge detector</strong> could be effective. The figure may give you a vivid impression of what we are going to do:</p>
 
 <div  align="center">    
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/canny1.jpg" width = "400" height = "150"/>  
@@ -270,11 +323,11 @@ albums.year &gt; 1980;
 
 <h6 id="basic-idea:61665cac455c6246b15a713a4476ec20">Basic idea</h6>
 
-<p>Tune a  Gaussian derivative filter to properly smooth the noise and take 1st deravative, then set an appropriate threshold to detect the edge.</p>
+<p>Tune a  Gaussian derivative filter to properly smooth the noise and take 1st derivative, then set an appropriate threshold to detect the edge.</p>
 
 <h6 id="terms:61665cac455c6246b15a713a4476ec20">Terms</h6>
 
-<p><strong>Gaussian fliter</strong></p>
+<p><strong>Gaussian filter</strong></p>
 
 <p>For noise smoothing or &ldquo;image blur&rdquo;. In layman&rsquo;s words, replace each point by the weighted average of its neighbors, the weights come from Gaussian distribution, then normalize the results.</p>
 
@@ -295,7 +348,7 @@ albums.year &gt; 1980;
 
 <p><strong>Gaussian derivative filter</strong></p>
 
-<p>For noise smoothing and edge detection. In layman&rsquo;s words, replace each point by the weighted average of its neighbors, the weights come from <strong>the 1st detivative of Gaussian distribution</strong>, then normalize the results.</p>
+<p>For noise smoothing and edge detection. In layman&rsquo;s words, replace each point by the weighted average of its neighbors, the weights come from <strong>the 1st derivative of Gaussian distribution</strong>, then normalize the results.</p>
 
 <div  align="center">    
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/1st_der_Gaussian.png" width = "200" height = "50"/>  
@@ -311,7 +364,7 @@ albums.year &gt; 1980;
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/canny1.jpg" width = "400" height = "150"/>  
 </div>  
 
-<p>Advantages of Gaussian Kernal compared to other low-pass filter:</p>
+<p>Advantages of Gaussian Kernel compared to other low-pass filter:</p>
 
 <ul>
 <li>Being possible to derive from a small set of scale-space axioms.<br /></li>
@@ -320,7 +373,7 @@ albums.year &gt; 1980;
 
 <p><strong>Scale Space</strong></p>
 
-<p>Representing an signal/image as a one-parameter family of smoothed signals/images, parametrized by the size of the smoothing kernel used for suppressing fine-scale structures. Specially for Gaussian kernals: t = sigma^2.</p>
+<p>Representing an signal/image as a one-parameter family of smoothed signals/images, parametrized by the size of the smoothing kernel used for suppressing fine-scale structures. Specially for Gaussian kernels: t = sigma^2.</p>
 
 <div  align="center">    
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-03-15%20%E4%B8%8B%E5%8D%886.54.23.png" width = "600" height = "500"/>  
@@ -362,7 +415,7 @@ albums.year &gt; 1980;
 
 <h4 id="finer-tuning:61665cac455c6246b15a713a4476ec20">Finer Tuning</h4>
 
-<p>In practice, it is usually needed to use different tailored tune strategies for the parameters to meet the specific requirements aroused by researchers. E.g. in a case the experts from built enviroment would like to filter out short-lived status (even they maybe quite steep in terms of pulse number). The strategies is carefully increase sigma (by which you are flattening the Guassian curve, so the weights of center would be less significant so that the short peaks could be better wiped out by its flat neighbors) and also, properly increase the threshold would help (by which it would be more difficult for the deravatives of smoothed short peaks to pass the threshold and be recognised as one effective operation). Once the sigma and threshold reached an optimized combination, the results would be something like below for this case:</p>
+<p>In practice, it is usually needed to use different tailored tune strategies for the parameters to meet the specific requirements aroused by researchers. E.g. in a case the experts from built environment would like to filter out short-lived status (even they maybe quite steep in terms of pulse number). The strategies is carefully increase sigma (by which you are flattening the Gaussian curve, so the weights of center would be less significant so that the short peaks could be better wiped out by its flat neighbors) and also, properly increase the threshold would help (by which it would be more difficult for the derivatives of smoothed short peaks to pass the threshold and be recognized as one effective operation). Once the sigma and threshold reached an optimized combination, the results would be something like below for this case:</p>
 
 <p><strong>Edge position detected (Sigma = 10, threshold = 0.35 * global min/max)</strong></p>
 
@@ -390,6 +443,10 @@ albums.year &gt; 1980;
 <li><p><a href="http://scikit-image.org/docs/dev/auto_examples/edges/plot_canny.html#example-edges-plot-canny-py">scikit-image Canny edge detector</a></p></li>
 </ul>
 
+<hr />
+
+<h4 id="technical-details-feature-selection:61665cac455c6246b15a713a4476ec20">Technical Details: Feature selection</h4>
+
           </section>
       </p>
       
@@ -403,11 +460,11 @@ albums.year &gt; 1980;
         
         on
             
-                <a href="http://xren615.github.io/tags/edge-detection/">#Edge detection</a>,
+                <a href="http://xren615.github.io/tags/noise-reduction/">#noise reduction</a>,
             
-                <a href="http://xren615.github.io/tags/signal-processing/">#Signal processing</a>,
+                <a href="http://xren615.github.io/tags/edge-detection/">#edge detection</a>,
             
-                <a href="http://xren615.github.io/tags/master-thesis/">#Master thesis</a>,
+                <a href="http://xren615.github.io/tags/feature-selection/">#feature selection</a>,
             
         
         <time class="post-date" datetime="2016-03-15T15:08:09&#43;01:00">
