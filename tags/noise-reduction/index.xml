@@ -32,7 +32,7 @@
 &lt;p&gt;Below &lt;strong&gt;Figure 1&lt;/strong&gt; shows the overall pipeline.&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/flowchartbig.png&#34; width = &#34;900&#34; height = &#34;460&#34;/&gt;  
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/flowchartbig.png&#34; width = &#34;1200&#34; height = &#34;600&#34;/&gt;  
 &lt;/div&gt;  
 
 &lt;p&gt;(1) After essential preprocessing and cleaning (NaNs are backfilled), start with a system electricity consumption signal like &lt;strong&gt;Figure 2&lt;/strong&gt; below. A sudden change in the signal could imply the occupants&amp;rsquo; interaction with the system (e.g. once the occupant turn the flow rate into a higher option there should be a steep increasing edge on the electricity consumption signal). First thing to do is filtering out the noise (caused by wind etc. or system itself) and &amp;ldquo;fake operation&amp;rdquo; (status change with too-short duration).&lt;/p&gt;
