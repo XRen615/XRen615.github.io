@@ -260,13 +260,13 @@ albums.year &gt; 1980;
 <p>Below <strong>Figure 1</strong> shows the overall pipeline.</p>
 
 <div  align="center">    
-<img src="http://7xro3y.com1.z0.glb.clouddn.com/flowchart.png" width = "850" height = "420"/>  
+<img src="http://7xro3y.com1.z0.glb.clouddn.com/flowchartbig.png" width = "900" height = "460"/>  
 </div>  
 
 <p>(1) After essential preprocessing and cleaning (NaNs are backfilled), start with a system electricity consumption signal like <strong>Figure 2</strong> below. A sudden change in the signal could imply the occupants&rsquo; interaction with the system (e.g. once the occupant turn the flow rate into a higher option there should be a steep increasing edge on the electricity consumption signal). First thing to do is filtering out the noise (caused by wind etc. or system itself) and &ldquo;fake operation&rdquo; (status change with too-short duration).</p>
 
 <div  align="center">    
-<img src="http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo_noted.png" width = "620" height = "150"/>  
+<img src="http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo_notedbig.png" width = "620" height = "150"/>  
 </div>  
 
 <p>(2) Through a finely-tuned <strong>1st derivative Gaussian filter</strong>, the noise and &ldquo;fake operation&rdquo; could be filtered out and the valid operations would be marked out, like shown in <strong>Figure 3</strong> below.</p>
@@ -609,7 +609,7 @@ plt.yticks(y_pos + 0.4,X_scaled.columns)
 plt.title('Feature Importance After RFECV Logistic Regression')
 </code></pre>
 
-<p>#####Reference</p>
+<h5 id="reference-1:61665cac455c6246b15a713a4476ec20">Reference</h5>
 
 <ul>
 <li><a href="http://scikit-learn.org/stable/modules/preprocessing.html">sklearn standardization</a><br /></li>

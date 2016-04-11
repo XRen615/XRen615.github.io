@@ -153,13 +153,13 @@ albums.year &amp;gt; 1980;
 &lt;p&gt;Below &lt;strong&gt;Figure 1&lt;/strong&gt; shows the overall pipeline.&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/flowchart.png&#34; width = &#34;850&#34; height = &#34;420&#34;/&gt;  
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/flowchartbig.png&#34; width = &#34;900&#34; height = &#34;460&#34;/&gt;  
 &lt;/div&gt;  
 
 &lt;p&gt;(1) After essential preprocessing and cleaning (NaNs are backfilled), start with a system electricity consumption signal like &lt;strong&gt;Figure 2&lt;/strong&gt; below. A sudden change in the signal could imply the occupants&amp;rsquo; interaction with the system (e.g. once the occupant turn the flow rate into a higher option there should be a steep increasing edge on the electricity consumption signal). First thing to do is filtering out the noise (caused by wind etc. or system itself) and &amp;ldquo;fake operation&amp;rdquo; (status change with too-short duration).&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo_noted.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo_notedbig.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
 &lt;/div&gt;  
 
 &lt;p&gt;(2) Through a finely-tuned &lt;strong&gt;1st derivative Gaussian filter&lt;/strong&gt;, the noise and &amp;ldquo;fake operation&amp;rdquo; could be filtered out and the valid operations would be marked out, like shown in &lt;strong&gt;Figure 3&lt;/strong&gt; below.&lt;/p&gt;
@@ -502,7 +502,7 @@ plt.yticks(y_pos + 0.4,X_scaled.columns)
 plt.title(&#39;Feature Importance After RFECV Logistic Regression&#39;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;#####Reference&lt;/p&gt;
+&lt;h5 id=&#34;reference-1:61665cac455c6246b15a713a4476ec20&#34;&gt;Reference&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://scikit-learn.org/stable/modules/preprocessing.html&#34;&gt;sklearn standardization&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
