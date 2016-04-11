@@ -141,54 +141,56 @@ albums.year &amp;gt; 1980;
 
 &lt;h5 id=&#34;key-points:61665cac455c6246b15a713a4476ec20&#34;&gt;Key Points&lt;/h5&gt;
 
-&lt;p&gt;This report elaborates how to analyze the motivation of people&amp;rsquo;s behavior from the electricity consumption signal and other data.&lt;/p&gt;
+&lt;p&gt;This chapter briefly elaborates how to analyze the motivation of people&amp;rsquo;s behavior from the electricity consumption signal and other data.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;System&lt;/strong&gt;: ventilation system in passive houses with adjustable flow rate option.&lt;br /&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Objective&lt;/strong&gt;: understand how, and why occupants interact with the system.&lt;br /&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Raw data&lt;/strong&gt;: electricity consumption signal; environment sensor records (temperature, humidity, CO2 etc.); 3-min interval, 2 years (2013-2015)&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Technique&lt;/strong&gt;: Noise reduction (Gaussian filter); Edge detection (1st derivative Gaussian filter), Feature selection (L1-penalized logistic regression)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Technique&lt;/strong&gt;: Noise reduction (Gaussian filter); Edge detection (1st derivative Gaussian filter), Feature selection (L1-penalized logistic regression, recursive feature elimination)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Below &lt;strong&gt;Figure 1&lt;/strong&gt; shows the overall work flow.&lt;/p&gt;
+&lt;p&gt;Below &lt;strong&gt;Figure 1&lt;/strong&gt; shows the overall pipeline.&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/flowchart.png&#34; width = &#34;750&#34; height = &#34;380&#34;/&gt;  
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/flowchart.png&#34; width = &#34;850&#34; height = &#34;420&#34;/&gt;  
 &lt;/div&gt;  
 
-&lt;p&gt;(1) After preprocessing and cleaning, start with the system electricity consumption signal, e.g. &lt;strong&gt;Figure 2&lt;/strong&gt; below. First thing to do is filtering the noise (caused by wind etc. or system itself) and &amp;ldquo;fake operation&amp;rdquo; (status change with too-short duration).&lt;/p&gt;
+&lt;p&gt;(1) After essential preprocessing and cleaning (NaNs are backfilled), start with a system electricity consumption signal like &lt;strong&gt;Figure 2&lt;/strong&gt; below. A sudden change in the signal could imply the occupants&amp;rsquo; interaction with the system (e.g. once the occupant turn the flow rate into a higher option there should be a steep increasing edge on the electricity consumption signal). First thing to do is filtering out the noise (caused by wind etc. or system itself) and &amp;ldquo;fake operation&amp;rdquo; (status change with too-short duration).&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo_noted.png&#34; width = &#34;750&#34; height = &#34;180&#34;/&gt;  
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo_noted.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
 &lt;/div&gt;  
 
-&lt;p&gt;(2) After a finely-tuned &lt;strong&gt;1st derivative Gaussian filter&lt;/strong&gt;, the &amp;ldquo;real operations&amp;rdquo; would be marked out, like shown in &lt;strong&gt;Figure 3&lt;/strong&gt; below&lt;/p&gt;
+&lt;p&gt;(2) Through a finely-tuned &lt;strong&gt;1st derivative Gaussian filter&lt;/strong&gt;, the noise and &amp;ldquo;fake operation&amp;rdquo; could be filtered out and the valid operations would be marked out, like shown in &lt;strong&gt;Figure 3&lt;/strong&gt; below.&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/finertune.png&#34; width = &#34;750&#34; height = &#34;180&#34;/&gt;  
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/finertune.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
 &lt;/div&gt;  
 
-&lt;p&gt;(3) Then the marked data would undergo an &lt;strong&gt;undersampling&lt;/strong&gt; process since the dataset is  skewed (The no. of records with &amp;lsquo;no operation&amp;rsquo; is far more than ones with &amp;lsquo;operation: increase&amp;rsquo; or &amp;lsquo;operation: decrease&amp;rsquo;)&lt;/p&gt;
+&lt;p&gt;(3) Then the marked data set would undergo an &lt;strong&gt;undersampling&lt;/strong&gt; process since the dataset is now skewed (The no. of records marked with &amp;lsquo;no operation&amp;rsquo; is far more than ones with operation, either increase or decrease). The undersampling process ensures the data set has balanced scales with each class, for the effectiveness of following classification algorithm.&lt;/p&gt;
 
-&lt;p&gt;(4) After undersampling, the training set would be &lt;strong&gt;normalized&lt;/strong&gt; and then fed into a &lt;strong&gt;L1-penalized logistic regression classifier&lt;/strong&gt;. Since linear models penalized with the L1 norm have sparse solutions i.e. many of their estimated coefficients are zero, it could be used for feature selection purpose. &lt;strong&gt;Figure 4&lt;/strong&gt; below shows an example of the coefficients output in a certain experiment.&lt;/p&gt;
+&lt;p&gt;(4) After undersampling, the training set would be &lt;strong&gt;normalized&lt;/strong&gt; and then fed into a &lt;strong&gt;L1-penalized logistic regression classifier&lt;/strong&gt;. Since linear model penalized with L1 norm has sparse solutions i.e. many of its estimated coefficients would be zero, it could be used for feature selection purpose. &lt;strong&gt;Figure 4&lt;/strong&gt; below shows an example of the coefficients output in a certain experiment.&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/L1.png&#34; width = &#34;700&#34; height = &#34;430&#34;/&gt;  
 &lt;/div&gt; 
 
-&lt;p&gt;Then the logistic regression runs repeatedly to make a &lt;strong&gt;recursive feature elimination&lt;/strong&gt;. At last the most informative feature combination (judged by cross-validation accuracy) for this case could be determined, like below &lt;strong&gt;Figure 5&lt;/strong&gt;  shows: these features implies the occupant&amp;rsquo;s motivation for his/her behavior.&lt;/p&gt;
+&lt;p&gt;Then the logistic regression runs repeatedly to make a &lt;strong&gt;recursive feature elimination&lt;/strong&gt; (first, the estimator is trained on the initial set of features and weights are assigned to each one of them. Then, features whose absolute weights are the smallest are pruned from the current set features). At last, the most informative feature combination (judged by cross-validation accuracy) in this case could be determined, like below &lt;strong&gt;Figure 5&lt;/strong&gt;  shows: these features implies this occupant&amp;rsquo;s motivation for his/her behavior.&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/REFCV.png&#34; width = &#34;500&#34; height = &#34;340&#34;/&gt;  
 &lt;/div&gt;  
 
-&lt;p&gt;(5) The results from different occupants implies there are different kind of people: some of them with strong &amp;ldquo;time pattern&amp;rdquo; while others are more sensitive to indoor temperatures etc. A &lt;strong&gt;K-Means clustering&lt;/strong&gt; could help us group the occupants into different user profiles.&lt;/p&gt;
+&lt;p&gt;(5) Repeat the process above for different occupants. The results imply there are different kinds of people since their &amp;ldquo;best feature combination&amp;rdquo; vary a lot: e.g. some of them are with strong &amp;ldquo;time pattern&amp;rdquo; while others may be more sensitive to indoor environment, like temperature etc. A &lt;strong&gt;K-Means clustering&lt;/strong&gt; could help us demonstrate this by grouping the occupants into different user profiles.&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/motivationdistribution.png&#34; width = &#34;600&#34; height = &#34;450&#34;/&gt;  
 &lt;/div&gt; 
 
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;From here below is technical log regarding relevant theory and code to realize the whole process.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h4 id=&#34;technical-details-noise-reduction-edge-detection:61665cac455c6246b15a713a4476ec20&#34;&gt;Technical Details: Noise reduction &amp;amp; Edge detection&lt;/h4&gt;
 
@@ -322,7 +324,7 @@ albums.year &amp;gt; 1980;
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/largerscale.png&#34; width = &#34;620&#34; height = &#34;400&#34;/&gt;  
 &lt;/div&gt; 
 
-&lt;h4 id=&#34;reference:61665cac455c6246b15a713a4476ec20&#34;&gt;Reference&lt;/h4&gt;
+&lt;h5 id=&#34;reference:61665cac455c6246b15a713a4476ec20&#34;&gt;Reference&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Scale_space&#34;&gt;Scale Space wiki&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -339,6 +341,175 @@ albums.year &amp;gt; 1980;
 &lt;hr /&gt;
 
 &lt;h4 id=&#34;technical-details-feature-selection:61665cac455c6246b15a713a4476ec20&#34;&gt;Technical Details: Feature selection&lt;/h4&gt;
+
+&lt;p&gt;Before feature selection I made an undersampling to the data set to ensure every class shares a balanced weight in the whole dataset (before which the ratio is something like 150,000 no operation, 400 increase, 400 decrease).&lt;/p&gt;
+
+&lt;p&gt;The feature selection process is carried out in Python with scikit-learn. First each feature in the data set need to be standardized since the objective function of the l1 regularized linear model we use in this case assumes that all features are centered on zero and have variance in the same order. If a feature has a significantly lager scale or variance compared to others, it might dominate the objective function and make the estimator unable to learn from other features correctly as expected. In this case I used sklearn.preprocessing.scale() to standardize each feature to zero mean and unit variance.&lt;/p&gt;
+
+&lt;p&gt;Then the standardized data set was fed into a recursive feature elimination with cross-validation (REFCV) loop with a L1-penalized logistic regression kernel since linear models penalized with the L1 norm have sparse solutions: many of their estimated coefficients are zero, which could be used for feature selection purpose.&lt;/p&gt;
+
+&lt;p&gt;Below is the main part of the coding script for this session (ipynb format).&lt;/p&gt;
+
+&lt;h5 id=&#34;feature-selection-after-gaussian-filter:61665cac455c6246b15a713a4476ec20&#34;&gt;Feature selection after Gaussian filter&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;import matplotlib.pyplot as plt
+%matplotlib inline
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import math
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Data Loading&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ventpos = pd.read_csv(&amp;quot;/Users/xinyuyangren/Desktop/1demo.csv&amp;quot;)
+ventpos = ventpos.fillna(method=&#39;backfill&#39;)
+ventpos.head()
+ventpos.op.value_counts()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;UnderSampling&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sample_size = math.ceil((sum(ventpos.op == 1) + sum(ventpos.op == -1))/2)
+sample_size
+noop_indices = ventpos[ventpos.op == 0].index
+noop_indices
+random_indices = np.random.choice(noop_indices, sample_size, replace=False)
+random_indices
+noop_sample = ventpos.loc[random_indices]
+up_sample = ventpos[ventpos.op == 1]
+down_sample = ventpos[ventpos.op == -1]
+op_sample = pd.concat([up_sample,down_sample])
+op_sample.head()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Feature selection: up operation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;undersampled_up = pd.concat([up_sample,noop_sample])
+undersampled_up.head()
+#generate month/hour attribute from datetime string  
+undersampled_up.dt = pd.to_datetime(undersampled_up.dt)
+t = pd.DatetimeIndex(undersampled_up.dt)
+hr = t.hour
+undersampled_up[&#39;HourOfDay&#39;] = hr
+month = t.month
+undersampled_up[&#39;Month&#39;] = month
+year = t.year
+undersampled_up[&#39;Year&#39;] = year
+undersampled_up.head()
+for col in undersampled_up:
+    print col
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;def remap(x):
+    if x == &#39;t&#39;:
+        x = 0
+    else:
+        x = 1
+    return x
+
+for col in [&#39;wc_lr&#39;, &#39;wc_kitchen&#39;, &#39;wc_br3&#39;, &#39;wc_br2&#39;, &#39;wc_attic&#39;]:
+    w = undersampled_up[col].apply(remap)
+    undersampled_up[col] = w
+undersampled_up.head()
+openwin = undersampled_up.wc_attic + undersampled_up.wc_br2 + undersampled_up.wc_br3 + undersampled_up.wc_kitchen + undersampled_up.wc_lr
+undersampled_up[&#39;openwin&#39;] = openwin;
+undersampled_up = undersampled_up.drop([&#39;wc_lr&#39;, &#39;wc_kitchen&#39;, &#39;wc_br3&#39;, &#39;wc_br2&#39;, &#39;wc_attic&#39;,&#39;Year&#39;,&#39;dt&#39;,&#39;pulse_channel_ventilation_unit&#39;],axis = 1)
+undersampled_up.head()
+for col in undersampled_up:
+    print col
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Logistic Regression&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from sklearn.linear_model import LogisticRegression
+from sklearn.feature_selection import SelectFromModel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;#shuffle the order
+undersampled_up = undersampled_up.reindex(np.random.permutation(undersampled_up.index))
+undersampled_up.head()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;y = undersampled_up.pop(&#39;op&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;# Columnwise Normalizaion
+from sklearn import preprocessing
+X_scaled = pd.DataFrame()
+for col in undersampled_up:
+    X_scaled[col] = preprocessing.scale(undersampled_up[col])
+X_scaled.head()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;from sklearn import cross_validation
+lg = LogisticRegression(penalty=&#39;l1&#39;,C = 0.1)
+scores = cross_validation.cross_val_score(lg, X_scaled, y, cv=10)
+#The mean score and the 95% confidence interval of the score estimate
+print(&amp;quot;Accuracy: %0.2f (+/- %0.2f)&amp;quot; % (scores.mean(), scores.std() * 2))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;clf = lg.fit(X_scaled, y)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;plt.figure(figsize=(12,9))
+y_pos = np.arange(len(X_scaled.columns))
+plt.barh(y_pos,abs(clf.coef_[0]))
+plt.yticks(y_pos + 0.4,X_scaled.columns)
+plt.title(&#39;Feature Importance from Logistic Regression&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;REFCV FEATURE OPTIMIZATIN&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from sklearn.feature_selection import RFECV
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;selector = RFECV(lg, step=1, cv=10)
+selector = selector.fit(X_scaled, y)
+mask = selector.support_ 
+mask
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;selector.ranking_
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;X_scaled.keys()[mask]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;selector.score(X_scaled, y)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;X_selected = pd.DataFrame()
+for col in X_scaled.keys()[mask]:
+    X_selected[col] = X_scaled[col]
+X_selected.head()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;scores = cross_validation.cross_val_score(lg, X_selected, y, cv=10)
+#The mean score and the 95% confidence interval of the score estimate
+scores
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;print(&amp;quot;Accuracy: %0.2f (+/- %0.2f)&amp;quot; % (scores.mean(), scores.std() * 2))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;clf_final = lg.fit(X_selected,y)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;y_pos = np.arange(len(X_selected.columns))
+plt.barh(y_pos,abs(clf_final.coef_[0]))
+plt.yticks(y_pos + 0.4,X_scaled.columns)
+plt.title(&#39;Feature Importance After RFECV Logistic Regression&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;#####Reference&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://scikit-learn.org/stable/modules/preprocessing.html&#34;&gt;sklearn standardization&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Oversampling_and_undersampling_in_data_analysis&#34;&gt;undersampling&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://scikit-learn.org/stable/modules/feature_selection.html&#34;&gt;sklearn feature selection&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFECV.html#sklearn.feature_selection.RFECV&#34;&gt;sklearn REFCV&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
