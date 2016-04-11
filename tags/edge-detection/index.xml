@@ -25,14 +25,14 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;System&lt;/strong&gt;: ventilation system in passive houses with adjustable flow rate option.&lt;br /&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Objective&lt;/strong&gt;: understand how, and why occupants interact with the system.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Raw data&lt;/strong&gt;: electricity consumption signal; environment sensor records (temperature, humidity, CO2 etc.); 3-min interval, 2 years (2013-2015)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Raw data&lt;/strong&gt;: electricity consumption signal; environment sensor records (temperature, humidity, CO2 etc.); 3-min interval * 2 years (2013-2015): 325946 rows × 25 features.&lt;br /&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Technique&lt;/strong&gt;: Noise reduction (Gaussian filter); Edge detection (1st derivative Gaussian filter), Feature selection (L1-penalized logistic regression, recursive feature elimination)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Below &lt;strong&gt;Figure 1&lt;/strong&gt; shows the overall pipeline.&lt;/p&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/flowchartbig.png&#34; width = &#34;1200&#34; height = &#34;600&#34;/&gt;  
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/flowchartbig.png&#34; width = &#34;1500&#34; height = &#34;750&#34;/&gt;  
 &lt;/div&gt;  
 
 &lt;p&gt;(1) After essential preprocessing and cleaning (NaNs are backfilled), start with a system electricity consumption signal like &lt;strong&gt;Figure 2&lt;/strong&gt; below. A sudden change in the signal could imply the occupants&amp;rsquo; interaction with the system (e.g. once the occupant turn the flow rate into a higher option there should be a steep increasing edge on the electricity consumption signal). First thing to do is filtering out the noise (caused by wind etc. or system itself) and &amp;ldquo;fake operation&amp;rdquo; (status change with too-short duration).&lt;/p&gt;
