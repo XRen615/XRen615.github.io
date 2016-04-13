@@ -110,20 +110,18 @@
 
 <h5 id="key-points:61665cac455c6246b15a713a4476ec20">Key Points</h5>
 
-<p>This chapter briefly elaborates how to analyze the motivation of people&rsquo;s behavior from the electricity consumption signal and other data.</p>
+<p>This chapter briefly elaborates how to analyze the motivation of people&rsquo;s operation on a system from the system electricity consumption signal and other data.</p>
 
 <ul>
+<li><strong>Objective</strong>: understand how, and why occupants interact with the system.</li>
 <li><strong>System</strong>: ventilation system in passive houses with adjustable flow rate option.<br /></li>
-<li><strong>Objective</strong>: understand how, and why occupants interact with the system.<br /></li>
 <li><strong>Raw data</strong>: electricity consumption signal; environment sensor records (temperature, humidity, CO2 etc.); 3-min interval * 2 years (2013-2015): 325946 rows × 25 features.<br /></li>
 <li><strong>Technique</strong>: Noise reduction (Gaussian filter); Edge detection (1st derivative Gaussian filter), Feature selection (L1-penalized logistic regression, recursive feature elimination)</li>
 </ul>
 
-<p>Below <strong>Figure 1</strong> shows the overall pipeline.</p>
+<p>Below <strong>Figure 1</strong> shows the overall pipeline I designed.</p>
 
-<div  align="center">    
-<img src="http://7xro3y.com1.z0.glb.clouddn.com/flowchartbig.png" width = "1500" height = "750"/>  
-</div>  
+<p><img src="http://7xro3y.com1.z0.glb.clouddn.com/flowchartbig.png" alt="flowchart" /></p>
 
 <p>(1) After essential preprocessing and cleaning (NaNs are backfilled), start with a system electricity consumption signal like <strong>Figure 2</strong> below. A sudden change in the signal could imply the occupants&rsquo; interaction with the system (e.g. once the occupant turn the flow rate into a higher option there should be a steep increasing edge on the electricity consumption signal). First thing to do is filtering out the noise (caused by wind etc. or system itself) and &ldquo;fake operation&rdquo; (status change with too-short duration).</p>
 
@@ -132,6 +130,14 @@
 </div>  
 
 <p>(2) Through a finely-tuned <strong>1st derivative Gaussian filter</strong>, the noise and &ldquo;fake operation&rdquo; could be filtered out and the valid operations would be marked out, like shown in <strong>Figure 3</strong> below.</p>
+
+<div  align="center">    
+<img src="http://7xro3y.com1.z0.glb.clouddn.com/demo0.png" width = "620" height = "150"/>  
+</div> 
+
+<div  align="center">    
+<img src="http://7xro3y.com1.z0.glb.clouddn.com/demo1.png" width = "620" height = "150"/>  
+</div> 
 
 <div  align="center">    
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/finertune.png" width = "620" height = "150"/>  

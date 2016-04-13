@@ -20,20 +20,18 @@
 
 &lt;h5 id=&#34;key-points:61665cac455c6246b15a713a4476ec20&#34;&gt;Key Points&lt;/h5&gt;
 
-&lt;p&gt;This chapter briefly elaborates how to analyze the motivation of people&amp;rsquo;s behavior from the electricity consumption signal and other data.&lt;/p&gt;
+&lt;p&gt;This chapter briefly elaborates how to analyze the motivation of people&amp;rsquo;s operation on a system from the system electricity consumption signal and other data.&lt;/p&gt;
 
 &lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Objective&lt;/strong&gt;: understand how, and why occupants interact with the system.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;System&lt;/strong&gt;: ventilation system in passive houses with adjustable flow rate option.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Objective&lt;/strong&gt;: understand how, and why occupants interact with the system.&lt;br /&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Raw data&lt;/strong&gt;: electricity consumption signal; environment sensor records (temperature, humidity, CO2 etc.); 3-min interval * 2 years (2013-2015): 325946 rows × 25 features.&lt;br /&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Technique&lt;/strong&gt;: Noise reduction (Gaussian filter); Edge detection (1st derivative Gaussian filter), Feature selection (L1-penalized logistic regression, recursive feature elimination)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Below &lt;strong&gt;Figure 1&lt;/strong&gt; shows the overall pipeline.&lt;/p&gt;
+&lt;p&gt;Below &lt;strong&gt;Figure 1&lt;/strong&gt; shows the overall pipeline I designed.&lt;/p&gt;
 
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/flowchartbig.png&#34; width = &#34;1500&#34; height = &#34;750&#34;/&gt;  
-&lt;/div&gt;  
+&lt;p&gt;&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/flowchartbig.png&#34; alt=&#34;flowchart&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;(1) After essential preprocessing and cleaning (NaNs are backfilled), start with a system electricity consumption signal like &lt;strong&gt;Figure 2&lt;/strong&gt; below. A sudden change in the signal could imply the occupants&amp;rsquo; interaction with the system (e.g. once the occupant turn the flow rate into a higher option there should be a steep increasing edge on the electricity consumption signal). First thing to do is filtering out the noise (caused by wind etc. or system itself) and &amp;ldquo;fake operation&amp;rdquo; (status change with too-short duration).&lt;/p&gt;
 
@@ -42,6 +40,14 @@
 &lt;/div&gt;  
 
 &lt;p&gt;(2) Through a finely-tuned &lt;strong&gt;1st derivative Gaussian filter&lt;/strong&gt;, the noise and &amp;ldquo;fake operation&amp;rdquo; could be filtered out and the valid operations would be marked out, like shown in &lt;strong&gt;Figure 3&lt;/strong&gt; below.&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/demo0.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
+&lt;/div&gt; 
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/demo1.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
+&lt;/div&gt; 
 
 &lt;div  align=&#34;center&#34;&gt;    
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/finertune.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
