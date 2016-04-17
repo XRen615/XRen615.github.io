@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Reading Notes on SQUARE INCH</title>
-    <link>http://xren615.github.io/tags/reading-notes/</link>
-    <description>Recent content in Reading Notes on SQUARE INCH</description>
+    <title>Reading Notes on </title>
+    <link>/tags/reading-notes/</link>
+    <description>Recent content in Reading Notes on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Sun, 13 Mar 2016 20:12:06 +0100</lastBuildDate>
-    <atom:link href="http://xren615.github.io/tags/reading-notes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/reading-notes/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Reading Note: Building machine learning systems with python</title>
-      <link>http://xren615.github.io/post/reading_note1/</link>
+      <link>/post/reading_note1/</link>
       <pubDate>Sun, 13 Mar 2016 20:12:06 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/reading_note1/</guid>
+      <guid>/post/reading_note1/</guid>
       <description>
 
 &lt;p&gt;( &lt;em&gt;I would like to take this oppurtunity to somehow review and systemize my knowledge on machine learning system.&lt;/em&gt; )&lt;/p&gt;

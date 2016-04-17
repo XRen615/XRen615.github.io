@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data Science on SQUARE INCH</title>
-    <link>http://xren615.github.io/tags/data-science/</link>
-    <description>Recent content in Data Science on SQUARE INCH</description>
+    <title>Data Science on </title>
+    <link>/tags/data-science/</link>
+    <description>Recent content in Data Science on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Sun, 06 Mar 2016 19:19:22 +0100</lastBuildDate>
-    <atom:link href="http://xren615.github.io/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Feature reducing_ENG</title>
-      <link>http://xren615.github.io/post/Feature_reducing_ENG/</link>
+      <link>/post/Feature_reducing_ENG/</link>
       <pubDate>Sun, 06 Mar 2016 19:19:22 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/Feature_reducing_ENG/</guid>
+      <guid>/post/Feature_reducing_ENG/</guid>
       <description>
 
 &lt;h3 id=&#34;feature-reducing:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Feature reducing&lt;/h3&gt;
@@ -109,10 +107,10 @@ There is no general rule to select an alpha parameter for recovery of non-zero c
     
     <item>
       <title>特征选择</title>
-      <link>http://xren615.github.io/post/feature_reducing/</link>
+      <link>/post/feature_reducing/</link>
       <pubDate>Sun, 06 Mar 2016 19:19:22 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/feature_reducing/</guid>
+      <guid>/post/feature_reducing/</guid>
       <description>
 
 &lt;h3 id=&#34;feature-reducing:c3a47a940ff1b84874509236adb1e6a0&#34;&gt;Feature reducing&lt;/h3&gt;
