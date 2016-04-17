@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sql on X.Ren&#39;s Personal blog</title>
+    <title>Sql on Ghostwriter example</title>
     <link>http://xren615.github.io/tags/sql/</link>
-    <description>Recent content in Sql on X.Ren&#39;s Personal blog</description>
+    <description>Recent content in Sql on Ghostwriter example</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>My Name</copyright>
     <lastBuildDate>Fri, 01 Apr 2016 18:49:28 +0200</lastBuildDate>
     <atom:link href="http://xren615.github.io/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>SQL Notes</title>
-      <link>http://xren615.github.io/post/sql/</link>
+      <link>http://xren615.github.io/2016/04/01/sql/</link>
       <pubDate>Fri, 01 Apr 2016 18:49:28 +0200</pubDate>
       
-      <guid>http://xren615.github.io/post/sql/</guid>
+      <guid>http://xren615.github.io/2016/04/01/sql/</guid>
       <description>&lt;p&gt;(This is the note for the SQL training course on Codecademy.com)&lt;br /&gt;
 ####Some basic recipes&lt;/p&gt;
 

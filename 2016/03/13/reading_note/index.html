@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Reading Note: Building machine learning systems with python &middot; My Name</title>
+        <meta name="description" content="Ghostwriter example description">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.15" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://xren615.github.iocss/normalize.css">
+        <link rel="stylesheet" href="http://xren615.github.iocss/highlight.css">
+        <link rel="stylesheet" href="http://xren615.github.iocss/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'XXX', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Ghostwriter example" href="http://xren615.github.io">Ghostwriter example</a>
+                            </h1>
+                        
+                        <a class="button-square" href="http://xren615.github.ioindex.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/XXX">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/XXX">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Stack Overflow" title="Stack Overflow" href="http://stackoverflow.com/users/XXX/YYY">
+                                <i class="fa fa-stack-overflow"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/XXX/">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Google+" title="Google+" href="https://google.com/&#43;XXX">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Projects" href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Contact" href="/page/contact/">Contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="About" href="/page/about/">About</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Reading Note: Building machine learning systems with python</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2016-03-13" itemprop="datePublished">Sun, Mar 13, 2016</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="http://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://google.com/&#43;XXX" itemprop="url" rel="author">My Name</a>
+            </span>
+        </span>
+    </p>
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+
+<p>( <em>I would like to take this oppurtunity to somehow review and systemize my knowledge on machine learning system.</em> )</p>
+
+<h3 id="chapter-1-introduction:db211eeb3c2b2819e54a5708f75accc1">Chapter 1. Introduction</h3>
+
+<p>“This book will give you a broad overview of what types of learning algorithms are currently most used in the diverse fields of machine learning, and where to watch out when applying them.”</p>
+
+<p>typical workflow:</p>
+
+<ul>
+<li>Reading in the data and cleaning it<br /></li>
+<li>Exploring and understanding the input data  (feature engineering: a simple algorithm with refined data generally outperforms a very sophisticated algorithm with raw data!)<br /></li>
+<li>Analyzing how best to present the data to the learning algorithm<br /></li>
+<li>Choosing the right model and learning algorithm<br /></li>
+<li>Measuring the performance correctly<br /></li>
+</ul>
+
+<p>We see that only the fourth point is dealing with the fancy algorithms. Nevertheless, we hope that this book will convince you that the other four tasks are not simply chores, but can be equally exciting. Our hope is that by the end of the book, you will have truly fallen in love with data instead of learning algorithms.</p>
+
+<p>only blog we want to highlight right here (more in the Appendix) is <a href="http://blog.kaggle.com">http://blog.kaggle.com</a></p>
+
+<p>Python is an <strong>interpreted language</strong> (a highly optimized one, though) that is slow for many numerically heavy algorithms compared to C or FORTRAN. However in Python, it is very easy to <strong>off-load</strong> number crunching tasks to the lower layer in the form of <strong>C or FORTRAN extensions</strong>. And that is exactly what NumPy and SciPy do. In this tandem, <strong>NumPy</strong> provides the support of highly optimized multidimensional arrays, which are the basic data structure of most state-of-the-art algorithms. <strong>SciPy</strong> uses those arrays to provide a set of fast numerical recipes. Finally, <strong>matplotlib</strong> is probably the most convenient and feature-rich library to plot high-quality graphs using Python.</p>
+
+<h5 id="learning-numpy:db211eeb3c2b2819e54a5708f75accc1">Learning NumPy</h5>
+
+<p>As we do not want to <strong>pollute our namespace</strong>, we certainly should <strong>not</strong> use the following code:</p>
+
+<pre><code>from numpy import *  
+</code></pre>
+
+<p>Because, for instance, numpy.array will potentially shadow the array package that is included in standard Python. Instead, we will use the following convenient shortcut:</p>
+
+<pre><code>import numpy as np  
+</code></pre>
+
+<p>Numpy <strong>avoids copies</strong> wherever possible, whenever you need a true copy, you can always perform:</p>
+
+<pre><code>c = a.reshape((3,2)).copy()”
+</code></pre>
+
+<p>Another big advantage of NumPy arrays is that the <strong>operations</strong> are propagated to the <strong>individual elements</strong>.</p>
+
+<p><strong>Indexing</strong></p>
+
+<ul>
+<li><p>allows you to use arrays themselves as indices by performing:</p>
+
+<pre><code>a[np.array([2,3,4])]  
+</code></pre></li>
+
+<li><p>conditions are also propagated to individual elements</p>
+
+<pre><code>a[a&gt;4]  
+</code></pre></li>
+
+<li><p>clip function for trim the outliers, clipping the values at both ends of an interval with one function call</p>
+
+<pre><code>a.clip(0,4)  
+array([0, 1, 4, 3, 4, 4])”
+</code></pre></li>
+
+<li><p>Handling nonexisting values</p>
+
+<pre><code>c = np.array([1, 2, np.NAN, 3, 4]) &gt;&gt;&gt; c
+array([  1.,   2.,  nan,   3.,   4.])
+np.isnan(c)
+array([False, False,  True, False, False], dtype=bool)
+c[~np.isnan(c)]
+array([ 1.,  2.,  3.,  4.])
+np.mean(c[~np.isnan(c)])
+2.5
+</code></pre></li>
+
+<li><p>Comparing the runtime: in every algorithm we are about to implement, we should always look how we can move loops over individual elements from Python to some of the highly optimized NumPy or SciPy extension functions. e.g. use a.dot(a) to calculate square sum instead of sum(a*a).</p></li>
+</ul>
+
+<h5 id="learning-scipy:db211eeb3c2b2819e54a5708f75accc1">Learning SciPy</h5>
+
+<p>On top of the efficient data structures of NumPy, SciPy offers a magnitude of <strong>algorithms</strong> working on those arrays. Whatever numerical heavy algorithm you take from current books on numerical recipes, most likely you will find support for them in SciPy in one way or the other. Whether it is matrix manipulation, linear algebra, optimization, clustering, spatial operations, or even fast Fourier transformation, the toolbox is readily filled.</p>
+
+<p>SciPy&rsquo;s polyfit() function: Given data x and y and the desired n order of the polynomial, it finds the model function that minimizes the error function.</p>
+
+<pre><code>fp1 = sp.polyfit(x, y, n)
+</code></pre>
+
+<p>We then use poly1d() to create a model function from the model parameters:</p>
+
+<pre><code>f1 = sp.poly1d(fp1)  
+</code></pre>
+
+<p>we should be awared that with the increase of n, here comes a problem called <strong>Overfitting</strong>.</p>
+
+<p>Consider <strong>piecewise function (分段函数)</strong> against higher order functions</p>
+
+<p>why do we trust the straight line fitted only at the last week of our data more than any of the more complex models? It is because we assume that it will capture future data better.</p>
+
+<p>“switching your mental focus from algorithms to data. ”</p>
+
+<h3 id="chapter-2-classifying-with-real-world-examples:db211eeb3c2b2819e54a5708f75accc1">Chapter 2. Classifying with Real-world Examples</h3>
+
+<p>Cross validation:</p>
+
+<ul>
+<li>k-fold<br /></li>
+<li>leave one fold for test every time<br /></li>
+<li>Average the errors<br /></li>
+<li>gives you an estimate of how well this model should generalize and whether your methods are doing well. At the end of the cross-validation loop, you can then use <strong>all your data</strong> to train a final model.<br /></li>
+</ul>
+
+<p>交叉验证的作用在于evaluate一种模型的预期指标，cv后便可以利用全部数据（不用分测试集和训练集）来训练最终的模型参数。</p>
+
+<p>&lsquo;Accuracy&rsquo; is not always our goal: What the gain/cost function should be is always dependent on the exact problem you are working on. When we present a general-purpose algorithm, we often focus on minimizing the number of mistakes, achieving the highest accuracy. However, if some mistakes are <strong>costlier</strong> than others, it might be better to accept a lower overall accuracy to minimize the overall costs.</p>
+
+<p>compactness feature is not actually a new measurement, but a function of the previous two features, area and perimeter. It is often very useful to derive new combined features. Trying to create new features is generally called <strong>feature engineering</strong>.</p>
+
+<p>与现有数据用某种函数关系关联起来的新数据并不一定是没有意义的，比如用周长和面积定义的『圆度』在特征工程中就有重要的意义。</p>
+
+<p>The goals of a good feature are to simultaneously <strong>vary with what matters</strong> (the desired output) and be <strong>invariant with what does not</strong>. For example, compactness does not vary with size, but varies with the shape - <strong>use background knowledge to design good features</strong></p>
+
+<p>the <strong>nearest neighbor classifier</strong>: When classifying a new element, it looks at the training data for the object that is closest to it, its nearest neighbor. Then, it returns its label as the answer.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+                 <a href="/tags/machine-learning/">Machine learning</a>
+            
+                 <a href="/tags/reading-notes/">reading notes</a>
+            
+        </p>
+    
+
+    <div class="share">
+        <a class="icon-twitter" href="http://twitter.com/share?text=Reading%20Note%3a%20Building%20machine%20learning%20systems%20with%20python&url=http%3a%2f%2fxren615.github.io%2f2016%2f03%2f13%2freading_note%2f"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <i class="fa fa-twitter"></i>
+            <span class="hidden">Twitter</span>
+        </a>
+
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fxren615.github.io%2f2016%2f03%2f13%2freading_note%2f"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <i class="fa fa-facebook"></i>
+            <span class="hidden">Facebook</span>
+        </a>
+
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2fxren615.github.io%2f2016%2f03%2f13%2freading_note%2f"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+           <i class="fa fa-google-plus"></i>
+            <span class="hidden">Google+</span>
+        </a>
+    </div>
+</footer>
+
+        
+    <div class="comments">
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'XXX';
+    var disqus_identifier = 'http:\/\/xren615.github.io\/2016\/03\/13\/reading_note\/';
+    var disqus_title = 'Reading Note: Building machine learning systems with python';
+    var disqus_url = 'http:\/\/xren615.github.io\/2016\/03\/13\/reading_note\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Ghostwriter example" href="http://xren615.github.io">Ghostwriter example</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2016 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="http://xren615.github.iojs/jquery-1.11.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+        <script src="http://xren615.github.iojs/jquery.fitvids.js"></script>
+        <script src="http://xren615.github.iojs/scripts.js"></script>
+    </body>
+</html>
+
