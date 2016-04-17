@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Feature Selection on Square Inch</title>
+    <title>Feature Selection on X.Ren&#39;s Personal blog</title>
     <link>http://xren615.github.io/tags/feature-selection/</link>
-    <description>Recent content in Feature Selection on Square Inch</description>
+    <description>Recent content in Feature Selection on X.Ren&#39;s Personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <copyright>All rights reserved - 2016</copyright>
+    <language>en-us</language>
     <lastBuildDate>Tue, 15 Mar 2016 15:08:09 +0100</lastBuildDate>
     <atom:link href="http://xren615.github.io/tags/feature-selection/index.xml" rel="self" type="application/rss+xml" />
     

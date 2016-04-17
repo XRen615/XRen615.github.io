@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Machine Learning on Square Inch</title>
+    <title>Machine Learning on X.Ren&#39;s Personal blog</title>
     <link>http://xren615.github.io/tags/machine-learning/</link>
-    <description>Recent content in Machine Learning on Square Inch</description>
+    <description>Recent content in Machine Learning on X.Ren&#39;s Personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <copyright>All rights reserved - 2016</copyright>
+    <language>en-us</language>
     <lastBuildDate>Sun, 13 Mar 2016 20:12:06 +0100</lastBuildDate>
     <atom:link href="http://xren615.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
