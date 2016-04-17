@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Probabilistic Classification on </title>
-    <link>/tags/probabilistic-classification/</link>
-    <description>Recent content in Probabilistic Classification on </description>
+    <title>Probabilistic Classification on SQUARE INCH</title>
+    <link>http://xren615.github.io/tags/probabilistic-classification/</link>
+    <description>Recent content in Probabilistic Classification on SQUARE INCH</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Sat, 16 Apr 2016 15:27:07 +0200</lastBuildDate>
-    <atom:link href="/tags/probabilistic-classification/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://xren615.github.io/tags/probabilistic-classification/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Gaussian Mixture Models</title>
-      <link>/post/gmixture/</link>
+      <link>http://xren615.github.io/post/gmixture/</link>
       <pubDate>Sat, 16 Apr 2016 15:27:07 +0200</pubDate>
       
-      <guid>/post/gmixture/</guid>
+      <guid>http://xren615.github.io/post/gmixture/</guid>
       <description></description>
     </item>
     

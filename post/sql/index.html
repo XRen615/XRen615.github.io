@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.15" />
+
+  <title>SQL Notes &middot; SQUARE INCH</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://xren615.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://xren615.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://xren615.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="SQUARE INCH" href="http://xren615.github.ioindex.xml" />
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://xren615.github.ioimg/favicon.ico" type="image/x-icon" />
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://xren615.github.io/">SQUARE INCH</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://xren615.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://xren615.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://xren615.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://xren615.github.ioindex.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/xinyuyangren" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/xren615" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div class="pure-g">
+  <div class="small-print pure-u-1 pure-u-md-1-1">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print pure-u-1 pure-u-md-1-1">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>SQL Notes</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Apr 2016, 18:49</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://xren615.github.iotags/sql">SQL</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="http://xren615.github.iotags/note">Note</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <p>(This is the note for the SQL training course on Codecademy.com)<br />
+####Some basic recipes</p>
+
+<pre><code>SELECT DISTINCT  
+</code></pre>
+
+<p>specifies that the statement is going to be a query that returns unique values in the specified column(s)</p>
+
+<p><strong>WHERE</strong></p>
+
+<pre><code>SELECT * FROM movies
+WHERE year BETWEEN 1990 AND 2000
+AND genre = 'comedy'; 
+</code></pre>
+
+<p><strong>LIKE</strong>: a special operator used with the WHERE clause to search for a specific pattern in a column.<br />
+<strong>%</strong>: wildcard character, matches zero or more missing letters in the pattern.</p>
+
+<pre><code>SELECT * FROM movies WHERE name like 'a%';  
+</code></pre>
+
+<p><strong>ORDER BY</strong>: a clause that indicates you want to sort the result set by a particular column either alphabetically or numerically.</p>
+
+<pre><code>SELECT * FROM movies
+ORDER BY imdb_rating ASC/DESC;  
+</code></pre>
+
+<p><strong>LIMIT</strong>: a clause that lets you specify the maximum number of rows the result set will have.</p>
+
+<pre><code>SELECT * FROM Persons
+LIMIT 5;  
+</code></pre>
+
+<p>####Using aggregate functions to perform calculations
+Aggregate functions combine multiple rows together to form a single value of more meaningful information.</p>
+
+<p><strong>COUNT()</strong>: a function that takes the name of a column as an argument and counts the number of rows where the column is not NULL. Here, we want to count every row so we pass * as an argument.</p>
+
+<pre><code>SELECT COUNT(*) FROM fake_apps;  
+</code></pre>
+
+<p><strong>GROUP BY</strong>: Count the number of apps at each price.</p>
+
+<pre><code>SELECT price, COUNT(*) FROM fake_apps
+GROUP BY price;  
+</code></pre>
+
+<p><strong>SUM()</strong>: a function that takes the name of a column as an argument and returns the sum of all the values in that column.</p>
+
+<pre><code>SELECT SUM(downloads) FROM fake_apps;  
+</code></pre>
+
+<p><strong>MAX()/MIN()</strong>: a function that takes the name of a column as an argument and returns the largest/smallest value in that column.</p>
+
+<pre><code>SELECT name, category, MAX(downloads) FROM fake_apps
+GROUP BY category;  
+</code></pre>
+
+<p><strong>AVG()</strong>: a function works by taking a column name as an argument and returns the average value for that column.</p>
+
+<p><strong>ROUND()</strong>: a function that takes a column name and an integer as an argument. It rounds the values in the column to the number of decimal places specified by the integer.</p>
+
+<p>####Query multiple tables that have relationships with each other</p>
+
+<p><strong>primary key</strong></p>
+
+<p>A primary key serves as a unique identifier for each row or record in a given table. The primary key is literally an id value for a record. We&rsquo;re going to use this value to connect artists to the albums they have produced.</p>
+
+<pre><code>CREATE TABLE 
+artists(id INTEGER PRIMARY KEY, name TEXT);
+</code></pre>
+
+<p>By specifying that the id column is the PRIMARY KEY, SQL makes sure that:</p>
+
+<ul>
+<li>None of the values in this column are NULL<br /></li>
+<li>Each value in this column is unique<br /></li>
+</ul>
+
+<p>A table can not have more than one PRIMARY KEY column.</p>
+
+<p><strong>foreign key</strong></p>
+
+<p>A foreign key is a column that contains the primary key of another table in the database. We use foreign keys and primary keys to connect rows in two different tables. One table&rsquo;s foreign key holds the value of another table&rsquo;s primary key. Unlike primary keys, foreign keys do not need to be unique and can be NULL.</p>
+
+<p><strong>JOIN</strong>: An inner join will combine rows from different tables if the join condition is true.</p>
+
+<pre><code>SELECT * FROM albums
+JOIN artists ON
+albums.artist_id = artists.id;  
+</code></pre>
+
+<p><strong>LEFT JOIN</strong>: every row in the left table （the former） is returned in the result set, and if the join condition is not met, then NULL values are used to fill in the columns from the right table.</p>
+
+<pre><code>SELECT * FROM albums
+LEFT JOIN artists ON
+albums.artist_id = artists.id;
+</code></pre>
+
+<p><strong>AS</strong>: a keyword in SQL that allows you to rename a column or table using an alias.</p>
+
+<pre><code>SELECT 
+albums.name AS 'Album',
+albums.year,
+artists.name AS 'Artist'
+FROM
+albums
+JOIN artists ON
+albums.artist_id = artists.id
+WHERE
+albums.year &gt; 1980;
+</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://xren615.github.io/post/edge_detection/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://xren615.github.io/post/edge_detection/">Discovery the motivation of occupants&#39; behavior from electricity consumption signal</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="http://xren615.github.io/post/gmixture/">Gaussian Mixture Models</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="http://xren615.github.io/post/gmixture/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'xren615';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="http://xren615.github.iojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76515451-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Site Maintenance on </title>
-    <link>/tags/site-maintenance/</link>
-    <description>Recent content in Site Maintenance on </description>
+    <title>Site Maintenance on SQUARE INCH</title>
+    <link>http://xren615.github.io/tags/site-maintenance/</link>
+    <description>Recent content in Site Maintenance on SQUARE INCH</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Sun, 06 Mar 2016 01:27:21 +0100</lastBuildDate>
-    <atom:link href="/tags/site-maintenance/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://xren615.github.io/tags/site-maintenance/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>建站記錄</title>
-      <link>/post/develope_this_site/</link>
+      <link>http://xren615.github.io/post/develope_this_site/</link>
       <pubDate>Sun, 06 Mar 2016 01:27:21 +0100</pubDate>
       
-      <guid>/post/develope_this_site/</guid>
+      <guid>http://xren615.github.io/post/develope_this_site/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;Documentation&lt;/strong&gt;: how to initialize a basic static site like this with Github page, Hugo and Go.&lt;br /&gt;
@@ -56,10 +58,10 @@ hugo **or** hugo --theme=slender --baseUrl=&amp;quot;http://xren615.github.io/&a
     
     <item>
       <title>Hello_World</title>
-      <link>/post/helloworld/</link>
+      <link>http://xren615.github.io/post/helloworld/</link>
       <pubDate>Sun, 06 Mar 2016 00:40:08 +0100</pubDate>
       
-      <guid>/post/helloworld/</guid>
+      <guid>http://xren615.github.io/post/helloworld/</guid>
       <description>&lt;p&gt;歡迎第一批訪問者&lt;/p&gt;
 </description>
     </item>
