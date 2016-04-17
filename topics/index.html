@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.15" />
 
-  <title>建站記錄 &middot; SQUARE INCH</title>
+  <title>Topics &middot; SQUARE INCH</title>
 
   
   
@@ -191,128 +191,13 @@
 
 
 <div class="header">
-  <h1>建站記錄</h1>
-  <h2></h2>
+  <h1>Topics</h1>
 </div>
 <div class="content">
-
-  <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>06 Mar 2016, 01:27</time>
-  </div>
-
-  
-
-  
-
+  <ul>
   
   
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://xren615.github.iotags/site-maintenance">site maintenance</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  
-
-<p><strong>Documentation</strong>: how to initialize a basic static site like this with Github page, Hugo and Go.<br />
-<strong>記錄文檔</strong>：如何使用Github page，Hugo和Go便利地建造本站的基礎元素.</p>
-
-<h3 id="system-enviroment:44e997d1ffd2378e52888c50f9174fd1">System Enviroment</h3>
-
-<p>OSX El Capitan 10.11.3<br />
-MacBook Pro（Retina，13 inch, early 2015)<br />
-CPU: 2.7 GHz Intel Core i5<br />
-Graphics: Intel Iris Graphics 6100 1536 MB</p>
-
-<h3 id="steps:44e997d1ffd2378e52888c50f9174fd1">Steps</h3>
-
-<ol>
-<li>Hugo is compiled by Go, thus before everything, install <a href="https://golang.org">Go</a> and set up its <a href="http://blog.csdn.net/lan2720/article/details/20767941">enviroment path</a>.</li>
-<li>Follow this <a href="http://blog.coderzh.com/2015/08/29/hugo/">link</a> to install Hugo and set up everything. You may also need <a href="http://blog.bpcoder.com/2015/12/hugo-create-blog/">another link</a>.<br /></li>
-</ol>
-
-<h3 id="tips:44e997d1ffd2378e52888c50f9174fd1">Tips:</h3>
-
-<ul>
-<li>Path may vary with the theme you chose, so always check with the <a href="https://github.com/spf13/hugoThemes">theme page</a> for what path should be used for post.<br /></li>
-<li>Always remember: <strong>public</strong> push to [your github account].github.io for publication, (optional) parent dir. push to [your github account]_hugo for archive.</li>
-<li>Change the social icon: Social links are designed with <a href="https://fortawesome.github.io/Font-Awesome/">FontAwesome 4.5.0</a>. For occasional modification, just edit the <em>header.html</em>, find:<br />
-&gt; <em>class=&ldquo;fa fa-xxx&rdquo;</em><br />
-substitute <em>xxx</em> with the icon name you want (and ofc supported by FontAwesome), do not touch .Site.Params.xxx if you just want it simple.<br /></li>
-<li>If you are not familiar with <em>markdown</em>, find the instruction regarding markdown syntax <a href="http://www.jianshu.com/p/q81RER">here</a>.<br /></li>
-<li>Develope comment board with disqus: register a short name then fill it in the config file</li>
-</ul>
-
-<h3 id="paste-some-frequently-used-order-here:44e997d1ffd2378e52888c50f9174fd1">Paste some frequently-used order here:)</h3>
-
-<pre><code>hugo new post/first.md
-hugo server -w **or** hugo server --theme=slender --buildDrafts --watch
-hugo **or** hugo --theme=slender --baseUrl=&quot;http://xren615.github.io/&quot;
-</code></pre>
-
-
-  
-<div class="prev-next-post pure-g">
-  <div class="pure-u-1-24" style="text-align: left;">
-    
-    <a href="http://xren615.github.io/post/helloworld/"><i class="fa fa-chevron-left"></i></a>
-    
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="prev">
-      <a href="http://xren615.github.io/post/helloworld/">Hello_World</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-2-24">
-    &nbsp;
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="next">
-      <a href="http://xren615.github.io/post/feature_reducing/">特征选择</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://xren615.github.io/post/feature_reducing/"><i class="fa fa-chevron-right"></i></a>
-    
-  </div>
-</div>
-
-
-
-  
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-
-(function() {
-    
-    
-    if (window.location.hostname == "localhost")
-        return;
-
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = 'Your Disqus shortname';
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
+  </ul>
 </div>
 
 </div>
@@ -335,4 +220,3 @@ hugo **or** hugo --theme=slender --baseUrl=&quot;http://xren615.github.io/&quot;
 
 </body>
 </html>
-

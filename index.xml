@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ghostwriter example</title>
+    <title>SQUARE INCH</title>
     <link>http://xren615.github.io/</link>
-    <description>Recent content on Ghostwriter example</description>
+    <description>Recent content on SQUARE INCH</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>My Name</copyright>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Sat, 16 Apr 2016 15:27:07 +0200</lastBuildDate>
     <atom:link href="http://xren615.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Gaussian Mixture Models</title>
-      <link>http://xren615.github.io/2016/04/16/g_mixture/</link>
+      <link>http://xren615.github.io/post/gmixture/</link>
       <pubDate>Sat, 16 Apr 2016 15:27:07 +0200</pubDate>
       
-      <guid>http://xren615.github.io/2016/04/16/g_mixture/</guid>
+      <guid>http://xren615.github.io/post/gmixture/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SQL Notes</title>
-      <link>http://xren615.github.io/2016/04/01/sql/</link>
+      <link>http://xren615.github.io/post/sql/</link>
       <pubDate>Fri, 01 Apr 2016 18:49:28 +0200</pubDate>
       
-      <guid>http://xren615.github.io/2016/04/01/sql/</guid>
+      <guid>http://xren615.github.io/post/sql/</guid>
       <description>&lt;p&gt;(This is the note for the SQL training course on Codecademy.com)&lt;br /&gt;
 ####Some basic recipes&lt;/p&gt;
 
@@ -142,10 +142,10 @@ albums.year &amp;gt; 1980;
     
     <item>
       <title>Discovery the motivation of occupants&#39; behavior from electricity consumption signal</title>
-      <link>http://xren615.github.io/2016/03/15/edge_detection/</link>
+      <link>http://xren615.github.io/post/edge_detection/</link>
       <pubDate>Tue, 15 Mar 2016 15:08:09 +0100</pubDate>
       
-      <guid>http://xren615.github.io/2016/03/15/edge_detection/</guid>
+      <guid>http://xren615.github.io/post/edge_detection/</guid>
       <description>
 
 &lt;h5 id=&#34;key-points:61665cac455c6246b15a713a4476ec20&#34;&gt;Key Points&lt;/h5&gt;
@@ -530,10 +530,10 @@ plt.title(&#39;Feature Importance After RFECV Logistic Regression&#39;)
     
     <item>
       <title>Reading Note: Building machine learning systems with python</title>
-      <link>http://xren615.github.io/2016/03/13/reading_note/</link>
+      <link>http://xren615.github.io/post/reading_note1/</link>
       <pubDate>Sun, 13 Mar 2016 20:12:06 +0100</pubDate>
       
-      <guid>http://xren615.github.io/2016/03/13/reading_note/</guid>
+      <guid>http://xren615.github.io/post/reading_note1/</guid>
       <description>
 
 &lt;p&gt;( &lt;em&gt;I would like to take this oppurtunity to somehow review and systemize my knowledge on machine learning system.&lt;/em&gt; )&lt;/p&gt;
@@ -660,10 +660,10 @@ np.mean(c[~np.isnan(c)])
     
     <item>
       <title>Data Mining Project for Rosendal Passive House Database</title>
-      <link>http://xren615.github.io/2016/03/08/thesis_meeting_0309/</link>
+      <link>http://xren615.github.io/post/meeting0309/</link>
       <pubDate>Tue, 08 Mar 2016 19:19:22 +0100</pubDate>
       
-      <guid>http://xren615.github.io/2016/03/08/thesis_meeting_0309/</guid>
+      <guid>http://xren615.github.io/post/meeting0309/</guid>
       <description>
 
 &lt;h4 id=&#34;progress-mar-3rd-mar-9th:131661348e6a807a0899b557fc7c748b&#34;&gt;Progress Mar. 3rd ~ Mar. 9th&lt;/h4&gt;
@@ -704,10 +704,10 @@ Benefit a lot from your suggestion, I am also planing to somehow re-construct pa
     
     <item>
       <title>中国科幻小说时间轴</title>
-      <link>http://xren615.github.io/2016/03/07/science_fiction/</link>
+      <link>http://xren615.github.io/post/scifi_chn/</link>
       <pubDate>Mon, 07 Mar 2016 15:03:40 +0100</pubDate>
       
-      <guid>http://xren615.github.io/2016/03/07/science_fiction/</guid>
+      <guid>http://xren615.github.io/post/scifi_chn/</guid>
       <description>
 
 &lt;p&gt;This article is comment regarding Chinese sci-fi.&lt;/p&gt;
@@ -722,10 +722,10 @@ Benefit a lot from your suggestion, I am also planing to somehow re-construct pa
     
     <item>
       <title>Feature reducing_ENG</title>
-      <link>http://xren615.github.io/2016/03/06/feature_selection_eng/</link>
+      <link>http://xren615.github.io/post/Feature_reducing_ENG/</link>
       <pubDate>Sun, 06 Mar 2016 19:19:22 +0100</pubDate>
       
-      <guid>http://xren615.github.io/2016/03/06/feature_selection_eng/</guid>
+      <guid>http://xren615.github.io/post/Feature_reducing_ENG/</guid>
       <description>
 
 &lt;h3 id=&#34;feature-reducing:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Feature reducing&lt;/h3&gt;
@@ -819,10 +819,10 @@ There is no general rule to select an alpha parameter for recovery of non-zero c
     
     <item>
       <title>特征选择</title>
-      <link>http://xren615.github.io/2016/03/06/feature_selection/</link>
+      <link>http://xren615.github.io/post/feature_reducing/</link>
       <pubDate>Sun, 06 Mar 2016 19:19:22 +0100</pubDate>
       
-      <guid>http://xren615.github.io/2016/03/06/feature_selection/</guid>
+      <guid>http://xren615.github.io/post/feature_reducing/</guid>
       <description>
 
 &lt;h3 id=&#34;feature-reducing:c3a47a940ff1b84874509236adb1e6a0&#34;&gt;Feature reducing&lt;/h3&gt;
@@ -914,10 +914,10 @@ There is no general rule to select an alpha parameter for recovery of non-zero c
     
     <item>
       <title>建站記錄</title>
-      <link>http://xren615.github.io/2016/03/06/create_this_site/</link>
+      <link>http://xren615.github.io/post/develope_this_site/</link>
       <pubDate>Sun, 06 Mar 2016 01:27:21 +0100</pubDate>
       
-      <guid>http://xren615.github.io/2016/03/06/create_this_site/</guid>
+      <guid>http://xren615.github.io/post/develope_this_site/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;Documentation&lt;/strong&gt;: how to initialize a basic static site like this with Github page, Hugo and Go.&lt;br /&gt;
@@ -960,10 +960,10 @@ hugo **or** hugo --theme=slender --baseUrl=&amp;quot;http://xren615.github.io/&a
     
     <item>
       <title>Hello_World</title>
-      <link>http://xren615.github.io/2016/03/06/hello/</link>
+      <link>http://xren615.github.io/post/helloworld/</link>
       <pubDate>Sun, 06 Mar 2016 00:40:08 +0100</pubDate>
       
-      <guid>http://xren615.github.io/2016/03/06/hello/</guid>
+      <guid>http://xren615.github.io/post/helloworld/</guid>
       <description>&lt;p&gt;歡迎第一批訪問者&lt;/p&gt;
 </description>
     </item>
