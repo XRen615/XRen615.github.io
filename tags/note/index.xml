@@ -16,8 +16,11 @@
       <pubDate>Fri, 01 Apr 2016 18:49:28 +0200</pubDate>
       
       <guid>http://xren615.github.io/post/sql/</guid>
-      <description>&lt;p&gt;(This is the note for the SQL training course on Codecademy.com)&lt;br /&gt;
-####Some basic recipes&lt;/p&gt;
+      <description>
+
+&lt;p&gt;(This is the note for the SQL training course on Codecademy.com)&lt;/p&gt;
+
+&lt;h4 id=&#34;some-basic-recipes:d1babb582138b02a13547d2c6eb6df72&#34;&gt;Some basic recipes&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;SELECT DISTINCT  
 &lt;/code&gt;&lt;/pre&gt;
@@ -49,8 +52,9 @@ ORDER BY imdb_rating ASC/DESC;
 LIMIT 5;  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;####Using aggregate functions to perform calculations
-Aggregate functions combine multiple rows together to form a single value of more meaningful information.&lt;/p&gt;
+&lt;h4 id=&#34;using-aggregate-functions-to-perform-calculations:d1babb582138b02a13547d2c6eb6df72&#34;&gt;Using aggregate functions to perform calculations&lt;/h4&gt;
+
+&lt;p&gt;Aggregate functions combine multiple rows together to form a single value of more meaningful information.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;COUNT()&lt;/strong&gt;: a function that takes the name of a column as an argument and counts the number of rows where the column is not NULL. Here, we want to count every row so we pass * as an argument.&lt;/p&gt;
 
@@ -78,7 +82,7 @@ GROUP BY category;
 
 &lt;p&gt;&lt;strong&gt;ROUND()&lt;/strong&gt;: a function that takes a column name and an integer as an argument. It rounds the values in the column to the number of decimal places specified by the integer.&lt;/p&gt;
 
-&lt;p&gt;####Query multiple tables that have relationships with each other&lt;/p&gt;
+&lt;h4 id=&#34;query-multiple-tables-that-have-relationships-with-each-other:d1babb582138b02a13547d2c6eb6df72&#34;&gt;Query multiple tables that have relationships with each other&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;primary key&lt;/strong&gt;&lt;/p&gt;
 
