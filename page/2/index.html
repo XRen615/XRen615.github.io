@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.15" />
 
-  <title>Gaussian Mixture Models &middot; SQUARE INCH</title>
+  <title>SQUARE INCH</title>
 
   
   
@@ -178,16 +178,21 @@
 
 
 <div class="header">
-  <h1>Gaussian Mixture Models</h1>
-  <h2></h2>
+  <h1>SQUARE INCH</h1>
+  <h2>CROSS DISCIPLINE THOUGHTS FROM X.REN</h2>
 </div>
-<div class="content">
 
-  <div class="post-meta">
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="http://xren615.github.io/post/helloworld/">Hello_World</a></h2>
+
+    <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>16 Apr 2016, 15:27</time>
+    <time>06 Mar 2016, 00:40</time>
   </div>
 
   
@@ -200,9 +205,7 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="http://xren615.github.iotags/gaussian-mixture-models">Gaussian Mixture Models</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="http://xren615.github.iotags/probabilistic-classification">Probabilistic classification</a>
+      <a class="post-taxonomy-tag" href="http://xren615.github.iotags/site-maintenance">Site maintenance</a>
     
   </div>
   
@@ -210,75 +213,30 @@
 
 </div>
 
-  <p>A Gaussian mixture model is a probabilistic model that assumes all the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters. Instead of having an output as cluster no. that a certain sample belongs to, Gaussian mixture model can additionally give an probability of this kind of clustering.</p>
+  </header>
 
-<p>In practice, expectation-maximization (EM) algorithm is often used for fitting mixture-of-Gaussian models.</p>
-
-<p>For better understand the theory of GMM this <a href="http://blog.pluskid.org/?p=39">link</a> could be followed.</p>
-
-<p>For the algorithm realization in Python, follow the sklearn official documentary <a href="http://scikit-learn.org/stable/modules/mixture.html">here</a>. One remark: there are 4 different kinds of <a href="http://pinkyjie.com/2010/08/31/covariance/">covariance matrices</a> that are supported by sklearn (diagonal, spherical, tied and full covariance matrices). Full covariance could get the best results however would significantly increase the calculation load in the same time.</p>
-
-<p>The <strong>selection of best no. of components</strong> could be done by calculating BIC（Bayesian information criterion）score. Schwarz&rsquo;s Bayesian Information Criterion (BIC) is a model selection tool. If a model is estimated on a particular data set (training set), BIC score gives an estimate of the model performance on a new, fresh data set (testing set). BIC is given by the formula:</p>
-
-<pre><code>BIC = -2 * loglikelihood + d * log(N), 
-</code></pre>
-
-<p>where N is the sample size of the training set and d is the total number of parameters. For better understanding of likelihood, refer to <a href="https://sswater.wordpress.com/2012/06/04/似然函数最大似然估计/">link</a>. The lower BIC score signals a better model.</p>
-
-<p>To use BIC for model selection, we simply chose the model giving smallest BIC over the whole set of candidates. BIC attempts to mitigate the risk of over-fitting by introducing the penalty term d * log(N), which grows with the number of parameters. This allows to filter out unnecessarily complicated models, which have too many parameters to be estimated accurately on a given data set of size N. BIC has preference for simpler models compared to Akaike Information Criterion (AIC).</p>
-
+  <p>
+  歡迎第一批訪問者
+  </p>
 
   
-<div class="prev-next-post pure-g">
-  <div class="pure-u-1-24" style="text-align: left;">
-    
-    <a href="http://xren615.github.io/post/sql/"><i class="fa fa-chevron-left"></i></a>
-    
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="prev">
-      <a href="http://xren615.github.io/post/sql/">SQL Notes</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-2-24">
-    &nbsp;
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="next">
-      <a href="http://xren615.github.io/post/trading/">Some Trading Basics</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://xren615.github.io/post/trading/"><i class="fa fa-chevron-right"></i></a>
-    
-  </div>
-</div>
-
-
+</article>
 
   
-<div id="disqus_thread"></div>
-<script type="text/javascript">
 
-(function() {
-    
-    
-    if (window.location.hostname == "localhost")
-        return;
+  
 
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = 'xren615';
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<nav class="pagination" role="pagination">
+  
+  <a href="http://xren615.github.io/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;2 / 2&nbsp;</span>
+  
+  <i class="fa fa-chevron-right"></i>
+  
+</nav>
+
 
 
 </div>
