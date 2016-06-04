@@ -7,94 +7,8 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 10 May 2016 01:55:26 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 16 Apr 2016 15:27:07 +0200</lastBuildDate>
     <atom:link href="http://xren615.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Some Trading Basics</title>
-      <link>http://xren615.github.io/post/trading/</link>
-      <pubDate>Tue, 10 May 2016 01:55:26 +0200</pubDate>
-      
-      <guid>http://xren615.github.io/post/trading/</guid>
-      <description>
-
-&lt;p&gt;This week I got an interesting opportunity to get involved in an intensive business camp offered by Flow Traders, an Amsterdam-based trading group. So I read some ABC-materials in advance, then hopefully I can at least say something during the discussion :)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Most of these contents are reading notes, NOT my own writing&lt;/strong&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;flow-traders-business-course-2016:9214ef347e9b56a2300726f0562ecbd6&#34;&gt;Flow Traders Business Course 2016&lt;/h3&gt;
-
-&lt;h4 id=&#34;concepts:9214ef347e9b56a2300726f0562ecbd6&#34;&gt;Concepts&lt;/h4&gt;
-
-&lt;h5 id=&#34;high-frequency-trading-hft:9214ef347e9b56a2300726f0562ecbd6&#34;&gt;High-frequency trading (HFT)&lt;/h5&gt;
-
-&lt;p&gt;High-frequency trading (HFT) is a program trading platform that uses powerful computers to &lt;strong&gt;transact a large number of orders at very fast speeds&lt;/strong&gt;. High-frequency trading uses complex algorithms to &lt;strong&gt;analyze multiple markets and execute orders based on market conditions&lt;/strong&gt;. Typically, the traders with the fastest execution speeds will be more profitable than traders with slower execution speeds. As of 2009, it is estimated more than 50% of exchange volume comes from high-frequency trading orders.&lt;/p&gt;
-
-&lt;p&gt;High-frequency trading became most popular when exchanges began to offer &lt;strong&gt;incentives&lt;/strong&gt; for companies to &lt;strong&gt;add liquidity&lt;/strong&gt; to the market. For instance, the New York Stock Exchange has a group of liquidity providers called supplemental liquidly providers (SLPs), which attempt to add competition and liquidity for existing quotes on the exchange. As an incentive to the firm, the NYSE pays a fee or rebate for providing said liquidity. As of 2009, the SLP rebate was $0.0015. Multiply that by millions of transactions per day and you can see where part of the profits for high frequency trading comes from.&lt;/p&gt;
-
-&lt;p&gt;The SLP was introduced following the collapse of Lehman Brothers in 2008, when liquidity was a major concern for investors.&lt;/p&gt;
-
-&lt;p&gt;高频率、低延迟  co-location front-run，诱饵订单&lt;/p&gt;
-
-&lt;p&gt;有两种策略，做市（market making）和套利（arbitrage），从性价比来说，做市是更好的选择。&lt;/p&gt;
-
-&lt;p&gt;做市是指，在市场上充当流动性提供者，通俗的说就是有任何人想买一个东西（比如股票，期货等），你要保证能卖给他，有任何人想卖一个东西，你要保证从他那买。保证的意思就是如果市场上没有别人出头，做市商就必须出来。承担风险赚取价格波动或对冲（比如买进一只股票的同时卖出它的期货）&lt;/p&gt;
-
-&lt;p&gt;套利是指，找到两种强相关性的证券。一个极端的例子是，ETF和组成ETF的那些股票。如果你知道ETF的计算方式，就可以用同样的方式通过那些股票的价格来计算一个ETF的期望价格。有的时候，因为种种原因，你发现这个价格和你在市场上看到的ETF价格不一样，你就知道显然是市场发生了一些混乱，早晚这个价格会变回来。这时你就可以买入（卖出）ETF，卖出（买入）那些股票，坐等价格回归，可以稳赚不赔。这个策略听起来很美，实际上竞争非常激烈。因为任何人都可以做这件事，参与的人多了，市场就会少犯错误，同时每个人的利润空间也变小了。当你的套利收入不足以支撑HFT的研发维护成本的时候，离关门也就不远了。&lt;/p&gt;
-
-&lt;p&gt;HFT可能存在的问题。Flash crash是真实发生过的，也是最大的隐患。当一个市场上70%的交易都是HFT完成的时候，我们必须要能对HFT的系统有信心。这就需要HFT的开发流程标准化，接受开发过程的评审，有严格的测试体系。几个技术宅关在小黑屋里鼓捣出来的东西没人敢拍胸脯保证不会死机。而这一点目前看的确是比较差的，需要尽快规范起来。这才是公众需要关注的重点。&lt;/p&gt;
-
-&lt;h5 id=&#34;algorithmic-trading:9214ef347e9b56a2300726f0562ecbd6&#34;&gt;Algorithmic Trading&lt;/h5&gt;
-
-&lt;p&gt;Algorithmic trading is a trading system that utilizes very advanced mathematical models for making transaction decisions in the financial markets. The strict rules built into the model &lt;strong&gt;attempt to determine the optimal time for an order to be placed that will cause the least amount of impact on a stock&amp;rsquo;s price&lt;/strong&gt;. Large blocks of shares are usually purchased by dividing the large share block into smaller lots and allowing the complex algorithms to decide when the smaller blocks are to be purchased.&lt;/p&gt;
-
-&lt;p&gt;The use of algorithmic trading is most commonly used by large institutional investors due to the large amount of shares they purchase everyday. Complex algorithms allow these investors to obtain the best possible price without significantly affecting the stock&amp;rsquo;s price and increasing purchasing costs.&lt;/p&gt;
-
-&lt;p&gt;冲击成本 impact cost&lt;/p&gt;
-
-&lt;h5 id=&#34;market-maker:9214ef347e9b56a2300726f0562ecbd6&#34;&gt;Market Maker&lt;/h5&gt;
-
-&lt;p&gt;A market maker is a broker-dealer firm that accepts the risk of holding a certain number of shares of a particular security in order to facilitate trading in that security. Each market maker competes for customer order flow by displaying buy and sell quotations for a guaranteed number of shares. Once an order is received, the market maker immediately sells from its own inventory or seeks an offsetting order. This process takes place in mere seconds.&lt;/p&gt;
-
-&lt;p&gt;The Nasdaq is the prime example of an operation of market makers. There are more than 500 member firms that act as Nasdaq market makers, keeping the financial markets running efficiently because they are &lt;strong&gt;willing to quote both bid and offer prices for an asset.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&amp;ldquo;Liquidity provider&amp;rdquo; is essentially synonymous with &amp;ldquo;market maker.&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h5 id=&#34;arbitrage-vs-spreading-vs-speculation:9214ef347e9b56a2300726f0562ecbd6&#34;&gt;Arbitrage vs. Spreading vs. Speculation&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Arbitrage:  simultaneous buying and selling; a type of hedge and involves limited risk; typically enter large positions since they are attempting to profit from very small differences in price.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Spreading: Futures contracts&lt;/li&gt;
-&lt;li&gt;Speculation: Profit from rising and falling prices; involves a significant amount of risk; longing when expect rising, shorting when expect falling.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Delta is the ratio comparing the change in the price of the underlying asset to the corresponding change in the price of a derivative. Sometimes referred to as the &amp;ldquo;hedge ratio.&amp;rdquo; For example, with respect to call options, a delta of 0.7 means that for every $1 the underlying stock increases, the call option will increase by $0.70. Put option deltas, on the other hand, will be negative, because as the underlying security increases, the value of the option will decrease. So a put option with a delta of -0.7 will decrease by $0.70 for every $1 the underlying increases in price.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Delta neutral is a portfolio consisting of positions with offsetting positive and negative deltas so that the position of delta is zero. A delta-neutral portfolio balances the response to market movements for a certain range to bring the net change of the position to zero.&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;product-types:9214ef347e9b56a2300726f0562ecbd6&#34;&gt;Product types&lt;/h4&gt;
-
-&lt;h6 id=&#34;nomenclature:9214ef347e9b56a2300726f0562ecbd6&#34;&gt;Nomenclature&lt;/h6&gt;
-
-&lt;ul&gt;
-&lt;li&gt;security 证券  A security is a financial instrument that represents an ownership position in a publicly-traded corporation (stock), a creditor (债权) relationship with governmental body or a corporation (bond), or rights to ownership as represented by an option.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;stock 股票 A stock is a type of security that signifies ownership in a corporation and represents a claim on part of the corporation&amp;rsquo;s assets and earnings. Also known as &amp;ldquo;shares&amp;rdquo; or &amp;ldquo;equity.&amp;rdquo;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;bond 债券 A bond is a debt investment in which an investor loans money to an entity (typically corporate or governmental) which borrows the funds for a defined period of time at a variable or fixed interest rate.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;option 期权 An option is a financial derivative that represents a contract sold by one party (option writer) to another party (option holder). The contract offers the buyer the right, but not the obligation, to buy (call) or sell (put) a security or other financial asset at an agreed-upon price (the strike price) during a certain period of time or on a specific date (exercise date). Call options give the option to buy at certain price, so the buyer would want the stock to go up. Put options give the option to sell at a certain price, so the buyer would want the stock to go down.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;equity 股东权益 The value of an asset less the value of all liabilities on that asset (Equity = Assets - Liabilities).&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Fixed income 固定收益；定息债券 Fixed income is a type of investing or budgeting style for which real return rates or periodic income is received at regular intervals at reasonably predictable levels. Risk of inflation (通货膨胀) Because fixed-rate coupon bonds will pay the same percentage of its face value over time, the market price of the bond will fluctuate as that coupon becomes desirable or undesirable given prevailing interest rates at a given moment in time.  bond prices move inversely with interest rates.&lt;/li&gt;
-&lt;li&gt;coupon 券息&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;currency 货币 Currency is a generally accepted form of money, including coins and paper notes, which is issued by a government and circulated within an economy. Used as a medium of exchange for goods and services, currency is the basis for trade.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;exchange rate 汇率 An exchange rate has a base currency and a counter currency. In a direct quotation, the foreign currency is the base currency and the domestic currency is the counter currency. In an indirect quotation, the domestic currency is the base currency and the foreign currency is the counter currency. Exchange rates can be floating or fixed. While floating exchange rates – in which currency rates are determined by market force – are the norm for most major nations, some nations prefer to fix or peg their domestic currencies to a widely accepted currency like the US dollar. Exchange rates can also be categorized as the spot rate – which is the current rate – or a forward rate, which is the spot rate adjusted for interest rate differentials.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;commodity 商品 A commodity is a basic good used in commerce that is interchangeable with other commodities of the same type. Some traditional examples of commodities include grains, gold, beef, oil and natural gas. When they are traded on an exchange, commodities must also meet specified minimum standards, also known as a basis grade. The sale and purchase of commodities is usually carried out through futures contracts on exchanges that standardize the quantity and minimum quality of the commodity being traded.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;warrant 权证；认股权证 Warrants are in many ways similar to options, but a few key differences distinguish them. Warrants are generally issued by the company itself, not a third party, and they are traded over-the-counter more often than on an exchange.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;OTC 场外交易 Over-the-counter (OTC) is a security traded in some context like dealer network other than on a formal exchange such as the NYSE, TSX, AMEX, etc. In general, the reason for which a stock is traded over-the-counter is usually because the company is small, making it unable to meet exchange listing requirements.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Turbo Options This is a tool for investment which has timeframes of 15/30/45/60/120/300 seconds.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Default Risk Default risk is the event in which companies or individuals will be unable to make the required payments on their debt obligations.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Forward Contract 远期合约 A forward contract is a customized contract between two parties to buy or sell an asset at a specified price on a future date. customized, OTC,  higher degree of default risk&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
     
     <item>
       <title>Gaussian Mixture Models</title>
@@ -247,7 +161,7 @@ albums.year &amp;gt; 1980;
     </item>
     
     <item>
-      <title>Discovery the motivation of behavior from electricity consumption signal</title>
+      <title>A data-based approach for behavior motivation digging</title>
       <link>http://xren615.github.io/post/edge_detection/</link>
       <pubDate>Tue, 15 Mar 2016 15:08:09 +0100</pubDate>
       
@@ -780,50 +694,6 @@ np.mean(c[~np.isnan(c)])
     </item>
     
     <item>
-      <title>Data Mining Project for Rosendal Passive House Database</title>
-      <link>http://xren615.github.io/post/meeting0309/</link>
-      <pubDate>Tue, 08 Mar 2016 19:19:22 +0100</pubDate>
-      
-      <guid>http://xren615.github.io/post/meeting0309/</guid>
-      <description>
-
-&lt;h4 id=&#34;progress-mar-3rd-mar-9th:131661348e6a807a0899b557fc7c748b&#34;&gt;Progress Mar. 3rd ~ Mar. 9th&lt;/h4&gt;
-
-&lt;p&gt;In this week I mainly finished:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Systematic review regarding &lt;strong&gt;feature selection techniques&lt;/strong&gt;: During last meeting Prof. Gert and msc. Christos suggested it would be better if there is a more ‘systematic’ evaluation methodology to support the algorithm used. So this week I reviewed some scientific references talking about the archetecture of feature selection techniques in different level and summerized them into this note on my blog &lt;a href=&#34;http://xren615.github.io/article/feature-reducing_eng/&#34;&gt;(find it here)&lt;/a&gt;.
-Benefit a lot from your suggestion, I am also planing to somehow re-construct part of the methodology of my thesis, to be more &amp;lsquo;mathematic&amp;rsquo; and persuasive.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Fixed the issues regarding the study of &lt;strong&gt;ventilation setting position&lt;/strong&gt;: knew from Prof.Gert that the pulse I used as &amp;lsquo;flowrate&amp;rsquo; is actually &amp;lsquo;power consumption&amp;rsquo; and the boundaries should be different for type 505 and 506. I checked with Prof. Loomans&amp;rsquo;s scripts and found that the boundaries to differentiate the 3 setting positions are  (5.5, 9) for type 505 and (4, 6) for type 506 respectively. Based on this, the code for the study of ventilation position setting is re-constructed. In summary, now:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;lsquo;Pulse&amp;rsquo; bug fixed.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;The freqency of setting change is recorded.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;2 years were seperated respectively.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;2 house types were seperated respectively.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Check some of the plots here:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/freq.png&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/yearly_avg.png&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/2013.png&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/scatter_2013.png&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/2014.png&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/scatter_2014.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;plan-for-next-week:131661348e6a807a0899b557fc7c748b&#34;&gt;Plan for next week&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Re-determine the interval of position division.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Think about the thesis report scope.&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>中国科幻小说时间轴</title>
       <link>http://xren615.github.io/post/scifi_chn/</link>
       <pubDate>Mon, 07 Mar 2016 15:03:40 +0100</pubDate>
@@ -853,19 +723,19 @@ Benefit a lot from your suggestion, I am also planing to somehow re-construct pa
 
 &lt;h4 id=&#34;background:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Background&lt;/h4&gt;
 
-&lt;p&gt;During my thesis study on the database of Rosendal passive houses, I was expected to find the dominant driving factors that influence the occupant behaviors, which means it is somehow a feature-selection task. At that time I selected a tree-based methodology (random forest) since it is easy to use with little tune needed (so-called &lt;em&gt;&amp;lsquo;out of shelf&amp;rsquo;&lt;/em&gt;) and,  with inherent output attribute *&amp;rsquo;_feature_importance&amp;rsquo;*（should be based on the error reduction in different sub-sampling). Then I discussed it with Hussain Kazmi, a data scientist from Enervalis, found it is more or less controversial to implement RF in practice like this（&lt;a href=&#34;https://www.quora.com/When-would-one-use-Random-Forests-over-Gradient-Boosted-Machines-GBMs&#34;&gt;here&lt;/a&gt;). Also, during my meeting with Prof. Gert and msc. Christos from TU/e, they suggested it would be better if there is a more &amp;lsquo;systematic&amp;rsquo; evaluation index to support the algorithm methodology I used. So this week I read some scientific references talking about systematic feature selection techniques in different level and summerized them into this note.&lt;/p&gt;
+&lt;p&gt;During my thesis study on the database of Roosendal passive houses, I was expected to find the dominant driving factors that influence the occupant behaviors, which means it is somehow a feature-selection task. At that time I selected a tree-based methodology (random forest) since it is easy to use with little tune needed (so-called &lt;em&gt;&amp;lsquo;out of shelf&amp;rsquo;&lt;/em&gt;) and,  with inherent output attribute *&amp;rsquo;_feature_importance&amp;rsquo;*（should be based on the error reduction in different sub-sampling). Then I discussed it with Hussain Kazmi, a data scientist from Enervalis, found it is more or less controversial to implement RF in practice like this（&lt;a href=&#34;https://www.quora.com/When-would-one-use-Random-Forests-over-Gradient-Boosted-Machines-GBMs&#34;&gt;here&lt;/a&gt;). Also, during my meeting with Prof. Gert and msc. Christos from TU/e, they suggested it would be better if there is a more &amp;lsquo;systematic&amp;rsquo; evaluation index to support the algorithm methodology I used. So this week I read some scientific references talking about systematic feature selection techniques in different level and summarized them into this note.&lt;/p&gt;
 
 &lt;h4 id=&#34;note-starts:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Note starts&lt;/h4&gt;
 
 &lt;p&gt;While dealing with datasets, especially data records from fields like signal processing or bioinformatics etc., it is common that the no. of features for one observation is large but the sample size is not really comparable. On one hand, many features that is not that &amp;lsquo;informative&amp;rsquo; would influence the accuracy of the machine learning algorithm, on the other hand, too many features usually come with overfitting. Thus, feature reducing is a common step in practical machine learning studies.&lt;/p&gt;
 
-&lt;p&gt;Currently there are mainly 2 categories of feature reducing methods: feature selection and feature transformation. Feature transformation tries to transform several features into a new feature and contains techniques such as principle component analysis (PCA), but it is not suitable for my case since I just want to choose rather than generate new features. So in this note I will concentrate on feature selection technniques and its realization in Python scikit-learn enviroment.&lt;/p&gt;
+&lt;p&gt;Currently there are mainly 2 categories of feature reducing methods: feature selection and feature transformation. Feature transformation tries to transform several features into a new feature and contains techniques such as principle component analysis (PCA), but it is not suitable for my case since I just want to choose rather than generate new features. So in this note I will concentrate on feature selection techniques and its realization in Python scikit-learn environment.&lt;/p&gt;
 
-&lt;p&gt;In general, there are 2 types of feature selection techniques: filter methods and wrapper methods. Filter methods select the features based on statistical variants and do not depend on any specific learining algorithm, thus it is light and fast, suitable for quick pre-processing. While wrapper methods are the selection techniques with specific learning algorithms included (logistic regression, trees etc.).&lt;/p&gt;
+&lt;p&gt;In general, there are 2 types of feature selection techniques: filter methods and wrapper methods. Filter methods select the features based on statistical variants and do not depend on any specific learning algorithm, thus it is light and fast, suitable for quick pre-processing. While wrapper methods are the selection techniques with specific learning algorithms included (logistic regression, trees etc.).&lt;/p&gt;
 
-&lt;p&gt;In Python scikit-learn enviroment, feature selection is supported by the package &lt;em&gt;sklearn.feature_selection&lt;/em&gt;, with different levels of techniques available.  From low level to higher ones:&lt;/p&gt;
+&lt;p&gt;In Python scikit-learn environment, feature selection is supported by the package &lt;em&gt;sklearn.feature_selection&lt;/em&gt;, with different levels of techniques available.  From low level to higher ones:&lt;/p&gt;
 
-&lt;h4 id=&#34;1-variance-treshhold:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;1. Variance Treshhold&lt;/h4&gt;
+&lt;h4 id=&#34;1-variance-threshold:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;1. Variance Threshold&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;from sklearn.feature_selection import VarianceThreshold  
 &lt;/code&gt;&lt;/pre&gt;
@@ -918,7 +788,7 @@ There is no general rule to select an alpha parameter for recovery of non-zero c
 &lt;img src=&#34;http://i593.photobucket.com/albums/tt11/RickRen/%202016-03-07%2012.29.14_zpsvxgzzhky.png&#34; width = &#34;300&#34; height = &#34;40&#34; alt=&#34;Lasso&#34; align=center /&gt;  
 &lt;/div&gt;  
 
-&lt;p&gt;In laymen&amp;rsquo;s terms，with the constraint ∑|β|≤t, LASSO tries to find the estimation of regression coefficient combination that minimize |y−Xβ|^2. In practice, when the constraint is equality, the regression equation could be sloved by Lagrange multiplier. In this case, with inequality constraint, the idea is like from 0, repeatly increase the value of t then the coefficient estimation could be made for every t with the help of computer program. Then this series of estimation of coeffcients is called &amp;lsquo;LASSO estimation&amp;rsquo;&lt;/p&gt;
+&lt;p&gt;In laymen&amp;rsquo;s terms，with the constraint ∑|β|≤t, LASSO tries to find the estimation of regression coefficient combination that minimize |y−Xβ|^2. In practice, when the constraint is equality, the regression equation could be solved by Lagrange multiplier. In this case, with inequality constraint, the idea is like from 0, repeatedly increase the value of t then the coefficient estimation could be made for every t with the help of computer program. Then this series of estimation of coefficients is called &amp;lsquo;LASSO estimation&amp;rsquo;&lt;/p&gt;
 
 &lt;p&gt;Tibshirani pointed out that，while t is small enough，LASSO tends to estimate certain coefficients as 0，which could serve as selection criterion. The no. of feature selected will increase while t increasing and, at a certain point all features will be selected: which is commonly-called &amp;lsquo;least-squared estimation&amp;rsquo;. During this process, the variance of model is increasing while the bias is decreasing, i.e. it is some kind of the &amp;lsquo;trade-off&amp;rsquo; between bias and overfitting.&lt;/p&gt;
 
