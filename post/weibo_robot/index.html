@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.15" />
 
-  <title>Tags &middot; SQUARE INCH</title>
+  <title>Turn your social account into a weather robot &middot; SQUARE INCH</title>
 
   
   
@@ -178,88 +178,153 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>Turn your social account into a weather robot</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>02 Jul 2016, 16:17</time>
+  </div>
+
+  
+
   
   
-    <li>
-      <a href="feature-engineering">feature-engineering</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="data-science">data-science</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="site-maintenance">site-maintenance</a>
-      <span>&#40;2&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="gaussian-mixture-models">gaussian-mixture-models</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="probabilistic-classification">probabilistic-classification</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="note">note</a>
-      <span>&#40;1&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://xren615.github.iotags/sinaweibo-api">SinaWeibo API</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="http://xren615.github.iotags/weather">Weather</a>
+    
+  </div>
   
-    <li>
-      <a href="noise-reduction">noise-reduction</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="machine-learning">machine-learning</a>
-      <span>&#40;1&#41;</span>
-    </li>
+
+</div>
+
   
-    <li>
-      <a href="literature">literature</a>
-      <span>&#40;1&#41;</span>
-    </li>
+
+<h4 id="demo:5e076714e3cb999e378cc19dc8c6ca49">Demo</h4>
+
+<p>This is my recent play-for-fun, a tiny trick developing a weatherman robot on SNS.</p>
+
+<p>E.g.
+<div  align="center"><br />
+<img src="http://7xro3y.com1.z0.glb.clouddn.com/weibopost.png" width = "700" height = "200"/><br />
+</div><br />
+This robot will update the HK local weather everyday at 20:00 EDT and post it on my SinaWeibo account.</p>
+
+<h4 id="checklist:5e076714e3cb999e378cc19dc8c6ca49">Checklist</h4>
+
+<ul>
+<li>A SinaWeibo developer account to use its post API (register <a href="http://open.weibo.com/wiki/首页">here</a>. You will need either a personal webpage or an application under development for registration).</li>
+<li>A <a href="http://developer.worldweatheronline.com/api/">WorldWeatherOnline</a> API to update weather. They provide free API to fetch the weather worldwide and pack it in popular formats like xml, json or csv.</li>
+<li>A Linux server.<br /></li>
+</ul>
+
+<h4 id="pipeline:5e076714e3cb999e378cc19dc8c6ca49">Pipeline</h4>
+
+<div  align="center">    
+<img src="http://7xro3y.com1.z0.glb.clouddn.com/pipeline.png" width = "600" height = "250"/>  
+</div>  
+
+<p><strong>WWO API</strong></p>
+
+<p>Use urllib to run GET request to WWO, get back weather information in json</p>
+
+<pre><code>import urllib2
+url = 'http://api.worldweatheronline.com/premium/v1/weather.ashx?key=*******************&amp;q=HongKong&amp;format=json&amp;num_of_days=1&amp;date=today&amp;mca=no&amp;fx24=yes&amp;showlocaltime=yes'
+response = urllib2.urlopen(url).read()
+</code></pre>
+
+<p><strong>json decode and extraction</strong></p>
+
+<p>In python one can easily use json library for json decoding, then extract information interested.</p>
+
+<pre><code>import json
+js = json.loads(response)
+w = 'Good morning! Weather robot online. Current Query: ' + js['data']['request'][0]['query'] + '.\n'
+w += 'Current weather condition: ' + js['data']['current_condition'][0]['weatherDesc'][0]['value'] + ', '
+w += 'Feels like ' + js['data']['current_condition'][0]['FeelsLikeC'] + ' degree Celsius' + '.'
+</code></pre>
+
+<p><strong>Weibo post</strong></p>
+
+<p>Use Weibo API to publish a post.</p>
+
+<pre><code>client.post('statuses/update', status=w)
+</code></pre>
+
+<p>to post. Make sure to figure out the OAuth2.0 authorization before using this API.</p>
+
+<p><strong>Server</strong></p>
+
+<p>Deploy the script on the Linux server and use</p>
+
+<pre><code>crontab -e
+</code></pre>
+
+<p>to set the schedule.</p>
+
+
   
-    <li>
-      <a href="sql">sql</a>
-      <span>&#40;1&#41;</span>
-    </li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://xren615.github.io/post/gmixture/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://xren615.github.io/post/gmixture/">Gaussian Mixture Models</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
   
-    <li>
-      <a href="weather">weather</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="reading-notes">reading-notes</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="sinaweibo-api">sinaweibo-api</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="edge-detection">edge-detection</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="feature-selection">feature-selection</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-  </ul>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'xren615';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -282,3 +347,4 @@
 
 </body>
 </html>
+
