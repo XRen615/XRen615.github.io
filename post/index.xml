@@ -7,8 +7,179 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 02 Jul 2016 16:17:24 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 19 Dec 2016 13:21:09 +0800</lastBuildDate>
     <atom:link href="http://xren615.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SKII Recommender System Design</title>
+      <link>http://xren615.github.io/post/sk2_rs/</link>
+      <pubDate>Mon, 19 Dec 2016 13:21:09 +0800</pubDate>
+      
+      <guid>http://xren615.github.io/post/sk2_rs/</guid>
+      <description>
+
+&lt;h4 id=&#34;abstract:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Abstract&lt;/h4&gt;
+
+&lt;p&gt;This prototype finished during P&amp;amp;G Data Science Hackthon, Nov. 2016 in Cincinati, OH.&lt;/p&gt;
+
+&lt;p&gt;This document briefly elaborates the design ideology for SKII onsite recommender system, leverage the demographics data, skin scan result and purchase history.&lt;/p&gt;
+
+&lt;p&gt;Note. all the confidential data has been pre-processed.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;the-dataset:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;The Dataset&lt;/h4&gt;
+
+&lt;p&gt;The data used in this recommender system consists of the folling 3 parts:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Demographics information (1 million rows * 10 columns), including gender, age, marital status etc.. Collected through the membership registration.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Skin scan results (1 million rows * 21 columns), including varies parameters evaluate your pores, skin firmness etc.. Collected via the onsite &lt;a href=&#34;http://www.sk-ii.com.sg/en/magic-ring.aspx&#34;&gt;&lt;em&gt;Magic Ring&lt;/em&gt;&lt;/a&gt; skin test.&lt;/li&gt;
+&lt;li&gt;Purchasing history (1 million consumer * 131 SKU). Collected in the customer relationship management (CRM) system.&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;methodology:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Methodology&lt;/h4&gt;
+
+&lt;p&gt;Obviously there are 2 kinds of customers: &lt;strong&gt;new customer&lt;/strong&gt; and &lt;strong&gt;return customer&lt;/strong&gt;, between which, the difference need to be highlighted is the data availiability:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;For new comers, since they haven&amp;rsquo;t purchased any item yet, the purchasing history is empty. Thus, the data availiable contains only demographic information and skin scan result.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;For return customers, all of the 3 data categories mentioned above (demographic, skin scan results, purchase history) are availiable.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Based on the different data schema, different strategy should be used for new comers and return customers.&lt;/p&gt;
+
+&lt;p&gt;######New Comers&lt;/p&gt;
+
+&lt;p&gt;The basic idea is:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Instead of always recommending the general best sellers to you (unfortunately this is what they are doing right now), we listen more to people like you.&lt;/li&gt;
+&lt;li&gt;Instead of what they bought, we care more about what makes them return, if applicable.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;So technically, I constructed a vector containing demographic info as well as skin scan result, find peers who are similar to you by calculating cosine similarity, then look at what makes them return, make a vote and recommend those stuff to you.&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/method1.png&#34; width = &#34;530&#34; height = &#34;130&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;p&gt;######Return Customers&lt;/p&gt;
+
+&lt;p&gt;Besides the demographic &amp;amp; skin info, which enbale the similarity based recommendation, we also hold the purchasing records for those return users. So how can we leverage those records to make the recommender system better?&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/purchasing.png&#34; width = &#34;120&#34; height = &#34;120&#34;/&gt;  
+&lt;/div&gt;
+
+&lt;p&gt;The basic idea is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Involve &lt;strong&gt;collaborative filtering&lt;/strong&gt; for return customers, so the system could iterate and evolve: the more you buy, the better recommendation we can make.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So technically, considering the computing load, I constructed an item-based collaborative filtering using a thrid-party library &lt;a href=&#34;https://turi.com&#34;&gt;GraphLab&lt;/a&gt;, make a recommendation and vote with the similarity-based results to get the final recommendation.&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/method2.png&#34; width = &#34;530&#34; height = &#34;230&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;implementation:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Implementation&lt;/h4&gt;
+
+&lt;h6 id=&#34;data-preprocessing-etl:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Data Preprocessing/ETL&lt;/h6&gt;
+
+&lt;p&gt;Including data cleaning, normalization, mapping etc.&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pre1.png&#34; width = &#34;430&#34; height = &#34;330&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;p&gt;Implemented in &lt;a href=&#34;https://www.knime.org&#34;&gt;KNIME&lt;/a&gt;&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pre3.png&#34; width = &#34;530&#34; height = &#34;300&#34;/&gt;  
+&lt;/div&gt;  
+
+&lt;h6 id=&#34;similar-people-based-recommendation:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Similar People Based Recommendation&lt;/h6&gt;
+
+&lt;p&gt;Implemented in Python (part of the code)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Calculating the similarity
+# No fancy algorithm, we chooose cosine, sorry
+
+def square_rooted(x):
+    return round(sqrt(sum([a*a for a in x])),3)
+
+def cosine_similarity(x,y):
+ 
+    numerator = sum(a*b for a,b in zip(x,y))
+    denominator = square_rooted(x)*square_rooted(y)
+    return round(numerator/float(denominator),3)
+    
+# Calculating the similarity between him/her with peers!   
+scores = []
+for index, row in df_GM_sample.iterrows():
+    peer = row.values.tolist()
+    score = cosine_similarity(new_list,peer)   
+    scores.append(score)  
+    
+# The most look-alike guys we are looking for (top 100 out of 100000)
+similar_users = df_GM_sample.index[0:100]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What are their return-makers? we recommend those stuff&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/output_40_1.png&#34; width = &#34;420&#34; height = &#34;500&#34;/&gt;  
+&lt;/div&gt;   
+
+&lt;h6 id=&#34;item-based-collaborative-filtering:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Item Based Collaborative Filtering&lt;/h6&gt;
+
+&lt;p&gt;GraphLab provide a clean command to build collaborative filter once you organized your dataframe in their way.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;item_sim_model = graphlab.item_similarity_recommender.create(train_data, user_id=&#39;Customer_id&#39;, item_id=&#39;item&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we could make the following recommendations&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Make Recommendations:
+item_sim_recomm = item_sim_model.recommend(users=[&#39;5208494361&#39;],k=10)
+item_sim_recomm.print_rows()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then top 10 SKU to be recommended based on the collaborative filtering:&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/top10.png&#34; width = &#34;430&#34; height = &#34;200&#34;/&gt;  
+&lt;/div&gt;
+
+&lt;h6 id=&#34;vote:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Vote&lt;/h6&gt;
+
+&lt;p&gt;The idea is simple: select the recommendations from people-similarity based method as well as collaborative filtering based method, make a vote as the final recommendation.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;performance:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Performance&lt;/h4&gt;
+
+&lt;p&gt;On the test set we made a quick evaluation for the improvement. The precision of recommendation reached &lt;strong&gt;61%&lt;/strong&gt; using under this methodology, in comparison with &lt;strong&gt;30%-&lt;/strong&gt;, previous recommendation based on the overall best-sellers.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;issues-to-be-settled:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Issues To Be Settled&lt;/h4&gt;
+
+&lt;p&gt;This is an early-stage demo finished during hackthon, (although it&amp;rsquo;s the hackthon winner :p) before put into real business usage, some issues should be settled.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The feature selection: over 150 features are treated as equal in this stage, which is apparently not realistic. So, feature selection based on corelation analysis/chi-squared testing or other more advanced methods such as PCA could be involved.&lt;/li&gt;
+&lt;li&gt;Computing optimization: in order to reduce the computing time, in this stage I sampled the pool. Of course there are better ways to do so, optimize big O/play tricks on sparse matrix etc. could help.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Turn your social account into a weather robot</title>
