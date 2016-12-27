@@ -18,7 +18,7 @@
       <guid>http://xren615.github.io/post/sk2_rs/</guid>
       <description>
 
-&lt;h4 id=&#34;abstract:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Abstract&lt;/h4&gt;
+&lt;h3 id=&#34;abstract:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Abstract&lt;/h3&gt;
 
 &lt;p&gt;This prototype finished during P&amp;amp;G Data Science Hackthon, Nov. 2016 in Cincinati, OH.&lt;/p&gt;
 
@@ -28,7 +28,7 @@
 
 &lt;hr /&gt;
 
-&lt;h4 id=&#34;the-dataset:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;The Dataset&lt;/h4&gt;
+&lt;h3 id=&#34;the-dataset:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;The Dataset&lt;/h3&gt;
 
 &lt;p&gt;The data used in this recommender system consists of the folling 3 parts:&lt;/p&gt;
 
@@ -40,7 +40,7 @@
 
 &lt;hr /&gt;
 
-&lt;h4 id=&#34;methodology:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Methodology&lt;/h4&gt;
+&lt;h3 id=&#34;methodology:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Methodology&lt;/h3&gt;
 
 &lt;p&gt;Obviously there are 2 kinds of customers: &lt;strong&gt;new customer&lt;/strong&gt; and &lt;strong&gt;return customer&lt;/strong&gt;, between which, the difference need to be highlighted is the data availiability:&lt;/p&gt;
 
@@ -52,7 +52,7 @@
 
 &lt;p&gt;Based on the different data schema, different strategy should be used for new comers and return customers.&lt;/p&gt;
 
-&lt;p&gt;######New Comers&lt;/p&gt;
+&lt;h4 id=&#34;new-comers:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;New Comers&lt;/h4&gt;
 
 &lt;p&gt;The basic idea is:&lt;/p&gt;
 
@@ -67,7 +67,7 @@
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/method1.png&#34; width = &#34;530&#34; height = &#34;130&#34;/&gt;  
 &lt;/div&gt;  
 
-&lt;p&gt;######Return Customers&lt;/p&gt;
+&lt;h4 id=&#34;return-customers:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Return Customers&lt;/h4&gt;
 
 &lt;p&gt;Besides the demographic &amp;amp; skin info, which enbale the similarity based recommendation, we also hold the purchasing records for those return users. So how can we leverage those records to make the recommender system better?&lt;/p&gt;
 
@@ -89,9 +89,9 @@
 
 &lt;hr /&gt;
 
-&lt;h4 id=&#34;implementation:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Implementation&lt;/h4&gt;
+&lt;h3 id=&#34;implementation:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Implementation&lt;/h3&gt;
 
-&lt;h6 id=&#34;data-preprocessing-etl:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Data Preprocessing/ETL&lt;/h6&gt;
+&lt;h4 id=&#34;data-preprocessing-etl:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Data Preprocessing/ETL&lt;/h4&gt;
 
 &lt;p&gt;Including data cleaning, normalization, mapping etc.&lt;/p&gt;
 
@@ -105,7 +105,7 @@
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pre3.png&#34; width = &#34;530&#34; height = &#34;300&#34;/&gt;  
 &lt;/div&gt;  
 
-&lt;h6 id=&#34;similar-people-based-recommendation:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Similar People Based Recommendation&lt;/h6&gt;
+&lt;h4 id=&#34;similar-people-based-recommendation:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Similar People Based Recommendation&lt;/h4&gt;
 
 &lt;p&gt;Implemented in Python (part of the code)&lt;/p&gt;
 
@@ -138,7 +138,7 @@ similar_users = df_GM_sample.index[0:100]
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/output_40_1.png&#34; width = &#34;420&#34; height = &#34;500&#34;/&gt;  
 &lt;/div&gt;   
 
-&lt;h6 id=&#34;item-based-collaborative-filtering:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Item Based Collaborative Filtering&lt;/h6&gt;
+&lt;h4 id=&#34;item-based-collaborative-filtering:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Item Based Collaborative Filtering&lt;/h4&gt;
 
 &lt;p&gt;GraphLab provide a clean command to build collaborative filter once you organized your dataframe in their way.&lt;/p&gt;
 
@@ -158,19 +158,19 @@ item_sim_recomm.print_rows()
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/top10.png&#34; width = &#34;430&#34; height = &#34;200&#34;/&gt;  
 &lt;/div&gt;
 
-&lt;h6 id=&#34;vote:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Vote&lt;/h6&gt;
+&lt;h4 id=&#34;vote:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Vote&lt;/h4&gt;
 
 &lt;p&gt;The idea is simple: select the recommendations from people-similarity based method as well as collaborative filtering based method, make a vote as the final recommendation.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h4 id=&#34;performance:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Performance&lt;/h4&gt;
+&lt;h3 id=&#34;performance:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Performance&lt;/h3&gt;
 
 &lt;p&gt;On the test set we made a quick evaluation for the improvement. The precision of recommendation reached &lt;strong&gt;61%&lt;/strong&gt; using under this methodology, in comparison with &lt;strong&gt;30%-&lt;/strong&gt;, previous recommendation based on the overall best-sellers.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h4 id=&#34;issues-to-be-settled:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Issues To Be Settled&lt;/h4&gt;
+&lt;h3 id=&#34;issues-to-be-settled:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Issues To Be Settled&lt;/h3&gt;
 
 &lt;p&gt;This is an early-stage demo finished during hackthon, (although it&amp;rsquo;s the hackthon winner :p) before put into real business usage, some issues should be settled.&lt;/p&gt;
 
@@ -182,7 +182,7 @@ item_sim_recomm.print_rows()
     </item>
     
     <item>
-      <title>Turn your social account into a weather robot</title>
+      <title>Turn Your Social Account into a Weather Robot</title>
       <link>http://xren615.github.io/post/weibo_robot/</link>
       <pubDate>Sat, 02 Jul 2016 16:17:24 +0200</pubDate>
       
