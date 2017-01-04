@@ -7,110 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 06 Mar 2016 19:19:22 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 05 Jan 2017 19:19:22 +0100</lastBuildDate>
     <atom:link href="http://xren615.github.io/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Feature reducing_ENG</title>
-      <link>http://xren615.github.io/post/Feature_reducing_ENG/</link>
-      <pubDate>Sun, 06 Mar 2016 19:19:22 +0100</pubDate>
-      
-      <guid>http://xren615.github.io/post/Feature_reducing_ENG/</guid>
-      <description>
-
-&lt;h3 id=&#34;feature-reducing:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Feature reducing&lt;/h3&gt;
-
-&lt;h4 id=&#34;background:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Background&lt;/h4&gt;
-
-&lt;p&gt;During my thesis study on the database of Roosendal passive houses, I was expected to find the dominant driving factors that influence the occupant behaviors, which means it is somehow a feature-selection task. At that time I selected a tree-based methodology (random forest) since it is easy to use with little tune needed (so-called &lt;em&gt;&amp;lsquo;out of shelf&amp;rsquo;&lt;/em&gt;) and,  with inherent output attribute *&amp;rsquo;_feature_importance&amp;rsquo;*（should be based on the error reduction in different sub-sampling). Then I discussed it with Hussain Kazmi, a data scientist from Enervalis, found it is more or less controversial to implement RF in practice like this（&lt;a href=&#34;https://www.quora.com/When-would-one-use-Random-Forests-over-Gradient-Boosted-Machines-GBMs&#34;&gt;here&lt;/a&gt;). Also, during my meeting with Prof. Gert and msc. Christos from TU/e, they suggested it would be better if there is a more &amp;lsquo;systematic&amp;rsquo; evaluation index to support the algorithm methodology I used. So this week I read some scientific references talking about systematic feature selection techniques in different level and summarized them into this note.&lt;/p&gt;
-
-&lt;h4 id=&#34;note-starts:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Note starts&lt;/h4&gt;
-
-&lt;p&gt;While dealing with datasets, especially data records from fields like signal processing or bioinformatics etc., it is common that the no. of features for one observation is large but the sample size is not really comparable. On one hand, many features that is not that &amp;lsquo;informative&amp;rsquo; would influence the accuracy of the machine learning algorithm, on the other hand, too many features usually come with overfitting. Thus, feature reducing is a common step in practical machine learning studies.&lt;/p&gt;
-
-&lt;p&gt;Currently there are mainly 2 categories of feature reducing methods: feature selection and feature transformation. Feature transformation tries to transform several features into a new feature and contains techniques such as principle component analysis (PCA), but it is not suitable for my case since I just want to choose rather than generate new features. So in this note I will concentrate on feature selection techniques and its realization in Python scikit-learn environment.&lt;/p&gt;
-
-&lt;p&gt;In general, there are 2 types of feature selection techniques: filter methods and wrapper methods. Filter methods select the features based on statistical variants and do not depend on any specific learning algorithm, thus it is light and fast, suitable for quick pre-processing. While wrapper methods are the selection techniques with specific learning algorithms included (logistic regression, trees etc.).&lt;/p&gt;
-
-&lt;p&gt;In Python scikit-learn environment, feature selection is supported by the package &lt;em&gt;sklearn.feature_selection&lt;/em&gt;, with different levels of techniques available.  From low level to higher ones:&lt;/p&gt;
-
-&lt;h4 id=&#34;1-variance-threshold:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;1. Variance Threshold&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;from sklearn.feature_selection import VarianceThreshold  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;VarianceThreshold is a simple baseline approach to feature selection. It removes all features whose variance doesn’t meet some threshold. By default, it removes all zero-variance features, i.e. features that have the same value in all samples.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;2-univariate-feature-selection:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;2. Univariate feature selection&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Univariate feature selection works by selecting the best features based on univariate statistical tests. It can be seen as a preprocessing step to an estimator.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;E.g. &lt;a href=&#34;https://segmentfault.com/a/1190000003719712&#34;&gt;Chi-squared test&lt;/a&gt; is a widely-used technique to test to what extend two variables are correlated, then the p-value of chi2 test could be used for selection:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;X_new = SelectKBest(chi2, k=2).fit_transform(X, y)  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;3-recursive-feature-elimination:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;3. Recursive feature elimination&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Given an external estimator that assigns weights to features (e.g., the coefficients of a linear model), recursive feature elimination (RFE) is to select features by recursively considering smaller and smaller sets of features. First, the estimator is trained on the initial set of features and weights are assigned to each one of them. Then, features whose absolute weights are the smallest are pruned from the current set features. That procedure is recursively repeated on the pruned set until the desired number of features to select is eventually reached.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;4-feature-selection-using-selectfrommodel-wrapper-techniques:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;4. Feature selection using SelectFromModel (Wrapper techniques)&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;SelectFromModel is a meta-transformer that can be used along with any estimator that has a coef_ or feature&lt;em&gt;importances&lt;/em&gt; attribute after fitting. The features are considered unimportant and removed, if the corresponding coef_ or feature&lt;em&gt;importances&lt;/em&gt; values are below the provided threshold parameter. Apart from specifying the threshold numerically, there are build-in heuristics for finding a threshold using a string argument. Available heuristics are “mean”, “median” and float multiples of these like “0.1*mean”.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h5 id=&#34;4-1-l1-based-feature-selection:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;4.1 L1-based feature selection&lt;/h5&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Linear models penalized with the L1 norm have sparse solutions: many of their estimated coefficients are zero. When the goal is to reduce the dimensionality of the data to use with another classifier, they can be used along with feature_selection.SelectFromModel to select the non-zero coefficients. In particular, sparse estimators useful for this purpose are the &lt;strong&gt;linear_model.Lasso for regression&lt;/strong&gt;, and of &lt;strong&gt;linear_model.LogisticRegression and svm.LinearSVC for classification&lt;/strong&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h6 id=&#34;penalty-control:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Penalty control:&lt;/h6&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;With SVMs and logistic-regression, the parameter C controls the sparsity: the smaller C the fewer features selected. With Lasso, the higher the alpha parameter, the fewer features selected.&lt;br /&gt;
-There is no general rule to select an alpha parameter for recovery of non-zero coefficients. It can by set by cross-validation (LassoCV or LassoLarsCV), though this may lead to under-penalized models: including a small number of non-relevant variables is not detrimental to prediction score. BIC (LassoLarsIC) tends, on the opposite, to set high values of alpha.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h6 id=&#34;note-lasso:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Note: LASSO&lt;/h6&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Lasso_(statistics)&#34;&gt;LASSO (least absolute shrinkage and selection operator)&lt;/a&gt;, a widely-used regularization/feature selection technique，with objective function like：&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://i593.photobucket.com/albums/tt11/RickRen/%202016-03-07%2012.29.14_zpsvxgzzhky.png&#34; width = &#34;300&#34; height = &#34;40&#34; alt=&#34;Lasso&#34; align=center /&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;In laymen&amp;rsquo;s terms，with the constraint ∑|β|≤t, LASSO tries to find the estimation of regression coefficient combination that minimize |y−Xβ|^2. In practice, when the constraint is equality, the regression equation could be solved by Lagrange multiplier. In this case, with inequality constraint, the idea is like from 0, repeatedly increase the value of t then the coefficient estimation could be made for every t with the help of computer program. Then this series of estimation of coefficients is called &amp;lsquo;LASSO estimation&amp;rsquo;&lt;/p&gt;
-
-&lt;p&gt;Tibshirani pointed out that，while t is small enough，LASSO tends to estimate certain coefficients as 0，which could serve as selection criterion. The no. of feature selected will increase while t increasing and, at a certain point all features will be selected: which is commonly-called &amp;lsquo;least-squared estimation&amp;rsquo;. During this process, the variance of model is increasing while the bias is decreasing, i.e. it is some kind of the &amp;lsquo;trade-off&amp;rsquo; between bias and overfitting.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Elastic_net_regularization&#34;&gt;Elastic net&lt;/a&gt;, which looks very similar to LASSO, is considered outperform in highly inter-correlated datasets.&lt;/p&gt;
-
-&lt;h5 id=&#34;4-3-tree-based-feature-selection:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;4.3. Tree-based feature selection&lt;/h5&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Tree-based estimators (see the sklearn.tree module and forest of trees in the sklearn.ensemble module) can be used to compute feature importances, which in turn can be used to discard irrelevant features (when coupled with the sklearn.feature_selection.SelectFromModel meta-transformer).&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;other-references:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Other references：&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://scikit-learn.org/stable/modules/feature_selection.html&#34;&gt;Scikit-learn feature selection documentation&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://cos.name/2011/04/modified-lars-and-lasso/&#34;&gt;Modified LARS and LASSO&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
     
     <item>
       <title>特征选择</title>
       <link>http://xren615.github.io/post/feature_reducing/</link>
-      <pubDate>Sun, 06 Mar 2016 19:19:22 +0100</pubDate>
+      <pubDate>Thu, 05 Jan 2017 19:19:22 +0100</pubDate>
       
       <guid>http://xren615.github.io/post/feature_reducing/</guid>
       <description>
@@ -224,6 +127,103 @@ There is no general rule to select an alpha parameter for recovery of non-zero c
 &lt;p&gt;&lt;a href=&#34;http://scikit-learn.org/stable/modules/feature_selection.html&#34;&gt;scikit-learn feature selection documentation&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://cos.name/2011/04/modified-lars-and-lasso/&#34;&gt;修正的LARS算法和lasso&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Feature reducing_ENG</title>
+      <link>http://xren615.github.io/post/Feature_reducing_ENG/</link>
+      <pubDate>Sun, 06 Mar 2016 19:19:22 +0100</pubDate>
+      
+      <guid>http://xren615.github.io/post/Feature_reducing_ENG/</guid>
+      <description>
+
+&lt;h3 id=&#34;feature-reducing:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Feature reducing&lt;/h3&gt;
+
+&lt;h4 id=&#34;background:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Background&lt;/h4&gt;
+
+&lt;p&gt;During my thesis study on the database of Roosendal passive houses, I was expected to find the dominant driving factors that influence the occupant behaviors, which means it is somehow a feature-selection task. At that time I selected a tree-based methodology (random forest) since it is easy to use with little tune needed (so-called &lt;em&gt;&amp;lsquo;out of shelf&amp;rsquo;&lt;/em&gt;) and,  with inherent output attribute *&amp;rsquo;_feature_importance&amp;rsquo;*（should be based on the error reduction in different sub-sampling). Then I discussed it with Hussain Kazmi, a data scientist from Enervalis, found it is more or less controversial to implement RF in practice like this（&lt;a href=&#34;https://www.quora.com/When-would-one-use-Random-Forests-over-Gradient-Boosted-Machines-GBMs&#34;&gt;here&lt;/a&gt;). Also, during my meeting with Prof. Gert and msc. Christos from TU/e, they suggested it would be better if there is a more &amp;lsquo;systematic&amp;rsquo; evaluation index to support the algorithm methodology I used. So this week I read some scientific references talking about systematic feature selection techniques in different level and summarized them into this note.&lt;/p&gt;
+
+&lt;h4 id=&#34;note-starts:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Note starts&lt;/h4&gt;
+
+&lt;p&gt;While dealing with datasets, especially data records from fields like signal processing or bioinformatics etc., it is common that the no. of features for one observation is large but the sample size is not really comparable. On one hand, many features that is not that &amp;lsquo;informative&amp;rsquo; would influence the accuracy of the machine learning algorithm, on the other hand, too many features usually come with overfitting. Thus, feature reducing is a common step in practical machine learning studies.&lt;/p&gt;
+
+&lt;p&gt;Currently there are mainly 2 categories of feature reducing methods: feature selection and feature transformation. Feature transformation tries to transform several features into a new feature and contains techniques such as principle component analysis (PCA), but it is not suitable for my case since I just want to choose rather than generate new features. So in this note I will concentrate on feature selection techniques and its realization in Python scikit-learn environment.&lt;/p&gt;
+
+&lt;p&gt;In general, there are 2 types of feature selection techniques: filter methods and wrapper methods. Filter methods select the features based on statistical variants and do not depend on any specific learning algorithm, thus it is light and fast, suitable for quick pre-processing. While wrapper methods are the selection techniques with specific learning algorithms included (logistic regression, trees etc.).&lt;/p&gt;
+
+&lt;p&gt;In Python scikit-learn environment, feature selection is supported by the package &lt;em&gt;sklearn.feature_selection&lt;/em&gt;, with different levels of techniques available.  From low level to higher ones:&lt;/p&gt;
+
+&lt;h4 id=&#34;1-variance-threshold:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;1. Variance Threshold&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;from sklearn.feature_selection import VarianceThreshold  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;VarianceThreshold is a simple baseline approach to feature selection. It removes all features whose variance doesn’t meet some threshold. By default, it removes all zero-variance features, i.e. features that have the same value in all samples.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;2-univariate-feature-selection:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;2. Univariate feature selection&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Univariate feature selection works by selecting the best features based on univariate statistical tests. It can be seen as a preprocessing step to an estimator.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;E.g. &lt;a href=&#34;https://segmentfault.com/a/1190000003719712&#34;&gt;Chi-squared test&lt;/a&gt; is a widely-used technique to test to what extend two variables are correlated, then the p-value of chi2 test could be used for selection:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;X_new = SelectKBest(chi2, k=2).fit_transform(X, y)  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;3-recursive-feature-elimination:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;3. Recursive feature elimination&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Given an external estimator that assigns weights to features (e.g., the coefficients of a linear model), recursive feature elimination (RFE) is to select features by recursively considering smaller and smaller sets of features. First, the estimator is trained on the initial set of features and weights are assigned to each one of them. Then, features whose absolute weights are the smallest are pruned from the current set features. That procedure is recursively repeated on the pruned set until the desired number of features to select is eventually reached.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;4-feature-selection-using-selectfrommodel-wrapper-techniques:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;4. Feature selection using SelectFromModel (Wrapper techniques)&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;SelectFromModel is a meta-transformer that can be used along with any estimator that has a coef_ or feature&lt;em&gt;importances&lt;/em&gt; attribute after fitting. The features are considered unimportant and removed, if the corresponding coef_ or feature&lt;em&gt;importances&lt;/em&gt; values are below the provided threshold parameter. Apart from specifying the threshold numerically, there are build-in heuristics for finding a threshold using a string argument. Available heuristics are “mean”, “median” and float multiples of these like “0.1*mean”.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&#34;4-1-l1-based-feature-selection:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;4.1 L1-based feature selection&lt;/h5&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Linear models penalized with the L1 norm have sparse solutions: many of their estimated coefficients are zero. When the goal is to reduce the dimensionality of the data to use with another classifier, they can be used along with feature_selection.SelectFromModel to select the non-zero coefficients. In particular, sparse estimators useful for this purpose are the &lt;strong&gt;linear_model.Lasso for regression&lt;/strong&gt;, and of &lt;strong&gt;linear_model.LogisticRegression and svm.LinearSVC for classification&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h6 id=&#34;penalty-control:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Penalty control:&lt;/h6&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;With SVMs and logistic-regression, the parameter C controls the sparsity: the smaller C the fewer features selected. With Lasso, the higher the alpha parameter, the fewer features selected.&lt;br /&gt;
+There is no general rule to select an alpha parameter for recovery of non-zero coefficients. It can by set by cross-validation (LassoCV or LassoLarsCV), though this may lead to under-penalized models: including a small number of non-relevant variables is not detrimental to prediction score. BIC (LassoLarsIC) tends, on the opposite, to set high values of alpha.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h6 id=&#34;note-lasso:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Note: LASSO&lt;/h6&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Lasso_(statistics)&#34;&gt;LASSO (least absolute shrinkage and selection operator)&lt;/a&gt;, a widely-used regularization/feature selection technique，with objective function like：&lt;/p&gt;
+
+&lt;div  align=&#34;center&#34;&gt;    
+&lt;img src=&#34;http://i593.photobucket.com/albums/tt11/RickRen/%202016-03-07%2012.29.14_zpsvxgzzhky.png&#34; width = &#34;300&#34; height = &#34;40&#34; alt=&#34;Lasso&#34; align=center /&gt;  
+&lt;/div&gt;  
+
+&lt;p&gt;In laymen&amp;rsquo;s terms，with the constraint ∑|β|≤t, LASSO tries to find the estimation of regression coefficient combination that minimize |y−Xβ|^2. In practice, when the constraint is equality, the regression equation could be solved by Lagrange multiplier. In this case, with inequality constraint, the idea is like from 0, repeatedly increase the value of t then the coefficient estimation could be made for every t with the help of computer program. Then this series of estimation of coefficients is called &amp;lsquo;LASSO estimation&amp;rsquo;&lt;/p&gt;
+
+&lt;p&gt;Tibshirani pointed out that，while t is small enough，LASSO tends to estimate certain coefficients as 0，which could serve as selection criterion. The no. of feature selected will increase while t increasing and, at a certain point all features will be selected: which is commonly-called &amp;lsquo;least-squared estimation&amp;rsquo;. During this process, the variance of model is increasing while the bias is decreasing, i.e. it is some kind of the &amp;lsquo;trade-off&amp;rsquo; between bias and overfitting.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Elastic_net_regularization&#34;&gt;Elastic net&lt;/a&gt;, which looks very similar to LASSO, is considered outperform in highly inter-correlated datasets.&lt;/p&gt;
+
+&lt;h5 id=&#34;4-3-tree-based-feature-selection:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;4.3. Tree-based feature selection&lt;/h5&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Tree-based estimators (see the sklearn.tree module and forest of trees in the sklearn.ensemble module) can be used to compute feature importances, which in turn can be used to discard irrelevant features (when coupled with the sklearn.feature_selection.SelectFromModel meta-transformer).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;other-references:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Other references：&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://scikit-learn.org/stable/modules/feature_selection.html&#34;&gt;Scikit-learn feature selection documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://cos.name/2011/04/modified-lars-and-lasso/&#34;&gt;Modified LARS and LASSO&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
