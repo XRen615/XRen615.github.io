@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.15" />
 
-  <title>中国科幻小说时间轴 &middot; INCH2</title>
+  <title>SQL Notes &middot; INCH2</title>
 
   
   
@@ -176,7 +176,7 @@
 
 
 <div class="header">
-  <h1>中国科幻小说时间轴</h1>
+  <h1>SQL Notes</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -185,7 +185,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>07 Mar 2016, 15:03</time>
+    <time>01 Apr 2016, 18:49</time>
   </div>
 
   
@@ -198,7 +198,9 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="http://xren615.github.iotags/literature">Literature</a>
+      <a class="post-taxonomy-tag" href="http://xren615.github.iotags/sql">SQL</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="http://xren615.github.iotags/note">Note</a>
     
   </div>
   
@@ -208,26 +210,133 @@
 
   
 
-<p>This article is comment regarding Chinese sci-fi.</p>
+<p>(This is the note for the SQL training course on Codecademy.com)</p>
 
-<h4 id="摘记与感想-姚海军-中国科幻的五个瞬间-https-itunes-apple-com-cn-podcast-yi-xi-yao-hai-jun-zhong-guo-id676106704-i-364284777-mt-2:34ac4c2f509858a22ab859144a9fdcd2">摘记与感想：<a href="https://itunes.apple.com/cn/podcast/yi-xi-yao-hai-jun-zhong-guo/id676106704?i=364284777&amp;mt=2">姚海军：中国科幻的五个瞬间</a></h4>
+<h4 id="some-basic-recipes:d1babb582138b02a13547d2c6eb6df72">Some basic recipes</h4>
 
-<p>『<strong>简要时间轴</strong>』幻想（清末民初-1949）YY小说 —— 『科学化』科普『17年文学』（1949-1966）—— 荒芜 （1966-1979） —— 黄金时期： 郭沫若『科学的春天』（1979-1983）叶永烈 —— 批判『科幻文学姓科还是姓文』， 荒芜 （1984-1997）：姓科就批你伪科学；姓文就批你『颠覆社会主义道德观』—— 转折：1997 世界科幻大会，北京，与宇航事业挂钩，重归主流 —— 『去科学化』回归文学：科技外壳与人性探索 王晋康 刘慈欣 —— 2005 『三体』开始连载 —— 2016 『三体』获『雨果奖』中国科幻文学首次实现输出，社会进入『全民科幻』时代</p>
+<pre><code>SELECT DISTINCT  
+</code></pre>
 
-<p>自豪：在最艰难的荒芜岁月里，感谢『科幻世界』（前『科学文艺』），『<strong>四川成都</strong>』一直是中国科幻最后一块坚守的阵地。然而需要警惕的是，如今科幻小说的全民热潮在某种程度上造就了科幻小说作者的浮躁，越来越多的作家，特别是年轻一代的写手，以拍电影卖版权为目标：与其说在创作文学作品，不如讲一开始就在写电影剧本。然而，就算大家再怎么喷孔二狗的12亿『三体』改编，包括我在内仍然会有千千万万的科幻迷愿意掏钱去电影院，就为见证这一历史性的时刻 —— 而且我愿意去十次 ╮(╯▽╰)╭</p>
+<p>specifies that the statement is going to be a query that returns unique values in the specified column(s)</p>
+
+<p><strong>WHERE</strong></p>
+
+<pre><code>SELECT * FROM movies
+WHERE year BETWEEN 1990 AND 2000
+AND genre = 'comedy'; 
+</code></pre>
+
+<p><strong>LIKE</strong>: a special operator used with the WHERE clause to search for a specific pattern in a column.<br />
+<strong>%</strong>: wildcard character, matches zero or more missing letters in the pattern.</p>
+
+<pre><code>SELECT * FROM movies WHERE name like 'a%';  
+</code></pre>
+
+<p><strong>ORDER BY</strong>: a clause that indicates you want to sort the result set by a particular column either alphabetically or numerically.</p>
+
+<pre><code>SELECT * FROM movies
+ORDER BY imdb_rating ASC/DESC;  
+</code></pre>
+
+<p><strong>LIMIT</strong>: a clause that lets you specify the maximum number of rows the result set will have.</p>
+
+<pre><code>SELECT * FROM Persons
+LIMIT 5;  
+</code></pre>
+
+<h4 id="using-aggregate-functions-to-perform-calculations:d1babb582138b02a13547d2c6eb6df72">Using aggregate functions to perform calculations</h4>
+
+<p>Aggregate functions combine multiple rows together to form a single value of more meaningful information.</p>
+
+<p><strong>COUNT()</strong>: a function that takes the name of a column as an argument and counts the number of rows where the column is not NULL. Here, we want to count every row so we pass * as an argument.</p>
+
+<pre><code>SELECT COUNT(*) FROM fake_apps;  
+</code></pre>
+
+<p><strong>GROUP BY</strong>: Count the number of apps at each price.</p>
+
+<pre><code>SELECT price, COUNT(*) FROM fake_apps
+GROUP BY price;  
+</code></pre>
+
+<p><strong>SUM()</strong>: a function that takes the name of a column as an argument and returns the sum of all the values in that column.</p>
+
+<pre><code>SELECT SUM(downloads) FROM fake_apps;  
+</code></pre>
+
+<p><strong>MAX()/MIN()</strong>: a function that takes the name of a column as an argument and returns the largest/smallest value in that column.</p>
+
+<pre><code>SELECT name, category, MAX(downloads) FROM fake_apps
+GROUP BY category;  
+</code></pre>
+
+<p><strong>AVG()</strong>: a function works by taking a column name as an argument and returns the average value for that column.</p>
+
+<p><strong>ROUND()</strong>: a function that takes a column name and an integer as an argument. It rounds the values in the column to the number of decimal places specified by the integer.</p>
+
+<h4 id="query-multiple-tables-that-have-relationships-with-each-other:d1babb582138b02a13547d2c6eb6df72">Query multiple tables that have relationships with each other</h4>
+
+<p><strong>primary key</strong></p>
+
+<p>A primary key serves as a unique identifier for each row or record in a given table. The primary key is literally an id value for a record. We&rsquo;re going to use this value to connect artists to the albums they have produced.</p>
+
+<pre><code>CREATE TABLE 
+artists(id INTEGER PRIMARY KEY, name TEXT);
+</code></pre>
+
+<p>By specifying that the id column is the PRIMARY KEY, SQL makes sure that:</p>
+
+<ul>
+<li>None of the values in this column are NULL<br /></li>
+<li>Each value in this column is unique<br /></li>
+</ul>
+
+<p>A table can not have more than one PRIMARY KEY column.</p>
+
+<p><strong>foreign key</strong></p>
+
+<p>A foreign key is a column that contains the primary key of another table in the database. We use foreign keys and primary keys to connect rows in two different tables. One table&rsquo;s foreign key holds the value of another table&rsquo;s primary key. Unlike primary keys, foreign keys do not need to be unique and can be NULL.</p>
+
+<p><strong>JOIN</strong>: An inner join will combine rows from different tables if the join condition is true.</p>
+
+<pre><code>SELECT * FROM albums
+JOIN artists ON
+albums.artist_id = artists.id;  
+</code></pre>
+
+<p><strong>LEFT JOIN</strong>: every row in the left table （the former） is returned in the result set, and if the join condition is not met, then NULL values are used to fill in the columns from the right table.</p>
+
+<pre><code>SELECT * FROM albums
+LEFT JOIN artists ON
+albums.artist_id = artists.id;
+</code></pre>
+
+<p><strong>AS</strong>: a keyword in SQL that allows you to rename a column or table using an alias.</p>
+
+<pre><code>SELECT 
+albums.name AS 'Album',
+albums.year,
+artists.name AS 'Artist'
+FROM
+albums
+JOIN artists ON
+albums.artist_id = artists.id
+WHERE
+albums.year &gt; 1980;
+</code></pre>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="http://xren615.github.io/post/archive/Feature_reducing_ENG/"><i class="fa fa-chevron-left"></i></a>
+    <a href="http://xren615.github.io/post/edge_detection/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="http://xren615.github.io/post/archive/Feature_reducing_ENG/">Feature reducing_ENG</a>
+      <a href="http://xren615.github.io/post/edge_detection/">A data-based approach for behavior motivation digging</a>
     </nav>
     
   </div>
@@ -237,13 +346,13 @@
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="http://xren615.github.io/post/archive/reading_note1/">Reading Note: Building machine learning systems with python</a>
+      <a href="http://xren615.github.io/post/gmixture/">Gaussian Mixture Models</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="http://xren615.github.io/post/archive/reading_note1/"><i class="fa fa-chevron-right"></i></a>
+    <a href="http://xren615.github.io/post/gmixture/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

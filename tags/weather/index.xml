@@ -18,7 +18,7 @@
       <guid>http://xren615.github.io/post/weibo_robot/</guid>
       <description>
 
-&lt;h4 id=&#34;demo:5e076714e3cb999e378cc19dc8c6ca49&#34;&gt;Demo&lt;/h4&gt;
+&lt;h4 id=&#34;demo:adc735f8be8ab412542aa9dbcb7489d5&#34;&gt;Demo&lt;/h4&gt;
 
 &lt;p&gt;This is my recent play-for-fun, a tiny trick developing a weatherman robot on SNS.&lt;/p&gt;
 
@@ -28,7 +28,7 @@
 &lt;/div&gt;&lt;br /&gt;
 This robot will update the HK local weather everyday at 20:00 EDT and post it on my SinaWeibo account.&lt;/p&gt;
 
-&lt;h4 id=&#34;checklist:5e076714e3cb999e378cc19dc8c6ca49&#34;&gt;Checklist&lt;/h4&gt;
+&lt;h4 id=&#34;checklist:adc735f8be8ab412542aa9dbcb7489d5&#34;&gt;Checklist&lt;/h4&gt;
 
 &lt;ul&gt;
 &lt;li&gt;A SinaWeibo developer account to use its post API (register &lt;a href=&#34;http://open.weibo.com/wiki/首页&#34;&gt;here&lt;/a&gt;. You will need either a personal webpage or an application under development for registration).&lt;/li&gt;
@@ -36,7 +36,7 @@ This robot will update the HK local weather everyday at 20:00 EDT and post it on
 &lt;li&gt;A Linux server.&lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&#34;pipeline:5e076714e3cb999e378cc19dc8c6ca49&#34;&gt;Pipeline&lt;/h4&gt;
+&lt;h4 id=&#34;pipeline:adc735f8be8ab412542aa9dbcb7489d5&#34;&gt;Pipeline&lt;/h4&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pipeline.png&#34; width = &#34;600&#34; height = &#34;250&#34;/&gt;  

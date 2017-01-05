@@ -11,14 +11,12 @@
     <atom:link href="http://xren615.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>特征选择</title>
+      <title>特征选择：一份简明指南</title>
       <link>http://xren615.github.io/post/feature_reducing/</link>
       <pubDate>Thu, 05 Jan 2017 19:19:22 +0100</pubDate>
       
       <guid>http://xren615.github.io/post/feature_reducing/</guid>
       <description>
-
-&lt;h3 id=&#34;特征选择:c3a47a940ff1b84874509236adb1e6a0&#34;&gt;特征选择&lt;/h3&gt;
 
 &lt;h4 id=&#34;介绍:c3a47a940ff1b84874509236adb1e6a0&#34;&gt;介绍&lt;/h4&gt;
 
@@ -309,7 +307,7 @@ item_sim_recomm.print_rows()
       <guid>http://xren615.github.io/post/weibo_robot/</guid>
       <description>
 
-&lt;h4 id=&#34;demo:5e076714e3cb999e378cc19dc8c6ca49&#34;&gt;Demo&lt;/h4&gt;
+&lt;h4 id=&#34;demo:adc735f8be8ab412542aa9dbcb7489d5&#34;&gt;Demo&lt;/h4&gt;
 
 &lt;p&gt;This is my recent play-for-fun, a tiny trick developing a weatherman robot on SNS.&lt;/p&gt;
 
@@ -319,7 +317,7 @@ item_sim_recomm.print_rows()
 &lt;/div&gt;&lt;br /&gt;
 This robot will update the HK local weather everyday at 20:00 EDT and post it on my SinaWeibo account.&lt;/p&gt;
 
-&lt;h4 id=&#34;checklist:5e076714e3cb999e378cc19dc8c6ca49&#34;&gt;Checklist&lt;/h4&gt;
+&lt;h4 id=&#34;checklist:adc735f8be8ab412542aa9dbcb7489d5&#34;&gt;Checklist&lt;/h4&gt;
 
 &lt;ul&gt;
 &lt;li&gt;A SinaWeibo developer account to use its post API (register &lt;a href=&#34;http://open.weibo.com/wiki/首页&#34;&gt;here&lt;/a&gt;. You will need either a personal webpage or an application under development for registration).&lt;/li&gt;
@@ -327,7 +325,7 @@ This robot will update the HK local weather everyday at 20:00 EDT and post it on
 &lt;li&gt;A Linux server.&lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&#34;pipeline:5e076714e3cb999e378cc19dc8c6ca49&#34;&gt;Pipeline&lt;/h4&gt;
+&lt;h4 id=&#34;pipeline:adc735f8be8ab412542aa9dbcb7489d5&#34;&gt;Pipeline&lt;/h4&gt;
 
 &lt;div  align=&#34;center&#34;&gt;    
 &lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pipeline.png&#34; width = &#34;600&#34; height = &#34;250&#34;/&gt;  
@@ -400,10 +398,10 @@ w += &#39;Feels like &#39; + js[&#39;data&#39;][&#39;current_condition&#39;][0][
     
     <item>
       <title>SQL Notes</title>
-      <link>http://xren615.github.io/post/sql/</link>
+      <link>http://xren615.github.io/post/archive/sql/</link>
       <pubDate>Fri, 01 Apr 2016 18:49:28 +0200</pubDate>
       
-      <guid>http://xren615.github.io/post/sql/</guid>
+      <guid>http://xren615.github.io/post/archive/sql/</guid>
       <description>
 
 &lt;p&gt;(This is the note for the SQL training course on Codecademy.com)&lt;/p&gt;
@@ -928,10 +926,10 @@ plt.title(&#39;Feature Importance After RFECV Logistic Regression&#39;)
     
     <item>
       <title>Reading Note: Building machine learning systems with python</title>
-      <link>http://xren615.github.io/post/reading_note1/</link>
+      <link>http://xren615.github.io/post/archive/reading_note1/</link>
       <pubDate>Sun, 13 Mar 2016 20:12:06 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/reading_note1/</guid>
+      <guid>http://xren615.github.io/post/archive/reading_note1/</guid>
       <description>
 
 &lt;p&gt;( &lt;em&gt;I would like to take this oppurtunity to somehow review and systemize my knowledge on machine learning system.&lt;/em&gt; )&lt;/p&gt;
@@ -1076,10 +1074,10 @@ np.mean(c[~np.isnan(c)])
     
     <item>
       <title>Feature reducing_ENG</title>
-      <link>http://xren615.github.io/post/Feature_reducing_ENG/</link>
+      <link>http://xren615.github.io/post/archive/Feature_reducing_ENG/</link>
       <pubDate>Sun, 06 Mar 2016 19:19:22 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/Feature_reducing_ENG/</guid>
+      <guid>http://xren615.github.io/post/archive/Feature_reducing_ENG/</guid>
       <description>
 
 &lt;h3 id=&#34;feature-reducing:585b566860353d9eddb3fd0afd92d3c1&#34;&gt;Feature reducing&lt;/h3&gt;
@@ -1220,10 +1218,10 @@ hugo **or** hugo --theme=slender --baseUrl=&amp;quot;http://xren615.github.io/&a
     
     <item>
       <title>Hello_World</title>
-      <link>http://xren615.github.io/post/helloworld/</link>
+      <link>http://xren615.github.io/post/archive/helloworld/</link>
       <pubDate>Sun, 06 Mar 2016 00:40:08 +0100</pubDate>
       
-      <guid>http://xren615.github.io/post/helloworld/</guid>
+      <guid>http://xren615.github.io/post/archive/helloworld/</guid>
       <description>&lt;p&gt;歡迎第一批訪問者&lt;/p&gt;
 </description>
     </item>

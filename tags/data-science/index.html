@@ -183,7 +183,7 @@
   
     <article>
   <header>
-    <h2><a href="http://xren615.github.io/post/feature_reducing/">特征选择</a></h2>
+    <h2><a href="http://xren615.github.io/post/feature_reducing/">特征选择：一份简明指南</a></h2>
 
     <div class="post-meta">
 
@@ -215,7 +215,7 @@
   </header>
 
   <p>
-  特征选择 介绍 数据工程项目往往严格遵循着riro (rubbish in, rubbish out) 的原则，所以我们经常说数据预处理是数据工程师或者数据科学家80%的工作，它保证了数据原材料的质量。而特征工程又至少占据了数据预处理的半壁江山，在实际的数据工程工作中，无论是出于解释数据或是防止过拟合的目的，特征选择都是很常见的工作。如何从成百上千个特征中发现其中哪些对结果最具影响，进而利用它们构建可靠的机器学习算法是特征选择工作的中心内容。在多次反复的工作后，结合书本，kaggle等线上资源以及与其他数据工程师的讨论，我决定写一篇简明的总结梳理特征选择工作的常见方法以及python实现。 总的来说，特征选择可以走两条路： 特征过滤（Filter methods）: 不需要结合特定的算法，简单快速，常用于预处理 包装筛选（Wrapper methods）: 将特征选择包装在某个算法内，常用于学习阶段 在scikit-learn环境中，特征选择拥有独立的包sklearn.feature_selection, 包含了在预处理和学习阶段不同层级的特征选择算法。 A. 特征过滤（Filter methods） (1) 方差阈（Variance Treshhold） 最为简单的特征选择方式之一，去除掉所有方差小于设定值的特征。 在sklearn中实现： from sklearn.feature_selection import VarianceThreshold VarianceThreshold is a simple baseline approach to feature selection. It removes all features whose variance doesn’t meet some threshold. By default, it removes all zero-variance features, i.e. features that have the same value in all samples. (2) 单变量特征选择 (Univariate feature selection) 基于单变量假设检验的特征选择，比如卡方检验（这里有一篇很好的博文用于回顾）是检测两变量是否相关的常用手段，那么就可以很自然的利用chi-square值来做降维，保留相关程度大的变量。 Univariate feature selection works by selecting the best features based on univariate statistical tests.
+  介绍 数据工程项目往往严格遵循着riro (rubbish in, rubbish out) 的原则，所以我们经常说数据预处理是数据工程师或者数据科学家80%的工作，它保证了数据原材料的质量。而特征工程又至少占据了数据预处理的半壁江山，在实际的数据工程工作中，无论是出于解释数据或是防止过拟合的目的，特征选择都是很常见的工作。如何从成百上千个特征中发现其中哪些对结果最具影响，进而利用它们构建可靠的机器学习算法是特征选择工作的中心内容。在多次反复的工作后，结合书本，kaggle等线上资源以及与其他数据工程师的讨论，我决定写一篇简明的总结梳理特征选择工作的常见方法以及python实现。 总的来说，特征选择可以走两条路： 特征过滤（Filter methods）: 不需要结合特定的算法，简单快速，常用于预处理 包装筛选（Wrapper methods）: 将特征选择包装在某个算法内，常用于学习阶段 在scikit-learn环境中，特征选择拥有独立的包sklearn.feature_selection, 包含了在预处理和学习阶段不同层级的特征选择算法。 A. 特征过滤（Filter methods） (1) 方差阈（Variance Treshhold） 最为简单的特征选择方式之一，去除掉所有方差小于设定值的特征。 在sklearn中实现： from sklearn.feature_selection import VarianceThreshold VarianceThreshold is a simple baseline approach to feature selection. It removes all features whose variance doesn’t meet some threshold. By default, it removes all zero-variance features, i.e. features that have the same value in all samples. (2) 单变量特征选择 (Univariate feature selection) 基于单变量假设检验的特征选择，比如卡方检验（这里有一篇很好的博文用于回顾）是检测两变量是否相关的常用手段，那么就可以很自然的利用chi-square值来做降维，保留相关程度大的变量。 Univariate feature selection works by selecting the best features based on univariate statistical tests.
   </p>
 
   
@@ -228,7 +228,7 @@
   
     <article>
   <header>
-    <h2><a href="http://xren615.github.io/post/Feature_reducing_ENG/">Feature reducing_ENG</a></h2>
+    <h2><a href="http://xren615.github.io/post/archive/Feature_reducing_ENG/">Feature reducing_ENG</a></h2>
 
     <div class="post-meta">
 
@@ -265,7 +265,7 @@
 
   
   <footer>
-    <a href="http://xren615.github.io/post/Feature_reducing_ENG/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="http://xren615.github.io/post/archive/Feature_reducing_ENG/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
