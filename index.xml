@@ -920,5 +920,438 @@ hugo **or** hugo --theme=slender --baseUrl=&amp;quot;http://xren615.github.io/&a
 </description>
     </item>
     
+    <item>
+      <title></title>
+      <link>http://xren615.github.io/post/cheatSheet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://xren615.github.io/post/cheatSheet/</guid>
+      <description>
+
+&lt;h2 id=&#34;python-data-engineering-cheat-sheet:f1e1a77f1615c44bf32d0a2ae6e592a4&#34;&gt;Python Data Engineering Cheat Sheet&lt;/h2&gt;
+
+&lt;h3 id=&#34;etl:f1e1a77f1615c44bf32d0a2ae6e592a4&#34;&gt;ETL&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code&gt;import matplotlib.pyplot as plt
+%matplotlib inline
+import numpy as np
+import pandas as pd
+import seaborn as sns
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Data Loading&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import pandas as pd  
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;# From CSV
+df = pd.read_csv(&amp;quot;path&amp;quot;)
+# From Excel
+df = pd.read_excel(&#39;/path&#39;)  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Indexing&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Set index
+df = df.set_index(&#39;colName&#39;)
+# loc works on labels in the index
+s.loc[:3]
+# iloc works on the positions in the index (so it only takes integers)
+s.iloc[:3]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Sorting&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# First c1, then c2
+df = df.sort([&#39;c1&#39;,&#39;c2&#39;], ascending=[False,True])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Dropping&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Drop columns (axis=0: column-wise; axis=1: row-wise)
+df = df.drop([&#39;Cabin&#39;,&#39;Ticket&#39;],axis = 1)
+# Drop rows
+df = df.drop([&#39;label string&#39;]) # by index name
+df.drop(df.index[[1,3]]) # by row number (0-based)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Slicing&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Filter the dataset by a certain condition
+df = df[df.name != &#39;Tina&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Dealing with missings&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Drop them
+df = df.dropna()
+# Fill them
+df.fillna(0) # fill by a number
+df.fillna(method=&#39;ffill&#39;) # propagates last valid observation forward to next valid
+df.fillna(method=&#39;bfill&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Sampling&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;df_GM_sample = df_GM.sample(n=None, frac=None)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Apply function&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# axis=0: column-wise; axis=1: row-wise
+df.apply(func,axis = )
+# apply to every element
+df.applymap(lambda x: )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Dealing with datetime&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# string to datetime
+df.dt = pd.to_datetime(df.dt, format=&#39;%Y%m%d&#39;)
+
+# get datetime indexes
+t = pd.DatetimeIndex(df.dt)
+hr = t.hour
+df[&#39;HourOfDay&#39;] = hr
+month = t.month
+df[&#39;Month&#39;] = month
+year = t.year
+df[&#39;Year&#39;] = year
+
+# resample time series
+df = df.set_index(&#39;datetime&#39;)
+weekly_summary[&#39;speed&#39;] = df.speed.resample(&#39;W&#39;).mean()
+weekly_summary[&#39;distance&#39;] = df.distance.resample(&#39;W&#39;).sum()
+weekly_summary[&#39;cumulative_distance&#39;] = df.cumulative_distance.resample(&#39;W&#39;).last()
+
+# generate given format string from datetime
+df[&#39;DOB1&#39;] = df[&#39;DOB&#39;].dt.strftime(&#39;%m/%d/%Y&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Categorical to dummy&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dummiesT = pd.get_dummies(test[&#39;Embarked&#39;],prefix = &#39;Embarked&#39;)
+test = pd.concat([test,dummiesT],axis = 1)
+test = test.drop(&#39;Embarked&#39;,axis =1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;concat &amp;amp; join&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# concat along rows
+df_new = pd.concat([df_a, df_b])
+
+# join
+df = df1.join(df2, how=&#39;left&#39;, lsuffix=&#39;&#39;, rsuffix=&#39;&#39;, sort=False)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Groupby&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;df.groupby(by = &#39;Sex&#39;).mean()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Differencing &amp;amp; Cumulation&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Differencing
+data[&#39;instantaneous&#39;] = data.volume_out.diff()
+
+# Cumulation
+consum.loc[:,&amp;quot;group&amp;quot;] = consum[&amp;quot;is_start_point&amp;quot;].cumsum()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Sliding Window Apply&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;df[&amp;quot;is_lucky_than_previous&amp;quot;] =\
+pd.rolling_apply(df.Survived, 2, lambda x: x[1] - x[0] == 1).fillna(1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Regular Expression&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; def volCalc(row):
+    name = row[&#39;tbordername&#39;]
+    try:
+        vol = 0
+        p = re.compile(r&#39;(\d+)ml&#39;)
+        sizes = p.findall(name)
+        for size in sizes:
+            p1 = re.compile(size + r&#39;ml\D+(\d)\D+&#39;)
+            amount = p1.findall(name)
+            if amount:
+                vol += int(size)*int(amount[0])
+            else:
+                vol += int(size)*1
+        return vol
+    
+    except:
+        return &#39;N/A&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;descriptive-stats:f1e1a77f1615c44bf32d0a2ae6e592a4&#34;&gt;Descriptive Stats&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Numerical stats&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;df.describe()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Correlation&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;corr = df.corr()
+plt.matshow(df.corr())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Basic Charts&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# line chart
+fig = plt.figure(figsize=(12,6))
+plt.plot(data.dateTime,data.volume_out)
+plt.title(&#39;title&#39;)
+
+# hist: numerical feature distribution
+df.Age.hist()
+# categorical feature distribution  
+df.Survived.value_counts().plot(kind = &#39;bar&#39;)
+# Basic box plot
+sns.boxplot(consum.instantaneous,orient=&#39;v&#39;)
+plt.title(&#39;instantaneous consumption value distribution&#39;)
+# Box plot with hue
+sns.boxplot(x=&amp;quot;Sex&amp;quot;, y=&amp;quot;Age&amp;quot;,hue = &#39;Survived&#39;, data=df, palette=&amp;quot;Set3&amp;quot;)
+
+# Scatter
+plt.scatter(df.Fare,df.Survived)
+plt.xlabel(&#39;Fare&#39;)
+plt.ylabel(&#39;Survived?&#39;)
+
+# Regression chart
+sns.jointplot(x=&amp;quot;duration&amp;quot;, y=&amp;quot;usage&amp;quot;, kind = &#39;reg&#39;, data=filtered)
+plt.title(&#39;title&#39;)
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;feature-engineering:f1e1a77f1615c44bf32d0a2ae6e592a4&#34;&gt;Feature Engineering&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Rescaling&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# (0,1) scaling 
+# (X - X.min(axis=0)) / (X.max(axis=0) - X.min(axis=0))
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler(feature_range=(0, 1))
+cols_to_norm = [&#39;PassengerId&#39;,&#39;SibSp&#39;]
+df[cols_to_norm] = df[cols_to_norm].apply(lambda x: scaler.fit_transform(x))
+
+# Standardization: Zero mean and unit variance
+from sklearn.preprocessing import scale
+cols_to_norm = [&#39;Age&#39;,&#39;SibSp&#39;]
+df[cols_to_norm] = df[cols_to_norm].apply(lambda x: scale(x))
+
+# Normalization: scaling individual observation (row) to have unit norm.
+# if you plan to use a quadratic form such as the dot-product or any other kernel to quantify the similarity of any pair of samples, like KNN. 
+from sklearn.preprocessing import normalize
+df_normalized = pd.DataFrame(normalize(df._get_numeric_data(),norm = &#39;l2&#39;),columns=df._get_numeric_data().columns,index=df._get_numeric_data().index)
+df_normalized.apply(lambda x: np.sqrt(x.dot(x)), axis=1) # check results
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Feature Binarization&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# thresholding numerical features to get boolean values
+from sklearn.preprocessing import Binarizer
+binarizer = Binarizer(threshold=30)
+df[&#39;Age&#39;] = df[&#39;Age&#39;].apply(lambda x: binarizer.fit_transform(x)[0][0])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Generating Polynomial Features&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# get features’ high-order and interaction terms
+from sklearn.preprocessing import PolynomialFeatures
+poly = PolynomialFeatures(2)
+#  (X_1, X_2) to (1, X_1, X_2, X_1^2, X_1X_2, X_2^2)
+X_poly = pd.DataFrame(poly.fit_transform(X))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;feature-selection:f1e1a77f1615c44bf32d0a2ae6e592a4&#34;&gt;Feature Selection&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Filter methods&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Variance Treshhold
+from sklearn.feature_selection import VarianceThreshold 
+
+# Univariate feature selection 
+X_new = SelectKBest(chi2, k=2).fit_transform(X, y)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Wrapper Methods&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# LASSO
+class sklearn.linear_model.Lasso()
+
+# Tree-based
+class sklearn.ensemble.RandomForestClassifier()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;algorithm:f1e1a77f1615c44bf32d0a2ae6e592a4&#34;&gt;Algorithm&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://scikit-learn.org/stable/tutorial/machine_learning_map/&#34;&gt;&lt;strong&gt;&lt;em&gt;Sk-Learn Official Cheat Sheet&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;
+&lt;div  align=&#34;center&#34;&gt;&lt;br /&gt;
+&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/sklearncs.png&#34; align=center width = &#34;800&#34; height = &#34;500&#34;/&gt;&lt;br /&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Frequent Used Pieces&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Linear Regression&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from sklearn import linear_model
+# Create linear regression object
+regr = linear_model.LinearRegression(fit_intercept=True)
+# Train the model using the training sets
+regr.fit(df, y)
+# The coefficients
+print(&#39;Coefficients:&#39;, regr.coef_)
+# The mean squared error
+print(&amp;quot;Mean squared error: %.2f&amp;quot;
+      % np.mean((regr.predict(df) - y) ** 2))
+# Explained variance score: 1 is perfect prediction
+print &amp;quot;R Squared score:&amp;quot;;regr.score(df, y)
+
+# Coef_ check
+plt.figure(figsize=(12,8))
+plt.barh(range(len(regr.coef_)),regr.coef_,height=0.2,tick_label = df.columns)
+plt.title(&#39;Regression Coefficients&#39;)
+
+# Residuals Check
+res = regr.predict(df) - y
+plt.axhline(0)
+plt.scatter(range(len(res)),res.values,color = &#39;r&#39;)
+plt.title(&#39;Residual Plot&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Kmeans&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from sklearn.cluster import KMeans
+estimator = KMeans(n_clusters=3)
+estimator.fit(filtered_scaled)
+labels = estimator.labels_
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Random Forest&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import roc_auc_score
+rf = RandomForestClassifier(n_estimators=8000,n_jobs=-1,oob_score=True)
+rf.fit(train,res)
+rf.oob_score_
+# feature importance
+feature_importances = pd.Series(rf.feature_importances_,index = train.columns)
+feature_importances.sort(inplace = True)
+feature_importances.plot(kind = &#39;barh&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;a href=&#34;https://turi.com&#34;&gt;Recommender&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# item-based CF
+import graphlab
+train_data = graphlab.SFrame(df_CF)
+item_sim_model = graphlab.item_similarity_recommender.create(train_data, user_id=&#39;Customer_id&#39;, item_id=&#39;item&#39;)
+# Make Recommendations
+item_sim_recomm = item_sim_model.recommend(users=[&#39;5208494361&#39;],k=10)
+item_sim_recomm.print_rows()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Time Series&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# DF Test
+from statsmodels.tsa.stattools import adfuller
+def test_stationarity(timeseries):
+    
+    # Determing rolling statistics
+    rolmean = pd.rolling_mean(timeseries, window=10)
+    rolstd = pd.rolling_std(timeseries, window=10)
+
+    # Plot rolling statistics:
+    plt.figure(figsize=(14,8))
+    orig = plt.plot(timeseries, color=&#39;blue&#39;,label=&#39;Original&#39;)
+    mean = plt.plot(rolmean, color=&#39;red&#39;, label=&#39;Rolling Mean&#39;)
+    std = plt.plot(rolstd, color=&#39;black&#39;, label = &#39;Rolling Std&#39;)
+    
+    plt.legend(loc=&#39;best&#39;)
+    plt.title(&#39;Rolling Mean &amp;amp; Standard Deviation&#39;)
+    plt.show(block=False)
+    
+    # Perform Dickey-Fuller test:
+    print &#39;Results of Dickey-Fuller Test:&#39;
+    dftest = adfuller(timeseries.SALES_IN_ML, autolag=&#39;AIC&#39;)
+    dfoutput = pd.Series(dftest[0:4], index=[&#39;Test Statistic&#39;,&#39;p-value&#39;,&#39;#Lags Used&#39;,&#39;Number of Observations Used&#39;])
+    for key,value in dftest[4].items():
+        dfoutput[&#39;Critical Value (%s)&#39;%key] = value
+    print dfoutput
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;# ARIMA
+# Ordering: ACF and PACF plots
+from statsmodels.tsa.stattools import acf, pacf
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+plot_acf(TS_log, lags=30)
+plot_pacf(TS_log, lags=30)
+
+# Ordering: AIC
+from statsmodels.tsa.arima_model import ARIMA
+from statsmodels.tsa.stattools import arma_order_select_ic
+# Smaller Better
+arma_order_select_ic(TS_log, max_ar=4, max_ma=0, ic=&#39;aic&#39;)
+
+# Modeling
+model = ARIMA(TS_log, order=(1, 0, 0))  
+results_AR = model.fit(disp= 1)  
+plt.plot(TS_log)
+plt.plot(results_AR.fittedvalues, color=&#39;red&#39;)
+TS_fitted = pd.DataFrame(results_AR.fittedvalues,columns=[&#39;SALES_IN_ML&#39;])
+
+# Residual Series Check
+residuals = TS_log - TS_fitted
+test_stationarity(residuals)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;tuning-validation:f1e1a77f1615c44bf32d0a2ae6e592a4&#34;&gt;Tuning &amp;amp; Validation&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Training/Test split&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.4, random_state=0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Cross Validation&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from sklearn.model_selection import cross_val_score
+from sklearn import svm
+clf = svm.SVC(kernel=&#39;linear&#39;, C=1)
+scores = cross_val_score(clf, X.values, y[0].values, cv=5)
+# 95% confidence interval of the score
+print(&amp;quot;Accuracy: %0.2f (+/- %0.2f)&amp;quot; % (scores.mean(), scores.std() * 2))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Exhaustive Grid Search&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from sklearn.model_selection import GridSearchCV
+svr = svm.SVC()
+parameters = {&#39;kernel&#39;:(&#39;linear&#39;,&#39;rbf&#39;), &#39;C&#39;:[1, 10]}
+clf = GridSearchCV(svr, parameters,n_jobs = -1,cv = 5)
+clf.fit(X, y[0])
+clf.cv_results_
+clf.best_estimator_
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
