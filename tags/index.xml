@@ -18,7 +18,7 @@
       <guid>http://xren615.github.io/post/cheatSheet/</guid>
       <description>
 
-&lt;p&gt;By my experience, some frequent needed utilities in Python data scripts —— good to have it by hand when you facing puzzle.&lt;/p&gt;
+&lt;p&gt;Some frequent needed utilities in Python data scripts —— good to have it by hand when facing puzzle.&lt;/p&gt;
 
 &lt;h3 id=&#34;etl:f1e1a77f1615c44bf32d0a2ae6e592a4&#34;&gt;ETL&lt;/h3&gt;
 
@@ -39,8 +39,18 @@ import seaborn as sns
 
 &lt;pre&gt;&lt;code&gt;# From CSV
 df = pd.read_csv(&amp;quot;path&amp;quot;)
+
 # From Excel
-df = pd.read_excel(&#39;/path&#39;)  
+df = pd.read_excel(&#39;/path&#39;)
+
+# From database (sqlite)
+import sqlite3
+conn = sqlite3.connect(&amp;quot;foo.db&amp;quot;)
+cur = conn.cursor()
+#Check how many tables are there in the database
+cur.execute(&amp;quot;SELECT name FROM sqlite_master WHERE type=&#39;table&#39;;&amp;quot;).fetchall()
+#SQL Query to pandas dataframe
+df = pd.read_sql_query(&amp;quot;select * from bar limit 5;&amp;quot;, conn)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Indexing&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;

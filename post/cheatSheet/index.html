@@ -208,7 +208,7 @@
 
   
 
-<p>By my experience, some frequent needed utilities in Python data scripts —— good to have it by hand when you facing puzzle.</p>
+<p>Some frequent needed utilities in Python data scripts —— good to have it by hand when facing puzzle.</p>
 
 <h3 id="etl:f1e1a77f1615c44bf32d0a2ae6e592a4">ETL</h3>
 
@@ -229,8 +229,18 @@ import seaborn as sns
 
 <pre><code># From CSV
 df = pd.read_csv(&quot;path&quot;)
+
 # From Excel
-df = pd.read_excel('/path')  
+df = pd.read_excel('/path')
+
+# From database (sqlite)
+import sqlite3
+conn = sqlite3.connect(&quot;foo.db&quot;)
+cur = conn.cursor()
+#Check how many tables are there in the database
+cur.execute(&quot;SELECT name FROM sqlite_master WHERE type='table';&quot;).fetchall()
+#SQL Query to pandas dataframe
+df = pd.read_sql_query(&quot;select * from bar limit 5;&quot;, conn)
 </code></pre>
 
 <p><strong><em>Indexing</em></strong></p>
