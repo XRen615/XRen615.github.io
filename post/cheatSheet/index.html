@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>Python Data Engineering Cheat Sheet &middot; INCH2</title>
 
@@ -68,12 +68,6 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://xren615.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
           <a class="pure-menu-link" href="http://xren615.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
       
         </li>
@@ -81,6 +75,12 @@
       
         <li class="pure-menu-item">
           <a class="pure-menu-link" href="http://xren615.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://xren615.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
       
         </li>
       
@@ -210,7 +210,7 @@
 
 <p>Some frequent needed utilities in Python data scripts —— good to have it by hand when facing puzzle.</p>
 
-<h3 id="etl:f1e1a77f1615c44bf32d0a2ae6e592a4">ETL</h3>
+<h3 id="etl">ETL</h3>
 
 <hr />
 
@@ -378,7 +378,7 @@ pd.rolling_apply(df.Survived, 2, lambda x: x[1] - x[0] == 1).fillna(1)
         return 'N/A'
 </code></pre>
 
-<h3 id="descriptive-stats:f1e1a77f1615c44bf32d0a2ae6e592a4">Descriptive Stats</h3>
+<h3 id="descriptive-stats">Descriptive Stats</h3>
 
 <hr />
 
@@ -422,7 +422,7 @@ plt.title('title')
 
 </code></pre>
 
-<h3 id="feature-engineering:f1e1a77f1615c44bf32d0a2ae6e592a4">Feature Engineering</h3>
+<h3 id="feature-engineering">Feature Engineering</h3>
 
 <hr />
 
@@ -464,7 +464,7 @@ poly = PolynomialFeatures(2)
 X_poly = pd.DataFrame(poly.fit_transform(X))
 </code></pre>
 
-<h3 id="feature-selection:f1e1a77f1615c44bf32d0a2ae6e592a4">Feature Selection</h3>
+<h3 id="feature-selection">Feature Selection</h3>
 
 <hr />
 
@@ -486,7 +486,7 @@ class sklearn.linear_model.Lasso()
 class sklearn.ensemble.RandomForestClassifier()
 </code></pre>
 
-<h3 id="algorithm:f1e1a77f1615c44bf32d0a2ae6e592a4">Algorithm</h3>
+<h3 id="algorithm">Algorithm</h3>
 
 <hr />
 
@@ -610,7 +610,7 @@ residuals = TS_log - TS_fitted
 test_stationarity(residuals)
 </code></pre>
 
-<h3 id="tuning-validation:f1e1a77f1615c44bf32d0a2ae6e592a4">Tuning &amp; Validation</h3>
+<h3 id="tuning-validation">Tuning &amp; Validation</h3>
 
 <hr />
 
@@ -661,8 +661,14 @@ clf.best_estimator_
   </div>
   <div class="pure-u-10-24">
     
+    <nav class="next">
+      <a href="http://xren615.github.io/post/leetcode/">Leetcode locked questions</a>
+    </nav>
+    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="http://xren615.github.io/post/leetcode/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

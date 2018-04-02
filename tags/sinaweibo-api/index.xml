@@ -8,7 +8,9 @@
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Sat, 02 Jul 2016 16:17:24 +0200</lastBuildDate>
-    <atom:link href="http://xren615.github.io/tags/sinaweibo-api/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://xren615.github.io/tags/sinaweibo-api/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Turn Your Social Account into a Weather Robot</title>
@@ -16,70 +18,10 @@
       <pubDate>Sat, 02 Jul 2016 16:17:24 +0200</pubDate>
       
       <guid>http://xren615.github.io/post/weibo_robot/</guid>
-      <description>
-
-&lt;h4 id=&#34;demo:adc735f8be8ab412542aa9dbcb7489d5&#34;&gt;Demo&lt;/h4&gt;
-
-&lt;p&gt;This is my recent play-for-fun, a tiny trick developing a weatherman robot on SNS.&lt;/p&gt;
-
-&lt;p&gt;E.g.
-&lt;div  align=&#34;center&#34;&gt;&lt;br /&gt;
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/weibopost.png&#34; width = &#34;700&#34; height = &#34;200&#34;/&gt;&lt;br /&gt;
-&lt;/div&gt;&lt;br /&gt;
-This robot will update the HK local weather everyday at 20:00 EDT and post it on my SinaWeibo account.&lt;/p&gt;
-
-&lt;h4 id=&#34;checklist:adc735f8be8ab412542aa9dbcb7489d5&#34;&gt;Checklist&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;A SinaWeibo developer account to use its post API (register &lt;a href=&#34;http://open.weibo.com/wiki/首页&#34;&gt;here&lt;/a&gt;. You will need either a personal webpage or an application under development for registration).&lt;/li&gt;
-&lt;li&gt;A &lt;a href=&#34;http://developer.worldweatheronline.com/api/&#34;&gt;WorldWeatherOnline&lt;/a&gt; API to update weather. They provide free API to fetch the weather worldwide and pack it in popular formats like xml, json or csv.&lt;/li&gt;
-&lt;li&gt;A Linux server.&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;pipeline:adc735f8be8ab412542aa9dbcb7489d5&#34;&gt;Pipeline&lt;/h4&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pipeline.png&#34; width = &#34;600&#34; height = &#34;250&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;&lt;strong&gt;WWO API&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Use urllib to run GET request to WWO, get back weather information in json&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import urllib2
-url = &#39;http://api.worldweatheronline.com/premium/v1/weather.ashx?key=*******************&amp;amp;q=HongKong&amp;amp;format=json&amp;amp;num_of_days=1&amp;amp;date=today&amp;amp;mca=no&amp;amp;fx24=yes&amp;amp;showlocaltime=yes&#39;
-response = urllib2.urlopen(url).read()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;json decode and extraction&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;In python one can easily use json library for json decoding, then extract information interested.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import json
-js = json.loads(response)
-w = &#39;Good morning! Weather robot online. Current Query: &#39; + js[&#39;data&#39;][&#39;request&#39;][0][&#39;query&#39;] + &#39;.\n&#39;
-w += &#39;Current weather condition: &#39; + js[&#39;data&#39;][&#39;current_condition&#39;][0][&#39;weatherDesc&#39;][0][&#39;value&#39;] + &#39;, &#39;
-w += &#39;Feels like &#39; + js[&#39;data&#39;][&#39;current_condition&#39;][0][&#39;FeelsLikeC&#39;] + &#39; degree Celsius&#39; + &#39;.&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Weibo post&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Use Weibo API to publish a post.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;client.post(&#39;statuses/update&#39;, status=w)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;to post. Make sure to figure out the OAuth2.0 authorization before using this API.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Server&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Deploy the script on the Linux server and use&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;crontab -e
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;to set the schedule.&lt;/p&gt;
-</description>
+      <description>Demo This is my recent play-for-fun, a tiny trick developing a weatherman robot on SNS.
+E.g. 
+This robot will update the HK local weather everyday at 20:00 EDT and post it on my SinaWeibo account.
+Checklist  A SinaWeibo developer account to use its post API (register here. You will need either a personal webpage or an application under development for registration). A WorldWeatherOnline API to update weather. They provide free API to fetch the weather worldwide and pack it in popular formats like xml, json or csv.</description>
     </item>
     
   </channel>

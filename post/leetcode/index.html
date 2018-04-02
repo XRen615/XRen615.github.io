@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.38" />
+
+  <title>Leetcode locked questions &middot; INCH2</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://xren615.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://xren615.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://xren615.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="INCH2" href="http://xren615.github.ioindex.xml" />
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://xren615.github.ioimg/favicon.ico" type="image/x-icon" />
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://xren615.github.io/">INCH<sup>2</sup></a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://xren615.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://xren615.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://xren615.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://xren615.github.ioindex.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://500px.com/rubiconren" target="_blank"><i class="fa fa-500px fa-fw"></i>500px</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/xinyuyangren" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/xren615" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div class="pure-g">
+  <div class="small-print pure-u-1 pure-u-md-1-1">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print pure-u-1 pure-u-md-1-1">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Leetcode locked questions</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>21 May 2017, 22:44</time>
+  </div>
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://xren615.github.iotags/leetcode">leetcode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <p><strong>170 Two Sum III</strong></p>
+
+<p>Design and implement a TwoSum class. It should support the following operations:add and find.</p>
+
+<p>add - Add the number to an internal data structure.
+find - Find if there exists any pair of numbers which sum is equal to the value.</p>
+
+<p>For example,
+add(1); add(3); add(5);
+find(4) -&gt; true
+find(7) -&gt; false</p>
+
+<pre><code>class TwoSum:
+    
+    def __init__(self):
+        self.table = {}
+    
+    def add(self,num):
+    	  # store how many times each num appears
+        self.table[num] = self.table.get(num, 0) + 1
+        
+    def find(self, target):
+        for i in self.table.keys():
+            j = target - i
+        if i==j and self.table[i] &gt; 1 or i!=j and self.table[j] &gt; 0:
+            return True
+        return False  
+</code></pre>
+
+<p><strong>243 SHORTEST WORD DISTANCE</strong></p>
+
+<p>Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list.</p>
+
+<p>For example,
+Assume that words = [&ldquo;practice&rdquo;, &ldquo;makes&rdquo;, &ldquo;perfect&rdquo;, &ldquo;coding&rdquo;, &ldquo;makes&rdquo;].</p>
+
+<p>Given word1 = “coding”, word2 = “practice”, return 3.
+Given word1 = &ldquo;makes&rdquo;, word2 = &ldquo;coding&rdquo;, return 1.</p>
+
+<p>Note:
+You may assume that word1 does not equal to word2, and word1 and word2 are both in the list.</p>
+
+<p>Hints:
+Two variable to track the last positions.</p>
+
+<pre><code>class Solution:
+    # @param {string[]} words
+    # @param {string} word1
+    # @param {string} word2
+    # @return {integer}
+    def shortestDistance(self, words, word1, word2):
+        idx1 = [i for i in range(len(words)) if words[i] == word1]
+        idx2 = [i for i in range(len(words)) if words[i] == word2]
+        return min([abs(i - k) for i in idx1 for k in idx2])    
+        
+            
+</code></pre>
+
+<p><strong>244 SHORTEST WORD DISTANCE II</strong></p>
+
+<p>This is a follow up of Shortest Word Distance. The only difference is now you are given the list of words and your method will be called repeatedly many times with different parameters. How would you optimize it?</p>
+
+<p>Hint: 这次我们需要多次调用求最短单词距离的函数，用哈希表来建立每个单词和其所有出现的位置的映射，然后在找最短单词距离时，我们只需要取出该单词在哈希表中映射的位置数组进行两两比较即可</p>
+
+<pre><code>class WordDistance(object):
+	def __init__(self, words):
+	# initialize a dict with value as list
+        self.d = collections.defaultdict(list)
+        for i, w in enumerate(words):
+            self.d[w].append(i)
+	def shortest(self, word1, word2):
+		return min([abs(n1 - n2) for n1 in self.d[word1] for n2 in self.d[word2]])
+</code></pre>
+
+<p><strong>245 SHORTEST WORD DISTANCE III</strong></p>
+
+<p>This is a follow up of Shortest Word Distance. The only difference is now word1 could be the same as word2.</p>
+
+<pre><code>class WordDistance(object):
+	def __init__(self, words):
+	# initialize a dict with value as list
+        self.d = collections.defaultdict(list)
+        for i, w in enumerate(words):
+            self.d[w].append(i)
+	def shortest(self, word1, word2):
+		return min([abs(n1 - n2) for n1 in self.d[word1] for n2 in self.d[word2] if n1!=n2])
+</code></pre>
+
+<p><strong>580. Count Student Number in Departments</strong></p>
+
+<pre><code>SELECT d.dept_name, t.student_number FROM
+department d 
+LEFT JOIN
+(SELECT dept_id, count (student_id) AS student_number FROM
+student s 
+GROUP BY dept_id) t ON d.dept_id = t.dept_id
+ORDER BY student_number DESC, dept_name DESC
+</code></pre>
+
+<p><strong>K closest points</strong></p>
+
+<p>Find the K closest points to the origin in a 2D plane, given an array containing N points.</p>
+
+<pre><code>def kClosestPoints(points):  
+	distances = {}
+	for i, point in enumerate(points):
+		distances[i] = points[0]**2 + points[1]**2
+	#sort the hash by convert to tuple list
+	return sorted(distances.items(),key = lambda x:x[1])[:k-1]
+</code></pre>
+
+<p><strong>578. Get Highest Answer Rate Question</strong></p>
+
+<pre><code>SELECT t.question_id AS survey_log FROM 
+(SELECT question_id, SUM(CASE WHEN action ='show' THEN 1 ELSE 0 END) AS show_num, SUM(CASE WHEN action = 'answer' THEN 1 ELSE 0 END) AS answer_num 
+FROM survey_log
+GROUP BY question_id) t
+ORDER BY answe_num/show_num DESC LIMIT 1
+</code></pre>
+
+<p><strong>585 Investments in 2016</strong></p>
+
+<pre><code>SELECT
+    SUM(insurance.TIV_2016) AS TIV_2016
+FROM
+    insurance
+WHERE
+    insurance.TIV_2015 IN
+    (
+      SELECT
+        TIV_2015
+      FROM
+        insurance
+      GROUP BY TIV_2015
+      HAVING COUNT(*) &gt; 1
+    )
+    AND CONCAT(LAT, LON) IN
+    (
+      SELECT
+        CONCAT(LAT, LON)
+      FROM
+        insurance
+      GROUP BY LAT , LON
+      HAVING COUNT(*) = 1
+    )
+;
+</code></pre>
+
+<p><strong>277 Find celebrity</strong></p>
+
+<p>Suppose you are at a party with n people (labeled from 0 to n - 1) and among them, there may exist one celebrity. The definition of a celebrity is that all the other n - 1people know him/her but he/she does not know any of them.</p>
+
+<p>Now you want to find out who the celebrity is or verify that there is not one. The only thing you are allowed to do is to ask questions like: &ldquo;Hi, A. Do you know B?&rdquo; to get information of whether A knows B. You need to find out the celebrity (or verify there is not one) by asking as few questions as possible (in the asymptotic sense).</p>
+
+<p>You are given a helper function bool knows(a, b) which tells you whether A knows B. Implement a function int findCelebrity(n), your function should minimize the number of calls to knows.</p>
+
+<p>Note: There will be exactly one celebrity if he/she is in the party. Return the celebrity&rsquo;s label if there is a celebrity in the party. If there is no celebrity, return -1.</p>
+
+<pre><code>def findCelebrity(self, n):
+    x = 0
+    for i in xrange(n):
+        if knows(x, i):
+            x = i
+    if any(knows(x, i) for i in xrange(x)):
+        return -1
+    if any(not knows(i, x) for i in xrange(n)):
+        return -1
+    return x
+    
+</code></pre>
+
+<p>Explanation</p>
+
+<p>The first loop is to exclude n - 1 labels that are not possible to be a celebrity.
+After the first loop, x is the only candidate.
+The second and third loop is to verify x is actually a celebrity by definition.</p>
+
+<p>The key part is the first loop. To understand this you can think the knows(a,b) as a a &lt; b comparison, if a knows b then a &lt; b, if a does not know b, a &gt; b. Then if there is a celebrity, he/she must be the &ldquo;maximum&rdquo; of the n people.</p>
+
+<p>However, the &ldquo;maximum&rdquo; may not be the celebrity in the case of no celebrity at all. Thus we need the second and third loop to check if x is actually celebrity by definition.</p>
+
+<p>The total calls of knows is thus 3n at most. One small improvement is that in the second loop we only need to check i in the range [0, x). You can figure that out yourself easily.</p>
+
+<p><strong>256 Paint Houses</strong></p>
+
+<p>There are a row of n houses, each house can be painted with one of the three colors: red, blue or green. The cost of painting each house with a certain color is different. You have to paint all the houses such that no two adjacent houses have the same color.</p>
+
+<p>The cost of painting each house with a certain color is represented by a n x 3 cost matrix. For example,costs[0][0] is the cost of painting house 0 with color red; costs[1][2] is the cost of painting house 1 with color green, and so on&hellip; Find the minimum cost to paint all houses.</p>
+
+<p>Note:
+All costs are positive integers.</p>
+
+<pre><code># dynamic programming case
+from collections import defaultdict
+def minCost(costs):
+	dp = defaultdict(list)
+	#dp[i][j] is the min cost if we paint house i with color j
+	dp[0][0] = costs[0][0]
+	dp[0][1] = costs[0][1]
+	dp[0][2] = costs[0][2]
+	for i in range(1,n+1):
+		dp[i][0] = min(dp[i-1][1], dp[i-1][2]) + costs[i][0]
+		dp[i][1] = min(dp[i-1][0], dp[i-1][2]) + costs[i][1]
+		dp[i][2] = min(dp[i-1][0], dp[i-1][1]) + costs[i][2]
+	return min(dp[n])
+</code></pre>
+
+<p><strong>254 Factor combination</strong></p>
+
+<p>Numbers can be regarded as product of its factors. For example,</p>
+
+<p>8 = 2 x 2 x 2;
+  = 2 x 4.
+Write a function that takes an integer n and return all possible combinations of its factors.</p>
+
+<p>Note:
+Each combination&rsquo;s factors must be sorted ascending, for example: The factors of 2 and 6 is [2, 6], not [6, 2].
+You may assume that n is always positive.
+Factors should be greater than 1 and less than n</p>
+
+<p>思路：DFS + backtracking。每次搜索从最小的一个因子开始到sqrt(n)查看之间的数是否可以被n整除，如果可以那么有两种选择：</p>
+
+<ol>
+<li><p>n 除以这个因子，并保持这个因子， 然后进行下一层搜索。</p></li>
+
+<li><p>不再进行下一层搜索，保存当前结果。</p></li>
+</ol>
+
+<p>其中 factor &gt; sqrt(n) 是一个关键的剪枝, 保证了没有重复解.</p>
+
+<pre><code># DFS
+def factor(n,starter):
+    ans = []
+    for i in range(starter,int(n**0.5)+1):
+        if n%i == 0:
+            ans.append([i,n/i])
+            # starter is designed to avoid duplication
+            for f in factor(n/i,i):
+                ans.append([i] + f)
+    return ans
+</code></pre>
+
+<p><strong>156 Binary Tree Upside Down</strong></p>
+
+<pre><code>class Solution:
+        # @param root, a tree node
+        # @return root of the upside down tree
+        def upsideDownBinaryTree(self, root):
+            # take care of the empty case
+            if not root:
+            	return root
+            	
+            l = root.left
+            r = root.right
+            root.left = None
+            root.right = None
+            
+            while l:
+            	newL = l.left
+            	newR = l.right
+            	l.left = r
+            	l.right = root
+            	l = newL
+            	r = newR
+            	root = l
+            
+            return root      
+</code></pre>
+
+<p><strong>311 Sparse Matrix Multiplication</strong></p>
+
+<p>Given two sparse matrices A and B, return the result of AB.</p>
+
+<p>You may assume that A&rsquo;s column number is equal to B&rsquo;s row number.</p>
+
+<pre><code>class Solution(object):
+    def multiply(self, A, B):
+        &quot;&quot;&quot;
+        :type A: List[List[int]]
+        :type B: List[List[int]]
+        :rtype: List[List[int]]
+        &quot;&quot;&quot;
+        if A is None or B is None:
+        	return None
+        m,l = len(A), len(B[0])
+        #initialize a 0 matrix, change non-zero positions later.
+        C = [[0 for _ in range(l)] for _ in range(m)]
+        for i, row in enumerate(A):
+        	for k, eleA in enumerate(row):
+        		if eleA:
+        			for j, eleB in enumerate(B[k])# C[i][j] = Sigmak(A[i][k]*B[k][j])
+        				if eleB:
+        					C[i][j] +=eleA * eleB
+        return C
+</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://xren615.github.io/post/cheatsheet/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://xren615.github.io/post/cheatsheet/">Python Data Engineering Cheat Sheet</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="http://xren615.github.io/post/experiment/">Random Thoughts for A/B Testing at LinkedIn</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="http://xren615.github.io/post/experiment/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'xren615';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="http://xren615.github.iojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76515451-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

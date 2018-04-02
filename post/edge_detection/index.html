@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>A data-based approach for behavior motivation digging &middot; INCH2</title>
 
@@ -68,12 +68,6 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://xren615.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
           <a class="pure-menu-link" href="http://xren615.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
       
         </li>
@@ -81,6 +75,12 @@
       
         <li class="pure-menu-item">
           <a class="pure-menu-link" href="http://xren615.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://xren615.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
       
         </li>
       
@@ -212,7 +212,7 @@
 
   
 
-<h5 id="key-points:61665cac455c6246b15a713a4476ec20">Key Points</h5>
+<h5 id="key-points">Key Points</h5>
 
 <p>This chapter briefly elaborates how to analyze the motivation of people&rsquo;s operation on a system from the system electricity consumption signal and other data.</p>
 
@@ -286,9 +286,9 @@
 
 <p><strong>From here below is technical log regarding relevant theory and code to realize the whole process.</strong></p>
 
-<h4 id="technical-details-noise-reduction-edge-detection:61665cac455c6246b15a713a4476ec20">Technical Details: Noise reduction &amp; Edge detection</h4>
+<h4 id="technical-details-noise-reduction-edge-detection">Technical Details: Noise reduction &amp; Edge detection</h4>
 
-<h5 id="background:61665cac455c6246b15a713a4476ec20">Background</h5>
+<h5 id="background">Background</h5>
 
 <p>There is a ventilation system (with heat recovery) in one passive house, of which the ventilation flow rate is controlled by a fan system, and adjustable by occupants. There are 3 available options (let&rsquo;s say, low, medium, high rate respectively)for the fan flow rate setting.</p>
 
@@ -302,7 +302,7 @@
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo.png" width = "620" height = "150"/>  
 </div>  
 
-<h5 id="methodology:61665cac455c6246b15a713a4476ec20">Methodology</h5>
+<h5 id="methodology">Methodology</h5>
 
 <p>Describe what we want to do in a few words: smooth the noise and detect the edge automatically, without any reset like boundary interval needed. This is actually a classic problem in <em>signal processing</em> or <em>computer vision</em> field. For this 1D signal the simplest solution maybe <strong>Gaussian derivative filter</strong>, for similar problems in 2D matrix (images) the <strong>canny edge detector</strong> could be effective. The figure may give you a vivid impression of what we are going to do:</p>
 
@@ -310,11 +310,11 @@
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/canny1.jpg" width = "400" height = "150"/>  
 </div>
 
-<h6 id="basic-idea:61665cac455c6246b15a713a4476ec20">Basic idea</h6>
+<h6 id="basic-idea">Basic idea</h6>
 
 <p>Tune a  Gaussian derivative filter to properly smooth the noise and take 1st derivative, then set an appropriate threshold to detect the edge.</p>
 
-<h6 id="terms:61665cac455c6246b15a713a4476ec20">Terms</h6>
+<h6 id="terms">Terms</h6>
 
 <p><strong>Gaussian filter</strong></p>
 
@@ -368,7 +368,7 @@
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-03-15%20%E4%B8%8B%E5%8D%886.54.23.png" width = "600" height = "500"/>  
 </div>  
 
-<h5 id="results:61665cac455c6246b15a713a4476ec20">Results</h5>
+<h5 id="results">Results</h5>
 
 <p>Finished a demo of auto edge detection in our elec. consumption record, which contains a tuned Gaussian derivative filter, edge position detected, and scale space plot.</p>
 
@@ -402,7 +402,7 @@
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/edge_Gassuian_scale_space.png" width = "600" height = "400"/>  
 </div> 
 
-<h4 id="finer-tuning:61665cac455c6246b15a713a4476ec20">Finer Tuning</h4>
+<h4 id="finer-tuning">Finer Tuning</h4>
 
 <p>In practice, it is usually needed to use different tailored tune strategies for the parameters to meet the specific requirements aroused by researchers. E.g. in a case the experts from built environment would like to filter out short-lived status (even they maybe quite steep in terms of pulse number). The strategies is carefully increase sigma (by which you are flattening the Gaussian curve, so the weights of center would be less significant so that the short peaks could be better wiped out by its flat neighbors) and also, properly increase the threshold would help (by which it would be more difficult for the derivatives of smoothed short peaks to pass the threshold and be recognized as one effective operation). Once the sigma and threshold reached an optimized combination, the results would be something like below for this case:</p>
 
@@ -418,7 +418,7 @@
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/largerscale.png" width = "620" height = "400"/>  
 </div> 
 
-<h5 id="reference:61665cac455c6246b15a713a4476ec20">Reference</h5>
+<h5 id="reference">Reference</h5>
 
 <ul>
 <li><p><a href="https://en.wikipedia.org/wiki/Scale_space">Scale Space wiki</a></p></li>
@@ -434,7 +434,7 @@
 
 <hr />
 
-<h4 id="technical-details-feature-selection:61665cac455c6246b15a713a4476ec20">Technical Details: Feature selection</h4>
+<h4 id="technical-details-feature-selection">Technical Details: Feature selection</h4>
 
 <p>Before feature selection I made an undersampling to the data set to ensure every class shares a balanced weight in the whole dataset (before which the ratio is something like 150,000 no operation, 400 increase, 400 decrease).</p>
 
@@ -444,7 +444,7 @@
 
 <p>Below is the main part of the coding script for this session (ipynb format).</p>
 
-<h5 id="feature-selection-after-gaussian-filter:61665cac455c6246b15a713a4476ec20">Feature selection after Gaussian filter</h5>
+<h5 id="feature-selection-after-gaussian-filter">Feature selection after Gaussian filter</h5>
 
 <pre><code>import matplotlib.pyplot as plt
 %matplotlib inline
@@ -596,7 +596,7 @@ plt.yticks(y_pos + 0.4,X_scaled.columns)
 plt.title('Feature Importance After RFECV Logistic Regression')
 </code></pre>
 
-<h5 id="reference-1:61665cac455c6246b15a713a4476ec20">Reference</h5>
+<h5 id="reference-1">Reference</h5>
 
 <ul>
 <li><a href="http://scikit-learn.org/stable/modules/preprocessing.html">sklearn standardization</a><br /></li>

@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>SKII Recommender System Design &middot; INCH2</title>
 
@@ -68,12 +68,6 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://xren615.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
           <a class="pure-menu-link" href="http://xren615.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
       
         </li>
@@ -81,6 +75,12 @@
       
         <li class="pure-menu-item">
           <a class="pure-menu-link" href="http://xren615.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://xren615.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
       
         </li>
       
@@ -208,7 +208,7 @@
 
   
 
-<h3 id="abstract:4fcdc5e8e78477e9f2c26833f0aa0d9b">Abstract</h3>
+<h3 id="abstract">Abstract</h3>
 
 <p>This prototype finished during P&amp;G Data Science Hackthon, Nov. 2016 in Cincinati, OH.</p>
 
@@ -218,7 +218,7 @@
 
 <hr />
 
-<h3 id="the-dataset:4fcdc5e8e78477e9f2c26833f0aa0d9b">The Dataset</h3>
+<h3 id="the-dataset">The Dataset</h3>
 
 <p>The data used in this recommender system consists of the folling 3 parts:</p>
 
@@ -230,7 +230,7 @@
 
 <hr />
 
-<h3 id="methodology:4fcdc5e8e78477e9f2c26833f0aa0d9b">Methodology</h3>
+<h3 id="methodology">Methodology</h3>
 
 <p>Obviously there are 2 kinds of customers: <strong>new customer</strong> and <strong>return customer</strong>, between which, the difference need to be highlighted is the data availiability:</p>
 
@@ -242,7 +242,7 @@
 
 <p>Based on the different data schema, different strategy should be used for new comers and return customers.</p>
 
-<h4 id="new-comers:4fcdc5e8e78477e9f2c26833f0aa0d9b">New Comers</h4>
+<h4 id="new-comers">New Comers</h4>
 
 <p>The basic idea is:</p>
 
@@ -257,7 +257,7 @@
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/method1.png" width = "530" height = "130"/>  
 </div>  
 
-<h4 id="return-customers:4fcdc5e8e78477e9f2c26833f0aa0d9b">Return Customers</h4>
+<h4 id="return-customers">Return Customers</h4>
 
 <p>Besides the demographic &amp; skin info, which enbale the similarity based recommendation, we also hold the purchasing records for those return users. So how can we leverage those records to make the recommender system better?</p>
 
@@ -279,9 +279,9 @@
 
 <hr />
 
-<h3 id="implementation:4fcdc5e8e78477e9f2c26833f0aa0d9b">Implementation</h3>
+<h3 id="implementation">Implementation</h3>
 
-<h4 id="data-preprocessing-etl:4fcdc5e8e78477e9f2c26833f0aa0d9b">Data Preprocessing/ETL</h4>
+<h4 id="data-preprocessing-etl">Data Preprocessing/ETL</h4>
 
 <p>Including data cleaning, normalization, mapping etc.</p>
 
@@ -295,7 +295,7 @@
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/pre3.png" width = "530" height = "300"/>  
 </div>  
 
-<h4 id="similar-people-based-recommendation:4fcdc5e8e78477e9f2c26833f0aa0d9b">Similar People Based Recommendation</h4>
+<h4 id="similar-people-based-recommendation">Similar People Based Recommendation</h4>
 
 <p>Implemented in Python (part of the code)</p>
 
@@ -328,7 +328,7 @@ similar_users = df_GM_sample.index[0:100]
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/output_40_1.png" width = "420" height = "500"/>  
 </div>   
 
-<h4 id="item-based-collaborative-filtering:4fcdc5e8e78477e9f2c26833f0aa0d9b">Item Based Collaborative Filtering</h4>
+<h4 id="item-based-collaborative-filtering">Item Based Collaborative Filtering</h4>
 
 <p>GraphLab provide a clean command to build collaborative filter once you organized your dataframe in their way.</p>
 
@@ -348,19 +348,19 @@ item_sim_recomm.print_rows()
 <img src="http://7xro3y.com1.z0.glb.clouddn.com/top10.png" width = "430" height = "200"/>  
 </div>
 
-<h4 id="vote:4fcdc5e8e78477e9f2c26833f0aa0d9b">Vote</h4>
+<h4 id="vote">Vote</h4>
 
 <p>The idea is simple: select the recommendations from people-similarity based method as well as collaborative filtering based method, make a vote as the final recommendation.</p>
 
 <hr />
 
-<h3 id="performance:4fcdc5e8e78477e9f2c26833f0aa0d9b">Performance</h3>
+<h3 id="performance">Performance</h3>
 
 <p>On the test set we made a quick evaluation for the improvement. The precision of recommendation reached <strong>61%</strong> using under this methodology, in comparison with <strong>30%-</strong>, previous recommendation based on the overall best-sellers.</p>
 
 <hr />
 
-<h3 id="issues-to-be-settled:4fcdc5e8e78477e9f2c26833f0aa0d9b">Issues To Be Settled</h3>
+<h3 id="issues-to-be-settled">Issues To Be Settled</h3>
 
 <p>This is an early-stage demo finished during hackthon, (although it&rsquo;s the hackthon winner :p) before put into real business usage, some issues should be settled.</p>
 

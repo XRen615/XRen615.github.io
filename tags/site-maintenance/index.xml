@@ -8,7 +8,9 @@
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Sun, 06 Mar 2016 01:27:21 +0100</lastBuildDate>
-    <atom:link href="http://xren615.github.io/tags/site-maintenance/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://xren615.github.io/tags/site-maintenance/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>建站記錄</title>
@@ -16,45 +18,13 @@
       <pubDate>Sun, 06 Mar 2016 01:27:21 +0100</pubDate>
       
       <guid>http://xren615.github.io/post/develope_this_site/</guid>
-      <description>
-
-&lt;p&gt;&lt;strong&gt;Documentation&lt;/strong&gt;: how to initialize a basic static site like this with Github page, Hugo and Go.&lt;br /&gt;
-&lt;strong&gt;記錄文檔&lt;/strong&gt;：如何使用Github page，Hugo和Go便利地建造本站的基礎元素.&lt;/p&gt;
-
-&lt;h3 id=&#34;system-enviroment:44e997d1ffd2378e52888c50f9174fd1&#34;&gt;System Enviroment&lt;/h3&gt;
-
-&lt;p&gt;OSX El Capitan 10.11.3&lt;br /&gt;
-MacBook Pro（Retina，13 inch, early 2015)&lt;br /&gt;
-CPU: 2.7 GHz Intel Core i5&lt;br /&gt;
-Graphics: Intel Iris Graphics 6100 1536 MB&lt;/p&gt;
-
-&lt;h3 id=&#34;steps:44e997d1ffd2378e52888c50f9174fd1&#34;&gt;Steps&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Hugo is compiled by Go, thus before everything, install &lt;a href=&#34;https://golang.org&#34;&gt;Go&lt;/a&gt; and set up its &lt;a href=&#34;http://blog.csdn.net/lan2720/article/details/20767941&#34;&gt;enviroment path&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Follow this &lt;a href=&#34;http://blog.coderzh.com/2015/08/29/hugo/&#34;&gt;link&lt;/a&gt; to install Hugo and set up everything. You may also need &lt;a href=&#34;http://blog.bpcoder.com/2015/12/hugo-create-blog/&#34;&gt;another link&lt;/a&gt;.&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;tips:44e997d1ffd2378e52888c50f9174fd1&#34;&gt;Tips:&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Path may vary with the theme you chose, so always check with the &lt;a href=&#34;https://github.com/spf13/hugoThemes&#34;&gt;theme page&lt;/a&gt; for what path should be used for post.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Always remember: &lt;strong&gt;public&lt;/strong&gt; push to [your github account].github.io for publication, (optional) parent dir. push to [your github account]_hugo for archive.&lt;/li&gt;
-&lt;li&gt;Change the social icon: Social links are designed with &lt;a href=&#34;https://fortawesome.github.io/Font-Awesome/&#34;&gt;FontAwesome 4.5.0&lt;/a&gt;. For occasional modification, just edit the &lt;em&gt;header.html&lt;/em&gt;, find:&lt;br /&gt;
-&amp;gt; &lt;em&gt;class=&amp;ldquo;fa fa-xxx&amp;rdquo;&lt;/em&gt;&lt;br /&gt;
-substitute &lt;em&gt;xxx&lt;/em&gt; with the icon name you want (and ofc supported by FontAwesome), do not touch .Site.Params.xxx if you just want it simple.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;If you are not familiar with &lt;em&gt;markdown&lt;/em&gt;, find the instruction regarding markdown syntax &lt;a href=&#34;http://www.jianshu.com/p/q81RER&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Develope comment board with disqus: register a short name then fill it in the config file&lt;/li&gt;
-&lt;li&gt;Change the Square to superscript： edit /public/index.html, replace INCH2 with INCH&lt;sup&gt;2&lt;/sup&gt; except for the &lt;title&gt; label.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;paste-some-frequently-used-order-here:44e997d1ffd2378e52888c50f9174fd1&#34;&gt;Paste some frequently-used order here:)&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;hugo new post/first.md
-hugo server -w **or** hugo server --theme=slender --buildDrafts --watch
-hugo **or** hugo --theme=slender --baseUrl=&amp;quot;http://xren615.github.io/&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>Documentation: how to initialize a basic static site like this with Github page, Hugo and Go.
+記錄文檔：如何使用Github page，Hugo和Go便利地建造本站的基礎元素.
+System Enviroment OSX El Capitan 10.11.3
+MacBook Pro（Retina，13 inch, early 2015)
+CPU: 2.7 GHz Intel Core i5
+Graphics: Intel Iris Graphics 6100 1536 MB
+Steps  Hugo is compiled by Go, thus before everything, install Go and set up its enviroment path. Follow this link to install Hugo and set up everything.</description>
     </item>
     
   </channel>

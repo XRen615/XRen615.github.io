@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>特征选择：一份简明指南 &middot; INCH2</title>
 
@@ -68,12 +68,6 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://xren615.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
           <a class="pure-menu-link" href="http://xren615.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
       
         </li>
@@ -81,6 +75,12 @@
       
         <li class="pure-menu-item">
           <a class="pure-menu-link" href="http://xren615.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://xren615.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
       
         </li>
       
@@ -210,7 +210,7 @@
 
   
 
-<h4 id="介绍:c3a47a940ff1b84874509236adb1e6a0">介绍</h4>
+<h4 id="介绍">介绍</h4>
 
 <p>数据工程项目往往严格遵循着riro (rubbish in, rubbish out) 的原则，所以我们经常说数据预处理是数据工程师或者数据科学家80%的工作，它保证了数据原材料的质量。而特征工程又至少占据了数据预处理的半壁江山，在实际的数据工程工作中，无论是出于解释数据或是防止过拟合的目的，特征选择都是很常见的工作。如何从成百上千个特征中发现其中哪些对结果最具影响，进而利用它们构建可靠的机器学习算法是特征选择工作的中心内容。在多次反复的工作后，结合书本，kaggle等线上资源以及与其他数据工程师的讨论，我决定写一篇简明的总结梳理特征选择工作的常见方法以及python实现。</p>
 
@@ -226,7 +226,7 @@
 
 <hr />
 
-<h4 id="a-特征过滤-filter-methods:c3a47a940ff1b84874509236adb1e6a0">A. 特征过滤（Filter methods）</h4>
+<h4 id="a-特征过滤-filter-methods">A. 特征过滤（Filter methods）</h4>
 
 <p><strong>(1) 方差阈（Variance Treshhold）</strong></p>
 
@@ -252,7 +252,7 @@
 <pre><code>X_new = SelectKBest(chi2, k=2).fit_transform(X, y)  
 </code></pre>
 
-<h4 id="b-包装筛选-wrapper-methods:c3a47a940ff1b84874509236adb1e6a0">B. 包装筛选（Wrapper methods）</h4>
+<h4 id="b-包装筛选-wrapper-methods">B. 包装筛选（Wrapper methods）</h4>
 
 <p>包装筛选往往利用一些在训练过程中可以计算各个特征对应权重的算法来达到选择特征的目的。在sklearn中有一个专门的模块 <em>SelectFromModel</em> 来帮助我们实现这个过程。</p>
 
@@ -308,11 +308,11 @@
 
 <hr />
 
-<h4 id="小结:c3a47a940ff1b84874509236adb1e6a0">小结</h4>
+<h4 id="小结">小结</h4>
 
 <p>这篇短文简明的介绍了部分常用的特征处理方法，应该提出的是，除了feature selection，feature transformation，包括PCA等降维方法也可以达到减少特征数量，抑制过拟合的目的。</p>
 
-<h4 id="其他参考资料:c3a47a940ff1b84874509236adb1e6a0">其他参考资料：</h4>
+<h4 id="其他参考资料">其他参考资料：</h4>
 
 <p><a href="http://scikit-learn.org/stable/modules/feature_selection.html">scikit-learn feature selection documentation</a></p>
 
@@ -339,13 +339,13 @@
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="http://xren615.github.io/post/cheatSheet/">Python Data Engineering Cheat Sheet</a>
+      <a href="http://xren615.github.io/post/cheatsheet/">Python Data Engineering Cheat Sheet</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="http://xren615.github.io/post/cheatSheet/"><i class="fa fa-chevron-right"></i></a>
+    <a href="http://xren615.github.io/post/cheatsheet/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>建站記錄 &middot; INCH2</title>
 
@@ -68,12 +68,6 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://xren615.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
           <a class="pure-menu-link" href="http://xren615.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
       
         </li>
@@ -81,6 +75,12 @@
       
         <li class="pure-menu-item">
           <a class="pure-menu-link" href="http://xren615.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://xren615.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
       
         </li>
       
@@ -211,21 +211,21 @@
 <p><strong>Documentation</strong>: how to initialize a basic static site like this with Github page, Hugo and Go.<br />
 <strong>記錄文檔</strong>：如何使用Github page，Hugo和Go便利地建造本站的基礎元素.</p>
 
-<h3 id="system-enviroment:44e997d1ffd2378e52888c50f9174fd1">System Enviroment</h3>
+<h3 id="system-enviroment">System Enviroment</h3>
 
 <p>OSX El Capitan 10.11.3<br />
 MacBook Pro（Retina，13 inch, early 2015)<br />
 CPU: 2.7 GHz Intel Core i5<br />
 Graphics: Intel Iris Graphics 6100 1536 MB</p>
 
-<h3 id="steps:44e997d1ffd2378e52888c50f9174fd1">Steps</h3>
+<h3 id="steps">Steps</h3>
 
 <ol>
 <li>Hugo is compiled by Go, thus before everything, install <a href="https://golang.org">Go</a> and set up its <a href="http://blog.csdn.net/lan2720/article/details/20767941">enviroment path</a>.</li>
 <li>Follow this <a href="http://blog.coderzh.com/2015/08/29/hugo/">link</a> to install Hugo and set up everything. You may also need <a href="http://blog.bpcoder.com/2015/12/hugo-create-blog/">another link</a>.<br /></li>
 </ol>
 
-<h3 id="tips:44e997d1ffd2378e52888c50f9174fd1">Tips:</h3>
+<h3 id="tips">Tips:</h3>
 
 <ul>
 <li>Path may vary with the theme you chose, so always check with the <a href="https://github.com/spf13/hugoThemes">theme page</a> for what path should be used for post.<br /></li>
@@ -238,7 +238,7 @@ substitute <em>xxx</em> with the icon name you want (and ofc supported by FontAw
 <li>Change the Square to superscript： edit /public/index.html, replace INCH2 with INCH<sup>2</sup> except for the <title> label.</li>
 </ul>
 
-<h3 id="paste-some-frequently-used-order-here:44e997d1ffd2378e52888c50f9174fd1">Paste some frequently-used order here:)</h3>
+<h3 id="paste-some-frequently-used-order-here">Paste some frequently-used order here:)</h3>
 
 <pre><code>hugo new post/first.md
 hugo server -w **or** hugo server --theme=slender --buildDrafts --watch

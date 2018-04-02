@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leetcode on INCH2</title>
+    <link>http://xren615.github.io/tags/leetcode/</link>
+    <description>Recent content in Leetcode on INCH2</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 21 May 2017 22:44:24 +0800</lastBuildDate>
+    
+	<atom:link href="http://xren615.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Leetcode locked questions</title>
+      <link>http://xren615.github.io/post/leetcode/</link>
+      <pubDate>Sun, 21 May 2017 22:44:24 +0800</pubDate>
+      
+      <guid>http://xren615.github.io/post/leetcode/</guid>
+      <description>170 Two Sum III
+Design and implement a TwoSum class. It should support the following operations:add and find.
+add - Add the number to an internal data structure. find - Find if there exists any pair of numbers which sum is equal to the value.
+For example, add(1); add(3); add(5); find(4) -&amp;gt; true find(7) -&amp;gt; false
+class TwoSum: def __init__(self): self.table = {} def add(self,num): # store how many times each num appears self.</description>
+    </item>
+    
+  </channel>
+</rss>

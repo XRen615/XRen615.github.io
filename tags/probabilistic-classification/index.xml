@@ -8,7 +8,9 @@
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Sat, 16 Apr 2016 15:27:07 +0200</lastBuildDate>
-    <atom:link href="http://xren615.github.io/tags/probabilistic-classification/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://xren615.github.io/tags/probabilistic-classification/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Gaussian Mixture Models</title>
@@ -16,23 +18,9 @@
       <pubDate>Sat, 16 Apr 2016 15:27:07 +0200</pubDate>
       
       <guid>http://xren615.github.io/post/gmixture/</guid>
-      <description>&lt;p&gt;A Gaussian mixture model is a probabilistic model that assumes all the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters. Instead of having an output as cluster no. that a certain sample belongs to, Gaussian mixture model can additionally give an probability of this kind of clustering.&lt;/p&gt;
-
-&lt;p&gt;In practice, expectation-maximization (EM) algorithm is often used for fitting mixture-of-Gaussian models.&lt;/p&gt;
-
-&lt;p&gt;For better understand the theory of GMM this &lt;a href=&#34;http://blog.pluskid.org/?p=39&#34;&gt;link&lt;/a&gt; could be followed.&lt;/p&gt;
-
-&lt;p&gt;For the algorithm realization in Python, follow the sklearn official documentary &lt;a href=&#34;http://scikit-learn.org/stable/modules/mixture.html&#34;&gt;here&lt;/a&gt;. One remark: there are 4 different kinds of &lt;a href=&#34;http://pinkyjie.com/2010/08/31/covariance/&#34;&gt;covariance matrices&lt;/a&gt; that are supported by sklearn (diagonal, spherical, tied and full covariance matrices). Full covariance could get the best results however would significantly increase the calculation load in the same time.&lt;/p&gt;
-
-&lt;p&gt;The &lt;strong&gt;selection of best no. of components&lt;/strong&gt; could be done by calculating BIC（Bayesian information criterion）score. Schwarz&amp;rsquo;s Bayesian Information Criterion (BIC) is a model selection tool. If a model is estimated on a particular data set (training set), BIC score gives an estimate of the model performance on a new, fresh data set (testing set). BIC is given by the formula:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;BIC = -2 * loglikelihood + d * log(N), 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;where N is the sample size of the training set and d is the total number of parameters. For better understanding of likelihood, refer to &lt;a href=&#34;https://sswater.wordpress.com/2012/06/04/似然函数最大似然估计/&#34;&gt;link&lt;/a&gt;. The lower BIC score signals a better model.&lt;/p&gt;
-
-&lt;p&gt;To use BIC for model selection, we simply chose the model giving smallest BIC over the whole set of candidates. BIC attempts to mitigate the risk of over-fitting by introducing the penalty term d * log(N), which grows with the number of parameters. This allows to filter out unnecessarily complicated models, which have too many parameters to be estimated accurately on a given data set of size N. BIC has preference for simpler models compared to Akaike Information Criterion (AIC).&lt;/p&gt;
-</description>
+      <description>A Gaussian mixture model is a probabilistic model that assumes all the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters. Instead of having an output as cluster no. that a certain sample belongs to, Gaussian mixture model can additionally give an probability of this kind of clustering.
+In practice, expectation-maximization (EM) algorithm is often used for fitting mixture-of-Gaussian models.
+For better understand the theory of GMM this link could be followed.</description>
     </item>
     
   </channel>

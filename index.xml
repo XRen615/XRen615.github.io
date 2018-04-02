@@ -7,450 +7,59 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 02 Mar 2017 17:40:40 +0800</lastBuildDate>
-    <atom:link href="http://xren615.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Apr 2018 15:37:09 +0800</lastBuildDate>
+    
+	<atom:link href="http://xren615.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Random Thoughts for A/B Testing at LinkedIn</title>
+      <link>http://xren615.github.io/post/experiment/</link>
+      <pubDate>Sun, 01 Apr 2018 15:37:09 +0800</pubDate>
+      
+      <guid>http://xren615.github.io/post/experiment/</guid>
+      <description>写在前面
+Random thoughts about A/B testing came into my mind while working at LinkedIn.
+A/B测试正被越来越多的公司和科研机构使用，它能让决策告别『拍脑袋』，以实际的试验结果对比展示各个方案间的取舍，从而实现数据驱动的决策。LinkedIn作为业界最早以及最广泛使用A/B测试的科技公司之一，在方法论和工程实现上都有丰富的积累。本篇文章并非对其完整地论述，而是在日常工作中产生的随机总结和思考。
+Statistical ABC 本章节分级总结A/B测试的统计学基础。简单明了为先，严谨其次。
+LEVEL1: 告别『拍脑袋』
+这是树立数据驱动思想的第一步：开发者和产品经理都开始意识到，小至用绿色图标还是红色图标，大到内容流的构成和排序，都不能以『拍脑袋』的方式来决定：这种方法并不能帮助他们找到最优解，且倘若彼此意见不一致，彼此都很难说服对方。
+于是他们产生了朴素的想法：给一半人展示绿色图标，同时给另一半人展示红色图标，然后比较两组试验的表现 —— 这就是A/B测试的基本思想。这样一来，A/B测试不仅可以回答『哪种方案更好？』而且可以通过比较定量地分析『好多少？』
+LEVEL2: 我的差异显著吗
+现在通过试验，产品经理喜爱的绿色和工程师喜爱的红色页面拥有了不同的表现数据。譬如点击率（CTP）对比是10% vs. 11% —— 那么，这足以说明后者更受用户欢迎吗？
+除了关心试验数据本身，我们还需要考虑A/B测试结果中产生的组间差异有多大可能来自于随机误差。试想，同样是10% vs. 11%，10/100 vs. 11/100的说服力与1000/10000 vs. 1100/10000的说服力一样吗？直觉告诉我们，样本高达10000时显示出的1%差异似乎更有说服力，而100样本量实验中的仅仅1个转化的差异似乎有更大的可能来自于随机误差。
+换而言之，在产品决策者做出决定之前，不仅需要知道实验组与对照组对比表现有多大提升，同时也需要知道观察到的提升有多大可能是来源于试验中的随机误差。
+统计学中的假设检验理论为我们提供了量化这种可能性的方法。暂时略去其背后的理论体系，从实用的角度看，现在任何成熟的A/B测试系统都会随着试验结果一并给出一个叫做p-value的统计量，它将告诉我们两组实验数据的差异来自于随机误差的概率。一般地，行业标准可以接受的p-value范围是 &amp;lt;=0.05，换而言之，我们至少有95%的信心推断实验数据的差异确实来源于产品改动而非随机误差 —— 这时我们称组间差异是统计显著的。
+LEVEL3 计算关键指标
+对于不专门从事数据工作的职位，理解LEVEL2 已经达到了了解A/B测试的基础目标。然而数据分析师仍需要知其所以然，掌握各个关键指标背后的统计计算逻辑，才能有理有据地对实验数据进行详细分析。
+仍然以点击率（CTP）为例，假设我们已知实验组的样本总量和点击量分别为（Nt, Xt），对照组的样本总量和点击量分别为（Nc, Xc），如何评价本次试验的显著性？
+首先，可以很直观地计算出两个组别在实验中的点击率
+$$Pt = \frac {Nt}{Xt} \quad and \quad Pc = \frac {Nc}{Xc}$$
+我们进行原假设为『实验组和对照组的点击率没有明显差别』的假设检验，即 $$H_0: Pt - Pc = 0$$</description>
+    </item>
+    
+    <item>
+      <title>Leetcode locked questions</title>
+      <link>http://xren615.github.io/post/leetcode/</link>
+      <pubDate>Sun, 21 May 2017 22:44:24 +0800</pubDate>
+      
+      <guid>http://xren615.github.io/post/leetcode/</guid>
+      <description>170 Two Sum III
+Design and implement a TwoSum class. It should support the following operations:add and find.
+add - Add the number to an internal data structure. find - Find if there exists any pair of numbers which sum is equal to the value.
+For example, add(1); add(3); add(5); find(4) -&amp;gt; true find(7) -&amp;gt; false
+class TwoSum: def __init__(self): self.table = {} def add(self,num): # store how many times each num appears self.</description>
+    </item>
     
     <item>
       <title>Python Data Engineering Cheat Sheet</title>
-      <link>http://xren615.github.io/post/cheatSheet/</link>
+      <link>http://xren615.github.io/post/cheatsheet/</link>
       <pubDate>Thu, 02 Mar 2017 17:40:40 +0800</pubDate>
       
-      <guid>http://xren615.github.io/post/cheatSheet/</guid>
-      <description>
-
-&lt;p&gt;Some frequent needed utilities in Python data scripts —— good to have it by hand when facing puzzle.&lt;/p&gt;
-
-&lt;h3 id=&#34;etl:f1e1a77f1615c44bf32d0a2ae6e592a4&#34;&gt;ETL&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;pre&gt;&lt;code&gt;import matplotlib.pyplot as plt
-%matplotlib inline
-import numpy as np
-import pandas as pd
-import seaborn as sns
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Data Loading&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import pandas as pd  
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;# From CSV
-df = pd.read_csv(&amp;quot;path&amp;quot;)
-
-# From Excel
-df = pd.read_excel(&#39;/path&#39;)
-
-# From database (sqlite)
-import sqlite3
-conn = sqlite3.connect(&amp;quot;foo.db&amp;quot;)
-cur = conn.cursor()
-#Check how many tables are there in the database
-cur.execute(&amp;quot;SELECT name FROM sqlite_master WHERE type=&#39;table&#39;;&amp;quot;).fetchall()
-#SQL Query to pandas dataframe
-df = pd.read_sql_query(&amp;quot;select * from bar limit 5;&amp;quot;, conn)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Indexing&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Set index
-df = df.set_index(&#39;colName&#39;)
-# loc works on labels in the index
-s.loc[:3]
-# iloc works on the positions in the index (so it only takes integers)
-s.iloc[:3]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Sorting&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# First c1, then c2
-df = df.sort([&#39;c1&#39;,&#39;c2&#39;], ascending=[False,True])
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Dropping&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Drop columns (axis=0: column-wise; axis=1: row-wise)
-df = df.drop([&#39;Cabin&#39;,&#39;Ticket&#39;],axis = 1)
-# Drop rows
-df = df.drop([&#39;label string&#39;]) # by index name
-df.drop(df.index[[1,3]]) # by row number (0-based)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Slicing&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Filter the dataset by a certain condition
-df = df[df.name != &#39;Tina&#39;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Dealing with missings&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Drop them
-df = df.dropna()
-# Fill them
-df.fillna(0) # fill by a number
-df.fillna(method=&#39;ffill&#39;) # propagates last valid observation forward to next valid
-df.fillna(method=&#39;bfill&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Sampling&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;df_GM_sample = df_GM.sample(n=None, frac=None)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Apply function&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# axis=0: column-wise; axis=1: row-wise
-df.apply(func,axis = )
-# apply to every element
-df.applymap(lambda x: )
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Dealing with datetime&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# string to datetime
-df.dt = pd.to_datetime(df.dt, format=&#39;%Y%m%d&#39;)
-
-# get datetime indexes
-t = pd.DatetimeIndex(df.dt)
-hr = t.hour
-df[&#39;HourOfDay&#39;] = hr
-month = t.month
-df[&#39;Month&#39;] = month
-year = t.year
-df[&#39;Year&#39;] = year
-
-# resample time series
-df = df.set_index(&#39;datetime&#39;)
-weekly_summary[&#39;speed&#39;] = df.speed.resample(&#39;W&#39;).mean()
-weekly_summary[&#39;distance&#39;] = df.distance.resample(&#39;W&#39;).sum()
-weekly_summary[&#39;cumulative_distance&#39;] = df.cumulative_distance.resample(&#39;W&#39;).last()
-
-# generate given format string from datetime
-df[&#39;DOB1&#39;] = df[&#39;DOB&#39;].dt.strftime(&#39;%m/%d/%Y&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Categorical to dummy&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;dummiesT = pd.get_dummies(test[&#39;Embarked&#39;],prefix = &#39;Embarked&#39;)
-test = pd.concat([test,dummiesT],axis = 1)
-test = test.drop(&#39;Embarked&#39;,axis =1)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;concat &amp;amp; join&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# concat along rows
-df_new = pd.concat([df_a, df_b])
-
-# join
-df = df1.join(df2, how=&#39;left&#39;, lsuffix=&#39;&#39;, rsuffix=&#39;&#39;, sort=False)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Groupby&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;df.groupby(by = &#39;Sex&#39;).mean()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Differencing &amp;amp; Cumulation&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Differencing
-data[&#39;instantaneous&#39;] = data.volume_out.diff()
-
-# Cumulation
-consum.loc[:,&amp;quot;group&amp;quot;] = consum[&amp;quot;is_start_point&amp;quot;].cumsum()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Sliding Window Apply&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;df[&amp;quot;is_lucky_than_previous&amp;quot;] =\
-pd.rolling_apply(df.Survived, 2, lambda x: x[1] - x[0] == 1).fillna(1)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Regular Expression&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; def volCalc(row):
-    name = row[&#39;tbordername&#39;]
-    try:
-        vol = 0
-        p = re.compile(r&#39;(\d+)ml&#39;)
-        sizes = p.findall(name)
-        for size in sizes:
-            p1 = re.compile(size + r&#39;ml\D+(\d)\D+&#39;)
-            amount = p1.findall(name)
-            if amount:
-                vol += int(size)*int(amount[0])
-            else:
-                vol += int(size)*1
-        return vol
-    
-    except:
-        return &#39;N/A&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;descriptive-stats:f1e1a77f1615c44bf32d0a2ae6e592a4&#34;&gt;Descriptive Stats&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Numerical stats&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;df.describe()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Correlation&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;corr = df.corr()
-plt.matshow(df.corr())
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Basic Charts&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# line chart
-fig = plt.figure(figsize=(12,6))
-plt.plot(data.dateTime,data.volume_out)
-plt.title(&#39;title&#39;)
-
-# hist: numerical feature distribution
-df.Age.hist()
-# categorical feature distribution  
-df.Survived.value_counts().plot(kind = &#39;bar&#39;)
-# Basic box plot
-sns.boxplot(consum.instantaneous,orient=&#39;v&#39;)
-plt.title(&#39;instantaneous consumption value distribution&#39;)
-# Box plot with hue
-sns.boxplot(x=&amp;quot;Sex&amp;quot;, y=&amp;quot;Age&amp;quot;,hue = &#39;Survived&#39;, data=df, palette=&amp;quot;Set3&amp;quot;)
-
-# Scatter
-plt.scatter(df.Fare,df.Survived)
-plt.xlabel(&#39;Fare&#39;)
-plt.ylabel(&#39;Survived?&#39;)
-
-# Regression chart
-sns.jointplot(x=&amp;quot;duration&amp;quot;, y=&amp;quot;usage&amp;quot;, kind = &#39;reg&#39;, data=filtered)
-plt.title(&#39;title&#39;)
-
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;feature-engineering:f1e1a77f1615c44bf32d0a2ae6e592a4&#34;&gt;Feature Engineering&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Rescaling&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# (0,1) scaling 
-# (X - X.min(axis=0)) / (X.max(axis=0) - X.min(axis=0))
-from sklearn.preprocessing import MinMaxScaler
-scaler = MinMaxScaler(feature_range=(0, 1))
-cols_to_norm = [&#39;PassengerId&#39;,&#39;SibSp&#39;]
-df[cols_to_norm] = df[cols_to_norm].apply(lambda x: scaler.fit_transform(x))
-
-# Standardization: Zero mean and unit variance
-from sklearn.preprocessing import scale
-cols_to_norm = [&#39;Age&#39;,&#39;SibSp&#39;]
-df[cols_to_norm] = df[cols_to_norm].apply(lambda x: scale(x))
-
-# Normalization: scaling individual observation (row) to have unit norm.
-# if you plan to use a quadratic form such as the dot-product or any other kernel to quantify the similarity of any pair of samples, like KNN. 
-from sklearn.preprocessing import normalize
-df_normalized = pd.DataFrame(normalize(df._get_numeric_data(),norm = &#39;l2&#39;),columns=df._get_numeric_data().columns,index=df._get_numeric_data().index)
-df_normalized.apply(lambda x: np.sqrt(x.dot(x)), axis=1) # check results
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Feature Binarization&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# thresholding numerical features to get boolean values
-from sklearn.preprocessing import Binarizer
-binarizer = Binarizer(threshold=30)
-df[&#39;Age&#39;] = df[&#39;Age&#39;].apply(lambda x: binarizer.fit_transform(x)[0][0])
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Generating Polynomial Features&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# get features’ high-order and interaction terms
-from sklearn.preprocessing import PolynomialFeatures
-poly = PolynomialFeatures(2)
-#  (X_1, X_2) to (1, X_1, X_2, X_1^2, X_1X_2, X_2^2)
-X_poly = pd.DataFrame(poly.fit_transform(X))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;feature-selection:f1e1a77f1615c44bf32d0a2ae6e592a4&#34;&gt;Feature Selection&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Filter methods&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Variance Treshhold
-from sklearn.feature_selection import VarianceThreshold 
-
-# Univariate feature selection 
-X_new = SelectKBest(chi2, k=2).fit_transform(X, y)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Wrapper Methods&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# LASSO
-class sklearn.linear_model.Lasso()
-
-# Tree-based
-class sklearn.ensemble.RandomForestClassifier()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;algorithm:f1e1a77f1615c44bf32d0a2ae6e592a4&#34;&gt;Algorithm&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://scikit-learn.org/stable/tutorial/machine_learning_map/&#34;&gt;&lt;strong&gt;&lt;em&gt;Sk-Learn Official Cheat Sheet&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;
-&lt;div  align=&#34;center&#34;&gt;&lt;br /&gt;
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/sklearncs.png&#34; align=center width = &#34;800&#34; height = &#34;500&#34;/&gt;&lt;br /&gt;
-&lt;/div&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Frequent Used Pieces&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Linear Regression&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from sklearn import linear_model
-# Create linear regression object
-regr = linear_model.LinearRegression(fit_intercept=True)
-# Train the model using the training sets
-regr.fit(df, y)
-# The coefficients
-print(&#39;Coefficients:&#39;, regr.coef_)
-# The mean squared error
-print(&amp;quot;Mean squared error: %.2f&amp;quot;
-      % np.mean((regr.predict(df) - y) ** 2))
-# Explained variance score: 1 is perfect prediction
-print &amp;quot;R Squared score:&amp;quot;;regr.score(df, y)
-
-# Coef_ check
-plt.figure(figsize=(12,8))
-plt.barh(range(len(regr.coef_)),regr.coef_,height=0.2,tick_label = df.columns)
-plt.title(&#39;Regression Coefficients&#39;)
-
-# Residuals Check
-res = regr.predict(df) - y
-plt.axhline(0)
-plt.scatter(range(len(res)),res.values,color = &#39;r&#39;)
-plt.title(&#39;Residual Plot&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Kmeans&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from sklearn.cluster import KMeans
-estimator = KMeans(n_clusters=3)
-estimator.fit(filtered_scaled)
-labels = estimator.labels_
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Random Forest&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import roc_auc_score
-rf = RandomForestClassifier(n_estimators=8000,n_jobs=-1,oob_score=True)
-rf.fit(train,res)
-rf.oob_score_
-# feature importance
-feature_importances = pd.Series(rf.feature_importances_,index = train.columns)
-feature_importances.sort(inplace = True)
-feature_importances.plot(kind = &#39;barh&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;a href=&#34;https://turi.com&#34;&gt;Recommender&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# item-based CF
-import graphlab
-train_data = graphlab.SFrame(df_CF)
-item_sim_model = graphlab.item_similarity_recommender.create(train_data, user_id=&#39;Customer_id&#39;, item_id=&#39;item&#39;)
-# Make Recommendations
-item_sim_recomm = item_sim_model.recommend(users=[&#39;5208494361&#39;],k=10)
-item_sim_recomm.print_rows()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Time Series&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# DF Test
-from statsmodels.tsa.stattools import adfuller
-def test_stationarity(timeseries):
-    
-    # Determing rolling statistics
-    rolmean = pd.rolling_mean(timeseries, window=10)
-    rolstd = pd.rolling_std(timeseries, window=10)
-
-    # Plot rolling statistics:
-    plt.figure(figsize=(14,8))
-    orig = plt.plot(timeseries, color=&#39;blue&#39;,label=&#39;Original&#39;)
-    mean = plt.plot(rolmean, color=&#39;red&#39;, label=&#39;Rolling Mean&#39;)
-    std = plt.plot(rolstd, color=&#39;black&#39;, label = &#39;Rolling Std&#39;)
-    
-    plt.legend(loc=&#39;best&#39;)
-    plt.title(&#39;Rolling Mean &amp;amp; Standard Deviation&#39;)
-    plt.show(block=False)
-    
-    # Perform Dickey-Fuller test:
-    print &#39;Results of Dickey-Fuller Test:&#39;
-    dftest = adfuller(timeseries.SALES_IN_ML, autolag=&#39;AIC&#39;)
-    dfoutput = pd.Series(dftest[0:4], index=[&#39;Test Statistic&#39;,&#39;p-value&#39;,&#39;#Lags Used&#39;,&#39;Number of Observations Used&#39;])
-    for key,value in dftest[4].items():
-        dfoutput[&#39;Critical Value (%s)&#39;%key] = value
-    print dfoutput
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;# ARIMA
-# Ordering: ACF and PACF plots
-from statsmodels.tsa.stattools import acf, pacf
-from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
-plot_acf(TS_log, lags=30)
-plot_pacf(TS_log, lags=30)
-
-# Ordering: AIC
-from statsmodels.tsa.arima_model import ARIMA
-from statsmodels.tsa.stattools import arma_order_select_ic
-# Smaller Better
-arma_order_select_ic(TS_log, max_ar=4, max_ma=0, ic=&#39;aic&#39;)
-
-# Modeling
-model = ARIMA(TS_log, order=(1, 0, 0))  
-results_AR = model.fit(disp= 1)  
-plt.plot(TS_log)
-plt.plot(results_AR.fittedvalues, color=&#39;red&#39;)
-TS_fitted = pd.DataFrame(results_AR.fittedvalues,columns=[&#39;SALES_IN_ML&#39;])
-
-# Residual Series Check
-residuals = TS_log - TS_fitted
-test_stationarity(residuals)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;tuning-validation:f1e1a77f1615c44bf32d0a2ae6e592a4&#34;&gt;Tuning &amp;amp; Validation&lt;/h3&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Training/Test split&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.4, random_state=0)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Cross Validation&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from sklearn.model_selection import cross_val_score
-from sklearn import svm
-clf = svm.SVC(kernel=&#39;linear&#39;, C=1)
-scores = cross_val_score(clf, X.values, y[0].values, cv=5)
-# 95% confidence interval of the score
-print(&amp;quot;Accuracy: %0.2f (+/- %0.2f)&amp;quot; % (scores.mean(), scores.std() * 2))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Exhaustive Grid Search&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from sklearn.model_selection import GridSearchCV
-svr = svm.SVC()
-parameters = {&#39;kernel&#39;:(&#39;linear&#39;,&#39;rbf&#39;), &#39;C&#39;:[1, 10]}
-clf = GridSearchCV(svr, parameters,n_jobs = -1,cv = 5)
-clf.fit(X, y[0])
-clf.cv_results_
-clf.best_estimator_
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>http://xren615.github.io/post/cheatsheet/</guid>
+      <description>Some frequent needed utilities in Python data scripts —— good to have it by hand when facing puzzle.
+ETL import matplotlib.pyplot as plt %matplotlib inline import numpy as np import pandas as pd import seaborn as sns  Data Loading
+import pandas as pd  # From CSV df = pd.read_csv(&amp;quot;path&amp;quot;) # From Excel df = pd.read_excel(&#39;/path&#39;) # From database (sqlite) import sqlite3 conn = sqlite3.connect(&amp;quot;foo.db&amp;quot;) cur = conn.cursor() #Check how many tables are there in the database cur.</description>
     </item>
     
     <item>
@@ -459,116 +68,15 @@ clf.best_estimator_
       <pubDate>Thu, 05 Jan 2017 19:19:22 +0100</pubDate>
       
       <guid>http://xren615.github.io/post/feature_reducing/</guid>
-      <description>
-
-&lt;h4 id=&#34;介绍:c3a47a940ff1b84874509236adb1e6a0&#34;&gt;介绍&lt;/h4&gt;
-
-&lt;p&gt;数据工程项目往往严格遵循着riro (rubbish in, rubbish out) 的原则，所以我们经常说数据预处理是数据工程师或者数据科学家80%的工作，它保证了数据原材料的质量。而特征工程又至少占据了数据预处理的半壁江山，在实际的数据工程工作中，无论是出于解释数据或是防止过拟合的目的，特征选择都是很常见的工作。如何从成百上千个特征中发现其中哪些对结果最具影响，进而利用它们构建可靠的机器学习算法是特征选择工作的中心内容。在多次反复的工作后，结合书本，kaggle等线上资源以及与其他数据工程师的讨论，我决定写一篇简明的总结梳理特征选择工作的常见方法以及python实现。&lt;/p&gt;
-
-&lt;p&gt;总的来说，特征选择可以走两条路：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;特征过滤（Filter methods）: 不需要结合特定的算法，简单快速，常用于预处理&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;包装筛选（Wrapper methods）: 将特征选择包装在某个算法内，常用于学习阶段&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;在scikit-learn环境中，特征选择拥有独立的包sklearn.feature_selection, 包含了在预处理和学习阶段不同层级的特征选择算法。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h4 id=&#34;a-特征过滤-filter-methods:c3a47a940ff1b84874509236adb1e6a0&#34;&gt;A. 特征过滤（Filter methods）&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;(1) 方差阈（Variance Treshhold）&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;最为简单的特征选择方式之一，去除掉所有方差小于设定值的特征。&lt;/p&gt;
-
-&lt;p&gt;在sklearn中实现：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from sklearn.feature_selection import VarianceThreshold  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;VarianceThreshold is a simple baseline approach to feature selection. It removes all features whose variance doesn’t meet some threshold. By default, it removes all zero-variance features, i.e. features that have the same value in all samples.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;(2) 单变量特征选择 (Univariate feature selection)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;基于单变量假设检验的特征选择，比如卡方检验（&lt;a href=&#34;https://segmentfault.com/a/1190000003719712&#34;&gt;这里有一篇很好的博文用于回顾&lt;/a&gt;）是检测两变量是否相关的常用手段，那么就可以很自然的利用chi-square值来做降维，保留相关程度大的变量。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Univariate feature selection works by selecting the best features based on univariate statistical tests. It can be seen as a preprocessing step to an estimator.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code&gt;X_new = SelectKBest(chi2, k=2).fit_transform(X, y)  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;b-包装筛选-wrapper-methods:c3a47a940ff1b84874509236adb1e6a0&#34;&gt;B. 包装筛选（Wrapper methods）&lt;/h4&gt;
-
-&lt;p&gt;包装筛选往往利用一些在训练过程中可以计算各个特征对应权重的算法来达到选择特征的目的。在sklearn中有一个专门的模块 &lt;em&gt;SelectFromModel&lt;/em&gt; 来帮助我们实现这个过程。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;SelectFromModel is a meta-transformer that can be used along with any estimator that has a coef_ or feature&lt;em&gt;importances&lt;/em&gt; attribute after fitting. The features are considered unimportant and removed, if the corresponding coef_ or feature&lt;em&gt;importances&lt;/em&gt; values are below the provided threshold parameter. Apart from specifying the threshold numerically, there are build-in heuristics for finding a threshold using a string argument. Available heuristics are “mean”, “median” and float multiples of these like “0.1*mean”.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;（1）利用Lasso进行特征选择&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;在介绍利用Lasso进行特征选择之前，简要介绍一下什么是Lasso：&lt;/p&gt;
-
-&lt;p&gt;对于一个线性回归问题&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/equation.png&#34; align=center /&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;基本的任务是估计参数，使得&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/equation-3.png&#34; align=center /&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;最小，这就是经典的 Ordinary Linear Square (OLS) 问题。&lt;/p&gt;
-
-&lt;p&gt;但在实际的工作中，仅仅使用OLS进行回归计算很容易造成过拟合，噪声得到了过分的关注，训练数据的微小差异可能带来巨大的模型差异（主要是样本的共线性容易使矩阵成为对扰动敏感的病态阵，从而造成回归系数解析解的不稳定，要更详细的探究可以参考&lt;a href=&#34;https://www.zhihu.com/question/38121173&#34;&gt;这里&lt;/a&gt;)。&lt;/p&gt;
-
-&lt;p&gt;为了矫正过拟合，我们常使用带有正则项的cost function，其中使用L1正则的表达式则为Lasso方法：&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/equation-4.png&#34; align=center /&gt;  
-&lt;/div&gt; 
-
-&lt;p&gt;Lasso方法下解出的参数常常具有稀疏的特征，即很多特征对应的参数会为零，这就使得特征选择成为可能：我们可以训练一个Lasso模型，然后将系数为零的特征去除。&lt;/p&gt;
-
-&lt;p&gt;在实际的工作中，Lasso的参数lambda越大，参数的解越稀疏，选出的特征越少。那么如何确定使用多大的lambda？一个比较稳妥地方案是对于一系列lambda，用交叉验证计算模型的rmse，然后选择rmse的极小值点 (Kaggle上有一个很好的&lt;a href=&#34;https://www.kaggle.com/apapiu/house-prices-advanced-regression-techniques/regularized-linear-models&#34;&gt;例子&lt;/a&gt;)。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Linear models penalized with the L1 norm have sparse solutions: many of their estimated coefficients are zero. When the goal is to reduce the dimensionality of the data to use with another classifier, they can be used along with feature_selection.SelectFromModel to select the non-zero coefficients. With Lasso, the higher the alpha parameter, the fewer features selected.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;在sk-learn中的实现参看&lt;a href=&#34;http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;（2）基于决策树的特征选择&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;利用决策树中深度较浅的节点对应的特征提供信息较多（可以直观的理解为这个特征将更多的样本区分开）这一特性，许多基于决策树的算法，如&lt;a href=&#34;http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html&#34;&gt;随机森林&lt;/a&gt;也可以在结果中直接给出feature_importances属性。其主要思想是训练一系列不同的决策树模型，在每一棵树中使用特征集的某一个随机的子集（使用bootstrap等方法抽样），最后统计每个特征出现的次数，深度，分离的样本量以及模型的准确率等给出特征的权重值。设定一个阈值，我们便可以使用这类基于决策树的算法进行特征选择。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Tree-based estimators (see the sklearn.tree module and forest of trees in the sklearn.ensemble module) can be used to compute feature importances, which in turn can be used to discard irrelevant features (when coupled with the sklearn.feature_selection.SelectFromModel meta-transformer).&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;在sk-learn中的实现参看&lt;a href=&#34;http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h4 id=&#34;小结:c3a47a940ff1b84874509236adb1e6a0&#34;&gt;小结&lt;/h4&gt;
-
-&lt;p&gt;这篇短文简明的介绍了部分常用的特征处理方法，应该提出的是，除了feature selection，feature transformation，包括PCA等降维方法也可以达到减少特征数量，抑制过拟合的目的。&lt;/p&gt;
-
-&lt;h4 id=&#34;其他参考资料:c3a47a940ff1b84874509236adb1e6a0&#34;&gt;其他参考资料：&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://scikit-learn.org/stable/modules/feature_selection.html&#34;&gt;scikit-learn feature selection documentation&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://cos.name/2011/04/modified-lars-and-lasso/&#34;&gt;修正的LARS算法和lasso&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>介绍 数据工程项目往往严格遵循着riro (rubbish in, rubbish out) 的原则，所以我们经常说数据预处理是数据工程师或者数据科学家80%的工作，它保证了数据原材料的质量。而特征工程又至少占据了数据预处理的半壁江山，在实际的数据工程工作中，无论是出于解释数据或是防止过拟合的目的，特征选择都是很常见的工作。如何从成百上千个特征中发现其中哪些对结果最具影响，进而利用它们构建可靠的机器学习算法是特征选择工作的中心内容。在多次反复的工作后，结合书本，kaggle等线上资源以及与其他数据工程师的讨论，我决定写一篇简明的总结梳理特征选择工作的常见方法以及python实现。
+总的来说，特征选择可以走两条路：
+ 特征过滤（Filter methods）: 不需要结合特定的算法，简单快速，常用于预处理
+ 包装筛选（Wrapper methods）: 将特征选择包装在某个算法内，常用于学习阶段
+  在scikit-learn环境中，特征选择拥有独立的包sklearn.feature_selection, 包含了在预处理和学习阶段不同层级的特征选择算法。
+A. 特征过滤（Filter methods） (1) 方差阈（Variance Treshhold）
+最为简单的特征选择方式之一，去除掉所有方差小于设定值的特征。
+在sklearn中实现：
+from sklearn.feature_selection import VarianceThreshold   VarianceThreshold is a simple baseline approach to feature selection. It removes all features whose variance doesn’t meet some threshold. By default, it removes all zero-variance features, i.e. features that have the same value in all samples.</description>
     </item>
     
     <item>
@@ -577,169 +85,11 @@ clf.best_estimator_
       <pubDate>Mon, 19 Dec 2016 13:21:09 +0800</pubDate>
       
       <guid>http://xren615.github.io/post/sk2_rs/</guid>
-      <description>
-
-&lt;h3 id=&#34;abstract:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Abstract&lt;/h3&gt;
-
-&lt;p&gt;This prototype finished during P&amp;amp;G Data Science Hackthon, Nov. 2016 in Cincinati, OH.&lt;/p&gt;
-
-&lt;p&gt;This document briefly elaborates the design ideology for SKII onsite recommender system, leverage the demographics data, skin scan result and purchase history.&lt;/p&gt;
-
-&lt;p&gt;Note. all the confidential data has been pre-processed.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;the-dataset:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;The Dataset&lt;/h3&gt;
-
-&lt;p&gt;The data used in this recommender system consists of the folling 3 parts:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Demographics information (1 million rows * 10 columns), including gender, age, marital status etc.. Collected through the membership registration.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Skin scan results (1 million rows * 21 columns), including varies parameters evaluate your pores, skin firmness etc.. Collected via the onsite &lt;a href=&#34;http://www.sk-ii.com.sg/en/magic-ring.aspx&#34;&gt;&lt;em&gt;Magic Ring&lt;/em&gt;&lt;/a&gt; skin test.&lt;/li&gt;
-&lt;li&gt;Purchasing history (1 million consumer * 131 SKU). Collected in the customer relationship management (CRM) system.&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;methodology:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Methodology&lt;/h3&gt;
-
-&lt;p&gt;Obviously there are 2 kinds of customers: &lt;strong&gt;new customer&lt;/strong&gt; and &lt;strong&gt;return customer&lt;/strong&gt;, between which, the difference need to be highlighted is the data availiability:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;For new comers, since they haven&amp;rsquo;t purchased any item yet, the purchasing history is empty. Thus, the data availiable contains only demographic information and skin scan result.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;For return customers, all of the 3 data categories mentioned above (demographic, skin scan results, purchase history) are availiable.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Based on the different data schema, different strategy should be used for new comers and return customers.&lt;/p&gt;
-
-&lt;h4 id=&#34;new-comers:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;New Comers&lt;/h4&gt;
-
-&lt;p&gt;The basic idea is:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Instead of always recommending the general best sellers to you (unfortunately this is what they are doing right now), we listen more to people like you.&lt;/li&gt;
-&lt;li&gt;Instead of what they bought, we care more about what makes them return, if applicable.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;So technically, I constructed a vector containing demographic info as well as skin scan result, find peers who are similar to you by calculating cosine similarity, then look at what makes them return, make a vote and recommend those stuff to you.&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/method1.png&#34; width = &#34;530&#34; height = &#34;130&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;h4 id=&#34;return-customers:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Return Customers&lt;/h4&gt;
-
-&lt;p&gt;Besides the demographic &amp;amp; skin info, which enbale the similarity based recommendation, we also hold the purchasing records for those return users. So how can we leverage those records to make the recommender system better?&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/purchasing.png&#34; width = &#34;120&#34; height = &#34;120&#34;/&gt;  
-&lt;/div&gt;
-
-&lt;p&gt;The basic idea is:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Involve &lt;strong&gt;collaborative filtering&lt;/strong&gt; for return customers, so the system could iterate and evolve: the more you buy, the better recommendation we can make.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So technically, considering the computing load, I constructed an item-based collaborative filtering using a thrid-party library &lt;a href=&#34;https://turi.com&#34;&gt;GraphLab&lt;/a&gt;, make a recommendation and vote with the similarity-based results to get the final recommendation.&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/method2.png&#34; width = &#34;530&#34; height = &#34;230&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;implementation:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Implementation&lt;/h3&gt;
-
-&lt;h4 id=&#34;data-preprocessing-etl:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Data Preprocessing/ETL&lt;/h4&gt;
-
-&lt;p&gt;Including data cleaning, normalization, mapping etc.&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pre1.png&#34; width = &#34;430&#34; height = &#34;330&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;Implemented in &lt;a href=&#34;https://www.knime.org&#34;&gt;KNIME&lt;/a&gt;&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pre3.png&#34; width = &#34;530&#34; height = &#34;300&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;h4 id=&#34;similar-people-based-recommendation:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Similar People Based Recommendation&lt;/h4&gt;
-
-&lt;p&gt;Implemented in Python (part of the code)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Calculating the similarity
-# No fancy algorithm, we chooose cosine, sorry
-
-def square_rooted(x):
-    return round(sqrt(sum([a*a for a in x])),3)
-
-def cosine_similarity(x,y):
- 
-    numerator = sum(a*b for a,b in zip(x,y))
-    denominator = square_rooted(x)*square_rooted(y)
-    return round(numerator/float(denominator),3)
-    
-# Calculating the similarity between him/her with peers!   
-scores = []
-for index, row in df_GM_sample.iterrows():
-    peer = row.values.tolist()
-    score = cosine_similarity(new_list,peer)   
-    scores.append(score)  
-    
-# The most look-alike guys we are looking for (top 100 out of 100000)
-similar_users = df_GM_sample.index[0:100]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;What are their return-makers? we recommend those stuff&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/output_40_1.png&#34; width = &#34;420&#34; height = &#34;500&#34;/&gt;  
-&lt;/div&gt;   
-
-&lt;h4 id=&#34;item-based-collaborative-filtering:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Item Based Collaborative Filtering&lt;/h4&gt;
-
-&lt;p&gt;GraphLab provide a clean command to build collaborative filter once you organized your dataframe in their way.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;item_sim_model = graphlab.item_similarity_recommender.create(train_data, user_id=&#39;Customer_id&#39;, item_id=&#39;item&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then we could make the following recommendations&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Make Recommendations:
-item_sim_recomm = item_sim_model.recommend(users=[&#39;5208494361&#39;],k=10)
-item_sim_recomm.print_rows()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then top 10 SKU to be recommended based on the collaborative filtering:&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/top10.png&#34; width = &#34;430&#34; height = &#34;200&#34;/&gt;  
-&lt;/div&gt;
-
-&lt;h4 id=&#34;vote:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Vote&lt;/h4&gt;
-
-&lt;p&gt;The idea is simple: select the recommendations from people-similarity based method as well as collaborative filtering based method, make a vote as the final recommendation.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;performance:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Performance&lt;/h3&gt;
-
-&lt;p&gt;On the test set we made a quick evaluation for the improvement. The precision of recommendation reached &lt;strong&gt;61%&lt;/strong&gt; using under this methodology, in comparison with &lt;strong&gt;30%-&lt;/strong&gt;, previous recommendation based on the overall best-sellers.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;issues-to-be-settled:4fcdc5e8e78477e9f2c26833f0aa0d9b&#34;&gt;Issues To Be Settled&lt;/h3&gt;
-
-&lt;p&gt;This is an early-stage demo finished during hackthon, (although it&amp;rsquo;s the hackthon winner :p) before put into real business usage, some issues should be settled.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The feature selection: over 150 features are treated as equal in this stage, which is apparently not realistic. So, feature selection based on corelation analysis/chi-squared testing or other more advanced methods such as PCA could be involved.&lt;/li&gt;
-&lt;li&gt;Computing optimization: in order to reduce the computing time, in this stage I sampled the pool. Of course there are better ways to do so, optimize big O/play tricks on sparse matrix etc. could help.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Abstract This prototype finished during P&amp;amp;G Data Science Hackthon, Nov. 2016 in Cincinati, OH.
+This document briefly elaborates the design ideology for SKII onsite recommender system, leverage the demographics data, skin scan result and purchase history.
+Note. all the confidential data has been pre-processed.
+The Dataset The data used in this recommender system consists of the folling 3 parts:
+ Demographics information (1 million rows * 10 columns), including gender, age, marital status etc.</description>
     </item>
     
     <item>
@@ -748,70 +98,10 @@ item_sim_recomm.print_rows()
       <pubDate>Sat, 02 Jul 2016 16:17:24 +0200</pubDate>
       
       <guid>http://xren615.github.io/post/weibo_robot/</guid>
-      <description>
-
-&lt;h4 id=&#34;demo:adc735f8be8ab412542aa9dbcb7489d5&#34;&gt;Demo&lt;/h4&gt;
-
-&lt;p&gt;This is my recent play-for-fun, a tiny trick developing a weatherman robot on SNS.&lt;/p&gt;
-
-&lt;p&gt;E.g.
-&lt;div  align=&#34;center&#34;&gt;&lt;br /&gt;
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/weibopost.png&#34; width = &#34;700&#34; height = &#34;200&#34;/&gt;&lt;br /&gt;
-&lt;/div&gt;&lt;br /&gt;
-This robot will update the HK local weather everyday at 20:00 EDT and post it on my SinaWeibo account.&lt;/p&gt;
-
-&lt;h4 id=&#34;checklist:adc735f8be8ab412542aa9dbcb7489d5&#34;&gt;Checklist&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;A SinaWeibo developer account to use its post API (register &lt;a href=&#34;http://open.weibo.com/wiki/首页&#34;&gt;here&lt;/a&gt;. You will need either a personal webpage or an application under development for registration).&lt;/li&gt;
-&lt;li&gt;A &lt;a href=&#34;http://developer.worldweatheronline.com/api/&#34;&gt;WorldWeatherOnline&lt;/a&gt; API to update weather. They provide free API to fetch the weather worldwide and pack it in popular formats like xml, json or csv.&lt;/li&gt;
-&lt;li&gt;A Linux server.&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;pipeline:adc735f8be8ab412542aa9dbcb7489d5&#34;&gt;Pipeline&lt;/h4&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pipeline.png&#34; width = &#34;600&#34; height = &#34;250&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;&lt;strong&gt;WWO API&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Use urllib to run GET request to WWO, get back weather information in json&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import urllib2
-url = &#39;http://api.worldweatheronline.com/premium/v1/weather.ashx?key=*******************&amp;amp;q=HongKong&amp;amp;format=json&amp;amp;num_of_days=1&amp;amp;date=today&amp;amp;mca=no&amp;amp;fx24=yes&amp;amp;showlocaltime=yes&#39;
-response = urllib2.urlopen(url).read()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;json decode and extraction&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;In python one can easily use json library for json decoding, then extract information interested.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import json
-js = json.loads(response)
-w = &#39;Good morning! Weather robot online. Current Query: &#39; + js[&#39;data&#39;][&#39;request&#39;][0][&#39;query&#39;] + &#39;.\n&#39;
-w += &#39;Current weather condition: &#39; + js[&#39;data&#39;][&#39;current_condition&#39;][0][&#39;weatherDesc&#39;][0][&#39;value&#39;] + &#39;, &#39;
-w += &#39;Feels like &#39; + js[&#39;data&#39;][&#39;current_condition&#39;][0][&#39;FeelsLikeC&#39;] + &#39; degree Celsius&#39; + &#39;.&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Weibo post&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Use Weibo API to publish a post.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;client.post(&#39;statuses/update&#39;, status=w)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;to post. Make sure to figure out the OAuth2.0 authorization before using this API.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Server&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Deploy the script on the Linux server and use&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;crontab -e
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;to set the schedule.&lt;/p&gt;
-</description>
+      <description>Demo This is my recent play-for-fun, a tiny trick developing a weatherman robot on SNS.
+E.g. 
+This robot will update the HK local weather everyday at 20:00 EDT and post it on my SinaWeibo account.
+Checklist  A SinaWeibo developer account to use its post API (register here. You will need either a personal webpage or an application under development for registration). A WorldWeatherOnline API to update weather. They provide free API to fetch the weather worldwide and pack it in popular formats like xml, json or csv.</description>
     </item>
     
     <item>
@@ -820,23 +110,9 @@ w += &#39;Feels like &#39; + js[&#39;data&#39;][&#39;current_condition&#39;][0][
       <pubDate>Sat, 16 Apr 2016 15:27:07 +0200</pubDate>
       
       <guid>http://xren615.github.io/post/gmixture/</guid>
-      <description>&lt;p&gt;A Gaussian mixture model is a probabilistic model that assumes all the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters. Instead of having an output as cluster no. that a certain sample belongs to, Gaussian mixture model can additionally give an probability of this kind of clustering.&lt;/p&gt;
-
-&lt;p&gt;In practice, expectation-maximization (EM) algorithm is often used for fitting mixture-of-Gaussian models.&lt;/p&gt;
-
-&lt;p&gt;For better understand the theory of GMM this &lt;a href=&#34;http://blog.pluskid.org/?p=39&#34;&gt;link&lt;/a&gt; could be followed.&lt;/p&gt;
-
-&lt;p&gt;For the algorithm realization in Python, follow the sklearn official documentary &lt;a href=&#34;http://scikit-learn.org/stable/modules/mixture.html&#34;&gt;here&lt;/a&gt;. One remark: there are 4 different kinds of &lt;a href=&#34;http://pinkyjie.com/2010/08/31/covariance/&#34;&gt;covariance matrices&lt;/a&gt; that are supported by sklearn (diagonal, spherical, tied and full covariance matrices). Full covariance could get the best results however would significantly increase the calculation load in the same time.&lt;/p&gt;
-
-&lt;p&gt;The &lt;strong&gt;selection of best no. of components&lt;/strong&gt; could be done by calculating BIC（Bayesian information criterion）score. Schwarz&amp;rsquo;s Bayesian Information Criterion (BIC) is a model selection tool. If a model is estimated on a particular data set (training set), BIC score gives an estimate of the model performance on a new, fresh data set (testing set). BIC is given by the formula:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;BIC = -2 * loglikelihood + d * log(N), 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;where N is the sample size of the training set and d is the total number of parameters. For better understanding of likelihood, refer to &lt;a href=&#34;https://sswater.wordpress.com/2012/06/04/似然函数最大似然估计/&#34;&gt;link&lt;/a&gt;. The lower BIC score signals a better model.&lt;/p&gt;
-
-&lt;p&gt;To use BIC for model selection, we simply chose the model giving smallest BIC over the whole set of candidates. BIC attempts to mitigate the risk of over-fitting by introducing the penalty term d * log(N), which grows with the number of parameters. This allows to filter out unnecessarily complicated models, which have too many parameters to be estimated accurately on a given data set of size N. BIC has preference for simpler models compared to Akaike Information Criterion (AIC).&lt;/p&gt;
-</description>
+      <description>A Gaussian mixture model is a probabilistic model that assumes all the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters. Instead of having an output as cluster no. that a certain sample belongs to, Gaussian mixture model can additionally give an probability of this kind of clustering.
+In practice, expectation-maximization (EM) algorithm is often used for fitting mixture-of-Gaussian models.
+For better understand the theory of GMM this link could be followed.</description>
     </item>
     
     <item>
@@ -845,401 +121,9 @@ w += &#39;Feels like &#39; + js[&#39;data&#39;][&#39;current_condition&#39;][0][
       <pubDate>Tue, 15 Mar 2016 15:08:09 +0100</pubDate>
       
       <guid>http://xren615.github.io/post/edge_detection/</guid>
-      <description>
-
-&lt;h5 id=&#34;key-points:61665cac455c6246b15a713a4476ec20&#34;&gt;Key Points&lt;/h5&gt;
-
-&lt;p&gt;This chapter briefly elaborates how to analyze the motivation of people&amp;rsquo;s operation on a system from the system electricity consumption signal and other data.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Objective&lt;/strong&gt;: understand how, and why occupants interact with the system.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;System&lt;/strong&gt;: ventilation system in passive houses with adjustable flow rate option.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Raw data&lt;/strong&gt;: electricity consumption signal; environment sensor records (temperature, humidity, CO2 etc.); 3-min interval * 2 years (2013-2015): 325946 rows × 25 features.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Technique&lt;/strong&gt;: Noise reduction (Gaussian filter); Edge detection (1st derivative Gaussian filter), Feature selection (L1-penalized logistic regression, recursive feature elimination)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Below &lt;strong&gt;Figure 1&lt;/strong&gt; shows the overall pipeline I designed.&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/flowchartbig.png&#34; width = &#34;800&#34; height = &#34;400&#34;/&gt;  
-&lt;/div&gt;
- 
-
-&lt;p&gt;(1) After essential preprocessing and cleaning (NaNs are backfilled), start with a system electricity consumption signal like &lt;strong&gt;Figure 2&lt;/strong&gt; below. A sudden change in the signal could imply the occupants&amp;rsquo; interaction with the system (e.g. once the occupant turn the flow rate into a higher option there should be a steep increasing edge on the electricity consumption signal). First thing to do is filtering out the noise (caused by wind etc. or system itself) and &amp;ldquo;fake operation&amp;rdquo; (status change with too-short duration).&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/demo_original_noted%E5%89%AF%E6%9C%AC.jpg&#34; /&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;In the previous research work before this study, researchers used to calibrate each position with fixed interval. E.g. in this case, positions with pulse no. fallen in [0,4] are assigned as ‘position 1’, while (4,8) for ‘position 2’ and pulse no. larger than 8 represents ‘position 3’. Follow this approach, the user operation frequency could be seriously over-estimated since both the noise (e.g. in circle 1) and ‘fake operations’ (e.g. in circle 2) are counted as effective user operation. In fact, in the previous report the researchers estimated this house with over 1,000 operations per year, which is apparently too much for a regular ventilation system controller. To make things worse, with the fixed-interval approach, for each house the intervals need to be decided case by case since the scope of the no. of pulse in different house may vary. In the next paragraphs, I will show how does the filter-based approach developed in this study solve all the issues mentioned above by automatically marking the effective operational edges and filtering out the noises and ‘fake operations’.&lt;/p&gt;
-
-&lt;p&gt;(2) Through a finely-tuned &lt;strong&gt;1st derivative Gaussian filter&lt;/strong&gt;, the noise and &amp;ldquo;fake operation&amp;rdquo; could be filtered out and the valid operations would be marked out, like shown in &lt;strong&gt;Figure 3&lt;/strong&gt; below.&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/combine2%E5%89%AF%E6%9C%AC.jpg&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;In the figure above, (a) is the raw signal of fan electricity consumption, with noise and fake operations; (b) shows the signal after the Gaussian filter, with which the signal is smoothed and the noise is reduced; &amp;copy; is the 1st derivative signal of (b), each peak here could imply an edge in (b), with a proper threshold, we can filter out the real operation edge we want in a certain sensitivity. (d) is the original signal with operation edge marked out from &amp;copy;, it could be observed that the finely-tuned algorithm could automatically ignore the noise and fake operation, only mark the real operation edge we want.&lt;/p&gt;
-
-&lt;p&gt;With a lager scale in2 years, the operation detected could be presented in the &lt;strong&gt;Figure 4&lt;/strong&gt; below, in which +1 represents increasing operation while -1 represents decreasing operation.&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/ventpos%20setting%20operation.png&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;(3) Then the marked data set would undergo an &lt;strong&gt;undersampling&lt;/strong&gt; process since the dataset is now skewed (The no. of records marked with &amp;lsquo;no operation&amp;rsquo; is far more than ones with operation, either increase or decrease). The undersampling process ensures the data set has balanced scales with each class, for the effectiveness of following classification algorithm.&lt;/p&gt;
-
-&lt;p&gt;(4) After undersampling, the training set would be &lt;strong&gt;normalized&lt;/strong&gt; and then fed into a &lt;strong&gt;L1-penalized logistic regression classifier&lt;/strong&gt;. Since linear model penalized with L1 norm has sparse solutions i.e. many of its estimated coefficients would be zero, it could be used for feature selection purpose. &lt;strong&gt;Figure 5&lt;/strong&gt; below shows an example of the coefficients output in a certain experiment.&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/L1.png&#34; width = &#34;700&#34; height = &#34;430&#34;/&gt;  
-&lt;/div&gt; 
-
-&lt;p&gt;Then the logistic regression runs repeatedly to make a &lt;strong&gt;recursive feature elimination&lt;/strong&gt; (first, the estimator is trained on the initial set of features and weights are assigned to each one of them. Then, features whose absolute weights are the smallest are pruned from the current set features). At last, the most informative feature combination (judged by cross-validation accuracy) in this case could be determined, like below &lt;strong&gt;Figure 6&lt;/strong&gt;  shows: these features implies this occupant&amp;rsquo;s motivation for his/her behavior.&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/REFCV.png&#34; width = &#34;500&#34; height = &#34;340&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;(5) Repeat the process above for different occupants. The results imply there are different kinds of people since their &amp;ldquo;best feature combination&amp;rdquo; vary a lot: e.g. some of them are with strong &amp;ldquo;time pattern&amp;rdquo; while others may be more sensitive to indoor environment, like temperature etc. A &lt;strong&gt;K-Means clustering&lt;/strong&gt; could help us demonstrate this by grouping the occupants into different user profiles.&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/motivationdistribution.png&#34; width = &#34;600&#34; height = &#34;450&#34;/&gt;  
-&lt;/div&gt; 
-
-&lt;p&gt;In the figure above, the horizontal axis represents the importance of indoor environment in determining occupants’ behavior, while the vertical axis represents the importance of time-related factors. Three different types of occupants could be observed:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Indoor environment sensitive occupants: house no. 2, 4, 6, 8&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Time sensitive occupants: house no.7, 9&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Mixed type occupants: houses no. 1, 3, 5, 10&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The complexity of occupants’ behavioral pattern is demonstrated by the data analysis result. The Indoor environment sensitive occupants are more likely to interact with their ventilation control panel when they feel unsatisfied about the indoor comfort, while the time sensitive occupants are more likely to have fixed timetables for their behavior (e.g., as soon as they wake up or come back from work etc.) and there are also some people in between, as mixed-type occupants their behaviors are effected considerably by both factors in the same time.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;From here below is technical log regarding relevant theory and code to realize the whole process.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;technical-details-noise-reduction-edge-detection:61665cac455c6246b15a713a4476ec20&#34;&gt;Technical Details: Noise reduction &amp;amp; Edge detection&lt;/h4&gt;
-
-&lt;h5 id=&#34;background:61665cac455c6246b15a713a4476ec20&#34;&gt;Background&lt;/h5&gt;
-
-&lt;p&gt;There is a ventilation system (with heat recovery) in one passive house, of which the ventilation flow rate is controlled by a fan system, and adjustable by occupants. There are 3 available options (let&amp;rsquo;s say, low, medium, high rate respectively)for the fan flow rate setting.&lt;/p&gt;
-
-&lt;p&gt;The electricity consumption of the fan system is recorded by a smart meter in terms of pulse. Obviously, occupants&amp;rsquo; flow rate setting could put significant influence on the electricity consumption and we could calibrate when and how people adjust their ventilation system based on the electricity consumption.&lt;/p&gt;
-
-&lt;p&gt;However, on the one hand, with the influence of back pressure, wind speed etc. the record is not something like a clear 3-stage square wave, instead it is quite noisy. On the other hand, we got many different houses (with similar structure but with different scales of records)  within our research. They made it is not really practical to calibrate the ventilation setting position by fixed intervals (like pulse &amp;lt; 3 == position 1; 3 &amp;lt; pulse &amp;lt; 5 == position 2 etc.). We need a new algorithmic method to do this job.&lt;/p&gt;
-
-&lt;p&gt;This is a tiny piece of the elec. consumption record (day 185 in year 2014, house #9):&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;h5 id=&#34;methodology:61665cac455c6246b15a713a4476ec20&#34;&gt;Methodology&lt;/h5&gt;
-
-&lt;p&gt;Describe what we want to do in a few words: smooth the noise and detect the edge automatically, without any reset like boundary interval needed. This is actually a classic problem in &lt;em&gt;signal processing&lt;/em&gt; or &lt;em&gt;computer vision&lt;/em&gt; field. For this 1D signal the simplest solution maybe &lt;strong&gt;Gaussian derivative filter&lt;/strong&gt;, for similar problems in 2D matrix (images) the &lt;strong&gt;canny edge detector&lt;/strong&gt; could be effective. The figure may give you a vivid impression of what we are going to do:&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/canny1.jpg&#34; width = &#34;400&#34; height = &#34;150&#34;/&gt;  
-&lt;/div&gt;
-
-&lt;h6 id=&#34;basic-idea:61665cac455c6246b15a713a4476ec20&#34;&gt;Basic idea&lt;/h6&gt;
-
-&lt;p&gt;Tune a  Gaussian derivative filter to properly smooth the noise and take 1st derivative, then set an appropriate threshold to detect the edge.&lt;/p&gt;
-
-&lt;h6 id=&#34;terms:61665cac455c6246b15a713a4476ec20&#34;&gt;Terms&lt;/h6&gt;
-
-&lt;p&gt;&lt;strong&gt;Gaussian filter&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;For noise smoothing or &amp;ldquo;image blur&amp;rdquo;. In layman&amp;rsquo;s words, replace each point by the weighted average of its neighbors, the weights come from Gaussian distribution, then normalize the results.&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/gaussian_formula.png&#34; width = &#34;200&#34; height = &#34;50&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/gaussian.png&#34; alt=&#34;Gaussian&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;(if you are dealing with 2d matrix (images), use 2-D Gaussian instead.)&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/bg2012110708.png&#34; width = &#34;400&#34; height = &#34;300&#34;/&gt;  
-&lt;/div&gt;   
-
-&lt;p&gt;Effect:&lt;br /&gt;
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/gblur.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Gaussian derivative filter&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;For noise smoothing and edge detection. In layman&amp;rsquo;s words, replace each point by the weighted average of its neighbors, the weights come from &lt;strong&gt;the 1st derivative of Gaussian distribution&lt;/strong&gt;, then normalize the results.&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/1st_der_Gaussian.png&#34; width = &#34;200&#34; height = &#34;50&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/Gaussian_curves.png&#34; width = &#34;600&#34; height = &#34;400&#34;/&gt;  
-&lt;/div&gt;
-
-&lt;p&gt;Effect:&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/canny1.jpg&#34; width = &#34;400&#34; height = &#34;150&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;Advantages of Gaussian Kernel compared to other low-pass filter:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Being possible to derive from a small set of scale-space axioms.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Does not introduce new spurious structures at coarse scales that do not correspond to simplifications of corresponding structures at finer scales.&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Scale Space&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Representing an signal/image as a one-parameter family of smoothed signals/images, parametrized by the size of the smoothing kernel used for suppressing fine-scale structures. Specially for Gaussian kernels: t = sigma^2.&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-03-15%20%E4%B8%8B%E5%8D%886.54.23.png&#34; width = &#34;600&#34; height = &#34;500&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;h5 id=&#34;results:61665cac455c6246b15a713a4476ec20&#34;&gt;Results&lt;/h5&gt;
-
-&lt;p&gt;Finished a demo of auto edge detection in our elec. consumption record, which contains a tuned Gaussian derivative filter, edge position detected, and scale space plot.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Original&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/pulsedemo.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;&lt;strong&gt;Gaussian filter smoothed (sigma = 8)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/smoothed.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;1st derivative Gaussian filtered (sigma = 8)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/demo_edge_Gassuian.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;&lt;strong&gt;Edge position detected (threshold = 0.07 * global min/max)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/demo_edge_detected.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
-&lt;/div&gt; 
-
-&lt;p&gt;&lt;strong&gt;Scale Space (sigma = range (1,9))&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/edge_Gassuian_scale_space.png&#34; width = &#34;600&#34; height = &#34;400&#34;/&gt;  
-&lt;/div&gt; 
-
-&lt;h4 id=&#34;finer-tuning:61665cac455c6246b15a713a4476ec20&#34;&gt;Finer Tuning&lt;/h4&gt;
-
-&lt;p&gt;In practice, it is usually needed to use different tailored tune strategies for the parameters to meet the specific requirements aroused by researchers. E.g. in a case the experts from built environment would like to filter out short-lived status (even they maybe quite steep in terms of pulse number). The strategies is carefully increase sigma (by which you are flattening the Gaussian curve, so the weights of center would be less significant so that the short peaks could be better wiped out by its flat neighbors) and also, properly increase the threshold would help (by which it would be more difficult for the derivatives of smoothed short peaks to pass the threshold and be recognized as one effective operation). Once the sigma and threshold reached an optimized combination, the results would be something like below for this case:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Edge position detected (Sigma = 10, threshold = 0.35 * global min/max)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/finertune.png&#34; width = &#34;620&#34; height = &#34;150&#34;/&gt;  
-&lt;/div&gt;  
-
-&lt;p&gt;&lt;strong&gt;In a larger scale, see how does our finely-tuned lazy filter work to filter the fake operations out! (Sigma = 20, threshold = 0.5 * global min/max)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div  align=&#34;center&#34;&gt;    
-&lt;img src=&#34;http://7xro3y.com1.z0.glb.clouddn.com/largerscale.png&#34; width = &#34;620&#34; height = &#34;400&#34;/&gt;  
-&lt;/div&gt; 
-
-&lt;h5 id=&#34;reference:61665cac455c6246b15a713a4476ec20&#34;&gt;Reference&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Scale_space&#34;&gt;Scale Space wiki&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.ruanyifeng.com/blog/2012/11/gaussian_blur.html&#34;&gt;Gaussian Blur Algorithm&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://opencv-python-tutroals.readthedocs.org/en/latest/py_tutorials/py_imgproc/py_canny/py_canny.html&#34;&gt;OpenCV Canny Edge Detector&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.cs.unc.edu/~nanowork/cismm/download/edgedetector/&#34;&gt;UNC Edge Detector 1D&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://scikit-image.org/docs/dev/auto_examples/edges/plot_canny.html#example-edges-plot-canny-py&#34;&gt;scikit-image Canny edge detector&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h4 id=&#34;technical-details-feature-selection:61665cac455c6246b15a713a4476ec20&#34;&gt;Technical Details: Feature selection&lt;/h4&gt;
-
-&lt;p&gt;Before feature selection I made an undersampling to the data set to ensure every class shares a balanced weight in the whole dataset (before which the ratio is something like 150,000 no operation, 400 increase, 400 decrease).&lt;/p&gt;
-
-&lt;p&gt;The feature selection process is carried out in Python with scikit-learn. First each feature in the data set need to be standardized since the objective function of the l1 regularized linear model we use in this case assumes that all features are centered on zero and have variance in the same order. If a feature has a significantly lager scale or variance compared to others, it might dominate the objective function and make the estimator unable to learn from other features correctly as expected. In this case I used sklearn.preprocessing.scale() to standardize each feature to zero mean and unit variance.&lt;/p&gt;
-
-&lt;p&gt;Then the standardized data set was fed into a recursive feature elimination with cross-validation (REFCV) loop with a L1-penalized logistic regression kernel since linear models penalized with the L1 norm have sparse solutions: many of their estimated coefficients are zero, which could be used for feature selection purpose.&lt;/p&gt;
-
-&lt;p&gt;Below is the main part of the coding script for this session (ipynb format).&lt;/p&gt;
-
-&lt;h5 id=&#34;feature-selection-after-gaussian-filter:61665cac455c6246b15a713a4476ec20&#34;&gt;Feature selection after Gaussian filter&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code&gt;import matplotlib.pyplot as plt
-%matplotlib inline
-import numpy as np
-import pandas as pd
-import seaborn as sns
-import math
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Data Loading&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ventpos = pd.read_csv(&amp;quot;/Users/xinyuyangren/Desktop/1demo.csv&amp;quot;)
-ventpos = ventpos.fillna(method=&#39;backfill&#39;)
-ventpos.head()
-ventpos.op.value_counts()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;UnderSampling&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sample_size = math.ceil((sum(ventpos.op == 1) + sum(ventpos.op == -1))/2)
-sample_size
-noop_indices = ventpos[ventpos.op == 0].index
-noop_indices
-random_indices = np.random.choice(noop_indices, sample_size, replace=False)
-random_indices
-noop_sample = ventpos.loc[random_indices]
-up_sample = ventpos[ventpos.op == 1]
-down_sample = ventpos[ventpos.op == -1]
-op_sample = pd.concat([up_sample,down_sample])
-op_sample.head()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Feature selection: up operation&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;undersampled_up = pd.concat([up_sample,noop_sample])
-undersampled_up.head()
-#generate month/hour attribute from datetime string  
-undersampled_up.dt = pd.to_datetime(undersampled_up.dt)
-t = pd.DatetimeIndex(undersampled_up.dt)
-hr = t.hour
-undersampled_up[&#39;HourOfDay&#39;] = hr
-month = t.month
-undersampled_up[&#39;Month&#39;] = month
-year = t.year
-undersampled_up[&#39;Year&#39;] = year
-undersampled_up.head()
-for col in undersampled_up:
-    print col
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;def remap(x):
-    if x == &#39;t&#39;:
-        x = 0
-    else:
-        x = 1
-    return x
-
-for col in [&#39;wc_lr&#39;, &#39;wc_kitchen&#39;, &#39;wc_br3&#39;, &#39;wc_br2&#39;, &#39;wc_attic&#39;]:
-    w = undersampled_up[col].apply(remap)
-    undersampled_up[col] = w
-undersampled_up.head()
-openwin = undersampled_up.wc_attic + undersampled_up.wc_br2 + undersampled_up.wc_br3 + undersampled_up.wc_kitchen + undersampled_up.wc_lr
-undersampled_up[&#39;openwin&#39;] = openwin;
-undersampled_up = undersampled_up.drop([&#39;wc_lr&#39;, &#39;wc_kitchen&#39;, &#39;wc_br3&#39;, &#39;wc_br2&#39;, &#39;wc_attic&#39;,&#39;Year&#39;,&#39;dt&#39;,&#39;pulse_channel_ventilation_unit&#39;],axis = 1)
-undersampled_up.head()
-for col in undersampled_up:
-    print col
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Logistic Regression&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from sklearn.linear_model import LogisticRegression
-from sklearn.feature_selection import SelectFromModel
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;#shuffle the order
-undersampled_up = undersampled_up.reindex(np.random.permutation(undersampled_up.index))
-undersampled_up.head()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;y = undersampled_up.pop(&#39;op&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;# Columnwise Normalizaion
-from sklearn import preprocessing
-X_scaled = pd.DataFrame()
-for col in undersampled_up:
-    X_scaled[col] = preprocessing.scale(undersampled_up[col])
-X_scaled.head()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;from sklearn import cross_validation
-lg = LogisticRegression(penalty=&#39;l1&#39;,C = 0.1)
-scores = cross_validation.cross_val_score(lg, X_scaled, y, cv=10)
-#The mean score and the 95% confidence interval of the score estimate
-print(&amp;quot;Accuracy: %0.2f (+/- %0.2f)&amp;quot; % (scores.mean(), scores.std() * 2))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;clf = lg.fit(X_scaled, y)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;plt.figure(figsize=(12,9))
-y_pos = np.arange(len(X_scaled.columns))
-plt.barh(y_pos,abs(clf.coef_[0]))
-plt.yticks(y_pos + 0.4,X_scaled.columns)
-plt.title(&#39;Feature Importance from Logistic Regression&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;REFCV FEATURE OPTIMIZATIN&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from sklearn.feature_selection import RFECV
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;selector = RFECV(lg, step=1, cv=10)
-selector = selector.fit(X_scaled, y)
-mask = selector.support_ 
-mask
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;selector.ranking_
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;X_scaled.keys()[mask]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;selector.score(X_scaled, y)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;X_selected = pd.DataFrame()
-for col in X_scaled.keys()[mask]:
-    X_selected[col] = X_scaled[col]
-X_selected.head()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;scores = cross_validation.cross_val_score(lg, X_selected, y, cv=10)
-#The mean score and the 95% confidence interval of the score estimate
-scores
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;print(&amp;quot;Accuracy: %0.2f (+/- %0.2f)&amp;quot; % (scores.mean(), scores.std() * 2))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;clf_final = lg.fit(X_selected,y)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;y_pos = np.arange(len(X_selected.columns))
-plt.barh(y_pos,abs(clf_final.coef_[0]))
-plt.yticks(y_pos + 0.4,X_scaled.columns)
-plt.title(&#39;Feature Importance After RFECV Logistic Regression&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id=&#34;reference-1:61665cac455c6246b15a713a4476ec20&#34;&gt;Reference&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://scikit-learn.org/stable/modules/preprocessing.html&#34;&gt;sklearn standardization&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Oversampling_and_undersampling_in_data_analysis&#34;&gt;undersampling&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://scikit-learn.org/stable/modules/feature_selection.html&#34;&gt;sklearn feature selection&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFECV.html#sklearn.feature_selection.RFECV&#34;&gt;sklearn REFCV&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Key Points This chapter briefly elaborates how to analyze the motivation of people&amp;rsquo;s operation on a system from the system electricity consumption signal and other data.
+ Objective: understand how, and why occupants interact with the system. System: ventilation system in passive houses with adjustable flow rate option.
+ Raw data: electricity consumption signal; environment sensor records (temperature, humidity, CO2 etc.); 3-min interval * 2 years (2013-2015): 325946 rows × 25 features.</description>
     </item>
     
     <item>
@@ -1248,16 +132,9 @@ plt.title(&#39;Feature Importance After RFECV Logistic Regression&#39;)
       <pubDate>Mon, 07 Mar 2016 15:03:40 +0100</pubDate>
       
       <guid>http://xren615.github.io/post/scifi_chn/</guid>
-      <description>
-
-&lt;p&gt;This article is comment regarding Chinese sci-fi.&lt;/p&gt;
-
-&lt;h4 id=&#34;摘记与感想-姚海军-中国科幻的五个瞬间-https-itunes-apple-com-cn-podcast-yi-xi-yao-hai-jun-zhong-guo-id676106704-i-364284777-mt-2:34ac4c2f509858a22ab859144a9fdcd2&#34;&gt;摘记与感想：&lt;a href=&#34;https://itunes.apple.com/cn/podcast/yi-xi-yao-hai-jun-zhong-guo/id676106704?i=364284777&amp;amp;mt=2&#34;&gt;姚海军：中国科幻的五个瞬间&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;『&lt;strong&gt;简要时间轴&lt;/strong&gt;』幻想（清末民初-1949）YY小说 —— 『科学化』科普『17年文学』（1949-1966）—— 荒芜 （1966-1979） —— 黄金时期： 郭沫若『科学的春天』（1979-1983）叶永烈 —— 批判『科幻文学姓科还是姓文』， 荒芜 （1984-1997）：姓科就批你伪科学；姓文就批你『颠覆社会主义道德观』—— 转折：1997 世界科幻大会，北京，与宇航事业挂钩，重归主流 —— 『去科学化』回归文学：科技外壳与人性探索 王晋康 刘慈欣 —— 2005 『三体』开始连载 —— 2016 『三体』获『雨果奖』中国科幻文学首次实现输出，社会进入『全民科幻』时代&lt;/p&gt;
-
-&lt;p&gt;自豪：在最艰难的荒芜岁月里，感谢『科幻世界』（前『科学文艺』），『&lt;strong&gt;四川成都&lt;/strong&gt;』一直是中国科幻最后一块坚守的阵地。然而需要警惕的是，如今科幻小说的全民热潮在某种程度上造就了科幻小说作者的浮躁，越来越多的作家，特别是年轻一代的写手，以拍电影卖版权为目标：与其说在创作文学作品，不如讲一开始就在写电影剧本。然而，就算大家再怎么喷孔二狗的12亿『三体』改编，包括我在内仍然会有千千万万的科幻迷愿意掏钱去电影院，就为见证这一历史性的时刻 —— 而且我愿意去十次 ╮(╯▽╰)╭&lt;/p&gt;
-</description>
+      <description>This article is comment regarding Chinese sci-fi.
+摘记与感想：姚海军：中国科幻的五个瞬间 『简要时间轴』幻想（清末民初-1949）YY小说 —— 『科学化』科普『17年文学』（1949-1966）—— 荒芜 （1966-1979） —— 黄金时期： 郭沫若『科学的春天』（1979-1983）叶永烈 —— 批判『科幻文学姓科还是姓文』， 荒芜 （1984-1997）：姓科就批你伪科学；姓文就批你『颠覆社会主义道德观』—— 转折：1997 世界科幻大会，北京，与宇航事业挂钩，重归主流 —— 『去科学化』回归文学：科技外壳与人性探索 王晋康 刘慈欣 —— 2005 『三体』开始连载 —— 2016 『三体』获『雨果奖』中国科幻文学首次实现输出，社会进入『全民科幻』时代
+自豪：在最艰难的荒芜岁月里，感谢『科幻世界』（前『科学文艺』），『四川成都』一直是中国科幻最后一块坚守的阵地。然而需要警惕的是，如今科幻小说的全民热潮在某种程度上造就了科幻小说作者的浮躁，越来越多的作家，特别是年轻一代的写手，以拍电影卖版权为目标：与其说在创作文学作品，不如讲一开始就在写电影剧本。然而，就算大家再怎么喷孔二狗的12亿『三体』改编，包括我在内仍然会有千千万万的科幻迷愿意掏钱去电影院，就为见证这一历史性的时刻 —— 而且我愿意去十次 ╮(╯▽╰)╭</description>
     </item>
     
     <item>
@@ -1266,45 +143,13 @@ plt.title(&#39;Feature Importance After RFECV Logistic Regression&#39;)
       <pubDate>Sun, 06 Mar 2016 01:27:21 +0100</pubDate>
       
       <guid>http://xren615.github.io/post/develope_this_site/</guid>
-      <description>
-
-&lt;p&gt;&lt;strong&gt;Documentation&lt;/strong&gt;: how to initialize a basic static site like this with Github page, Hugo and Go.&lt;br /&gt;
-&lt;strong&gt;記錄文檔&lt;/strong&gt;：如何使用Github page，Hugo和Go便利地建造本站的基礎元素.&lt;/p&gt;
-
-&lt;h3 id=&#34;system-enviroment:44e997d1ffd2378e52888c50f9174fd1&#34;&gt;System Enviroment&lt;/h3&gt;
-
-&lt;p&gt;OSX El Capitan 10.11.3&lt;br /&gt;
-MacBook Pro（Retina，13 inch, early 2015)&lt;br /&gt;
-CPU: 2.7 GHz Intel Core i5&lt;br /&gt;
-Graphics: Intel Iris Graphics 6100 1536 MB&lt;/p&gt;
-
-&lt;h3 id=&#34;steps:44e997d1ffd2378e52888c50f9174fd1&#34;&gt;Steps&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Hugo is compiled by Go, thus before everything, install &lt;a href=&#34;https://golang.org&#34;&gt;Go&lt;/a&gt; and set up its &lt;a href=&#34;http://blog.csdn.net/lan2720/article/details/20767941&#34;&gt;enviroment path&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Follow this &lt;a href=&#34;http://blog.coderzh.com/2015/08/29/hugo/&#34;&gt;link&lt;/a&gt; to install Hugo and set up everything. You may also need &lt;a href=&#34;http://blog.bpcoder.com/2015/12/hugo-create-blog/&#34;&gt;another link&lt;/a&gt;.&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;tips:44e997d1ffd2378e52888c50f9174fd1&#34;&gt;Tips:&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Path may vary with the theme you chose, so always check with the &lt;a href=&#34;https://github.com/spf13/hugoThemes&#34;&gt;theme page&lt;/a&gt; for what path should be used for post.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Always remember: &lt;strong&gt;public&lt;/strong&gt; push to [your github account].github.io for publication, (optional) parent dir. push to [your github account]_hugo for archive.&lt;/li&gt;
-&lt;li&gt;Change the social icon: Social links are designed with &lt;a href=&#34;https://fortawesome.github.io/Font-Awesome/&#34;&gt;FontAwesome 4.5.0&lt;/a&gt;. For occasional modification, just edit the &lt;em&gt;header.html&lt;/em&gt;, find:&lt;br /&gt;
-&amp;gt; &lt;em&gt;class=&amp;ldquo;fa fa-xxx&amp;rdquo;&lt;/em&gt;&lt;br /&gt;
-substitute &lt;em&gt;xxx&lt;/em&gt; with the icon name you want (and ofc supported by FontAwesome), do not touch .Site.Params.xxx if you just want it simple.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;If you are not familiar with &lt;em&gt;markdown&lt;/em&gt;, find the instruction regarding markdown syntax &lt;a href=&#34;http://www.jianshu.com/p/q81RER&#34;&gt;here&lt;/a&gt;.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Develope comment board with disqus: register a short name then fill it in the config file&lt;/li&gt;
-&lt;li&gt;Change the Square to superscript： edit /public/index.html, replace INCH2 with INCH&lt;sup&gt;2&lt;/sup&gt; except for the &lt;title&gt; label.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;paste-some-frequently-used-order-here:44e997d1ffd2378e52888c50f9174fd1&#34;&gt;Paste some frequently-used order here:)&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;hugo new post/first.md
-hugo server -w **or** hugo server --theme=slender --buildDrafts --watch
-hugo **or** hugo --theme=slender --baseUrl=&amp;quot;http://xren615.github.io/&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>Documentation: how to initialize a basic static site like this with Github page, Hugo and Go.
+記錄文檔：如何使用Github page，Hugo和Go便利地建造本站的基礎元素.
+System Enviroment OSX El Capitan 10.11.3
+MacBook Pro（Retina，13 inch, early 2015)
+CPU: 2.7 GHz Intel Core i5
+Graphics: Intel Iris Graphics 6100 1536 MB
+Steps  Hugo is compiled by Go, thus before everything, install Go and set up its enviroment path. Follow this link to install Hugo and set up everything.</description>
     </item>
     
     <item>
@@ -1313,14 +158,10 @@ hugo **or** hugo --theme=slender --baseUrl=&amp;quot;http://xren615.github.io/&a
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>http://xren615.github.io/about/</guid>
-      <description>&lt;p&gt;X.Ren see himself as a(n) reader/engineer/photographer. Now he works as a data scientist.&lt;/p&gt;
-
-&lt;p&gt;This blog would contain his comments upon literature works/technical issues/photography and other pieces of art.&lt;/p&gt;
-
-&lt;p&gt;Feel free to contact him via xinyuyangren@gmail.com if needed.&lt;/p&gt;
-
-&lt;p&gt;Thanks for visiting.&lt;/p&gt;
-</description>
+      <description>X.Ren see himself as a(n) reader/engineer/photographer. Now he works as a data scientist.
+This blog would contain his comments upon literature works/technical issues/photography and other pieces of art.
+Feel free to contact him via xinyuyangren@gmail.com if needed.
+Thanks for visiting.</description>
     </item>
     
     <item>
@@ -1329,38 +170,7 @@ hugo **or** hugo --theme=slender --baseUrl=&amp;quot;http://xren615.github.io/&a
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>http://xren615.github.io/contact/</guid>
-      <description>&lt;form class=&#34;pure-form pure-form-stacked&#34;&gt;
-  &lt;fieldset&gt;
-    &lt;div class=&#34;pure-g&#34;&gt;
-      &lt;div class=&#34;pure-u-1 pure-u-md-1-3&#34;&gt;
-        &lt;label for=&#34;first-name&#34;&gt;First Name&lt;/label&gt;
-        &lt;input id=&#34;first-name&#34; class=&#34;pure-u-23-24&#34; type=&#34;text&#34;&gt;
-      &lt;/div&gt;
-
-      &lt;div class=&#34;pure-u-1 pure-u-md-1-3&#34;&gt;
-        &lt;label for=&#34;last-name&#34;&gt;Last Name&lt;/label&gt;
-        &lt;input id=&#34;last-name&#34; class=&#34;pure-u-23-24&#34; type=&#34;text&#34;&gt;
-      &lt;/div&gt;
-
-      &lt;div class=&#34;pure-u-1 pure-u-md-1-3&#34;&gt;
-        &lt;label for=&#34;email&#34;&gt;E-Mail&lt;/label&gt;
-        &lt;input id=&#34;email&#34; class=&#34;pure-u-23-24&#34; type=&#34;email&#34; required&gt;
-      &lt;/div&gt;
-
-      &lt;div class=&#34;pure-u-1 pure-u-md-1-3&#34;&gt;
-        &lt;label for=&#34;city&#34;&gt;City&lt;/label&gt;
-        &lt;input id=&#34;city&#34; class=&#34;pure-u-23-24&#34; type=&#34;text&#34;&gt;
-      &lt;/div&gt;
-     
-    &lt;/div&gt;
-    &lt;fieldset class=&#34;pure-group&#34;&gt;
-      &lt;input type=&#34;text&#34; class=&#34;pure-input-1-2&#34; placeholder=&#34;A title&#34;&gt;
-      &lt;textarea class=&#34;pure-input-1-2&#34; placeholder=&#34;Your message&#34;&gt;&lt;/textarea&gt;
-    &lt;/fieldset&gt;
-    &lt;button type=&#34;submit&#34; class=&#34;pure-button pure-button-primary&#34;&gt;Send&lt;/button&gt;
-  &lt;/fieldset&gt;
-&lt;/form&gt;
-</description>
+      <description> First Name  Last Name  E-Mail  City     Send   </description>
     </item>
     
   </channel>
