@@ -45,6 +45,29 @@
 
 
 
+  <a href="http://xren615.github.io/post/hadoop_streaming/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>08 Jul 2018, 20:58</time>
+      <h1>Use Python on HDFS with Pig Latin UDF and Hadoop streaming</h1>
+    </div>
+  </div>
+</a>
+<div class="summary-content">
+  在大多数情景中，当需要对HDFS上的数据做一些简单的ETL，我们常常直接选择Hive或者Apache Pig Latin来完成。而在其他少数情况下，如果想要插入其他脚本语言模块，如Python，来完成一些比较复杂的工作，这时我们一般有两种选择，UDF (User Defined Function) 或者Hadoop Streaming。
+UDF with Python
+It&rsquo;s simple to use Py UDF with pig, just put a .py file and a .pig file under the same directory.
+E.g.
+udf_testing.py
+@outputSchema('word:chararray') def hi_world(): return &quot;hello world” def bingo(s): return s + 'bingo'  udf_testing.pig
+REGISTER 'udf_testing.py' using jython as my_udfs; page_views = LOAD '/data/tracking/PageViewEvent/' USING LiAvroStorage('date.range', 'start.date=20171001;end.date=20171002;error.on.missing=false'); hello_users = FOREACH page_views GENERATE requestHeader.pageKey, my_udfs.hi_world(), my_udfs.bingo(requestHeader.pageKey);; DUMP hello_users;  Note: limitation from Jython
+  
+  <a href="/post/hadoop_streaming/" class="summary-more">READ MORE</a>
+  
+</div>
+  <hr class="summary-sep" />
+
   <a href="http://xren615.github.io/post/toast/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
@@ -95,29 +118,10 @@ $$Pt = \frac {Nt}{Xt} \quad and \quad Pc = \frac {Nc}{Xc}$$
 </div>
   <hr class="summary-sep" />
 
-  <a href="http://xren615.github.io/post/cheatsheet/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>02 Mar 2017, 17:40</time>
-      <h1>Python Data Engineering Cheat Sheet</h1>
-    </div>
-  </div>
-</a>
-<div class="summary-content">
-  Some frequent needed utilities in Python data scripts —— good to have it by hand when facing puzzle.
-ETL import matplotlib.pyplot as plt %matplotlib inline import numpy as np import pandas as pd import seaborn as sns  Data Loading
-import pandas as pd  # From CSV df = pd.read_csv(&quot;path&quot;) # From Excel df = pd.read_excel('/path') # From database (sqlite) import sqlite3 conn = sqlite3.connect(&quot;foo.db&quot;) cur = conn.cursor() #Check how many tables are there in the database cur.
-  
-  <a href="/post/cheatsheet/" class="summary-more">READ MORE</a>
-  
-</div>
-  <hr class="summary-sep" />
-
 
 <div class="paging">
   
-  PAGE 1 / 3
+  PAGE 1 / 4
   
   <a href="/page/2/" rel="next">
     <i class="fa fa-caret-right" aria-hidden="true"></i>

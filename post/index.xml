@@ -8,10 +8,25 @@
     <language>en-us</language>
     <managingEditor>xinyuyangren@foxmail.com (Rick)</managingEditor>
     <webMaster>xinyuyangren@foxmail.com (Rick)</webMaster>
-    <lastBuildDate>Sun, 13 May 2018 17:39:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 08 Jul 2018 20:58:01 +0800</lastBuildDate>
     
 	<atom:link href="http://xren615.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Use Python on HDFS with Pig Latin UDF and Hadoop streaming</title>
+      <link>http://xren615.github.io/post/hadoop_streaming/</link>
+      <pubDate>Sun, 08 Jul 2018 20:58:01 +0800</pubDate>
+      <author>xinyuyangren@foxmail.com (Rick)</author>
+      <guid>http://xren615.github.io/post/hadoop_streaming/</guid>
+      <description>在大多数情景中，当需要对HDFS上的数据做一些简单的ETL，我们常常直接选择Hive或者Apache Pig Latin来完成。而在其他少数情况下，如果想要插入其他脚本语言模块，如Python，来完成一些比较复杂的工作，这时我们一般有两种选择，UDF (User Defined Function) 或者Hadoop Streaming。
+UDF with Python
+It&amp;rsquo;s simple to use Py UDF with pig, just put a .py file and a .pig file under the same directory.
+E.g.
+udf_testing.py
+@outputSchema(&#39;word:chararray&#39;) def hi_world(): return &amp;quot;hello world” def bingo(s): return s + &#39;bingo&#39;  udf_testing.pig
+REGISTER &#39;udf_testing.py&#39; using jython as my_udfs; page_views = LOAD &#39;/data/tracking/PageViewEvent/&#39; USING LiAvroStorage(&#39;date.range&#39;, &#39;start.date=20171001;end.date=20171002;error.on.missing=false&#39;); hello_users = FOREACH page_views GENERATE requestHeader.pageKey, my_udfs.hi_world(), my_udfs.bingo(requestHeader.pageKey);; DUMP hello_users;  Note: limitation from Jython</description>
+    </item>
     
     <item>
       <title>Toast :)</title>
@@ -51,10 +66,10 @@ $$Pt = \frac {Nt}{Xt} \quad and \quad Pc = \frac {Nc}{Xc}$$
     
     <item>
       <title>Python Data Engineering Cheat Sheet</title>
-      <link>http://xren615.github.io/post/cheatsheet/</link>
+      <link>http://xren615.github.io/post/python_cheat_sheet/</link>
       <pubDate>Thu, 02 Mar 2017 17:40:40 +0800</pubDate>
       <author>xinyuyangren@foxmail.com (Rick)</author>
-      <guid>http://xren615.github.io/post/cheatsheet/</guid>
+      <guid>http://xren615.github.io/post/python_cheat_sheet/</guid>
       <description>Some frequent needed utilities in Python data scripts —— good to have it by hand when facing puzzle.
 ETL import matplotlib.pyplot as plt %matplotlib inline import numpy as np import pandas as pd import seaborn as sns  Data Loading
 import pandas as pd  # From CSV df = pd.read_csv(&amp;quot;path&amp;quot;) # From Excel df = pd.read_excel(&#39;/path&#39;) # From database (sqlite) import sqlite3 conn = sqlite3.connect(&amp;quot;foo.db&amp;quot;) cur = conn.cursor() #Check how many tables are there in the database cur.</description>
