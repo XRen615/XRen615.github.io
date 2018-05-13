@@ -8,19 +8,10 @@
     <language>en-us</language>
     <managingEditor>xinyuyangren@foxmail.com (Rick)</managingEditor>
     <webMaster>xinyuyangren@foxmail.com (Rick)</webMaster>
-    <lastBuildDate>Thu, 02 Mar 2017 17:40:40 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 13 Apr 2018 01:30:00 +0800</lastBuildDate>
     
 	<atom:link href="http://xren615.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title></title>
-      <link>http://xren615.github.io/tags/</link>
-      <pubDate>Thu, 02 Mar 2017 17:40:40 +0800</pubDate>
-      <author>xinyuyangren@foxmail.com (Rick)</author>
-      <guid>http://xren615.github.io/tags/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>A/B Testing</title>
@@ -37,6 +28,15 @@
       <pubDate>Sat, 13 Feb 2016 17:34:00 +0800</pubDate>
       <author>xinyuyangren@foxmail.com (Rick)</author>
       <guid>http://xren615.github.io/tags/about-me/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cheat Sheet</title>
+      <link>http://xren615.github.io/tags/cheat-sheet/</link>
+      <pubDate>Thu, 02 Mar 2017 17:40:40 +0800</pubDate>
+      <author>xinyuyangren@foxmail.com (Rick)</author>
+      <guid>http://xren615.github.io/tags/cheat-sheet/</guid>
       <description></description>
     </item>
     
@@ -100,6 +100,15 @@
       <pubDate>Sat, 16 Apr 2016 15:27:07 +0200</pubDate>
       <author>xinyuyangren@foxmail.com (Rick)</author>
       <guid>http://xren615.github.io/tags/probabilistic-classification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://xren615.github.io/tags/python/</link>
+      <pubDate>Thu, 02 Mar 2017 17:40:40 +0800</pubDate>
+      <author>xinyuyangren@foxmail.com (Rick)</author>
+      <guid>http://xren615.github.io/tags/python/</guid>
       <description></description>
     </item>
     

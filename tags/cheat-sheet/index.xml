@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cheat Sheet on INCH2</title>
+    <link>http://xren615.github.io/tags/cheat-sheet/</link>
+    <description>Recent content in Cheat Sheet on INCH2</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>xinyuyangren@foxmail.com (Rick)</managingEditor>
+    <webMaster>xinyuyangren@foxmail.com (Rick)</webMaster>
+    <lastBuildDate>Thu, 02 Mar 2017 17:40:40 +0800</lastBuildDate>
+    
+	<atom:link href="http://xren615.github.io/tags/cheat-sheet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python Data Engineering Cheat Sheet</title>
+      <link>http://xren615.github.io/post/cheat_sheet/</link>
+      <pubDate>Thu, 02 Mar 2017 17:40:40 +0800</pubDate>
+      <author>xinyuyangren@foxmail.com (Rick)</author>
+      <guid>http://xren615.github.io/post/cheat_sheet/</guid>
+      <description>Some frequent needed utilities in Python data scripts —— good to have it by hand when facing puzzle.
+ETL import matplotlib.pyplot as plt %matplotlib inline import numpy as np import pandas as pd import seaborn as sns  Data Loading
+import pandas as pd  # From CSV df = pd.read_csv(&amp;quot;path&amp;quot;) # From Excel df = pd.read_excel(&#39;/path&#39;) # From database (sqlite) import sqlite3 conn = sqlite3.connect(&amp;quot;foo.db&amp;quot;) cur = conn.cursor() #Check how many tables are there in the database cur.</description>
+    </item>
+    
+  </channel>
+</rss>
