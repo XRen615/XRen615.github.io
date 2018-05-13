@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About Me on INCH2</title>
+    <link>http://xren615.github.io/tags/about-me/</link>
+    <description>Recent content in About Me on INCH2</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>xinyuyangren@foxmail.com (Rick)</managingEditor>
+    <webMaster>xinyuyangren@foxmail.com (Rick)</webMaster>
+    <lastBuildDate>Sat, 13 Feb 2016 17:34:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://xren615.github.io/tags/about-me/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Me</title>
+      <link>http://xren615.github.io/post/me/</link>
+      <pubDate>Sat, 13 Feb 2016 17:34:00 +0800</pubDate>
+      <author>xinyuyangren@foxmail.com (Rick)</author>
+      <guid>http://xren615.github.io/post/me/</guid>
+      <description>A person who sees himself as a(n) reader/engineer/gamer. Now works on data analytics.
+contact: xinyuyangren@gmail.com</description>
+    </item>
+    
+  </channel>
+</rss>

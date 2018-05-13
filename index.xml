@@ -6,17 +6,28 @@
     <description>Recent content on INCH2</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 01 Apr 2018 15:37:09 +0800</lastBuildDate>
+    <managingEditor>xinyuyangren@foxmail.com (Rick)</managingEditor>
+    <webMaster>xinyuyangren@foxmail.com (Rick)</webMaster>
+    <lastBuildDate>Sun, 13 May 2018 17:39:00 +0800</lastBuildDate>
     
 	<atom:link href="http://xren615.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Random Thoughts for A/B Testing at LinkedIn</title>
+      <title>Toast :)</title>
+      <link>http://xren615.github.io/post/toast/</link>
+      <pubDate>Sun, 13 May 2018 17:39:00 +0800</pubDate>
+      <author>xinyuyangren@foxmail.com (Rick)</author>
+      <guid>http://xren615.github.io/post/toast/</guid>
+      <description>I reserve my headline for @Leanne and propose a toast for her luck in next a few months
+Praise the sun</description>
+    </item>
+    
+    <item>
+      <title>Random thoughts on A/B testing at LinkedIn</title>
       <link>http://xren615.github.io/post/experiment/</link>
-      <pubDate>Sun, 01 Apr 2018 15:37:09 +0800</pubDate>
-      
+      <pubDate>Fri, 13 Apr 2018 01:30:00 +0800</pubDate>
+      <author>xinyuyangren@foxmail.com (Rick)</author>
       <guid>http://xren615.github.io/post/experiment/</guid>
       <description>写在前面
 Random thoughts about A/B testing came into my mind while working at LinkedIn.
@@ -39,23 +50,10 @@ $$Pt = \frac {Nt}{Xt} \quad and \quad Pc = \frac {Nc}{Xc}$$
     </item>
     
     <item>
-      <title>Leetcode locked questions</title>
-      <link>http://xren615.github.io/post/leetcode/</link>
-      <pubDate>Sun, 21 May 2017 22:44:24 +0800</pubDate>
-      
-      <guid>http://xren615.github.io/post/leetcode/</guid>
-      <description>170 Two Sum III
-Design and implement a TwoSum class. It should support the following operations:add and find.
-add - Add the number to an internal data structure. find - Find if there exists any pair of numbers which sum is equal to the value.
-For example, add(1); add(3); add(5); find(4) -&amp;gt; true find(7) -&amp;gt; false
-class TwoSum: def __init__(self): self.table = {} def add(self,num): # store how many times each num appears self.</description>
-    </item>
-    
-    <item>
       <title>Python Data Engineering Cheat Sheet</title>
       <link>http://xren615.github.io/post/cheatsheet/</link>
       <pubDate>Thu, 02 Mar 2017 17:40:40 +0800</pubDate>
-      
+      <author>xinyuyangren@foxmail.com (Rick)</author>
       <guid>http://xren615.github.io/post/cheatsheet/</guid>
       <description>Some frequent needed utilities in Python data scripts —— good to have it by hand when facing puzzle.
 ETL import matplotlib.pyplot as plt %matplotlib inline import numpy as np import pandas as pd import seaborn as sns  Data Loading
@@ -63,10 +61,10 @@ import pandas as pd  # From CSV df = pd.read_csv(&amp;quot;path&amp;quot;) # Fro
     </item>
     
     <item>
-      <title>特征选择：一份简明指南</title>
+      <title>A Simple Summary on Feature Selection</title>
       <link>http://xren615.github.io/post/feature_reducing/</link>
       <pubDate>Thu, 05 Jan 2017 19:19:22 +0100</pubDate>
-      
+      <author>xinyuyangren@foxmail.com (Rick)</author>
       <guid>http://xren615.github.io/post/feature_reducing/</guid>
       <description>介绍 数据工程项目往往严格遵循着riro (rubbish in, rubbish out) 的原则，所以我们经常说数据预处理是数据工程师或者数据科学家80%的工作，它保证了数据原材料的质量。而特征工程又至少占据了数据预处理的半壁江山，在实际的数据工程工作中，无论是出于解释数据或是防止过拟合的目的，特征选择都是很常见的工作。如何从成百上千个特征中发现其中哪些对结果最具影响，进而利用它们构建可靠的机器学习算法是特征选择工作的中心内容。在多次反复的工作后，结合书本，kaggle等线上资源以及与其他数据工程师的讨论，我决定写一篇简明的总结梳理特征选择工作的常见方法以及python实现。
 总的来说，特征选择可以走两条路：
@@ -83,7 +81,7 @@ from sklearn.feature_selection import VarianceThreshold   VarianceThreshold is a
       <title>SKII Recommender System Design</title>
       <link>http://xren615.github.io/post/sk2_rs/</link>
       <pubDate>Mon, 19 Dec 2016 13:21:09 +0800</pubDate>
-      
+      <author>xinyuyangren@foxmail.com (Rick)</author>
       <guid>http://xren615.github.io/post/sk2_rs/</guid>
       <description>Abstract This prototype finished during P&amp;amp;G Data Science Hackthon, Nov. 2016 in Cincinati, OH.
 This document briefly elaborates the design ideology for SKII onsite recommender system, leverage the demographics data, skin scan result and purchase history.
@@ -96,7 +94,7 @@ The Dataset The data used in this recommender system consists of the folling 3 p
       <title>Turn Your Social Account into a Weather Robot</title>
       <link>http://xren615.github.io/post/weibo_robot/</link>
       <pubDate>Sat, 02 Jul 2016 16:17:24 +0200</pubDate>
-      
+      <author>xinyuyangren@foxmail.com (Rick)</author>
       <guid>http://xren615.github.io/post/weibo_robot/</guid>
       <description>Demo This is my recent play-for-fun, a tiny trick developing a weatherman robot on SNS.
 E.g. 
@@ -108,7 +106,7 @@ Checklist  A SinaWeibo developer account to use its post API (register here. You
       <title>Gaussian Mixture Models</title>
       <link>http://xren615.github.io/post/gmixture/</link>
       <pubDate>Sat, 16 Apr 2016 15:27:07 +0200</pubDate>
-      
+      <author>xinyuyangren@foxmail.com (Rick)</author>
       <guid>http://xren615.github.io/post/gmixture/</guid>
       <description>A Gaussian mixture model is a probabilistic model that assumes all the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters. Instead of having an output as cluster no. that a certain sample belongs to, Gaussian mixture model can additionally give an probability of this kind of clustering.
 In practice, expectation-maximization (EM) algorithm is often used for fitting mixture-of-Gaussian models.
@@ -119,7 +117,7 @@ For better understand the theory of GMM this link could be followed.</descriptio
       <title>A data-based approach for behavior motivation digging</title>
       <link>http://xren615.github.io/post/edge_detection/</link>
       <pubDate>Tue, 15 Mar 2016 15:08:09 +0100</pubDate>
-      
+      <author>xinyuyangren@foxmail.com (Rick)</author>
       <guid>http://xren615.github.io/post/edge_detection/</guid>
       <description>Key Points This chapter briefly elaborates how to analyze the motivation of people&amp;rsquo;s operation on a system from the system electricity consumption signal and other data.
  Objective: understand how, and why occupants interact with the system. System: ventilation system in passive houses with adjustable flow rate option.
@@ -127,50 +125,13 @@ For better understand the theory of GMM this link could be followed.</descriptio
     </item>
     
     <item>
-      <title>中国科幻小说时间轴</title>
-      <link>http://xren615.github.io/post/scifi_chn/</link>
-      <pubDate>Mon, 07 Mar 2016 15:03:40 +0100</pubDate>
-      
-      <guid>http://xren615.github.io/post/scifi_chn/</guid>
-      <description>This article is comment regarding Chinese sci-fi.
-摘记与感想：姚海军：中国科幻的五个瞬间 『简要时间轴』幻想（清末民初-1949）YY小说 —— 『科学化』科普『17年文学』（1949-1966）—— 荒芜 （1966-1979） —— 黄金时期： 郭沫若『科学的春天』（1979-1983）叶永烈 —— 批判『科幻文学姓科还是姓文』， 荒芜 （1984-1997）：姓科就批你伪科学；姓文就批你『颠覆社会主义道德观』—— 转折：1997 世界科幻大会，北京，与宇航事业挂钩，重归主流 —— 『去科学化』回归文学：科技外壳与人性探索 王晋康 刘慈欣 —— 2005 『三体』开始连载 —— 2016 『三体』获『雨果奖』中国科幻文学首次实现输出，社会进入『全民科幻』时代
-自豪：在最艰难的荒芜岁月里，感谢『科幻世界』（前『科学文艺』），『四川成都』一直是中国科幻最后一块坚守的阵地。然而需要警惕的是，如今科幻小说的全民热潮在某种程度上造就了科幻小说作者的浮躁，越来越多的作家，特别是年轻一代的写手，以拍电影卖版权为目标：与其说在创作文学作品，不如讲一开始就在写电影剧本。然而，就算大家再怎么喷孔二狗的12亿『三体』改编，包括我在内仍然会有千千万万的科幻迷愿意掏钱去电影院，就为见证这一历史性的时刻 —— 而且我愿意去十次 ╮(╯▽╰)╭</description>
-    </item>
-    
-    <item>
-      <title>建站記錄</title>
-      <link>http://xren615.github.io/post/develope_this_site/</link>
-      <pubDate>Sun, 06 Mar 2016 01:27:21 +0100</pubDate>
-      
-      <guid>http://xren615.github.io/post/develope_this_site/</guid>
-      <description>Documentation: how to initialize a basic static site like this with Github page, Hugo and Go.
-記錄文檔：如何使用Github page，Hugo和Go便利地建造本站的基礎元素.
-System Enviroment OSX El Capitan 10.11.3
-MacBook Pro（Retina，13 inch, early 2015)
-CPU: 2.7 GHz Intel Core i5
-Graphics: Intel Iris Graphics 6100 1536 MB
-Steps  Hugo is compiled by Go, thus before everything, install Go and set up its enviroment path. Follow this link to install Hugo and set up everything.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>http://xren615.github.io/about/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://xren615.github.io/about/</guid>
-      <description>X.Ren see himself as a(n) reader/engineer/photographer. Now he works as a data scientist.
-This blog would contain his comments upon literature works/technical issues/photography and other pieces of art.
-Feel free to contact him via xinyuyangren@gmail.com if needed.
-Thanks for visiting.</description>
-    </item>
-    
-    <item>
-      <title>Contact</title>
-      <link>http://xren615.github.io/contact/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://xren615.github.io/contact/</guid>
-      <description> First Name  Last Name  E-Mail  City     Send   </description>
+      <title>About Me</title>
+      <link>http://xren615.github.io/post/me/</link>
+      <pubDate>Sat, 13 Feb 2016 17:34:00 +0800</pubDate>
+      <author>xinyuyangren@foxmail.com (Rick)</author>
+      <guid>http://xren615.github.io/post/me/</guid>
+      <description>A person who sees himself as a(n) reader/engineer/gamer. Now works on data analytics.
+contact: xinyuyangren@gmail.com</description>
     </item>
     
   </channel>

@@ -6,7 +6,8 @@
     <description>Recent content in Weather on INCH2</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <managingEditor>xinyuyangren@foxmail.com (Rick)</managingEditor>
+    <webMaster>xinyuyangren@foxmail.com (Rick)</webMaster>
     <lastBuildDate>Sat, 02 Jul 2016 16:17:24 +0200</lastBuildDate>
     
 	<atom:link href="http://xren615.github.io/tags/weather/index.xml" rel="self" type="application/rss+xml" />
@@ -16,7 +17,7 @@
       <title>Turn Your Social Account into a Weather Robot</title>
       <link>http://xren615.github.io/post/weibo_robot/</link>
       <pubDate>Sat, 02 Jul 2016 16:17:24 +0200</pubDate>
-      
+      <author>xinyuyangren@foxmail.com (Rick)</author>
       <guid>http://xren615.github.io/post/weibo_robot/</guid>
       <description>Demo This is my recent play-for-fun, a tiny trick developing a weatherman robot on SNS.
 E.g. 

@@ -6,7 +6,8 @@
     <description>Recent content in Recommender System on INCH2</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <managingEditor>xinyuyangren@foxmail.com (Rick)</managingEditor>
+    <webMaster>xinyuyangren@foxmail.com (Rick)</webMaster>
     <lastBuildDate>Mon, 19 Dec 2016 13:21:09 +0800</lastBuildDate>
     
 	<atom:link href="http://xren615.github.io/tags/recommender-system/index.xml" rel="self" type="application/rss+xml" />
@@ -16,7 +17,7 @@
       <title>SKII Recommender System Design</title>
       <link>http://xren615.github.io/post/sk2_rs/</link>
       <pubDate>Mon, 19 Dec 2016 13:21:09 +0800</pubDate>
-      
+      <author>xinyuyangren@foxmail.com (Rick)</author>
       <guid>http://xren615.github.io/post/sk2_rs/</guid>
       <description>Abstract This prototype finished during P&amp;amp;G Data Science Hackthon, Nov. 2016 in Cincinati, OH.
 This document briefly elaborates the design ideology for SKII onsite recommender system, leverage the demographics data, skin scan result and purchase history.

@@ -6,7 +6,8 @@
     <description>Recent content in Probabilistic Classification on INCH2</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <managingEditor>xinyuyangren@foxmail.com (Rick)</managingEditor>
+    <webMaster>xinyuyangren@foxmail.com (Rick)</webMaster>
     <lastBuildDate>Sat, 16 Apr 2016 15:27:07 +0200</lastBuildDate>
     
 	<atom:link href="http://xren615.github.io/tags/probabilistic-classification/index.xml" rel="self" type="application/rss+xml" />
@@ -16,7 +17,7 @@
       <title>Gaussian Mixture Models</title>
       <link>http://xren615.github.io/post/gmixture/</link>
       <pubDate>Sat, 16 Apr 2016 15:27:07 +0200</pubDate>
-      
+      <author>xinyuyangren@foxmail.com (Rick)</author>
       <guid>http://xren615.github.io/post/gmixture/</guid>
       <description>A Gaussian mixture model is a probabilistic model that assumes all the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters. Instead of having an output as cluster no. that a certain sample belongs to, Gaussian mixture model can additionally give an probability of this kind of clustering.
 In practice, expectation-maximization (EM) algorithm is often used for fitting mixture-of-Gaussian models.

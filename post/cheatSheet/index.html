@@ -1,211 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76515451-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-76515451-1');
+  </script>
+  
+
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.38" />
-
-  <title>Python Data Engineering Cheat Sheet &middot; INCH2</title>
-
+  <title>Python Data Engineering Cheat Sheet  &middot; INCH2</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="http://xren615.github.io/post/cheatsheet/">
   
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
-
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
-  <!--<![endif]-->
-
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="http://xren615.github.io/css/side-menu-old-ie.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="http://xren615.github.io/css/side-menu.css">
-  <!--<![endif]-->
-
-  <link rel="stylesheet" href="http://xren615.github.io/css/blackburn.css">
-
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-  
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
-
-  
-  <link rel="alternate" type="application/rss+xml" title="INCH2" href="http://xren615.github.ioindex.xml" />
-
-  
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/androidstudio.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
-  
-
-  <link rel="shortcut icon" href="http://xren615.github.ioimg/favicon.ico" type="image/x-icon" />
-
 </head>
 
-
 <body>
-<div id="layout">
-
-  
-<a href="#menu" id="menuLink" class="menu-link">
-  
-  <span></span>
-</a>
-<div id="menu">
-
-  
-  <a class="pure-menu-heading brand" href="http://xren615.github.io/">INCH<sup>2</sup></a>
-
-
-  <div class="pure-menu">
-    <ul class="pure-menu-list">
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://xren615.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://xren615.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://xren615.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
-      
-        </li>
-      
+  <div class="navbar">
+    <ul>
+      <li><a href="/" class="logo-title">HELLO,WORLD!</a></li>
+      <li><a href="/categories">CATEGORIES</a></li>
+      <li><a href="/tags">TAGS</a></li>
     </ul>
   </div>
-
-  <div class="pure-menu social">
-  <ul class="pure-menu-list">
-
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="http://xren615.github.ioindex.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://500px.com/rubiconren" target="_blank"><i class="fa fa-500px fa-fw"></i>500px</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://linkedin.com/in/xinyuyangren" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://github.com/xren615" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
-    </li>
-    
-
-    
-
-    
-
-  </ul>
-</div>
+  <div class="container">
+    <div class="title">
+      <a href="/">
+        <img src="/images/logo.png" width="260px" height="48px" />
+      </a>
+    </div>
 
 
-  <div class="pure-g">
-  <div class="small-print pure-u-1 pure-u-md-1-1">
-    <small>&copy; 2016. All rights reserved.</small>
+<a href="http://xren615.github.io/post/cheatsheet/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>02 Mar 2017, 17:40</time>
+      <h1>Python Data Engineering Cheat Sheet</h1>
+    </div>
   </div>
-  <div class="small-print pure-u-1 pure-u-md-1-1">
-    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
-    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
-  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#etl">ETL</a></li>
+<li><a href="#descriptive-stats">Descriptive Stats</a></li>
+<li><a href="#feature-engineering">Feature Engineering</a></li>
+<li><a href="#feature-selection">Feature Selection</a></li>
+<li><a href="#algorithm">Algorithm</a></li>
+<li><a href="#tuning-validation">Tuning &amp; Validation</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
-</div>
-
-
-  <div id="main">
-
-
-<div class="header">
-  <h1>Python Data Engineering Cheat Sheet</h1>
-  <h2></h2>
-</div>
-<div class="content">
-
-  <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>02 Mar 2017, 17:40</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://xren615.github.iotags/"></a>
-    
-  </div>
-  
-  
-
-</div>
-
+<section class="post-content">
   
 
 <p>Some frequent needed utilities in Python data scripts —— good to have it by hand when facing puzzle.</p>
@@ -641,79 +509,81 @@ clf.cv_results_
 clf.best_estimator_
 </code></pre>
 
+</section>
 
-  
-<div class="prev-next-post pure-g">
-  <div class="pure-u-1-24" style="text-align: left;">
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2fxren615.github.io%2fpost%2fcheatsheet%2f&t=Python%20Data%20Engineering%20Cheat%20Sheet" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fxren615.github.io%2fpost%2fcheatsheet%2f&text=Python%20Data%20Engineering%20Cheat%20Sheet&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=http%3a%2f%2fxren615.github.io%2fpost%2fcheatsheet%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=http%3a%2f%2fxren615.github.io%2fpost%2fcheatsheet%2f&title=Python%20Data%20Engineering%20Cheat%20Sheet" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
     
-    <a href="http://xren615.github.io/post/feature_reducing/"><i class="fa fa-chevron-left"></i></a>
+        X.Ren
+    ";
+    </div>
     
+    }
   </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="prev">
-      <a href="http://xren615.github.io/post/feature_reducing/">特征选择：一份简明指南</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-2-24">
-    &nbsp;
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="next">
-      <a href="http://xren615.github.io/post/leetcode/">Leetcode locked questions</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://xren615.github.io/post/leetcode/"><i class="fa fa-chevron-right"></i></a>
-    
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+          
+          <a href="http://xren615.github.iotags/">""</a>
+          
+        
+        ];
+      </div>
+    }
   </div>
 </div>
 
 
-
-  
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-
-(function() {
-    
-    
-    if (window.location.hostname == "localhost")
-        return;
-
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = 'xren615';
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-</div>
-
-</div>
-</div>
-<script src="http://xren615.github.iojs/ui.js"></script>
-
-
+<div class="post-comment">
+  <div id="disqus_thread"></div>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-76515451-1', 'auto');
-  ga('send', 'pageview');
-
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "riren" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
 
+<div class="paging post-paging">
+  
+  <a class="left" href="http://xren615.github.io/post/experiment/" rel="prev">
+    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>Random thoughts on A/B testing at LinkedIn</span>
+  </a>
+  
+  
+  <a class="right" href="http://xren615.github.io/post/feature_reducing/" rel="next">
+    <span>A Simple Summary on Feature Selection</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
+  </a>
+  
+</div>
 
+<footer class="footer">
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+</footer>
 
 </body>
 </html>

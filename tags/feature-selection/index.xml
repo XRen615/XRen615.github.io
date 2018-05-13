@@ -6,17 +6,18 @@
     <description>Recent content in Feature Selection on INCH2</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <managingEditor>xinyuyangren@foxmail.com (Rick)</managingEditor>
+    <webMaster>xinyuyangren@foxmail.com (Rick)</webMaster>
     <lastBuildDate>Thu, 05 Jan 2017 19:19:22 +0100</lastBuildDate>
     
 	<atom:link href="http://xren615.github.io/tags/feature-selection/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>特征选择：一份简明指南</title>
+      <title>A Simple Summary on Feature Selection</title>
       <link>http://xren615.github.io/post/feature_reducing/</link>
       <pubDate>Thu, 05 Jan 2017 19:19:22 +0100</pubDate>
-      
+      <author>xinyuyangren@foxmail.com (Rick)</author>
       <guid>http://xren615.github.io/post/feature_reducing/</guid>
       <description>介绍 数据工程项目往往严格遵循着riro (rubbish in, rubbish out) 的原则，所以我们经常说数据预处理是数据工程师或者数据科学家80%的工作，它保证了数据原材料的质量。而特征工程又至少占据了数据预处理的半壁江山，在实际的数据工程工作中，无论是出于解释数据或是防止过拟合的目的，特征选择都是很常见的工作。如何从成百上千个特征中发现其中哪些对结果最具影响，进而利用它们构建可靠的机器学习算法是特征选择工作的中心内容。在多次反复的工作后，结合书本，kaggle等线上资源以及与其他数据工程师的讨论，我决定写一篇简明的总结梳理特征选择工作的常见方法以及python实现。
 总的来说，特征选择可以走两条路：
@@ -33,7 +34,7 @@ from sklearn.feature_selection import VarianceThreshold   VarianceThreshold is a
       <title>A data-based approach for behavior motivation digging</title>
       <link>http://xren615.github.io/post/edge_detection/</link>
       <pubDate>Tue, 15 Mar 2016 15:08:09 +0100</pubDate>
-      
+      <author>xinyuyangren@foxmail.com (Rick)</author>
       <guid>http://xren615.github.io/post/edge_detection/</guid>
       <description>Key Points This chapter briefly elaborates how to analyze the motivation of people&amp;rsquo;s operation on a system from the system electricity consumption signal and other data.
  Objective: understand how, and why occupants interact with the system. System: ventilation system in passive houses with adjustable flow rate option.
