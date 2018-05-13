@@ -51,10 +51,10 @@ $$Pt = \frac {Nt}{Xt} \quad and \quad Pc = \frac {Nc}{Xc}$$
     
     <item>
       <title>Python Data Engineering Cheat Sheet</title>
-      <link>http://xren615.github.io/post/cheatsheet/</link>
+      <link>http://xren615.github.io/post/python_cheat_sheet/</link>
       <pubDate>Thu, 02 Mar 2017 17:40:40 +0800</pubDate>
       <author>xinyuyangren@foxmail.com (Rick)</author>
-      <guid>http://xren615.github.io/post/cheatsheet/</guid>
+      <guid>http://xren615.github.io/post/python_cheat_sheet/</guid>
       <description>Some frequent needed utilities in Python data scripts —— good to have it by hand when facing puzzle.
 ETL import matplotlib.pyplot as plt %matplotlib inline import numpy as np import pandas as pd import seaborn as sns  Data Loading
 import pandas as pd  # From CSV df = pd.read_csv(&amp;quot;path&amp;quot;) # From Excel df = pd.read_excel(&#39;/path&#39;) # From database (sqlite) import sqlite3 conn = sqlite3.connect(&amp;quot;foo.db&amp;quot;) cur = conn.cursor() #Check how many tables are there in the database cur.</description>
