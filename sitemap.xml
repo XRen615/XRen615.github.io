@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://xren615.github.io/post/pctr/</loc>
+    <lastmod>2018-07-16T01:36:01+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://xren615.github.io/post/hadoop_streaming/</loc>
     <lastmod>2018-07-08T20:58:01+08:00</lastmod>
   </url>
@@ -76,6 +81,12 @@
   </url>
   
   <url>
+    <loc>http://xren615.github.io/tags/ctr-prediction/</loc>
+    <lastmod>2018-07-16T01:36:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://xren615.github.io/tags/data-science/</loc>
     <lastmod>2017-01-05T19:19:22+01:00</lastmod>
     <priority>0</priority>
@@ -113,7 +124,7 @@
   
   <url>
     <loc>http://xren615.github.io/</loc>
-    <lastmod>2018-07-08T20:58:01+08:00</lastmod>
+    <lastmod>2018-07-16T01:36:01+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -125,7 +136,7 @@
   
   <url>
     <loc>http://xren615.github.io/post/</loc>
-    <lastmod>2018-07-08T20:58:01+08:00</lastmod>
+    <lastmod>2018-07-16T01:36:01+08:00</lastmod>
     <priority>0</priority>
   </url>
   

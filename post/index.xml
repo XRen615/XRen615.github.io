@@ -8,10 +8,20 @@
     <language>en-us</language>
     <managingEditor>xinyuyangren@foxmail.com (Rick)</managingEditor>
     <webMaster>xinyuyangren@foxmail.com (Rick)</webMaster>
-    <lastBuildDate>Sun, 08 Jul 2018 20:58:01 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 16 Jul 2018 01:36:01 +0800</lastBuildDate>
     
 	<atom:link href="http://xren615.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tencent social ads algo. competition: wrap up</title>
+      <link>http://xren615.github.io/post/pctr/</link>
+      <pubDate>Mon, 16 Jul 2018 01:36:01 +0800</pubDate>
+      <author>xinyuyangren@foxmail.com (Rick)</author>
+      <guid>http://xren615.github.io/post/pctr/</guid>
+      <description>腾讯2018社交广告大赛。与朋友一起，借助FB的&amp;rsquo;Practical Lessons from Predicting Clicks on Ads at Facebook&amp;rsquo;一文的基本架构进入决赛。主要流程总结如下
+import numpy as np import pandas as pd import scipy from sklearn import preprocessing from sklearn.preprocessing import LabelEncoder from sklearn.preprocessing import OneHotEncoder from sklearn.feature_extraction.text import CountVectorizer from scipy import sparse from scipy.sparse import csr_matrix from sklearn.model_selection import train_test_split import lightgbm as lgb import time from sklearn.metrics import roc_auc_score print(&#39;Start loading Train, Test, Adfeature...&#39;) # Data Loading train = pd.read_csv(&amp;quot;/home/riren/Documents/4fun/preliminary_contest_data/train.csv&amp;quot;,sep=&amp;quot;,&amp;quot;) test = pd.</description>
+    </item>
     
     <item>
       <title>Use Python on HDFS with Pig Latin UDF and Hadoop streaming</title>
